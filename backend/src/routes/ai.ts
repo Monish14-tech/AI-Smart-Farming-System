@@ -35,7 +35,7 @@ router.post('/chat', async (req: Request, res: Response): Promise<void> => {
       });
 
       ragContext = `\n\nCurrent available listings on AgriNova marketplace:\n` +
-        listings.map(l =>
+        listings.map((l: any) =>
           `- ${l.cropName} (Grade ${l.qualityGrade ?? 'N/A'}): ${l.quantityKg}kg at ₹${l.pricePerKg}/kg from ${l.farmer.name} in ${l.farmer.address ?? 'India'}. ID: ${l.id}`
         ).join('\n');
     }

@@ -51,12 +51,12 @@ router.get('/marketplace', async (req: Request, res: Response): Promise<void> =>
     ]);
 
     // Compute farmer avg rating
-    const enriched = listings.map(l => ({
+    const enriched = listings.map((l: any) => ({
       ...l,
       farmer: {
         ...l.farmer,
         avgRating: l.farmer.reviewsReceived.length
-          ? (l.farmer.reviewsReceived.reduce((s, r) => s + r.rating, 0) / l.farmer.reviewsReceived.length).toFixed(1)
+          ? (l.farmer.reviewsReceived.reduce((s: number, r: any) => s + r.rating, 0) / l.farmer.reviewsReceived.length).toFixed(1)
           : null,
         reviewsReceived: undefined,
       },

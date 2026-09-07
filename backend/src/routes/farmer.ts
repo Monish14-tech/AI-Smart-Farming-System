@@ -270,12 +270,12 @@ router.get('/earnings', async (req: Request, res: Response): Promise<void> => {
       orderBy: { createdAt: 'desc' },
     });
 
-    const totalEarnings = orders.reduce((sum, o) => sum + o.totalPrice, 0);
-    const thisMonth = orders.filter(o => {
+    const totalEarnings = orders.reduce((sum: number, o: any) => sum + o.totalPrice, 0);
+    const thisMonth = orders.filter((o: any) => {
       const d = new Date(o.createdAt);
       const now = new Date();
       return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-    }).reduce((sum, o) => sum + o.totalPrice, 0);
+    }).reduce((sum: number, o: any) => sum + o.totalPrice, 0);
 
     res.json({ orders, totalEarnings, thisMonthEarnings: thisMonth });
   } catch (err) {

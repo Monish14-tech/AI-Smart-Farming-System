@@ -3,8 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import prisma from '../lib/prisma';
-import { generateTokens, JwtPayload } from '../middleware/auth';
-import { Role } from '@prisma/client';
+import { generateTokens, JwtPayload, Role } from '../middleware/auth';
 import rateLimit from 'express-rate-limit';
 
 const router = Router();

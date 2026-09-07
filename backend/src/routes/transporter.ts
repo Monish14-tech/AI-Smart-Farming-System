@@ -218,7 +218,7 @@ router.post('/route-optimize', async (req: Request, res: Response): Promise<void
     }
 
     // Build stops for VRP solver
-    const stops = jobs.map(j => ({
+    const stops = jobs.map((j: any) => ({
       id: j.id,
       pickupLat: j.order.listing.farmer.latitude ?? 0,
       pickupLng: j.order.listing.farmer.longitude ?? 0,
@@ -254,7 +254,7 @@ router.get('/earnings', async (req: Request, res: Response): Promise<void> => {
       orderBy: { deliveredAt: 'desc' },
     });
 
-    const totalEarnings = jobs.reduce((sum, j) => sum + (j.earningAmount ?? 0), 0);
+    const totalEarnings = jobs.reduce((sum: number, j: any) => sum + (j.earningAmount ?? 0), 0);
     res.json({ jobs, totalEarnings });
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch earnings' });

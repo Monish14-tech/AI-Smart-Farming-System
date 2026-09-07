@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { Role } from '@prisma/client';
+export type Role = 'farmer' | 'buyer' | 'transporter' | 'admin';
 
 export interface JwtPayload {
   userId: string;
