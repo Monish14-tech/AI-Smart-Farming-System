@@ -1,0 +1,220 @@
+// This is your Prisma schema file for Supabase PostgreSQL
+// Enable extensions in Supabase Dashboard: pgvector, postgis
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
+  extensions        = [pgvector(map: "vector"), postgis(map: "postgis"), uuidOssp(map: "uuid-ossp")]
+}
+
+model User {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  role         Role
+  name         String   @db.VarChar(150)
+  email        String   @unique @db.VarChar(150)
+  phone        String   @unique @db.VarChar(15)
+  passwordHash String   @map("password_hash")
+  isVerified   Boolean  @default(false) @map("is_verified")
+  profileImage String?  @map("profile_image")
+  address      String?
+  // location stored as raw lat/lng; PostGIS spatial operations done via raw SQL
+  latitude     Float?
+  longitude    Float?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  farmerProfile     FarmerProfile?
+  transporterProfile TransporterProfile?
+  listings          CropListing[]
+  buyerOrders       Order[]          @relation("BuyerOrders")
+  transporterJobs   TransportJob[]
+  reviewsGiven      Review[]         @relation("ReviewsGiven")
+  reviewsReceived   Review[]         @relation("ReviewsReceived")
+  chatLogs          ChatLog[]
+  refreshTokens     RefreshToken[]
+
+  @@map("users")
+}
+
+enum Role {
+  farmer
+  buyer
+  transporter
+  admin
+}
+
+model FarmerProfile {
+  userId         String  @id @map("user_id") @db.Uuid
+  farmSizeAcres  Float?  @map("farm_size_acres")
+  landDocUrl     String? @map("land_doc_url")
+  upiId          String? @map("upi_id")
+  aadhaarNumber  String? @map("aadhaar_number")
+  bankAccount    String? @map("bank_account")
+  ifscCode       String? @map("ifsc_code")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("farmer_profiles")
+}
+
+model TransporterProfile {
+  userId            String  @id @map("user_id") @db.Uuid
+  vehicleType       String? @map("vehicle_type")
+  vehicleCapacityKg Float?  @map("vehicle_capacity_kg")
+  licenseNumber     String? @map("license_number")
+  vehicleNumber     String? @map("vehicle_number")
+  isAvailable       Boolean @default(true) @map("is_available")
+  currentLatitude   Float?  @map("current_latitude")
+  currentLongitude  Float?  @map("current_longitude")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("transporter_profiles")
+}
+
+model CropListing {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  farmerId     String    @map("farmer_id") @db.Uuid
+  cropName     String    @map("crop_name") @db.VarChar(100)
+  qualityGrade String?   @map("quality_grade") @db.VarChar(10)
+  quantityKg   Float     @map("quantity_kg")
+  pricePerKg   Float     @map("price_per_kg")
+  harvestDate  DateTime? @map("harvest_date") @db.Date
+  images       String[]
+  description  String?
+  status       ListingStatus @default(active)
+  latitude     Float?
+  longitude    Float?
+  // embedding stored as text (768-dim vector), queried via raw SQL
+  embeddingStr String?   @map("embedding_str") @db.Text
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  farmer  User    @relation(fields: [farmerId], references: [id])
+  orders  Order[]
+
+  @@map("crop_listings")
+}
+
+enum ListingStatus {
+  active
+  sold
+  cancelled
+}
+
+model Order {
+  id            String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  buyerId       String      @map("buyer_id") @db.Uuid
+  listingId     String      @map("listing_id") @db.Uuid
+  quantityKg    Float       @map("quantity_kg")
+  totalPrice    Float       @map("total_price")
+  status        OrderStatus @default(pending)
+  paymentStatus PaymentStatus @default(unpaid) @map("payment_status")
+  paymentId     String?     @map("payment_id")
+  deliveryAddress String?   @map("delivery_address")
+  deliveryLat   Float?      @map("delivery_lat")
+  deliveryLng   Float?      @map("delivery_lng")
+  notes         String?
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  buyer        User          @relation("BuyerOrders", fields: [buyerId], references: [id])
+  listing      CropListing   @relation(fields: [listingId], references: [id])
+  transportJob TransportJob?
+  reviews      Review[]
+
+  @@map("orders")
+}
+
+enum OrderStatus {
+  pending
+  confirmed
+  in_transit
+  delivered
+  cancelled
+}
+
+enum PaymentStatus {
+  unpaid
+  paid
+  refunded
+  escrowed
+}
+
+model TransportJob {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orderId         String    @unique @map("order_id") @db.Uuid
+  transporterId   String?   @map("transporter_id") @db.Uuid
+  pickupLat       Float?    @map("pickup_lat")
+  pickupLng       Float?    @map("pickup_lng")
+  pickupAddress   String?   @map("pickup_address")
+  dropLat         Float?    @map("drop_lat")
+  dropLng         Float?    @map("drop_lng")
+  dropAddress     String?   @map("drop_address")
+  optimizedRoute  Json?     @map("optimized_route")
+  estimatedKm     Float?    @map("estimated_km")
+  earningAmount   Float?    @map("earning_amount")
+  status          JobStatus @default(pending)
+  otpCode         String?   @map("otp_code") @db.VarChar(6)
+  proofImageUrl   String?   @map("proof_image_url")
+  deliveredAt     DateTime? @map("delivered_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+
+  order       Order  @relation(fields: [orderId], references: [id])
+  transporter User?  @relation(fields: [transporterId], references: [id])
+
+  @@map("transport_jobs")
+}
+
+enum JobStatus {
+  pending
+  assigned
+  picked_up
+  in_transit
+  delivered
+}
+
+model Review {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orderId     String   @map("order_id") @db.Uuid
+  reviewerId  String   @map("reviewer_id") @db.Uuid
+  revieweeId  String   @map("reviewee_id") @db.Uuid
+  rating      Int
+  comment     String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  order    Order @relation(fields: [orderId], references: [id])
+  reviewer User  @relation("ReviewsGiven", fields: [reviewerId], references: [id])
+  reviewee User  @relation("ReviewsReceived", fields: [revieweeId], references: [id])
+
+  @@map("reviews")
+}
+
+model ChatLog {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId      String   @map("user_id") @db.Uuid
+  role        String   @db.VarChar(20) // 'user' | 'assistant'
+  message     String
+  contextType String   @map("context_type") @db.VarChar(30) // 'advisory' | 'marketplace_search' | 'support'
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("chat_logs")
+}
+
+model RefreshToken {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  token     String   @unique
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}

@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.local
+.next/
+dist/
+build/
+*.js.map
+.DS_Store
+Thumbs.db
+*.log
+.prisma/
+generated/
