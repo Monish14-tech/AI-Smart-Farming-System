@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["bom1"],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
+    "NEXT_PUBLIC_MAPBOX_TOKEN": "@next_public_mapbox_token",
+    "NEXT_PUBLIC_RAZORPAY_KEY_ID": "@next_public_razorpay_key_id"
+  }
+}
