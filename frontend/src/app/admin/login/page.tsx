@@ -33,7 +33,14 @@ export default function AdminLoginPage() {
       toast.success('Admin authentication verified. Welcome back!');
       router.push('/admin/dashboard');
     } catch (err: any) {
-      toast.error(err?.response?.data?.error || 'Admin authentication failed');
+      console.error('Admin login error:', err);
+      if (err?.response?.data?.error) {
+        toast.error(err.response.data.error);
+      } else if (err?.message === 'Network Error' || !err?.response) {
+        toast.error('Network Error: Frontend cannot reach backend API. Make sure NEXT_PUBLIC_API_URL is set in Vercel and the backend is running.');
+      } else {
+        toast.error(err?.message || 'Admin authentication failed');
+      }
     } finally {
       setLoading(false);
     }

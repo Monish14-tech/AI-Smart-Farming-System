@@ -18,7 +18,14 @@ export default function LoginPage() {
       await login(email, password);
       toast.success('Welcome back!');
     } catch (err: any) {
-      toast.error(err?.response?.data?.error || 'Login failed');
+      console.error('Login error:', err);
+      if (err?.response?.data?.error) {
+        toast.error(err.response.data.error);
+      } else if (err?.message === 'Network Error' || !err?.response) {
+        toast.error('Network Error: Cannot reach backend server. Please verify NEXT_PUBLIC_API_URL in Vercel settings.');
+      } else {
+        toast.error(err?.message || 'Login failed');
+      }
     } finally {
       setLoading(false);
     }
