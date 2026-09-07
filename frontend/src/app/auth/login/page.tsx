@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth, api } from '@/contexts/AuthContext';
 import toast from 'react-hot-toast';
 
 export default function LoginPage() {
@@ -22,7 +22,7 @@ export default function LoginPage() {
       if (err?.response?.data?.error) {
         toast.error(err.response.data.error);
       } else if (err?.message === 'Network Error' || !err?.response) {
-        toast.error('Network Error: Cannot reach backend server. Please verify NEXT_PUBLIC_API_URL in Vercel settings.');
+        toast.error(`Network Error: Frontend cannot reach "${api.defaults.baseURL}". Verify backend is awake and NEXT_PUBLIC_API_URL is configured in Vercel.`);
       } else {
         toast.error(err?.message || 'Login failed');
       }
