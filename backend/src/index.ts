@@ -13,6 +13,7 @@ import adminRoutes from './routes/admin';
 import aiRoutes from './routes/ai';
 
 const app = express();
+app.set('trust proxy', 1);
 const httpServer = createServer(app);
 
 // ─── Socket.io setup ──────────────────────────────────────────────────
@@ -106,8 +107,8 @@ app.use((_req, res) => {
 
 // ─── Global error handler ──────────────────────────────────────────────
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
-  console.error('[ERROR]', err);
-  res.status(500).json({ error: 'Internal server error' });
+  console.error('[GLOBAL ERROR]', err.message || err);
+  res.status(500).json({ error: err.message || 'Internal server error' });
 });
 
 // ─── Start server ──────────────────────────────────────────────────────
