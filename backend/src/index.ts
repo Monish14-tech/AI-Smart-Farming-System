@@ -76,13 +76,28 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'AgriNova API', timestamp: new Date().toISOString() });
 });
 
-// ─── Routes ────────────────────────────────────────────────────────────
+app.get('/api', (_req, res) => {
+  res.json({ status: 'online', service: 'AgriNova API', version: '1.0.0' });
+});
+
+// ─── Routes (supports both /api/* and /* paths) ────────────────────────
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/api/farmer', farmerRoutes);
+app.use('/farmer', farmerRoutes);
+
 app.use('/api/buyer', buyerRoutes);
+app.use('/buyer', buyerRoutes);
+
 app.use('/api/transporter', transporterRoutes);
+app.use('/transporter', transporterRoutes);
+
 app.use('/api/admin', adminRoutes);
+app.use('/admin', adminRoutes);
+
 app.use('/api/ai', aiRoutes);
+app.use('/ai', aiRoutes);
 
 // ─── 404 handler ──────────────────────────────────────────────────────
 app.use((_req, res) => {
