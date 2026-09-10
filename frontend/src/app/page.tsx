@@ -242,7 +242,6 @@ export default function LandingPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ fontSize: 18 }}>🌿</span>
           <span className="font-display" style={{ fontWeight: 700, color: '#0F172A' }}>AgriNova</span>
-          <span style={{ color: '#94A3B8', fontSize: 13 }}>— Final Year Project</span>
         </div>
         <div style={{ display: 'flex', gap: 24, fontSize: 13, color: '#64748B', alignItems: 'center' }}>
           <span>Stack: Next.js · Express · PostgreSQL · Gemini AI</span>

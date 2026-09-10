@@ -4,9 +4,24 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-const rawApiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
-const cleanUrl = rawApiUrl.trim().replace(/\/+$/, '');
-const API_URL = cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+const DEFAULT_PROD_API_URL = 'https://ai-smart-farming-system-2.onrender.com/api';
+
+const getApiUrl = (): string => {
+  let url = process.env.NEXT_PUBLIC_API_URL;
+  const isBrowser = typeof window !== 'undefined';
+  const isLocalhost = isBrowser && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+  if (isBrowser && !isLocalhost && (!url || url.includes('localhost'))) {
+    url = DEFAULT_PROD_API_URL;
+  } else if (!url) {
+    url = isLocalhost ? 'http://localhost:5000/api' : DEFAULT_PROD_API_URL;
+  }
+
+  const clean = url.trim().replace(/\/+$/, '');
+  return clean.endsWith('/api') ? clean : `${clean}/api`;
+};
+
+const API_URL = getApiUrl();
 
 export type Role = 'farmer' | 'buyer' | 'transporter' | 'admin';
 
