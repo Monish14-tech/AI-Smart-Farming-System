@@ -1,0 +1,300 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-09-12T10:16:08.179547",
+  "crop_price_model": {
+    "model_name": "RandomForestRegressor + RidgeEnsemble",
+    "metrics": {
+      "r2": 0.9286,
+      "mae": 3.79,
+      "rmse": 5.55
+    },
+    "feature_names": [
+      "quantity_kg",
+      "month",
+      "base_price",
+      "perishability",
+      "crop_name_Brinjal",
+      "crop_name_Cabbage",
+      "crop_name_Carrot",
+      "crop_name_Cauliflower",
+      "crop_name_Cotton",
+      "crop_name_Green Chilli",
+      "crop_name_Groundnut",
+      "crop_name_Maize",
+      "crop_name_Onion",
+      "crop_name_Potato",
+      "crop_name_Rice",
+      "crop_name_Soybean",
+      "crop_name_Sugarcane",
+      "crop_name_Tomato",
+      "crop_name_Wheat",
+      "grade_A",
+      "grade_B",
+      "grade_C"
+    ],
+    "ridge_intercept": 2.698306143282416,
+    "ridge_coefficients": {
+      "quantity_kg": -0.0007,
+      "month": -0.1667,
+      "base_price": 1.0158,
+      "perishability": -0.1848,
+      "crop_name_Brinjal": 0.2424,
+      "crop_name_Cabbage": -0.527,
+      "crop_name_Carrot": -0.993,
+      "crop_name_Cauliflower": 0.0641,
+      "crop_name_Cotton": -0.8011,
+      "crop_name_Green Chilli": 0.8127,
+      "crop_name_Groundnut": 0.1318,
+      "crop_name_Maize": 0.4074,
+      "crop_name_Onion": -0.1238,
+      "crop_name_Potato": 0.1324,
+      "crop_name_Rice": 0.1422,
+      "crop_name_Soybean": 0.4642,
+      "crop_name_Sugarcane": 0.0332,
+      "crop_name_Tomato": -0.3061,
+      "crop_name_Wheat": 0.3203,
+      "grade_A": 5.4014,
+      "grade_B": -0.0421,
+      "grade_C": -5.3593
+    },
+    "crop_stats": {
+      "Soybean": {
+        "avg_fair_price": 46.88,
+        "min_price": 28.08,
+        "max_price": 68.36,
+        "base_price": 46.0,
+        "perishability": 0.1,
+        "avg_demand_index": 1.13
+      },
+      "Onion": {
+        "avg_fair_price": 28.34,
+        "min_price": 16.29,
+        "max_price": 45.03,
+        "base_price": 28.0,
+        "perishability": 0.3,
+        "avg_demand_index": 1.14
+      },
+      "Tomato": {
+        "avg_fair_price": 24.1,
+        "min_price": 11.83,
+        "max_price": 40.98,
+        "base_price": 24.0,
+        "perishability": 0.85,
+        "avg_demand_index": 1.15
+      },
+      "Maize": {
+        "avg_fair_price": 23.54,
+        "min_price": 14.21,
+        "max_price": 33.61,
+        "base_price": 23.0,
+        "perishability": 0.1,
+        "avg_demand_index": 1.15
+      },
+      "Green Chilli": {
+        "avg_fair_price": 57.1,
+        "min_price": 29.01,
+        "max_price": 91.65,
+        "base_price": 55.0,
+        "perishability": 0.7,
+        "avg_demand_index": 1.16
+      },
+      "Cotton": {
+        "avg_fair_price": 70.29,
+        "min_price": 40.15,
+        "max_price": 97.75,
+        "base_price": 70.0,
+        "perishability": 0.05,
+        "avg_demand_index": 1.14
+      },
+      "Groundnut": {
+        "avg_fair_price": 72.99,
+        "min_price": 46.91,
+        "max_price": 108.78,
+        "base_price": 72.0,
+        "perishability": 0.1,
+        "avg_demand_index": 1.16
+      },
+      "Sugarcane": {
+        "avg_fair_price": 4.51,
+        "min_price": 2.8,
+        "max_price": 6.69,
+        "base_price": 4.5,
+        "perishability": 0.4,
+        "avg_demand_index": 1.15
+      },
+      "Wheat": {
+        "avg_fair_price": 30.49,
+        "min_price": 21.32,
+        "max_price": 42.86,
+        "base_price": 30.0,
+        "perishability": 0.05,
+        "avg_demand_index": 1.15
+      },
+      "Cauliflower": {
+        "avg_fair_price": 25.98,
+        "min_price": 15.1,
+        "max_price": 39.15,
+        "base_price": 26.0,
+        "perishability": 0.8,
+        "avg_demand_index": 1.16
+      },
+      "Potato": {
+        "avg_fair_price": 20.29,
+        "min_price": 12.0,
+        "max_price": 29.51,
+        "base_price": 20.0,
+        "perishability": 0.2,
+        "avg_demand_index": 1.15
+      },
+      "Cabbage": {
+        "avg_fair_price": 18.11,
+        "min_price": 10.97,
+        "max_price": 27.81,
+        "base_price": 18.0,
+        "perishability": 0.6,
+        "avg_demand_index": 1.13
+      },
+      "Carrot": {
+        "avg_fair_price": 33.24,
+        "min_price": 20.12,
+        "max_price": 51.14,
+        "base_price": 34.0,
+        "perishability": 0.5,
+        "avg_demand_index": 1.17
+      },
+      "Brinjal": {
+        "avg_fair_price": 22.14,
+        "min_price": 12.57,
+        "max_price": 31.65,
+        "base_price": 22.0,
+        "perishability": 0.75,
+        "avg_demand_index": 1.17
+      },
+      "Rice": {
+        "avg_fair_price": 48.73,
+        "min_price": 28.19,
+        "max_price": 71.4,
+        "base_price": 48.0,
+        "perishability": 0.05,
+        "avg_demand_index": 1.14
+      }
+    }
+  },
+  "freight_model": {
+    "model_name": "GradientBoostingRegressor + MultiFactorPricing",
+    "metrics": {
+      "r2": 0.9954,
+      "mae": 223.54,
+      "rmse": 301.7
+    },
+    "base_charge": 300.0,
+    "km_rates": {
+      "Pickup": 14.0,
+      "Mini Truck": 17.0,
+      "Heavy Truck": 22.0
+    },
+    "perishability_multiplier": 1.8,
+    "weight_rate_per_100kg_100km": 8.0,
+    "ridge_coefficients": {
+      "distance_km": 22.4853,
+      "cargo_weight_kg": 0.2662,
+      "perishability": 474.1542,
+      "vehicle_type_Heavy Truck": 1390.3498,
+      "vehicle_type_Mini Truck": -224.4479,
+      "vehicle_type_Pickup": -1165.9019
+    },
+    "ridge_intercept": -1184.96
+  },
+  "crop_demand_matrix": {
+    "Tomato": {
+      "demand_score": 94,
+      "volatility": "high",
+      "harvest_season": "Nov-Feb",
+      "margin_potential": "High"
+    },
+    "Onion": {
+      "demand_score": 91,
+      "volatility": "medium",
+      "harvest_season": "Jan-Mar",
+      "margin_potential": "Very High"
+    },
+    "Potato": {
+      "demand_score": 88,
+      "volatility": "low",
+      "harvest_season": "Jan-Mar",
+      "margin_potential": "Steady"
+    },
+    "Green Chilli": {
+      "demand_score": 86,
+      "volatility": "high",
+      "harvest_season": "Jun-Aug",
+      "margin_potential": "Very High"
+    },
+    "Rice": {
+      "demand_score": 95,
+      "volatility": "low",
+      "harvest_season": "Oct-Dec",
+      "margin_potential": "High Volume"
+    },
+    "Wheat": {
+      "demand_score": 92,
+      "volatility": "low",
+      "harvest_season": "Mar-May",
+      "margin_potential": "High Volume"
+    },
+    "Carrot": {
+      "demand_score": 79,
+      "volatility": "medium",
+      "harvest_season": "Dec-Feb",
+      "margin_potential": "Medium"
+    },
+    "Cauliflower": {
+      "demand_score": 82,
+      "volatility": "high",
+      "harvest_season": "Nov-Jan",
+      "margin_potential": "Medium"
+    },
+    "Brinjal": {
+      "demand_score": 76,
+      "volatility": "medium",
+      "harvest_season": "Sep-Nov",
+      "margin_potential": "Medium"
+    },
+    "Cabbage": {
+      "demand_score": 74,
+      "volatility": "medium",
+      "harvest_season": "Dec-Feb",
+      "margin_potential": "Steady"
+    },
+    "Soybean": {
+      "demand_score": 85,
+      "volatility": "low",
+      "harvest_season": "Oct-Nov",
+      "margin_potential": "Commercial High"
+    },
+    "Groundnut": {
+      "demand_score": 89,
+      "volatility": "low",
+      "harvest_season": "Oct-Dec",
+      "margin_potential": "High Margin"
+    },
+    "Cotton": {
+      "demand_score": 87,
+      "volatility": "medium",
+      "harvest_season": "Oct-Jan",
+      "margin_potential": "Cash Crop High"
+    },
+    "Sugarcane": {
+      "demand_score": 84,
+      "volatility": "low",
+      "harvest_season": "Dec-Mar",
+      "margin_potential": "Bulk Contract"
+    },
+    "Maize": {
+      "demand_score": 80,
+      "volatility": "low",
+      "harvest_season": "Sep-Oct",
+      "margin_potential": "Steady Feed/Food"
+    }
+  }
+}

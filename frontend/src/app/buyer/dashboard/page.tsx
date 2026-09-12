@@ -10,6 +10,7 @@ export default function BuyerDashboard() {
   const { user, loading } = useRequireRole('buyer');
   const [stats, setStats] = useState({ total: 0, pending: 0, delivered: 0, totalSpent: 0 });
   const [recentOrders, setRecentOrders] = useState<any[]>([]);
+  const [recommendedCrops, setRecommendedCrops] = useState<any[]>([]);
 
   useEffect(() => {
     if (!user) return;
@@ -23,6 +24,11 @@ export default function BuyerDashboard() {
         totalSpent: orders.filter((o: any) => o.paymentStatus === 'paid').reduce((s: number, o: any) => s + o.totalPrice, 0),
       });
     }).catch(() => toast.error('Failed to load data'));
+
+    // Fetch ML recommendations
+    api.get('/ml/buyer/recommendations').then(({ data }) => {
+      setRecommendedCrops((data.recommendations || []).slice(0, 3));
+    }).catch(() => {});
   }, [user]);
 
   if (loading || !user) return null;
@@ -36,7 +42,7 @@ export default function BuyerDashboard() {
             <h1 className="font-display" style={{ fontSize: 28, fontWeight: 800, marginBottom: 6 }}>
               Welcome, <span className="gradient-text">{user.name.split(' ')[0]}</span>! 🛒
             </h1>
-            <p style={{ color: 'var(--color-text-secondary)' }}>Fresh produce directly from verified farmers</p>
+            <p style={{ color: 'var(--color-text-secondary)' }}>Fresh produce directly from verified farmers with ML price insights</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 32 }}>
@@ -53,6 +59,38 @@ export default function BuyerDashboard() {
               </div>
             ))}
           </div>
+
+          {/* ML Recommended Crops Strip */}
+          {recommendedCrops.length > 0 && (
+            <div className="glass" style={{ padding: 20, marginBottom: 24, border: '1px solid rgba(212, 160, 23, 0.3)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <span style={{ fontSize: 20 }}>✨</span>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>ML Best Value Crop Recommendations</h3>
+                </div>
+                <Link href="/buyer/marketplace" style={{ fontSize: 13, color: 'var(--color-gold)', textDecoration: 'none', fontWeight: 600 }}>
+                  Explore All →
+                </Link>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+                {recommendedCrops.map(c => (
+                  <div key={c.cropName} style={{ padding: 14, background: 'var(--color-surface-2)', borderRadius: 10, border: '1px solid var(--color-border)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                      <span style={{ fontWeight: 700, fontSize: 15 }}>{c.cropName}</span>
+                      <span style={{ fontSize: 11, color: '#34D399', fontWeight: 700 }}>Score {c.valueScore}/100</span>
+                    </div>
+                    <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginBottom: 6 }}>
+                      Avg: <b style={{ color: 'var(--color-gold)' }}>₹{c.avgMarketplacePrice}/kg</b> (Fair: ₹{c.predictedFairPrice})
+                    </div>
+                    <div style={{ fontSize: 11, color: 'var(--color-text-muted)', lineHeight: 1.3 }}>
+                      {c.totalQuantityKg.toLocaleString('en-IN')} kg available from verified farmers
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 20 }}>
             <div className="glass" style={{ padding: 24 }}>

@@ -11,6 +11,7 @@ import buyerRoutes from './routes/buyer';
 import transporterRoutes from './routes/transporter';
 import adminRoutes from './routes/admin';
 import aiRoutes from './routes/ai';
+import mlRoutes from './routes/ml';
 
 const app = express();
 app.set('trust proxy', 1);
@@ -99,6 +100,9 @@ app.use('/admin', adminRoutes);
 
 app.use('/api/ai', aiRoutes);
 app.use('/ai', aiRoutes);
+
+app.use('/api/ml', mlRoutes);
+app.use('/ml', mlRoutes);
 
 // ─── 404 handler ──────────────────────────────────────────────────────
 app.use((_req, res) => {

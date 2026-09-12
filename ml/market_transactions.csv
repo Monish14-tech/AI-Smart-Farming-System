@@ -1,0 +1,2501 @@
+crop_name,grade,quantity_kg,month,region,base_price,perishability,demand_index,fair_price_kg,listing_price_kg,is_sold,days_to_sell
+Soybean,A,1136.4,12,"Nashik, Maharashtra",46.0,0.1,1.01,53.12,64.11,0,25
+Onion,C,167.7,1,"Guntur, Andhra Pradesh",28.0,0.3,1.01,16.95,17.83,0,25
+Tomato,C,2617.0,12,"Bengaluru, Karnataka",24.0,0.85,1.17,19.63,23.04,0,25
+Tomato,A,1147.6,6,"Guntur, Andhra Pradesh",24.0,0.85,1.01,33.39,38.58,0,25
+Onion,A,1468.0,2,"Guntur, Andhra Pradesh",28.0,0.3,1.07,26.93,27.84,1,3
+Maize,B,1208.1,9,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.21,22.12,26.64,0,25
+Green Chilli,C,324.7,12,"Bengaluru, Karnataka",55.0,0.7,1.23,60.23,71.8,0,25
+Cotton,A,1841.0,5,"Guntur, Andhra Pradesh",70.0,0.05,1.32,68.38,62.57,1,3
+Soybean,B,2558.2,10,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.17,41.76,40.01,1,7
+Groundnut,C,1330.9,11,"Bengaluru, Karnataka",72.0,0.1,1.28,65.0,56.7,1,5
+Sugarcane,B,311.4,5,"Guntur, Andhra Pradesh",4.5,0.4,1.36,4.81,4.5,1,4
+Maize,C,1096.3,3,"Indore, Madhya Pradesh",23.0,0.1,1.02,18.68,20.07,0,25
+Wheat,C,1627.6,10,"Guntur, Andhra Pradesh",30.0,0.05,1.01,27.3,24.2,1,2
+Onion,A,1717.5,11,"Anand, Gujarat",28.0,0.3,0.93,32.08,32.16,1,8
+Cauliflower,B,2896.9,11,"Nashik, Maharashtra",26.0,0.8,1.24,19.71,21.81,0,25
+Onion,B,1842.2,3,"Guntur, Andhra Pradesh",28.0,0.3,1.38,24.55,29.47,0,25
+Wheat,C,3654.9,9,"Anand, Gujarat",30.0,0.05,1.34,26.65,29.14,0,25
+Potato,B,3816.3,9,"Anand, Gujarat",20.0,0.2,1.36,23.65,28.79,0,25
+Cabbage,B,491.9,1,"Indore, Madhya Pradesh",18.0,0.6,1.08,17.72,16.76,1,3
+Cabbage,A,1969.7,12,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.93,17.63,20.35,0,25
+Sugarcane,A,1927.4,11,"Anand, Gujarat",4.5,0.4,1.17,5.41,5.51,1,3
+Cauliflower,C,1281.3,12,"Bengaluru, Karnataka",26.0,0.8,1.4,27.85,30.91,0,25
+Carrot,C,1029.2,2,"Indore, Madhya Pradesh",34.0,0.5,0.93,25.52,27.7,0,25
+Tomato,A,316.2,4,"Nashik, Maharashtra",24.0,0.85,0.92,28.49,27.98,1,5
+Wheat,C,2180.0,4,"Indore, Madhya Pradesh",30.0,0.05,1.26,22.35,21.17,1,4
+Brinjal,A,2653.0,2,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.08,25.03,25.39,1,7
+Tomato,C,1640.4,1,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.07,19.71,18.25,1,4
+Brinjal,A,1036.7,8,"Pune, Maharashtra",22.0,0.75,1.36,27.93,28.69,1,8
+Cauliflower,A,3997.2,11,"Nashik, Maharashtra",26.0,0.8,1.32,32.19,38.29,0,25
+Potato,B,894.3,8,"Indore, Madhya Pradesh",20.0,0.2,1.1,19.7,17.21,1,3
+Brinjal,B,1720.9,5,"Indore, Madhya Pradesh",22.0,0.75,1.38,26.46,30.09,0,25
+Potato,A,3876.4,4,"Pune, Maharashtra",20.0,0.2,1.19,24.61,26.26,0,25
+Groundnut,B,2357.5,1,"Nashik, Maharashtra",72.0,0.1,1.15,74.99,92.56,0,25
+Onion,A,318.4,10,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.33,30.32,30.67,1,8
+Cabbage,A,373.8,10,"Nashik, Maharashtra",18.0,0.6,1.23,20.7,19.75,1,5
+Green Chilli,A,567.0,7,"Pune, Maharashtra",55.0,0.7,1.22,56.54,58.4,1,8
+Maize,A,2503.6,8,"Nashik, Maharashtra",23.0,0.1,1.18,28.61,30.11,0,25
+Potato,B,1509.6,4,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,0.98,22.96,27.17,0,25
+Groundnut,B,3277.6,11,"Nashik, Maharashtra",72.0,0.1,1.05,52.37,47.33,1,2
+Onion,C,1162.9,5,"Anand, Gujarat",28.0,0.3,1.01,19.1,18.85,1,6
+Cotton,B,3626.1,5,"Indore, Madhya Pradesh",70.0,0.05,1.32,76.08,73.09,1,2
+Sugarcane,A,2977.9,3,"Pune, Maharashtra",4.5,0.4,1.18,4.62,4.72,1,2
+Onion,C,192.3,9,"Anand, Gujarat",28.0,0.3,1.08,22.76,19.73,1,3
+Maize,A,2744.2,4,"Ludhiana, Punjab",23.0,0.1,1.23,26.31,26.09,1,5
+Cotton,B,3465.2,4,"Anand, Gujarat",70.0,0.05,1.39,79.98,68.78,1,5
+Green Chilli,B,678.8,5,"Bengaluru, Karnataka",55.0,0.7,1.25,51.01,51.16,1,2
+Carrot,A,1431.2,8,"Bengaluru, Karnataka",34.0,0.5,1.31,49.6,55.26,0,25
+Brinjal,B,3869.2,2,"Pune, Maharashtra",22.0,0.75,1.04,21.59,23.89,0,25
+Brinjal,C,505.6,1,"Ludhiana, Punjab",22.0,0.75,1.39,23.12,22.11,1,2
+Brinjal,B,2444.5,7,"Ludhiana, Punjab",22.0,0.75,1.16,27.25,27.36,1,6
+Wheat,A,2103.7,1,"Guntur, Andhra Pradesh",30.0,0.05,1.3,35.25,40.35,0,25
+Rice,B,3798.1,2,"Guntur, Andhra Pradesh",48.0,0.05,1.36,45.39,49.9,0,25
+Soybean,A,1271.7,9,"Pune, Maharashtra",46.0,0.1,1.1,55.58,50.07,1,4
+Brinjal,C,2298.0,10,"Anand, Gujarat",22.0,0.75,1.1,16.4,19.41,0,25
+Wheat,B,3153.7,7,"Bengaluru, Karnataka",30.0,0.05,1.2,33.36,37.37,0,25
+Cauliflower,B,384.9,11,"Anand, Gujarat",26.0,0.8,1.16,25.8,28.46,0,25
+Green Chilli,A,1276.2,11,"Bengaluru, Karnataka",55.0,0.7,1.3,78.72,97.89,0,25
+Cabbage,A,3550.2,7,"Indore, Madhya Pradesh",18.0,0.6,1.19,20.98,23.86,0,25
+Brinjal,B,632.9,4,"Guntur, Andhra Pradesh",22.0,0.75,1.24,27.8,33.48,0,25
+Sugarcane,B,3226.2,3,"Bengaluru, Karnataka",4.5,0.4,1.25,4.02,4.16,1,6
+Maize,A,3215.6,3,"Indore, Madhya Pradesh",23.0,0.1,1.23,28.53,35.09,0,25
+Maize,B,1811.4,9,"Guntur, Andhra Pradesh",23.0,0.1,0.98,18.59,22.21,0,25
+Carrot,B,1145.4,11,"Bengaluru, Karnataka",34.0,0.5,1.29,38.65,39.65,1,7
+Rice,B,3577.5,6,"Ludhiana, Punjab",48.0,0.05,0.94,45.27,41.21,1,4
+Potato,C,1688.7,2,"Bengaluru, Karnataka",20.0,0.2,1.07,15.38,18.2,0,25
+Brinjal,C,1552.5,10,"Nashik, Maharashtra",22.0,0.75,0.9,14.96,14.82,1,6
+Cotton,B,916.7,8,"Bengaluru, Karnataka",70.0,0.05,1.12,87.79,98.47,0,25
+Brinjal,C,3682.2,8,"Anand, Gujarat",22.0,0.75,1.39,20.53,21.84,0,25
+Maize,B,2588.9,2,"Nashik, Maharashtra",23.0,0.1,0.97,21.82,21.86,1,3
+Green Chilli,B,3020.4,5,"Guntur, Andhra Pradesh",55.0,0.7,1.32,58.43,55.56,1,2
+Tomato,C,935.7,6,"Nashik, Maharashtra",24.0,0.85,0.93,21.11,18.21,1,3
+Cotton,A,548.6,4,"Anand, Gujarat",70.0,0.05,1.23,88.44,95.12,0,25
+Rice,B,712.8,6,"Pune, Maharashtra",48.0,0.05,1.2,54.58,64.28,0,25
+Wheat,A,2324.4,5,"Nashik, Maharashtra",30.0,0.05,1.35,29.24,29.24,1,8
+Rice,A,2803.9,2,"Bengaluru, Karnataka",48.0,0.05,1.05,58.71,68.6,0,25
+Cabbage,A,1742.1,9,"Ludhiana, Punjab",18.0,0.6,1.09,17.38,18.29,0,25
+Green Chilli,A,466.9,8,"Guntur, Andhra Pradesh",55.0,0.7,1.38,49.43,56.0,0,25
+Brinjal,A,3242.4,10,"Pune, Maharashtra",22.0,0.75,1.17,18.9,19.72,1,5
+Groundnut,C,3414.3,6,"Pune, Maharashtra",72.0,0.1,1.32,76.09,72.1,1,4
+Cabbage,C,163.4,6,"Guntur, Andhra Pradesh",18.0,0.6,1.33,19.13,17.65,1,3
+Sugarcane,B,3527.3,5,"Ludhiana, Punjab",4.5,0.4,1.25,4.56,5.61,0,25
+Onion,A,2242.9,8,"Guntur, Andhra Pradesh",28.0,0.3,1.02,32.63,33.95,1,7
+Carrot,A,925.3,5,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.25,44.2,45.94,1,6
+Brinjal,C,2826.3,6,"Ludhiana, Punjab",22.0,0.75,1.04,20.34,19.33,1,2
+Rice,B,2166.7,12,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.28,45.68,47.68,1,7
+Sugarcane,C,3338.9,2,"Pune, Maharashtra",4.5,0.4,1.05,3.32,3.3,1,4
+Groundnut,C,229.8,5,"Anand, Gujarat",72.0,0.1,0.93,60.51,66.87,0,25
+Sugarcane,B,2317.6,1,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.13,4.44,4.56,1,3
+Tomato,B,3297.4,2,"Indore, Madhya Pradesh",24.0,0.85,1.1,22.26,19.4,1,2
+Cabbage,B,517.9,4,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.28,22.94,25.06,0,25
+Sugarcane,C,1552.5,9,"Bengaluru, Karnataka",4.5,0.4,1.35,4.6,4.7,1,6
+Tomato,C,2520.8,4,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.03,25.85,22.81,1,3
+Cauliflower,A,1663.6,1,"Anand, Gujarat",26.0,0.8,1.24,25.47,24.58,1,3
+Cotton,B,972.0,11,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.03,63.92,74.56,0,25
+Cabbage,C,503.4,7,"Bengaluru, Karnataka",18.0,0.6,1.01,18.5,16.78,1,2
+Sugarcane,B,541.2,8,"Pune, Maharashtra",4.5,0.4,1.24,5.32,6.01,0,25
+Wheat,C,367.7,8,"Indore, Madhya Pradesh",30.0,0.05,0.92,24.14,22.94,1,2
+Soybean,C,3294.6,11,"Nashik, Maharashtra",46.0,0.1,1.19,32.88,37.98,0,25
+Potato,B,766.9,5,"Indore, Madhya Pradesh",20.0,0.2,1.19,19.68,17.45,1,3
+Green Chilli,B,1352.7,3,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.25,57.18,55.2,1,7
+Cotton,C,397.8,8,"Nashik, Maharashtra",70.0,0.05,1.03,67.51,80.74,0,25
+Cotton,A,264.1,7,"Indore, Madhya Pradesh",70.0,0.05,1.16,91.73,100.82,0,25
+Carrot,C,854.1,1,"Indore, Madhya Pradesh",34.0,0.5,1.17,26.55,29.98,0,25
+Onion,A,675.6,12,"Bengaluru, Karnataka",28.0,0.3,1.18,36.63,39.23,0,25
+Onion,A,3790.9,8,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.22,41.02,39.66,1,6
+Brinjal,B,1854.3,4,"Indore, Madhya Pradesh",22.0,0.75,0.97,25.26,23.4,1,5
+Groundnut,A,3102.1,5,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.33,88.29,84.48,1,2
+Groundnut,B,1813.9,3,"Indore, Madhya Pradesh",72.0,0.1,1.14,79.99,78.63,1,6
+Brinjal,B,3924.1,4,"Ludhiana, Punjab",22.0,0.75,1.02,18.02,18.28,1,4
+Carrot,C,3954.2,7,"Guntur, Andhra Pradesh",34.0,0.5,1.3,33.87,37.62,0,25
+Potato,B,2034.1,3,"Nashik, Maharashtra",20.0,0.2,1.2,18.66,19.15,1,5
+Carrot,A,3490.2,7,"Anand, Gujarat",34.0,0.5,1.38,36.5,32.12,1,5
+Wheat,B,367.2,11,"Guntur, Andhra Pradesh",30.0,0.05,1.06,30.73,37.85,0,25
+Soybean,C,191.8,9,"Indore, Madhya Pradesh",46.0,0.1,0.93,36.27,39.99,0,25
+Maize,B,407.0,12,"Bengaluru, Karnataka",23.0,0.1,1.39,29.34,26.12,1,2
+Wheat,A,3194.8,6,"Nashik, Maharashtra",30.0,0.05,1.05,31.06,31.06,1,3
+Cauliflower,B,741.5,3,"Anand, Gujarat",26.0,0.8,1.2,24.57,25.78,1,6
+Rice,B,1058.5,8,"Pune, Maharashtra",48.0,0.05,0.9,52.85,61.93,0,25
+Maize,B,1794.8,2,"Anand, Gujarat",23.0,0.1,1.07,22.0,22.43,1,4
+Cotton,B,3420.7,7,"Bengaluru, Karnataka",70.0,0.05,0.95,70.79,70.97,1,4
+Wheat,C,3912.9,1,"Pune, Maharashtra",30.0,0.05,1.23,27.35,30.75,0,25
+Groundnut,A,3114.2,5,"Indore, Madhya Pradesh",72.0,0.1,1.02,85.59,100.21,0,25
+Rice,C,1040.0,10,"Bengaluru, Karnataka",48.0,0.05,1.28,40.82,36.93,1,2
+Soybean,C,3165.0,5,"Nashik, Maharashtra",46.0,0.1,0.92,33.62,33.48,1,3
+Maize,B,1691.2,12,"Ludhiana, Punjab",23.0,0.1,1.0,23.3,23.21,1,5
+Wheat,A,3871.2,8,"Pune, Maharashtra",30.0,0.05,1.05,32.22,38.6,0,25
+Sugarcane,A,606.0,2,"Indore, Madhya Pradesh",4.5,0.4,1.38,4.81,5.97,0,25
+Cotton,C,3173.2,2,"Ludhiana, Punjab",70.0,0.05,0.91,50.35,53.6,0,25
+Carrot,B,1555.1,10,"Pune, Maharashtra",34.0,0.5,1.22,34.53,35.86,1,6
+Cauliflower,B,299.7,11,"Bengaluru, Karnataka",26.0,0.8,1.31,29.88,36.27,0,25
+Wheat,C,602.1,2,"Guntur, Andhra Pradesh",30.0,0.05,1.37,28.21,25.08,1,6
+Potato,B,2698.4,6,"Indore, Madhya Pradesh",20.0,0.2,1.27,21.98,27.0,0,25
+Brinjal,C,2636.9,7,"Anand, Gujarat",22.0,0.75,1.32,16.51,15.88,1,6
+Rice,B,3429.0,4,"Indore, Madhya Pradesh",48.0,0.05,0.95,41.24,46.36,0,25
+Cauliflower,C,1622.7,1,"Ludhiana, Punjab",26.0,0.8,0.99,20.7,21.36,1,6
+Soybean,C,3157.8,1,"Nashik, Maharashtra",46.0,0.1,1.02,40.95,36.87,1,4
+Onion,C,903.0,10,"Bengaluru, Karnataka",28.0,0.3,1.33,23.26,28.15,0,25
+Tomato,B,2183.9,3,"Anand, Gujarat",24.0,0.85,1.3,27.72,24.78,1,6
+Potato,A,2376.0,4,"Ludhiana, Punjab",20.0,0.2,0.91,21.71,22.11,1,3
+Onion,B,2077.3,6,"Indore, Madhya Pradesh",28.0,0.3,0.95,28.23,29.68,0,25
+Cabbage,A,2591.2,8,"Pune, Maharashtra",18.0,0.6,0.92,25.07,25.58,1,3
+Groundnut,B,1322.3,2,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,0.97,78.44,70.63,1,5
+Cabbage,C,3978.8,7,"Ludhiana, Punjab",18.0,0.6,1.17,13.23,11.77,1,5
+Cotton,C,1833.6,7,"Bengaluru, Karnataka",70.0,0.05,1.01,68.55,67.56,1,5
+Brinjal,C,1735.7,6,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.23,20.65,25.18,0,25
+Onion,A,1755.9,2,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.27,31.83,31.8,1,3
+Tomato,C,532.8,11,"Ludhiana, Punjab",24.0,0.85,1.08,15.15,18.14,0,25
+Groundnut,A,1284.2,10,"Pune, Maharashtra",72.0,0.1,0.95,64.04,67.43,0,25
+Potato,C,3396.7,4,"Indore, Madhya Pradesh",20.0,0.2,1.08,15.8,15.19,1,3
+Brinjal,C,3719.9,10,"Nashik, Maharashtra",22.0,0.75,1.31,15.56,14.89,1,3
+Groundnut,B,74.1,6,"Ludhiana, Punjab",72.0,0.1,1.33,74.66,67.7,1,5
+Tomato,A,1708.3,7,"Bengaluru, Karnataka",24.0,0.85,1.07,29.65,29.59,1,6
+Sugarcane,C,664.5,1,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.28,3.78,3.88,1,5
+Cabbage,B,901.5,5,"Guntur, Andhra Pradesh",18.0,0.6,1.16,19.44,19.21,1,3
+Soybean,C,2685.2,9,"Indore, Madhya Pradesh",46.0,0.1,0.92,34.12,29.11,1,3
+Rice,A,1346.1,5,"Pune, Maharashtra",48.0,0.05,0.9,59.8,68.7,0,25
+Potato,A,2829.5,9,"Guntur, Andhra Pradesh",20.0,0.2,1.15,24.93,21.91,1,6
+Tomato,B,3688.6,8,"Nashik, Maharashtra",24.0,0.85,1.33,19.55,21.12,0,25
+Cabbage,B,504.9,5,"Guntur, Andhra Pradesh",18.0,0.6,0.91,16.73,18.36,0,25
+Cotton,C,1775.0,2,"Ludhiana, Punjab",70.0,0.05,0.95,64.73,66.3,1,5
+Onion,B,1391.1,12,"Pune, Maharashtra",28.0,0.3,1.07,32.33,28.96,1,4
+Maize,B,3835.0,12,"Ludhiana, Punjab",23.0,0.1,1.22,24.6,22.36,1,2
+Wheat,A,653.8,10,"Anand, Gujarat",30.0,0.05,1.28,42.68,47.0,0,25
+Carrot,C,3700.4,11,"Indore, Madhya Pradesh",34.0,0.5,1.18,31.39,34.66,0,25
+Cabbage,B,1787.1,3,"Ludhiana, Punjab",18.0,0.6,1.13,16.06,17.45,0,25
+Green Chilli,C,1873.9,5,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,0.92,41.54,41.44,1,4
+Soybean,A,2342.3,8,"Guntur, Andhra Pradesh",46.0,0.1,1.38,57.3,69.54,0,25
+Cabbage,C,2439.8,6,"Bengaluru, Karnataka",18.0,0.6,1.15,16.96,20.91,0,25
+Carrot,A,383.1,12,"Ludhiana, Punjab",34.0,0.5,1.22,38.86,48.43,0,25
+Cauliflower,C,1522.8,6,"Anand, Gujarat",26.0,0.8,1.04,23.83,24.15,1,4
+Cabbage,A,1352.3,2,"Ludhiana, Punjab",18.0,0.6,1.18,16.5,19.65,0,25
+Maize,C,371.9,6,"Anand, Gujarat",23.0,0.1,1.23,22.34,27.18,0,25
+Wheat,C,2400.4,3,"Guntur, Andhra Pradesh",30.0,0.05,1.37,22.05,25.72,0,25
+Cotton,A,2698.3,11,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.15,77.22,66.2,1,3
+Rice,B,944.8,4,"Indore, Madhya Pradesh",48.0,0.05,0.97,51.33,45.71,1,5
+Cotton,C,1380.2,11,"Nashik, Maharashtra",70.0,0.05,1.28,55.56,50.14,1,3
+Potato,A,1778.8,12,"Anand, Gujarat",20.0,0.2,1.11,23.38,24.03,1,4
+Groundnut,B,994.7,9,"Bengaluru, Karnataka",72.0,0.1,1.38,85.68,99.71,0,25
+Maize,A,3791.2,11,"Ludhiana, Punjab",23.0,0.1,1.39,26.39,26.46,1,5
+Potato,A,256.1,5,"Anand, Gujarat",20.0,0.2,1.14,25.41,25.37,1,8
+Groundnut,C,381.3,5,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,0.98,62.98,74.47,0,25
+Onion,A,3725.4,6,"Indore, Madhya Pradesh",28.0,0.3,1.11,32.53,32.81,1,4
+Brinjal,A,161.3,4,"Ludhiana, Punjab",22.0,0.75,1.37,30.43,35.5,0,25
+Potato,A,2799.5,8,"Pune, Maharashtra",20.0,0.2,0.97,21.34,24.16,0,25
+Carrot,C,125.1,2,"Nashik, Maharashtra",34.0,0.5,1.01,27.48,30.05,0,25
+Brinjal,A,1239.5,4,"Pune, Maharashtra",22.0,0.75,0.92,31.61,32.18,1,7
+Carrot,A,2407.1,8,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,0.91,38.18,34.65,1,4
+Cabbage,B,1695.4,10,"Bengaluru, Karnataka",18.0,0.6,1.23,21.17,18.72,1,6
+Onion,C,3499.7,7,"Nashik, Maharashtra",28.0,0.3,0.92,20.68,23.76,0,25
+Green Chilli,A,2945.1,4,"Ludhiana, Punjab",55.0,0.7,1.21,68.62,79.5,0,25
+Groundnut,B,1441.6,1,"Anand, Gujarat",72.0,0.1,1.07,68.77,77.29,0,25
+Groundnut,B,299.2,3,"Anand, Gujarat",72.0,0.1,1.29,72.79,75.2,1,4
+Tomato,A,3736.8,6,"Nashik, Maharashtra",24.0,0.85,1.16,32.52,30.94,1,6
+Rice,B,3469.9,1,"Ludhiana, Punjab",48.0,0.05,1.07,46.4,41.75,1,3
+Maize,B,1389.2,7,"Indore, Madhya Pradesh",23.0,0.1,0.99,22.08,25.81,0,25
+Wheat,A,1750.9,2,"Guntur, Andhra Pradesh",30.0,0.05,1.4,36.43,33.6,1,3
+Onion,A,1217.8,11,"Ludhiana, Punjab",28.0,0.3,1.12,32.62,33.52,1,5
+Groundnut,B,2575.9,5,"Guntur, Andhra Pradesh",72.0,0.1,1.3,73.06,63.78,1,5
+Brinjal,B,614.0,1,"Anand, Gujarat",22.0,0.75,1.2,24.22,21.24,1,5
+Green Chilli,B,177.9,10,"Guntur, Andhra Pradesh",55.0,0.7,0.98,55.23,56.89,1,4
+Carrot,A,1499.5,9,"Anand, Gujarat",34.0,0.5,1.06,38.87,33.44,1,2
+Cauliflower,B,3111.1,5,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.25,37.88,35.45,1,5
+Groundnut,B,586.1,2,"Bengaluru, Karnataka",72.0,0.1,0.94,85.81,107.17,0,25
+Sugarcane,C,1422.3,11,"Ludhiana, Punjab",4.5,0.4,0.93,3.94,4.2,0,25
+Maize,B,2852.8,12,"Anand, Gujarat",23.0,0.1,1.25,24.77,23.28,1,7
+Sugarcane,A,153.8,8,"Bengaluru, Karnataka",4.5,0.4,1.18,6.5,6.48,1,7
+Cauliflower,A,1271.7,2,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.4,35.16,40.7,0,25
+Cotton,C,3890.9,3,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.22,60.25,62.06,1,6
+Green Chilli,A,1758.8,3,"Anand, Gujarat",55.0,0.7,1.36,74.21,67.62,1,2
+Green Chilli,C,3792.6,6,"Bengaluru, Karnataka",55.0,0.7,1.16,43.92,42.32,1,2
+Rice,C,2518.8,3,"Pune, Maharashtra",48.0,0.05,1.21,47.18,51.27,0,25
+Cabbage,A,2516.7,11,"Anand, Gujarat",18.0,0.6,1.35,24.2,23.84,1,7
+Tomato,A,3796.8,1,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.29,25.21,27.2,0,25
+Cabbage,C,3561.5,8,"Nashik, Maharashtra",18.0,0.6,1.17,16.43,18.18,0,25
+Wheat,B,1654.1,11,"Bengaluru, Karnataka",30.0,0.05,1.13,34.35,34.91,1,5
+Green Chilli,C,3452.9,6,"Anand, Gujarat",55.0,0.7,1.06,35.47,44.17,0,25
+Green Chilli,B,2084.2,6,"Anand, Gujarat",55.0,0.7,0.95,44.71,46.04,1,3
+Tomato,B,1701.6,10,"Guntur, Andhra Pradesh",24.0,0.85,1.38,28.33,34.31,0,25
+Cotton,B,3064.3,4,"Ludhiana, Punjab",70.0,0.05,1.15,63.22,61.54,1,2
+Brinjal,C,899.8,4,"Indore, Madhya Pradesh",22.0,0.75,1.08,18.75,16.32,1,4
+Maize,C,2169.9,5,"Indore, Madhya Pradesh",23.0,0.1,1.32,18.06,20.61,0,25
+Sugarcane,B,1632.3,1,"Ludhiana, Punjab",4.5,0.4,1.19,3.92,3.64,1,5
+Onion,B,1154.9,9,"Indore, Madhya Pradesh",28.0,0.3,1.39,29.65,36.77,0,25
+Brinjal,B,3758.8,9,"Ludhiana, Punjab",22.0,0.75,1.28,17.47,16.24,1,4
+Cauliflower,A,591.3,1,"Nashik, Maharashtra",26.0,0.8,1.07,22.03,24.07,0,25
+Cauliflower,A,1308.2,10,"Ludhiana, Punjab",26.0,0.8,1.1,31.15,34.16,0,25
+Cotton,B,3321.7,9,"Ludhiana, Punjab",70.0,0.05,1.17,68.5,80.58,0,25
+Green Chilli,B,2355.6,7,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.3,46.36,52.86,0,25
+Groundnut,C,1924.6,10,"Nashik, Maharashtra",72.0,0.1,1.38,55.42,59.91,0,25
+Groundnut,A,2120.7,3,"Indore, Madhya Pradesh",72.0,0.1,1.26,75.01,87.0,0,25
+Brinjal,A,2311.7,1,"Bengaluru, Karnataka",22.0,0.75,1.25,30.83,31.37,1,5
+Rice,B,2923.2,12,"Indore, Madhya Pradesh",48.0,0.05,1.25,41.28,43.65,0,25
+Cauliflower,B,1538.5,9,"Indore, Madhya Pradesh",26.0,0.8,1.38,23.87,25.51,0,25
+Soybean,C,1962.5,10,"Pune, Maharashtra",46.0,0.1,1.38,37.35,35.92,1,4
+Wheat,B,2834.7,12,"Bengaluru, Karnataka",30.0,0.05,1.06,30.92,36.12,0,25
+Wheat,B,2722.7,10,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.09,35.66,44.29,0,25
+Cotton,B,216.2,5,"Anand, Gujarat",70.0,0.05,1.38,92.8,103.23,0,25
+Groundnut,B,3320.4,4,"Bengaluru, Karnataka",72.0,0.1,1.04,84.86,91.21,0,25
+Wheat,A,2976.5,10,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.02,40.36,37.95,1,3
+Onion,B,1916.0,12,"Ludhiana, Punjab",28.0,0.3,1.24,31.27,28.3,1,6
+Maize,A,3743.4,11,"Guntur, Andhra Pradesh",23.0,0.1,1.34,26.85,33.17,0,25
+Green Chilli,B,2626.6,2,"Nashik, Maharashtra",55.0,0.7,1.02,54.43,62.35,0,25
+Cotton,A,3534.9,7,"Anand, Gujarat",70.0,0.05,0.99,96.81,97.66,1,5
+Maize,C,86.6,1,"Pune, Maharashtra",23.0,0.1,1.18,20.23,18.06,1,6
+Wheat,B,3411.7,3,"Indore, Madhya Pradesh",30.0,0.05,1.13,24.03,21.99,1,4
+Wheat,C,2959.6,1,"Anand, Gujarat",30.0,0.05,1.3,27.63,29.76,0,25
+Sugarcane,A,3431.8,10,"Anand, Gujarat",4.5,0.4,1.35,5.66,5.01,1,5
+Potato,A,3746.5,6,"Indore, Madhya Pradesh",20.0,0.2,0.9,19.48,19.55,1,5
+Wheat,B,2905.4,10,"Pune, Maharashtra",30.0,0.05,0.91,28.8,25.2,1,2
+Wheat,A,2035.0,11,"Guntur, Andhra Pradesh",30.0,0.05,1.35,35.07,39.68,0,25
+Wheat,C,3668.7,11,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.05,26.51,23.95,1,2
+Groundnut,C,2822.7,7,"Ludhiana, Punjab",72.0,0.1,1.36,61.86,71.32,0,25
+Sugarcane,C,2737.4,4,"Bengaluru, Karnataka",4.5,0.4,1.2,4.44,4.71,0,25
+Green Chilli,A,3323.7,1,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.35,61.77,57.5,1,5
+Potato,B,2737.2,2,"Indore, Madhya Pradesh",20.0,0.2,1.26,13.85,14.24,1,2
+Potato,C,2277.4,8,"Guntur, Andhra Pradesh",20.0,0.2,1.18,17.82,19.94,0,25
+Wheat,C,1055.1,7,"Nashik, Maharashtra",30.0,0.05,0.9,25.24,25.73,1,6
+Cauliflower,A,175.4,8,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.1,36.2,41.9,0,25
+Sugarcane,C,3971.8,6,"Guntur, Andhra Pradesh",4.5,0.4,1.09,4.04,4.04,1,6
+Soybean,C,3448.1,11,"Anand, Gujarat",46.0,0.1,0.96,28.08,35.02,0,25
+Brinjal,C,3916.0,12,"Anand, Gujarat",22.0,0.75,1.32,20.09,20.8,1,7
+Brinjal,C,1027.7,4,"Guntur, Andhra Pradesh",22.0,0.75,1.07,14.07,13.51,1,7
+Groundnut,A,1706.0,11,"Nashik, Maharashtra",72.0,0.1,1.28,72.53,67.63,1,2
+Tomato,B,2975.1,4,"Nashik, Maharashtra",24.0,0.85,1.1,23.34,22.03,1,3
+Cotton,A,3974.3,9,"Anand, Gujarat",70.0,0.05,1.02,86.4,93.4,0,25
+Sugarcane,C,1242.0,4,"Ludhiana, Punjab",4.5,0.4,0.97,3.68,4.1,0,25
+Rice,B,290.8,5,"Pune, Maharashtra",48.0,0.05,1.37,61.97,68.19,0,25
+Brinjal,C,3890.5,1,"Indore, Madhya Pradesh",22.0,0.75,1.37,16.37,18.31,0,25
+Sugarcane,C,1694.5,12,"Ludhiana, Punjab",4.5,0.4,0.97,2.9,3.01,1,8
+Wheat,C,3663.2,8,"Anand, Gujarat",30.0,0.05,1.18,27.77,34.35,0,25
+Cauliflower,C,1009.3,7,"Anand, Gujarat",26.0,0.8,1.0,19.1,22.71,0,25
+Onion,C,1110.4,1,"Bengaluru, Karnataka",28.0,0.3,1.24,18.73,20.44,0,25
+Cotton,A,2911.0,10,"Bengaluru, Karnataka",70.0,0.05,1.18,63.34,62.27,1,7
+Tomato,A,513.4,12,"Bengaluru, Karnataka",24.0,0.85,1.4,29.55,30.78,1,4
+Cabbage,C,3664.7,7,"Bengaluru, Karnataka",18.0,0.6,1.18,17.61,18.73,0,25
+Green Chilli,B,2075.6,6,"Pune, Maharashtra",55.0,0.7,1.15,42.85,38.11,1,6
+Carrot,B,1286.0,6,"Bengaluru, Karnataka",34.0,0.5,0.92,41.36,35.42,1,4
+Cabbage,C,652.0,5,"Guntur, Andhra Pradesh",18.0,0.6,1.06,14.04,14.07,1,7
+Carrot,C,3065.3,5,"Ludhiana, Punjab",34.0,0.5,1.14,27.84,28.8,1,7
+Green Chilli,A,2208.9,12,"Anand, Gujarat",55.0,0.7,0.99,50.53,60.93,0,25
+Soybean,A,3783.5,2,"Nashik, Maharashtra",46.0,0.1,1.23,54.24,64.38,0,25
+Rice,A,913.9,1,"Anand, Gujarat",48.0,0.05,1.13,56.0,48.95,1,4
+Maize,C,1977.0,11,"Indore, Madhya Pradesh",23.0,0.1,0.9,18.3,19.43,0,25
+Wheat,C,2033.8,1,"Pune, Maharashtra",30.0,0.05,1.25,28.36,28.99,1,8
+Potato,A,638.1,9,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.0,22.2,21.24,1,4
+Green Chilli,B,1010.7,10,"Indore, Madhya Pradesh",55.0,0.7,1.25,55.72,54.05,1,7
+Onion,C,1650.8,2,"Nashik, Maharashtra",28.0,0.3,1.09,16.71,18.9,0,25
+Onion,B,3148.3,11,"Guntur, Andhra Pradesh",28.0,0.3,1.18,29.18,34.82,0,25
+Onion,C,885.1,4,"Nashik, Maharashtra",28.0,0.3,1.33,28.65,24.89,1,2
+Maize,B,3718.6,3,"Nashik, Maharashtra",23.0,0.1,1.06,21.51,26.56,0,25
+Cabbage,A,1232.1,2,"Guntur, Andhra Pradesh",18.0,0.6,1.18,14.75,16.53,0,25
+Cauliflower,B,602.8,12,"Guntur, Andhra Pradesh",26.0,0.8,1.39,21.73,24.76,0,25
+Cauliflower,C,435.9,1,"Ludhiana, Punjab",26.0,0.8,1.02,21.05,23.06,0,25
+Cabbage,B,2554.8,1,"Ludhiana, Punjab",18.0,0.6,1.29,16.13,16.62,1,4
+Cauliflower,B,2734.8,3,"Guntur, Andhra Pradesh",26.0,0.8,1.23,30.82,36.04,0,25
+Groundnut,A,659.2,5,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.26,103.37,114.08,0,25
+Groundnut,B,470.9,6,"Ludhiana, Punjab",72.0,0.1,0.9,69.55,66.62,1,3
+Potato,B,2241.2,9,"Indore, Madhya Pradesh",20.0,0.2,1.1,21.03,18.1,1,3
+Onion,C,98.7,7,"Ludhiana, Punjab",28.0,0.3,1.11,25.84,27.75,0,25
+Rice,C,1553.9,11,"Anand, Gujarat",48.0,0.05,0.97,31.0,30.08,1,5
+Onion,A,1713.4,5,"Guntur, Andhra Pradesh",28.0,0.3,1.14,36.0,34.15,1,5
+Cabbage,C,472.5,8,"Bengaluru, Karnataka",18.0,0.6,1.05,18.5,22.75,0,25
+Green Chilli,C,1788.9,6,"Guntur, Andhra Pradesh",55.0,0.7,1.12,42.57,46.31,0,25
+Wheat,B,1291.0,8,"Bengaluru, Karnataka",30.0,0.05,1.38,34.75,43.0,0,25
+Wheat,C,3138.8,10,"Indore, Madhya Pradesh",30.0,0.05,1.06,24.03,23.93,1,8
+Rice,C,3082.1,11,"Anand, Gujarat",48.0,0.05,0.91,34.74,39.63,0,25
+Groundnut,A,3333.6,5,"Indore, Madhya Pradesh",72.0,0.1,0.93,82.32,92.13,0,25
+Potato,C,1048.1,4,"Pune, Maharashtra",20.0,0.2,0.98,16.19,16.5,1,4
+Carrot,C,1633.2,10,"Indore, Madhya Pradesh",34.0,0.5,1.15,32.83,35.04,0,25
+Sugarcane,B,3087.4,2,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.23,3.97,3.94,1,6
+Tomato,C,3864.6,6,"Guntur, Andhra Pradesh",24.0,0.85,1.12,22.68,23.91,0,25
+Cauliflower,C,1527.8,8,"Bengaluru, Karnataka",26.0,0.8,1.13,25.82,28.97,0,25
+Groundnut,C,3990.9,6,"Anand, Gujarat",72.0,0.1,1.14,59.58,52.69,1,5
+Groundnut,A,1405.1,5,"Ludhiana, Punjab",72.0,0.1,1.29,101.45,107.38,0,25
+Green Chilli,B,2901.9,8,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.13,50.61,57.41,0,25
+Tomato,B,3210.2,11,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.36,22.87,26.21,0,25
+Cauliflower,A,2261.4,6,"Anand, Gujarat",26.0,0.8,1.38,33.28,30.74,1,5
+Brinjal,B,2475.7,12,"Nashik, Maharashtra",22.0,0.75,1.0,23.67,25.73,0,25
+Brinjal,A,1149.5,4,"Bengaluru, Karnataka",22.0,0.75,1.25,31.65,37.02,0,25
+Cauliflower,A,828.4,6,"Ludhiana, Punjab",26.0,0.8,0.96,25.29,28.28,0,25
+Carrot,C,1585.1,10,"Ludhiana, Punjab",34.0,0.5,1.1,31.12,32.15,1,3
+Soybean,C,2381.2,10,"Pune, Maharashtra",46.0,0.1,1.24,36.43,35.53,1,3
+Onion,A,608.4,12,"Ludhiana, Punjab",28.0,0.3,1.09,29.36,29.92,1,5
+Cauliflower,C,709.1,9,"Anand, Gujarat",26.0,0.8,1.04,21.16,19.57,1,6
+Cabbage,A,1964.2,1,"Ludhiana, Punjab",18.0,0.6,1.0,14.93,16.59,0,25
+Brinjal,C,2855.1,7,"Indore, Madhya Pradesh",22.0,0.75,1.12,19.81,18.16,1,5
+Sugarcane,A,1135.7,1,"Pune, Maharashtra",4.5,0.4,1.17,4.82,5.53,0,25
+Sugarcane,B,501.1,10,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.29,5.62,6.63,0,25
+Green Chilli,C,1793.4,12,"Nashik, Maharashtra",55.0,0.7,1.01,38.09,42.34,0,25
+Rice,B,1088.1,8,"Nashik, Maharashtra",48.0,0.05,1.33,54.45,48.18,1,6
+Onion,A,2372.3,12,"Bengaluru, Karnataka",28.0,0.3,1.08,34.81,31.9,1,2
+Rice,A,1435.7,10,"Nashik, Maharashtra",48.0,0.05,1.04,42.4,45.18,0,25
+Green Chilli,C,2312.3,5,"Pune, Maharashtra",55.0,0.7,1.38,39.09,45.97,0,25
+Potato,B,3474.8,5,"Nashik, Maharashtra",20.0,0.2,0.96,18.81,22.5,0,25
+Rice,A,3057.8,4,"Ludhiana, Punjab",48.0,0.05,1.24,52.17,49.95,1,4
+Carrot,A,2086.7,7,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.04,42.94,52.58,0,25
+Green Chilli,B,2348.7,6,"Indore, Madhya Pradesh",55.0,0.7,1.33,48.03,59.5,0,25
+Soybean,C,3192.9,2,"Ludhiana, Punjab",46.0,0.1,1.1,37.41,46.29,0,25
+Cotton,A,1325.3,5,"Indore, Madhya Pradesh",70.0,0.05,1.04,76.95,91.65,0,25
+Sugarcane,B,443.3,1,"Nashik, Maharashtra",4.5,0.4,1.29,4.01,4.15,1,3
+Cotton,A,52.7,8,"Indore, Madhya Pradesh",70.0,0.05,1.38,92.4,83.42,1,5
+Potato,B,1473.7,11,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,0.94,23.93,26.7,0,25
+Soybean,A,2521.1,7,"Nashik, Maharashtra",46.0,0.1,1.26,55.09,48.84,1,2
+Rice,B,2395.0,3,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.16,50.62,52.04,1,2
+Green Chilli,A,572.1,12,"Guntur, Andhra Pradesh",55.0,0.7,0.94,54.72,48.75,1,3
+Maize,B,3105.2,7,"Anand, Gujarat",23.0,0.1,1.28,25.8,23.3,1,6
+Potato,A,2617.6,10,"Nashik, Maharashtra",20.0,0.2,1.12,22.64,20.61,1,4
+Soybean,B,3591.5,2,"Bengaluru, Karnataka",46.0,0.1,0.97,45.41,40.84,1,5
+Green Chilli,B,1028.8,3,"Ludhiana, Punjab",55.0,0.7,1.22,58.22,66.28,0,25
+Wheat,C,3509.5,11,"Nashik, Maharashtra",30.0,0.05,1.0,26.25,28.69,0,25
+Rice,C,2602.4,5,"Guntur, Andhra Pradesh",48.0,0.05,1.29,43.49,43.68,1,3
+Soybean,C,3560.5,9,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,0.91,38.59,38.38,1,4
+Brinjal,C,2208.1,6,"Guntur, Andhra Pradesh",22.0,0.75,0.99,13.14,11.55,1,4
+Tomato,B,3694.2,1,"Bengaluru, Karnataka",24.0,0.85,1.37,24.91,25.14,1,4
+Groundnut,C,2822.2,7,"Guntur, Andhra Pradesh",72.0,0.1,0.94,53.43,51.35,1,4
+Cauliflower,A,1340.7,9,"Anand, Gujarat",26.0,0.8,1.19,30.9,35.7,0,25
+Soybean,C,2809.8,5,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.26,44.65,39.49,1,4
+Carrot,C,2681.0,5,"Nashik, Maharashtra",34.0,0.5,1.23,28.95,26.64,1,2
+Potato,C,2010.8,3,"Nashik, Maharashtra",20.0,0.2,1.07,12.0,11.44,1,4
+Groundnut,B,1373.3,1,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.11,80.06,84.83,0,25
+Wheat,C,1848.0,8,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.08,26.4,26.32,1,4
+Onion,C,2976.1,4,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,0.9,24.5,29.24,0,25
+Tomato,A,1487.7,8,"Nashik, Maharashtra",24.0,0.85,1.36,34.73,30.01,1,5
+Groundnut,C,1321.1,4,"Guntur, Andhra Pradesh",72.0,0.1,1.11,74.09,84.32,0,25
+Wheat,A,2033.1,2,"Ludhiana, Punjab",30.0,0.05,1.35,38.09,47.33,0,25
+Brinjal,A,3105.4,5,"Indore, Madhya Pradesh",22.0,0.75,1.06,28.2,24.94,1,4
+Green Chilli,A,3148.8,10,"Pune, Maharashtra",55.0,0.7,1.27,69.56,86.17,0,25
+Sugarcane,A,75.2,3,"Bengaluru, Karnataka",4.5,0.4,1.11,5.24,4.94,1,4
+Cotton,C,55.8,6,"Nashik, Maharashtra",70.0,0.05,1.23,69.74,62.18,1,4
+Rice,B,3891.6,1,"Indore, Madhya Pradesh",48.0,0.05,0.97,42.03,40.43,1,2
+Rice,C,3587.5,12,"Guntur, Andhra Pradesh",48.0,0.05,1.13,33.41,35.15,0,25
+Soybean,B,2292.9,10,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.12,38.16,47.15,0,25
+Rice,B,3707.9,6,"Pune, Maharashtra",48.0,0.05,1.1,51.51,53.11,1,4
+Rice,A,467.3,3,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.12,61.3,59.81,1,3
+Green Chilli,A,1880.2,5,"Indore, Madhya Pradesh",55.0,0.7,1.33,79.17,76.93,1,6
+Cabbage,A,635.9,6,"Bengaluru, Karnataka",18.0,0.6,1.26,27.81,34.41,0,25
+Brinjal,C,1230.4,11,"Nashik, Maharashtra",22.0,0.75,1.31,18.41,21.94,0,25
+Cauliflower,C,1875.1,2,"Bengaluru, Karnataka",26.0,0.8,1.3,33.46,30.31,1,2
+Cotton,A,3303.5,4,"Anand, Gujarat",70.0,0.05,1.09,75.05,81.27,0,25
+Wheat,A,831.1,2,"Nashik, Maharashtra",30.0,0.05,1.22,35.06,41.15,0,25
+Onion,B,3772.0,1,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,0.93,26.1,29.75,0,25
+Carrot,A,1735.3,11,"Guntur, Andhra Pradesh",34.0,0.5,1.08,38.32,46.49,0,25
+Wheat,B,186.9,3,"Indore, Madhya Pradesh",30.0,0.05,1.21,26.03,26.42,1,5
+Tomato,A,592.1,7,"Pune, Maharashtra",24.0,0.85,1.0,33.49,40.32,0,25
+Cauliflower,A,3138.6,7,"Nashik, Maharashtra",26.0,0.8,1.08,25.5,30.98,0,25
+Cauliflower,B,760.3,5,"Guntur, Andhra Pradesh",26.0,0.8,1.06,26.12,24.49,1,6
+Sugarcane,B,2141.3,8,"Nashik, Maharashtra",4.5,0.4,1.28,5.26,4.68,1,5
+Wheat,C,2324.0,4,"Nashik, Maharashtra",30.0,0.05,1.39,22.35,22.47,1,8
+Cotton,A,2390.5,4,"Anand, Gujarat",70.0,0.05,1.3,81.84,70.49,1,5
+Cabbage,C,3796.1,10,"Anand, Gujarat",18.0,0.6,1.32,12.86,15.1,0,25
+Carrot,C,1987.2,3,"Pune, Maharashtra",34.0,0.5,0.95,30.19,32.02,0,25
+Tomato,B,1396.0,3,"Bengaluru, Karnataka",24.0,0.85,0.99,29.66,34.73,0,25
+Cotton,B,633.5,1,"Nashik, Maharashtra",70.0,0.05,1.25,63.32,67.15,0,25
+Green Chilli,A,3770.6,12,"Ludhiana, Punjab",55.0,0.7,1.1,64.77,57.67,1,3
+Potato,A,3844.6,11,"Guntur, Andhra Pradesh",20.0,0.2,1.22,25.78,29.06,0,25
+Maize,C,2678.9,4,"Ludhiana, Punjab",23.0,0.1,1.31,23.11,23.14,1,6
+Wheat,A,57.1,12,"Anand, Gujarat",30.0,0.05,1.25,35.36,40.96,0,25
+Cabbage,A,1307.0,10,"Anand, Gujarat",18.0,0.6,1.3,20.87,22.84,0,25
+Soybean,C,605.5,8,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.27,47.26,43.34,1,6
+Onion,C,95.0,8,"Ludhiana, Punjab",28.0,0.3,1.0,31.96,36.03,0,25
+Green Chilli,B,55.1,12,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.09,61.4,73.91,0,25
+Carrot,B,1532.6,9,"Ludhiana, Punjab",34.0,0.5,1.31,27.69,32.27,0,25
+Cabbage,C,1832.6,3,"Bengaluru, Karnataka",18.0,0.6,1.3,18.73,17.88,1,2
+Green Chilli,A,2941.3,3,"Guntur, Andhra Pradesh",55.0,0.7,1.17,64.67,78.2,0,25
+Onion,B,172.4,12,"Indore, Madhya Pradesh",28.0,0.3,1.37,34.57,31.56,1,2
+Rice,A,2238.7,12,"Guntur, Andhra Pradesh",48.0,0.05,1.36,53.08,56.59,0,25
+Soybean,B,428.9,4,"Pune, Maharashtra",46.0,0.1,1.1,48.01,41.86,1,2
+Onion,B,433.1,4,"Indore, Madhya Pradesh",28.0,0.3,1.0,27.03,29.88,0,25
+Onion,B,3150.3,5,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.14,32.65,36.14,0,25
+Brinjal,A,1509.1,7,"Ludhiana, Punjab",22.0,0.75,1.12,24.55,23.45,1,4
+Rice,B,3021.3,3,"Nashik, Maharashtra",48.0,0.05,1.23,50.87,54.26,0,25
+Sugarcane,C,290.9,9,"Bengaluru, Karnataka",4.5,0.4,1.09,4.62,4.89,0,25
+Cauliflower,C,3532.5,10,"Indore, Madhya Pradesh",26.0,0.8,1.14,26.52,30.12,0,25
+Cauliflower,C,3799.6,2,"Anand, Gujarat",26.0,0.8,1.12,25.17,30.95,0,25
+Potato,A,218.6,3,"Bengaluru, Karnataka",20.0,0.2,0.94,20.98,24.74,0,25
+Potato,C,3647.7,6,"Pune, Maharashtra",20.0,0.2,1.36,18.11,15.88,1,3
+Brinjal,C,2102.8,5,"Ludhiana, Punjab",22.0,0.75,1.36,22.97,24.92,0,25
+Sugarcane,B,641.1,7,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.18,5.28,5.72,0,25
+Onion,A,3476.5,5,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.34,39.13,43.51,0,25
+Cabbage,C,730.2,1,"Indore, Madhya Pradesh",18.0,0.6,1.1,12.06,13.23,0,25
+Soybean,C,1613.4,1,"Guntur, Andhra Pradesh",46.0,0.1,1.34,42.47,44.17,1,4
+Green Chilli,A,1278.2,5,"Ludhiana, Punjab",55.0,0.7,1.32,65.48,78.14,0,25
+Soybean,A,1236.9,3,"Bengaluru, Karnataka",46.0,0.1,1.27,64.47,73.59,0,25
+Cabbage,C,1794.8,4,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.36,16.54,16.75,1,5
+Cauliflower,B,3176.4,9,"Nashik, Maharashtra",26.0,0.8,0.93,23.88,27.75,0,25
+Cauliflower,C,811.4,3,"Nashik, Maharashtra",26.0,0.8,1.32,21.41,25.37,0,25
+Rice,A,3676.2,1,"Indore, Madhya Pradesh",48.0,0.05,1.25,54.6,57.44,0,25
+Soybean,A,1521.2,4,"Nashik, Maharashtra",46.0,0.1,1.2,61.68,56.81,1,6
+Cabbage,C,695.9,6,"Ludhiana, Punjab",18.0,0.6,1.35,16.78,16.18,1,4
+Potato,C,2607.2,4,"Bengaluru, Karnataka",20.0,0.2,1.24,17.48,16.74,1,4
+Tomato,C,3650.5,8,"Nashik, Maharashtra",24.0,0.85,1.22,20.45,19.45,1,6
+Wheat,C,3587.2,7,"Pune, Maharashtra",30.0,0.05,1.33,28.17,29.12,1,4
+Wheat,C,454.1,10,"Guntur, Andhra Pradesh",30.0,0.05,1.16,26.1,26.09,1,6
+Cabbage,B,477.0,11,"Pune, Maharashtra",18.0,0.6,0.93,16.1,20.05,0,25
+Soybean,B,2641.7,5,"Pune, Maharashtra",46.0,0.1,1.38,50.9,53.8,0,25
+Rice,A,1312.4,11,"Guntur, Andhra Pradesh",48.0,0.05,0.97,44.14,37.97,1,4
+Wheat,B,1583.7,7,"Guntur, Andhra Pradesh",30.0,0.05,0.92,29.16,27.0,1,5
+Rice,C,1466.1,11,"Indore, Madhya Pradesh",48.0,0.05,1.05,30.93,28.39,1,5
+Cauliflower,A,1909.6,2,"Pune, Maharashtra",26.0,0.8,1.27,32.79,39.84,0,25
+Soybean,B,1453.4,4,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.27,49.72,48.37,1,6
+Green Chilli,B,1211.5,10,"Pune, Maharashtra",55.0,0.7,1.33,48.02,52.03,0,25
+Cabbage,A,2026.9,4,"Indore, Madhya Pradesh",18.0,0.6,1.33,22.47,22.53,1,4
+Tomato,A,1403.5,4,"Anand, Gujarat",24.0,0.85,1.39,40.98,37.18,1,6
+Potato,A,2542.6,6,"Indore, Madhya Pradesh",20.0,0.2,0.99,18.9,20.86,0,25
+Tomato,B,3056.7,4,"Pune, Maharashtra",24.0,0.85,0.98,24.83,28.69,0,25
+Onion,A,1746.2,11,"Guntur, Andhra Pradesh",28.0,0.3,1.11,29.02,30.21,1,2
+Cauliflower,A,3573.4,1,"Ludhiana, Punjab",26.0,0.8,1.28,24.32,20.71,1,5
+Rice,C,559.3,5,"Ludhiana, Punjab",48.0,0.05,1.09,42.17,45.77,0,25
+Potato,A,3796.4,5,"Nashik, Maharashtra",20.0,0.2,1.13,20.82,21.31,1,6
+Potato,B,3013.0,6,"Indore, Madhya Pradesh",20.0,0.2,0.98,18.57,22.52,0,25
+Sugarcane,B,936.1,4,"Nashik, Maharashtra",4.5,0.4,1.39,5.02,5.28,0,25
+Onion,B,3512.3,7,"Nashik, Maharashtra",28.0,0.3,1.03,27.81,29.59,0,25
+Tomato,C,477.0,11,"Nashik, Maharashtra",24.0,0.85,1.32,19.63,20.17,1,3
+Wheat,B,2796.0,4,"Anand, Gujarat",30.0,0.05,1.22,25.7,24.94,1,6
+Soybean,C,2442.3,10,"Pune, Maharashtra",46.0,0.1,0.97,33.3,37.88,0,25
+Onion,B,2016.1,2,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.2,24.72,28.7,0,25
+Cotton,C,2828.6,6,"Bengaluru, Karnataka",70.0,0.05,1.05,71.22,66.45,1,7
+Green Chilli,A,2703.0,1,"Nashik, Maharashtra",55.0,0.7,1.35,69.22,81.96,0,25
+Soybean,B,3129.1,2,"Anand, Gujarat",46.0,0.1,0.94,43.64,48.34,0,25
+Carrot,B,247.8,8,"Pune, Maharashtra",34.0,0.5,1.31,32.4,38.87,0,25
+Cotton,B,1285.2,11,"Ludhiana, Punjab",70.0,0.05,1.27,66.93,58.12,1,5
+Soybean,C,1462.2,6,"Anand, Gujarat",46.0,0.1,1.12,43.51,47.81,0,25
+Maize,C,3269.1,6,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,0.99,18.0,17.26,1,4
+Cotton,B,3550.2,11,"Guntur, Andhra Pradesh",70.0,0.05,0.98,61.49,55.53,1,5
+Cotton,A,3649.3,7,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.14,81.45,89.15,0,25
+Sugarcane,B,3525.8,11,"Nashik, Maharashtra",4.5,0.4,1.26,4.54,5.48,0,25
+Carrot,B,1790.7,7,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,0.93,36.01,43.12,0,25
+Cauliflower,C,3498.9,11,"Bengaluru, Karnataka",26.0,0.8,1.16,20.0,22.51,0,25
+Cabbage,A,2920.3,11,"Guntur, Andhra Pradesh",18.0,0.6,1.14,19.37,17.62,1,6
+Maize,C,2591.4,1,"Nashik, Maharashtra",23.0,0.1,0.98,17.55,20.88,0,25
+Cotton,B,3018.1,2,"Anand, Gujarat",70.0,0.05,1.06,67.87,71.45,0,25
+Cauliflower,C,3277.6,7,"Guntur, Andhra Pradesh",26.0,0.8,0.94,23.0,23.64,1,6
+Onion,B,518.9,6,"Indore, Madhya Pradesh",28.0,0.3,1.15,28.28,28.7,1,6
+Tomato,A,2271.2,9,"Pune, Maharashtra",24.0,0.85,1.23,28.82,29.76,1,4
+Cotton,A,1361.3,8,"Bengaluru, Karnataka",70.0,0.05,1.28,87.9,87.49,1,5
+Onion,C,1398.4,1,"Bengaluru, Karnataka",28.0,0.3,1.31,21.16,26.15,0,25
+Wheat,C,470.0,12,"Ludhiana, Punjab",30.0,0.05,1.35,25.53,29.28,0,25
+Brinjal,A,823.9,10,"Pune, Maharashtra",22.0,0.75,0.96,22.24,26.49,0,25
+Rice,B,1384.8,12,"Bengaluru, Karnataka",48.0,0.05,1.28,50.44,56.44,0,25
+Onion,B,2377.8,11,"Indore, Madhya Pradesh",28.0,0.3,1.15,29.11,35.97,0,25
+Tomato,C,3744.5,9,"Nashik, Maharashtra",24.0,0.85,1.32,17.72,21.59,0,25
+Potato,C,3270.2,12,"Anand, Gujarat",20.0,0.2,0.95,16.68,18.56,0,25
+Cabbage,B,3919.0,7,"Guntur, Andhra Pradesh",18.0,0.6,1.36,19.23,23.76,0,25
+Wheat,B,1680.3,3,"Anand, Gujarat",30.0,0.05,1.25,25.36,29.15,0,25
+Wheat,C,2960.4,12,"Ludhiana, Punjab",30.0,0.05,1.18,25.63,29.11,0,25
+Soybean,B,2617.8,12,"Anand, Gujarat",46.0,0.1,1.38,52.07,54.75,0,25
+Groundnut,C,505.9,12,"Ludhiana, Punjab",72.0,0.1,1.08,46.91,52.39,0,25
+Brinjal,C,3242.8,7,"Pune, Maharashtra",22.0,0.75,1.16,20.24,17.41,1,2
+Soybean,A,3013.2,5,"Bengaluru, Karnataka",46.0,0.1,0.98,56.5,67.0,0,25
+Groundnut,B,177.6,9,"Bengaluru, Karnataka",72.0,0.1,1.31,94.78,84.45,1,6
+Groundnut,C,2606.1,12,"Bengaluru, Karnataka",72.0,0.1,1.09,48.89,55.17,0,25
+Groundnut,C,1580.8,7,"Nashik, Maharashtra",72.0,0.1,1.38,66.34,82.28,0,25
+Green Chilli,C,2987.5,1,"Nashik, Maharashtra",55.0,0.7,1.0,52.69,54.12,1,4
+Soybean,C,2209.1,10,"Ludhiana, Punjab",46.0,0.1,1.2,29.71,34.48,0,25
+Rice,B,3934.6,3,"Indore, Madhya Pradesh",48.0,0.05,0.94,48.18,43.25,1,2
+Wheat,C,685.7,3,"Pune, Maharashtra",30.0,0.05,1.32,23.86,20.33,1,3
+Maize,A,3718.1,3,"Nashik, Maharashtra",23.0,0.1,1.2,27.11,32.19,0,25
+Wheat,B,3146.9,2,"Ludhiana, Punjab",30.0,0.05,1.06,27.04,25.36,1,3
+Onion,C,2195.2,7,"Anand, Gujarat",28.0,0.3,1.1,21.23,23.68,0,25
+Green Chilli,B,3803.7,4,"Pune, Maharashtra",55.0,0.7,1.21,71.77,74.64,1,6
+Sugarcane,C,2692.3,2,"Nashik, Maharashtra",4.5,0.4,1.12,3.26,3.58,0,25
+Tomato,C,3667.9,7,"Ludhiana, Punjab",24.0,0.85,1.37,18.95,19.03,1,5
+Wheat,A,3221.1,9,"Ludhiana, Punjab",30.0,0.05,1.12,37.39,34.66,1,4
+Onion,A,308.6,11,"Nashik, Maharashtra",28.0,0.3,1.24,37.38,43.34,0,25
+Cotton,C,862.0,2,"Guntur, Andhra Pradesh",70.0,0.05,1.31,71.68,73.41,1,7
+Onion,C,1863.9,1,"Anand, Gujarat",28.0,0.3,1.07,17.48,15.47,1,2
+Sugarcane,B,3295.4,10,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.36,4.98,5.04,1,4
+Brinjal,C,73.3,9,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.26,19.47,17.04,1,5
+Tomato,C,3715.8,6,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,0.95,21.82,19.3,1,5
+Carrot,B,171.7,11,"Guntur, Andhra Pradesh",34.0,0.5,0.98,32.68,30.65,1,6
+Sugarcane,C,619.1,11,"Pune, Maharashtra",4.5,0.4,1.24,4.67,5.33,0,25
+Green Chilli,A,215.0,2,"Anand, Gujarat",55.0,0.7,1.19,61.8,62.27,1,5
+Onion,B,2978.7,12,"Bengaluru, Karnataka",28.0,0.3,1.26,34.21,40.73,0,25
+Potato,A,2486.7,4,"Anand, Gujarat",20.0,0.2,1.03,26.76,23.97,1,5
+Cabbage,A,2221.2,11,"Indore, Madhya Pradesh",18.0,0.6,1.05,21.01,23.96,0,25
+Carrot,B,2701.6,3,"Ludhiana, Punjab",34.0,0.5,1.02,33.4,32.2,1,2
+Rice,B,1347.0,8,"Indore, Madhya Pradesh",48.0,0.05,1.23,49.41,53.2,0,25
+Sugarcane,B,69.1,3,"Guntur, Andhra Pradesh",4.5,0.4,1.02,3.77,3.54,1,6
+Brinjal,B,2734.3,3,"Ludhiana, Punjab",22.0,0.75,1.07,19.19,22.26,0,25
+Carrot,C,2599.9,3,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,0.94,30.69,29.53,1,6
+Maize,C,2947.5,5,"Bengaluru, Karnataka",23.0,0.1,1.21,21.95,26.12,0,25
+Soybean,A,890.4,10,"Guntur, Andhra Pradesh",46.0,0.1,0.92,37.9,36.17,1,7
+Cauliflower,B,1600.4,6,"Anand, Gujarat",26.0,0.8,1.35,23.04,20.82,1,4
+Onion,B,91.8,9,"Ludhiana, Punjab",28.0,0.3,1.02,25.47,31.47,0,25
+Cabbage,C,604.5,9,"Anand, Gujarat",18.0,0.6,0.98,14.01,16.8,0,25
+Potato,C,209.7,6,"Indore, Madhya Pradesh",20.0,0.2,1.28,17.66,16.65,1,3
+Rice,A,3635.5,9,"Bengaluru, Karnataka",48.0,0.05,1.08,57.77,50.18,1,6
+Green Chilli,A,1090.1,12,"Pune, Maharashtra",55.0,0.7,1.17,72.64,66.8,1,5
+Green Chilli,C,1043.8,9,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.39,57.99,68.25,0,25
+Green Chilli,B,76.1,10,"Indore, Madhya Pradesh",55.0,0.7,1.34,68.08,69.85,1,4
+Cauliflower,C,643.4,4,"Pune, Maharashtra",26.0,0.8,0.98,19.63,21.88,0,25
+Brinjal,B,2717.2,8,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.14,21.52,23.38,0,25
+Soybean,B,220.4,4,"Nashik, Maharashtra",46.0,0.1,1.19,51.93,44.95,1,4
+Tomato,A,2090.7,3,"Pune, Maharashtra",24.0,0.85,1.1,34.6,42.82,0,25
+Soybean,A,905.5,2,"Pune, Maharashtra",46.0,0.1,1.2,55.84,52.36,1,4
+Potato,C,2655.6,10,"Anand, Gujarat",20.0,0.2,1.03,17.27,19.68,0,25
+Green Chilli,B,1543.9,4,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,0.97,68.7,83.38,0,25
+Soybean,B,430.4,10,"Anand, Gujarat",46.0,0.1,1.14,40.95,44.88,0,25
+Tomato,C,1954.9,2,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,0.97,14.12,17.07,0,25
+Sugarcane,C,1711.7,9,"Guntur, Andhra Pradesh",4.5,0.4,1.34,3.98,4.49,0,25
+Brinjal,A,1434.5,7,"Indore, Madhya Pradesh",22.0,0.75,1.3,30.94,33.43,0,25
+Brinjal,A,3075.1,8,"Pune, Maharashtra",22.0,0.75,1.36,25.31,22.36,1,4
+Cauliflower,B,71.6,4,"Pune, Maharashtra",26.0,0.8,1.27,34.97,36.99,0,25
+Brinjal,C,3226.9,12,"Bengaluru, Karnataka",22.0,0.75,1.1,20.9,18.66,1,4
+Cabbage,B,1723.1,9,"Pune, Maharashtra",18.0,0.6,1.08,18.94,21.82,0,25
+Brinjal,C,1512.3,3,"Indore, Madhya Pradesh",22.0,0.75,1.18,21.99,20.92,1,3
+Green Chilli,C,595.4,12,"Guntur, Andhra Pradesh",55.0,0.7,1.33,55.74,64.84,0,25
+Potato,A,1632.2,9,"Bengaluru, Karnataka",20.0,0.2,1.07,27.23,29.14,0,25
+Groundnut,C,1587.0,3,"Nashik, Maharashtra",72.0,0.1,1.22,67.28,69.88,1,6
+Onion,A,1514.8,4,"Pune, Maharashtra",28.0,0.3,1.2,29.0,33.05,0,25
+Maize,B,3855.9,12,"Pune, Maharashtra",23.0,0.1,0.93,23.28,24.39,1,2
+Cotton,C,182.8,4,"Pune, Maharashtra",70.0,0.05,1.2,65.37,69.05,0,25
+Rice,C,192.4,11,"Anand, Gujarat",48.0,0.05,1.02,36.23,45.24,0,25
+Sugarcane,B,1610.8,11,"Ludhiana, Punjab",4.5,0.4,1.19,4.65,4.92,0,25
+Groundnut,C,2220.9,2,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.26,64.04,63.33,1,7
+Rice,C,3722.4,8,"Bengaluru, Karnataka",48.0,0.05,1.19,45.25,43.19,1,4
+Onion,C,1212.3,9,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.37,31.23,37.49,0,25
+Cotton,C,1798.9,12,"Pune, Maharashtra",70.0,0.05,1.09,43.02,44.89,1,4
+Green Chilli,B,3455.0,10,"Indore, Madhya Pradesh",55.0,0.7,1.14,53.42,62.26,0,25
+Rice,C,1679.1,6,"Bengaluru, Karnataka",48.0,0.05,1.08,48.93,52.07,0,25
+Groundnut,B,417.4,5,"Bengaluru, Karnataka",72.0,0.1,1.24,89.21,109.06,0,25
+Carrot,B,3582.5,4,"Ludhiana, Punjab",34.0,0.5,1.03,31.63,38.87,0,25
+Soybean,A,838.7,12,"Indore, Madhya Pradesh",46.0,0.1,1.27,57.81,53.83,1,3
+Cabbage,B,523.5,2,"Anand, Gujarat",18.0,0.6,0.94,14.37,17.71,0,25
+Carrot,C,3834.1,9,"Nashik, Maharashtra",34.0,0.5,1.32,28.47,34.43,0,25
+Maize,C,772.3,8,"Pune, Maharashtra",23.0,0.1,1.28,23.48,24.76,0,25
+Brinjal,A,2126.7,1,"Anand, Gujarat",22.0,0.75,1.11,26.77,26.47,1,7
+Sugarcane,A,2808.1,2,"Indore, Madhya Pradesh",4.5,0.4,1.13,4.11,4.63,0,25
+Tomato,C,2345.0,7,"Bengaluru, Karnataka",24.0,0.85,1.06,20.95,22.4,0,25
+Rice,B,1405.2,10,"Indore, Madhya Pradesh",48.0,0.05,0.99,37.34,38.07,1,5
+Sugarcane,B,1154.5,7,"Ludhiana, Punjab",4.5,0.4,0.99,4.64,4.37,1,2
+Wheat,A,824.4,7,"Guntur, Andhra Pradesh",30.0,0.05,1.3,39.94,45.75,0,25
+Carrot,A,2023.4,7,"Anand, Gujarat",34.0,0.5,1.4,46.13,52.51,0,25
+Sugarcane,B,2270.4,5,"Pune, Maharashtra",4.5,0.4,1.18,4.71,4.75,1,6
+Tomato,A,3363.9,8,"Pune, Maharashtra",24.0,0.85,0.95,27.82,27.66,1,5
+Sugarcane,B,1676.5,1,"Ludhiana, Punjab",4.5,0.4,1.08,3.57,4.0,0,25
+Cabbage,A,1452.7,5,"Anand, Gujarat",18.0,0.6,1.24,18.78,22.65,0,25
+Brinjal,C,2545.3,8,"Pune, Maharashtra",22.0,0.75,0.97,19.48,17.86,1,6
+Green Chilli,B,362.5,2,"Guntur, Andhra Pradesh",55.0,0.7,1.07,54.02,61.27,0,25
+Cabbage,C,3556.4,5,"Guntur, Andhra Pradesh",18.0,0.6,1.29,18.13,22.22,0,25
+Groundnut,C,710.9,7,"Indore, Madhya Pradesh",72.0,0.1,1.33,68.53,65.15,1,6
+Groundnut,A,1618.3,3,"Bengaluru, Karnataka",72.0,0.1,0.95,95.09,116.46,0,25
+Carrot,C,3095.2,1,"Nashik, Maharashtra",34.0,0.5,1.16,24.61,27.0,0,25
+Onion,C,956.0,5,"Guntur, Andhra Pradesh",28.0,0.3,1.27,25.99,26.7,1,3
+Cauliflower,A,2671.0,1,"Nashik, Maharashtra",26.0,0.8,1.33,24.05,29.82,0,25
+Cauliflower,B,3879.7,3,"Indore, Madhya Pradesh",26.0,0.8,1.25,29.25,26.93,1,5
+Soybean,C,2577.2,9,"Guntur, Andhra Pradesh",46.0,0.1,1.17,42.45,39.94,1,2
+Wheat,B,665.1,5,"Guntur, Andhra Pradesh",30.0,0.05,0.91,23.88,25.3,0,25
+Sugarcane,A,1903.3,5,"Ludhiana, Punjab",4.5,0.4,0.9,5.37,5.59,1,2
+Brinjal,B,2215.4,1,"Bengaluru, Karnataka",22.0,0.75,0.99,21.51,25.87,0,25
+Brinjal,B,2874.0,3,"Bengaluru, Karnataka",22.0,0.75,1.22,26.1,23.01,1,4
+Cauliflower,C,2611.4,5,"Pune, Maharashtra",26.0,0.8,1.17,22.05,21.11,1,3
+Onion,A,485.9,5,"Anand, Gujarat",28.0,0.3,1.13,29.11,30.47,1,4
+Potato,A,3890.7,3,"Nashik, Maharashtra",20.0,0.2,1.04,18.87,16.98,1,4
+Tomato,A,108.2,3,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.01,24.55,25.76,1,5
+Groundnut,A,3382.0,2,"Ludhiana, Punjab",72.0,0.1,1.38,91.62,79.93,1,5
+Onion,C,809.2,3,"Indore, Madhya Pradesh",28.0,0.3,1.32,22.63,20.34,1,5
+Rice,B,2963.6,4,"Indore, Madhya Pradesh",48.0,0.05,0.92,40.65,42.05,1,7
+Cauliflower,C,1587.0,8,"Bengaluru, Karnataka",26.0,0.8,1.38,28.95,33.04,0,25
+Groundnut,C,1950.9,5,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.05,65.99,65.61,1,2
+Soybean,A,2550.0,4,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.06,58.64,52.65,1,5
+Tomato,A,2405.0,12,"Indore, Madhya Pradesh",24.0,0.85,1.09,24.19,21.43,1,2
+Onion,C,287.2,11,"Ludhiana, Punjab",28.0,0.3,1.08,26.66,23.81,1,4
+Green Chilli,C,2946.1,8,"Ludhiana, Punjab",55.0,0.7,0.91,40.12,40.16,1,6
+Wheat,A,1778.1,12,"Indore, Madhya Pradesh",30.0,0.05,1.05,33.63,31.1,1,3
+Groundnut,B,3662.2,10,"Pune, Maharashtra",72.0,0.1,1.18,60.11,52.75,1,2
+Wheat,B,52.8,8,"Ludhiana, Punjab",30.0,0.05,1.22,31.68,27.17,1,5
+Sugarcane,C,2898.0,6,"Bengaluru, Karnataka",4.5,0.4,1.23,4.48,4.77,0,25
+Brinjal,A,658.8,9,"Indore, Madhya Pradesh",22.0,0.75,1.04,19.26,17.11,1,5
+Tomato,A,848.2,1,"Anand, Gujarat",24.0,0.85,1.14,25.75,22.9,1,4
+Cotton,B,2514.7,9,"Indore, Madhya Pradesh",70.0,0.05,1.2,73.78,83.9,0,25
+Tomato,A,1898.8,2,"Indore, Madhya Pradesh",24.0,0.85,1.22,23.71,23.58,1,6
+Maize,B,280.3,12,"Ludhiana, Punjab",23.0,0.1,1.21,22.3,26.4,0,25
+Onion,A,2914.4,2,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.17,27.97,25.89,1,4
+Rice,C,3009.3,9,"Anand, Gujarat",48.0,0.05,1.11,43.58,43.28,1,5
+Soybean,B,3180.2,3,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.17,53.24,56.0,0,25
+Soybean,A,3614.8,6,"Indore, Madhya Pradesh",46.0,0.1,1.18,58.24,59.11,1,6
+Cotton,C,1000.9,10,"Ludhiana, Punjab",70.0,0.05,1.17,50.5,50.5,1,5
+Groundnut,B,1817.6,8,"Ludhiana, Punjab",72.0,0.1,1.1,70.36,76.57,0,25
+Cauliflower,A,1236.3,1,"Pune, Maharashtra",26.0,0.8,1.01,17.28,20.6,0,25
+Tomato,C,2069.5,9,"Pune, Maharashtra",24.0,0.85,1.19,21.15,21.87,1,3
+Wheat,B,1062.2,4,"Bengaluru, Karnataka",30.0,0.05,1.05,27.88,30.06,0,25
+Cabbage,A,1332.5,12,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.14,15.08,17.06,0,25
+Cotton,A,2936.6,1,"Pune, Maharashtra",70.0,0.05,1.19,71.34,62.88,1,2
+Sugarcane,B,1695.3,7,"Ludhiana, Punjab",4.5,0.4,1.33,4.89,5.43,0,25
+Cabbage,A,1253.9,1,"Guntur, Andhra Pradesh",18.0,0.6,0.92,15.93,16.98,0,25
+Potato,B,249.6,3,"Bengaluru, Karnataka",20.0,0.2,1.27,18.89,20.55,0,25
+Cauliflower,A,1194.6,7,"Bengaluru, Karnataka",26.0,0.8,1.1,37.57,33.92,1,2
+Cabbage,C,1626.8,9,"Nashik, Maharashtra",18.0,0.6,0.94,12.44,11.22,1,2
+Cauliflower,A,2626.4,7,"Indore, Madhya Pradesh",26.0,0.8,1.0,28.43,31.17,0,25
+Groundnut,C,333.0,4,"Bengaluru, Karnataka",72.0,0.1,1.29,70.59,62.53,1,5
+Brinjal,B,1316.9,4,"Ludhiana, Punjab",22.0,0.75,1.2,27.64,23.76,1,3
+Green Chilli,C,626.0,10,"Indore, Madhya Pradesh",55.0,0.7,0.92,47.42,47.4,1,7
+Cotton,A,265.4,12,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.37,77.08,94.09,0,25
+Cotton,B,2790.5,6,"Nashik, Maharashtra",70.0,0.05,0.96,66.14,61.75,1,5
+Rice,C,1958.0,9,"Pune, Maharashtra",48.0,0.05,1.26,45.83,41.55,1,5
+Tomato,B,722.8,5,"Nashik, Maharashtra",24.0,0.85,1.04,25.88,22.55,1,5
+Tomato,A,1121.7,11,"Guntur, Andhra Pradesh",24.0,0.85,1.33,20.16,22.46,0,25
+Cotton,A,3476.3,5,"Nashik, Maharashtra",70.0,0.05,1.22,82.6,102.48,0,25
+Onion,B,2149.7,10,"Indore, Madhya Pradesh",28.0,0.3,0.99,24.29,25.51,0,25
+Carrot,C,1027.2,1,"Nashik, Maharashtra",34.0,0.5,1.16,23.66,21.6,1,3
+Green Chilli,B,3984.2,4,"Pune, Maharashtra",55.0,0.7,1.39,68.53,65.81,1,2
+Wheat,B,3799.0,9,"Nashik, Maharashtra",30.0,0.05,1.01,28.21,25.53,1,5
+Cauliflower,C,999.4,7,"Bengaluru, Karnataka",26.0,0.8,0.98,27.57,34.14,0,25
+Maize,C,2191.8,8,"Ludhiana, Punjab",23.0,0.1,1.0,19.95,23.34,0,25
+Cotton,A,2835.3,12,"Pune, Maharashtra",70.0,0.05,1.16,75.2,67.99,1,7
+Sugarcane,A,317.9,6,"Anand, Gujarat",4.5,0.4,1.17,5.64,6.69,0,25
+Potato,C,3526.5,6,"Nashik, Maharashtra",20.0,0.2,1.11,16.05,16.28,1,5
+Maize,C,3127.5,3,"Pune, Maharashtra",23.0,0.1,0.95,20.58,22.53,0,25
+Wheat,C,967.1,10,"Bengaluru, Karnataka",30.0,0.05,1.24,33.21,33.0,1,6
+Carrot,A,2615.8,12,"Indore, Madhya Pradesh",34.0,0.5,0.99,27.94,25.58,1,3
+Brinjal,A,929.1,7,"Pune, Maharashtra",22.0,0.75,1.24,31.03,28.89,1,3
+Potato,B,1333.3,12,"Indore, Madhya Pradesh",20.0,0.2,1.13,20.34,17.63,1,5
+Brinjal,C,2465.4,7,"Ludhiana, Punjab",22.0,0.75,1.27,21.27,23.13,0,25
+Cauliflower,C,481.8,9,"Nashik, Maharashtra",26.0,0.8,1.13,27.53,26.11,1,5
+Groundnut,A,3072.4,9,"Guntur, Andhra Pradesh",72.0,0.1,1.38,79.53,73.64,1,4
+Maize,B,707.6,8,"Pune, Maharashtra",23.0,0.1,1.05,27.25,33.01,0,25
+Carrot,C,2904.5,2,"Indore, Madhya Pradesh",34.0,0.5,0.96,20.58,23.9,0,25
+Maize,C,1683.6,7,"Anand, Gujarat",23.0,0.1,1.13,21.24,24.11,0,25
+Rice,B,1330.1,5,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.22,59.0,66.94,0,25
+Potato,C,501.0,2,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.12,15.04,15.09,1,7
+Cauliflower,C,2223.9,7,"Anand, Gujarat",26.0,0.8,0.92,24.14,22.17,1,3
+Cotton,C,3481.8,3,"Anand, Gujarat",70.0,0.05,0.99,57.34,55.84,1,6
+Carrot,B,3599.2,2,"Anand, Gujarat",34.0,0.5,1.38,27.14,23.11,1,5
+Tomato,B,2196.8,8,"Indore, Madhya Pradesh",24.0,0.85,0.9,24.26,26.34,0,25
+Carrot,B,363.6,8,"Guntur, Andhra Pradesh",34.0,0.5,1.2,35.43,33.58,1,5
+Cabbage,C,780.1,1,"Bengaluru, Karnataka",18.0,0.6,0.93,13.57,11.71,1,4
+Cabbage,B,243.7,2,"Ludhiana, Punjab",18.0,0.6,1.11,16.07,14.81,1,5
+Cabbage,C,3009.9,8,"Anand, Gujarat",18.0,0.6,1.08,17.92,17.55,1,7
+Cotton,A,306.5,9,"Guntur, Andhra Pradesh",70.0,0.05,1.14,89.14,80.12,1,6
+Green Chilli,C,878.9,9,"Guntur, Andhra Pradesh",55.0,0.7,1.0,55.26,68.62,0,25
+Cauliflower,A,2770.2,12,"Indore, Madhya Pradesh",26.0,0.8,1.37,26.69,33.22,0,25
+Wheat,B,2125.3,5,"Ludhiana, Punjab",30.0,0.05,1.4,25.8,27.74,0,25
+Cauliflower,C,3241.5,8,"Indore, Madhya Pradesh",26.0,0.8,1.34,23.78,22.43,1,3
+Rice,A,1886.3,1,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.3,64.16,70.33,0,25
+Brinjal,B,1431.1,6,"Nashik, Maharashtra",22.0,0.75,1.3,22.09,20.65,1,5
+Groundnut,B,1265.7,2,"Pune, Maharashtra",72.0,0.1,1.15,79.58,89.47,0,25
+Green Chilli,B,816.4,3,"Nashik, Maharashtra",55.0,0.7,1.32,61.16,74.55,0,25
+Carrot,B,586.2,11,"Nashik, Maharashtra",34.0,0.5,0.98,28.55,34.5,0,25
+Carrot,B,1232.4,9,"Nashik, Maharashtra",34.0,0.5,1.26,38.07,37.16,1,5
+Rice,C,311.5,6,"Ludhiana, Punjab",48.0,0.05,0.97,42.26,42.26,1,5
+Potato,C,2401.0,3,"Guntur, Andhra Pradesh",20.0,0.2,1.33,13.98,16.09,0,25
+Groundnut,B,1684.8,5,"Nashik, Maharashtra",72.0,0.1,1.15,74.85,92.09,0,25
+Rice,C,493.3,3,"Pune, Maharashtra",48.0,0.05,1.29,50.25,58.35,0,25
+Maize,A,148.5,9,"Indore, Madhya Pradesh",23.0,0.1,1.14,21.69,26.45,0,25
+Groundnut,C,616.0,6,"Pune, Maharashtra",72.0,0.1,1.34,72.1,85.0,0,25
+Cauliflower,C,2912.1,4,"Anand, Gujarat",26.0,0.8,1.13,21.77,18.54,1,6
+Soybean,C,1894.2,6,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,0.92,38.58,40.83,0,25
+Soybean,C,2331.4,1,"Pune, Maharashtra",46.0,0.1,1.06,43.04,39.9,1,3
+Green Chilli,B,639.8,5,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.04,57.77,49.46,1,4
+Cauliflower,A,1433.8,9,"Bengaluru, Karnataka",26.0,0.8,1.06,38.25,36.85,1,3
+Onion,B,1802.4,9,"Ludhiana, Punjab",28.0,0.3,0.97,30.96,32.15,1,7
+Onion,B,1734.5,2,"Nashik, Maharashtra",28.0,0.3,0.99,19.89,23.56,0,25
+Groundnut,B,1362.7,5,"Ludhiana, Punjab",72.0,0.1,1.0,67.71,78.09,0,25
+Sugarcane,C,2292.8,8,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,0.95,4.14,3.68,1,3
+Soybean,C,965.2,8,"Indore, Madhya Pradesh",46.0,0.1,1.01,35.48,42.38,0,25
+Cabbage,B,774.2,7,"Ludhiana, Punjab",18.0,0.6,1.36,17.87,17.51,1,5
+Onion,B,1940.7,6,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.32,39.0,37.55,1,4
+Cabbage,A,3279.3,7,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.3,21.91,25.57,0,25
+Cauliflower,B,1683.1,10,"Guntur, Andhra Pradesh",26.0,0.8,1.21,31.79,33.99,0,25
+Carrot,B,872.5,6,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.25,30.95,33.33,0,25
+Green Chilli,C,2667.3,3,"Bengaluru, Karnataka",55.0,0.7,0.94,57.76,70.6,0,25
+Cabbage,B,2404.5,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.06,21.29,20.72,1,4
+Cabbage,A,2002.5,6,"Guntur, Andhra Pradesh",18.0,0.6,1.23,23.23,20.59,1,5
+Maize,C,2660.5,3,"Nashik, Maharashtra",23.0,0.1,1.13,19.21,19.76,1,3
+Maize,B,3187.7,10,"Pune, Maharashtra",23.0,0.1,1.24,21.98,26.76,0,25
+Maize,B,2351.8,2,"Ludhiana, Punjab",23.0,0.1,1.21,20.75,24.71,0,25
+Tomato,B,2828.2,1,"Nashik, Maharashtra",24.0,0.85,1.31,20.04,19.91,1,7
+Cotton,A,2823.8,7,"Bengaluru, Karnataka",70.0,0.05,1.1,87.15,87.38,1,5
+Soybean,A,793.5,3,"Indore, Madhya Pradesh",46.0,0.1,1.09,56.79,69.27,0,25
+Cotton,B,3990.0,5,"Anand, Gujarat",70.0,0.05,1.24,74.44,63.74,1,5
+Carrot,C,384.4,3,"Guntur, Andhra Pradesh",34.0,0.5,1.22,32.48,33.01,1,5
+Sugarcane,C,760.2,10,"Guntur, Andhra Pradesh",4.5,0.4,1.15,3.91,3.88,1,3
+Cabbage,A,985.2,12,"Indore, Madhya Pradesh",18.0,0.6,1.15,16.75,16.99,1,5
+Green Chilli,A,1958.9,10,"Nashik, Maharashtra",55.0,0.7,1.08,45.99,40.56,1,5
+Cauliflower,B,359.0,9,"Indore, Madhya Pradesh",26.0,0.8,1.34,24.19,21.42,1,4
+Groundnut,C,2553.1,11,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.3,56.66,55.95,1,7
+Carrot,B,2948.6,10,"Indore, Madhya Pradesh",34.0,0.5,1.11,33.93,41.88,0,25
+Sugarcane,B,189.5,3,"Pune, Maharashtra",4.5,0.4,1.36,4.38,4.71,0,25
+Tomato,C,717.9,10,"Indore, Madhya Pradesh",24.0,0.85,0.93,15.49,19.3,0,25
+Sugarcane,C,1964.8,5,"Nashik, Maharashtra",4.5,0.4,0.96,3.98,3.78,1,5
+Wheat,B,490.6,12,"Nashik, Maharashtra",30.0,0.05,0.99,31.92,34.69,0,25
+Potato,C,3241.0,6,"Indore, Madhya Pradesh",20.0,0.2,1.03,15.75,18.42,0,25
+Cotton,A,3871.0,2,"Ludhiana, Punjab",70.0,0.05,1.2,74.01,87.23,0,25
+Cotton,B,989.9,7,"Guntur, Andhra Pradesh",70.0,0.05,1.12,71.32,81.57,0,25
+Green Chilli,A,257.5,2,"Pune, Maharashtra",55.0,0.7,1.13,66.83,69.54,1,5
+Sugarcane,C,2749.9,7,"Bengaluru, Karnataka",4.5,0.4,1.1,4.26,4.36,1,4
+Sugarcane,B,1297.0,11,"Guntur, Andhra Pradesh",4.5,0.4,1.17,5.0,6.16,0,25
+Onion,C,2461.4,7,"Ludhiana, Punjab",28.0,0.3,1.23,24.04,28.15,0,25
+Wheat,C,3103.9,8,"Guntur, Andhra Pradesh",30.0,0.05,1.27,27.56,31.52,0,25
+Cabbage,A,2776.6,11,"Ludhiana, Punjab",18.0,0.6,0.99,16.98,20.08,0,25
+Tomato,B,460.4,9,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.12,26.02,24.4,1,3
+Rice,A,413.2,10,"Nashik, Maharashtra",48.0,0.05,1.37,47.8,58.8,0,25
+Soybean,A,3432.9,2,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,0.96,49.99,55.62,0,25
+Maize,C,2797.8,2,"Anand, Gujarat",23.0,0.1,1.03,16.8,18.57,0,25
+Maize,B,3618.4,12,"Guntur, Andhra Pradesh",23.0,0.1,1.28,24.67,24.16,1,3
+Onion,B,1584.9,7,"Nashik, Maharashtra",28.0,0.3,1.4,30.43,28.03,1,2
+Maize,A,2599.7,3,"Guntur, Andhra Pradesh",23.0,0.1,0.95,28.52,30.41,0,25
+Brinjal,A,2875.8,8,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,0.95,29.52,28.05,1,4
+Maize,B,2579.3,11,"Anand, Gujarat",23.0,0.1,1.37,25.86,28.86,0,25
+Wheat,A,2319.8,7,"Ludhiana, Punjab",30.0,0.05,1.16,36.7,37.6,1,7
+Sugarcane,A,1568.5,1,"Bengaluru, Karnataka",4.5,0.4,1.24,4.94,5.74,0,25
+Onion,C,2743.3,6,"Ludhiana, Punjab",28.0,0.3,1.1,19.04,16.87,1,4
+Green Chilli,A,2608.8,5,"Indore, Madhya Pradesh",55.0,0.7,0.99,46.12,39.93,1,3
+Rice,B,2540.9,2,"Guntur, Andhra Pradesh",48.0,0.05,1.08,51.19,58.57,0,25
+Potato,A,2893.0,1,"Bengaluru, Karnataka",20.0,0.2,1.2,22.56,23.59,1,3
+Cauliflower,C,2159.1,8,"Pune, Maharashtra",26.0,0.8,1.32,15.55,13.45,1,2
+Sugarcane,C,516.8,7,"Nashik, Maharashtra",4.5,0.4,1.3,4.39,4.9,0,25
+Carrot,C,2338.4,12,"Anand, Gujarat",34.0,0.5,1.36,26.93,29.93,0,25
+Carrot,C,2820.1,4,"Nashik, Maharashtra",34.0,0.5,0.97,28.1,25.82,1,2
+Wheat,A,724.2,10,"Indore, Madhya Pradesh",30.0,0.05,1.2,36.51,38.29,1,7
+Rice,A,1382.5,7,"Bengaluru, Karnataka",48.0,0.05,1.32,65.84,75.4,0,25
+Brinjal,B,2325.1,11,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,0.97,20.83,24.07,0,25
+Cabbage,A,526.9,2,"Ludhiana, Punjab",18.0,0.6,0.97,14.39,14.62,1,6
+Cauliflower,A,3706.4,4,"Indore, Madhya Pradesh",26.0,0.8,0.92,32.87,35.99,0,25
+Sugarcane,A,368.9,8,"Nashik, Maharashtra",4.5,0.4,0.9,5.42,6.61,0,25
+Groundnut,C,2789.3,7,"Pune, Maharashtra",72.0,0.1,1.3,65.31,59.25,1,3
+Carrot,B,2461.6,3,"Bengaluru, Karnataka",34.0,0.5,0.92,36.89,34.01,1,4
+Onion,C,1704.2,6,"Pune, Maharashtra",28.0,0.3,1.18,29.34,36.4,0,25
+Cabbage,B,3092.8,8,"Bengaluru, Karnataka",18.0,0.6,1.23,26.31,25.27,1,3
+Sugarcane,A,746.5,8,"Indore, Madhya Pradesh",4.5,0.4,1.24,5.78,5.57,1,4
+Green Chilli,C,462.5,1,"Indore, Madhya Pradesh",55.0,0.7,0.93,48.35,51.49,0,25
+Potato,A,508.5,9,"Indore, Madhya Pradesh",20.0,0.2,1.35,24.64,24.16,1,3
+Soybean,B,1338.2,2,"Bengaluru, Karnataka",46.0,0.1,0.95,47.27,54.13,0,25
+Cotton,A,340.4,4,"Guntur, Andhra Pradesh",70.0,0.05,1.19,94.26,88.27,1,5
+Potato,B,1858.1,3,"Ludhiana, Punjab",20.0,0.2,1.0,16.42,16.31,1,4
+Green Chilli,A,2296.2,12,"Nashik, Maharashtra",55.0,0.7,1.04,69.4,70.6,1,7
+Rice,B,3813.4,11,"Anand, Gujarat",48.0,0.05,1.35,43.37,46.89,0,25
+Cauliflower,A,3435.0,7,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.14,37.88,44.88,0,25
+Wheat,A,3496.8,12,"Guntur, Andhra Pradesh",30.0,0.05,1.02,33.72,34.52,1,3
+Maize,C,3598.1,10,"Anand, Gujarat",23.0,0.1,1.11,18.97,21.69,0,25
+Cauliflower,A,1607.6,9,"Guntur, Andhra Pradesh",26.0,0.8,1.3,35.69,40.28,0,25
+Onion,B,378.2,4,"Indore, Madhya Pradesh",28.0,0.3,1.28,28.96,27.14,1,4
+Rice,C,1945.1,1,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.05,42.58,48.17,0,25
+Cotton,C,1881.9,8,"Nashik, Maharashtra",70.0,0.05,0.97,57.72,69.18,0,25
+Soybean,B,329.3,11,"Nashik, Maharashtra",46.0,0.1,1.35,40.4,39.72,1,2
+Brinjal,B,369.8,11,"Bengaluru, Karnataka",22.0,0.75,1.34,22.42,27.53,0,25
+Soybean,B,1562.7,2,"Nashik, Maharashtra",46.0,0.1,1.13,46.5,40.29,1,3
+Soybean,C,2851.9,9,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.0,43.21,38.69,1,4
+Sugarcane,C,3055.5,12,"Bengaluru, Karnataka",4.5,0.4,1.06,3.42,4.14,0,25
+Cauliflower,C,265.1,5,"Guntur, Andhra Pradesh",26.0,0.8,1.09,20.34,24.04,0,25
+Carrot,C,2502.8,8,"Pune, Maharashtra",34.0,0.5,1.3,33.23,40.81,0,25
+Sugarcane,A,394.9,8,"Bengaluru, Karnataka",4.5,0.4,1.1,6.4,5.64,1,2
+Onion,C,644.5,8,"Anand, Gujarat",28.0,0.3,1.0,31.01,38.17,0,25
+Tomato,B,2188.7,11,"Guntur, Andhra Pradesh",24.0,0.85,0.97,17.62,19.52,0,25
+Wheat,A,3493.6,1,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.02,38.19,46.93,0,25
+Soybean,B,1404.0,10,"Guntur, Andhra Pradesh",46.0,0.1,1.22,38.58,43.55,0,25
+Cotton,C,1251.1,8,"Indore, Madhya Pradesh",70.0,0.05,0.97,63.4,73.91,0,25
+Potato,B,1519.0,8,"Bengaluru, Karnataka",20.0,0.2,1.04,23.27,22.43,1,7
+Cabbage,A,3894.2,3,"Pune, Maharashtra",18.0,0.6,1.32,21.83,24.61,0,25
+Soybean,A,511.8,4,"Anand, Gujarat",46.0,0.1,1.4,57.34,57.22,1,3
+Groundnut,A,634.4,6,"Ludhiana, Punjab",72.0,0.1,1.12,83.27,103.27,0,25
+Cauliflower,B,1648.0,1,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.15,25.91,25.34,1,2
+Groundnut,C,2836.5,11,"Ludhiana, Punjab",72.0,0.1,1.14,52.48,50.69,1,7
+Cabbage,C,2927.7,10,"Anand, Gujarat",18.0,0.6,1.36,16.02,16.69,1,2
+Soybean,C,147.9,5,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.21,47.66,44.71,1,4
+Green Chilli,A,2129.4,10,"Bengaluru, Karnataka",55.0,0.7,1.29,75.86,67.02,1,6
+Soybean,C,1608.0,9,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.15,42.53,46.41,0,25
+Cauliflower,A,634.4,7,"Ludhiana, Punjab",26.0,0.8,1.33,30.13,29.04,1,4
+Carrot,C,2925.0,4,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.12,33.45,41.71,0,25
+Sugarcane,B,3232.4,3,"Pune, Maharashtra",4.5,0.4,1.39,3.81,3.45,1,5
+Onion,A,1924.7,5,"Bengaluru, Karnataka",28.0,0.3,1.33,43.02,53.55,0,25
+Onion,C,76.1,2,"Guntur, Andhra Pradesh",28.0,0.3,1.22,21.18,21.92,1,6
+Maize,A,3337.5,3,"Bengaluru, Karnataka",23.0,0.1,1.04,30.05,31.44,1,8
+Wheat,C,2259.2,8,"Pune, Maharashtra",30.0,0.05,1.13,27.57,26.33,1,7
+Cotton,C,2632.6,2,"Indore, Madhya Pradesh",70.0,0.05,1.35,61.71,62.75,1,5
+Groundnut,C,521.5,1,"Bengaluru, Karnataka",72.0,0.1,1.04,73.07,83.9,0,25
+Cabbage,B,2530.6,5,"Guntur, Andhra Pradesh",18.0,0.6,1.14,18.34,20.68,0,25
+Onion,B,693.2,5,"Nashik, Maharashtra",28.0,0.3,0.93,25.38,22.95,1,2
+Wheat,B,3652.8,11,"Guntur, Andhra Pradesh",30.0,0.05,1.08,32.58,31.47,1,5
+Maize,A,773.8,11,"Bengaluru, Karnataka",23.0,0.1,0.95,29.95,35.91,0,25
+Cotton,C,2757.5,5,"Pune, Maharashtra",70.0,0.05,1.24,58.9,52.32,1,4
+Cotton,A,2096.8,3,"Nashik, Maharashtra",70.0,0.05,1.09,75.64,91.85,0,25
+Onion,A,923.4,9,"Anand, Gujarat",28.0,0.3,0.99,33.58,40.59,0,25
+Cabbage,C,1868.9,7,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.94,17.9,18.65,1,4
+Green Chilli,A,2116.3,10,"Indore, Madhya Pradesh",55.0,0.7,1.39,49.76,45.72,1,3
+Groundnut,A,3434.4,3,"Bengaluru, Karnataka",72.0,0.1,0.97,89.62,80.85,1,2
+Groundnut,A,3110.0,1,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.28,96.78,83.91,1,2
+Sugarcane,C,519.7,8,"Nashik, Maharashtra",4.5,0.4,1.03,4.16,4.79,0,25
+Sugarcane,A,3609.6,10,"Bengaluru, Karnataka",4.5,0.4,0.99,5.73,5.68,1,3
+Cotton,C,1424.0,10,"Pune, Maharashtra",70.0,0.05,0.98,45.15,42.74,1,5
+Onion,C,907.1,9,"Nashik, Maharashtra",28.0,0.3,1.0,24.14,23.24,1,7
+Cauliflower,A,3685.9,4,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.33,27.87,25.75,1,5
+Onion,A,1725.2,7,"Ludhiana, Punjab",28.0,0.3,1.16,33.86,34.3,1,7
+Green Chilli,A,2102.9,2,"Indore, Madhya Pradesh",55.0,0.7,1.15,59.15,67.36,0,25
+Onion,B,1569.9,2,"Indore, Madhya Pradesh",28.0,0.3,1.13,24.64,28.2,0,25
+Soybean,B,1658.8,9,"Bengaluru, Karnataka",46.0,0.1,1.39,50.58,61.1,0,25
+Sugarcane,B,100.5,3,"Ludhiana, Punjab",4.5,0.4,1.24,4.12,4.61,0,25
+Brinjal,B,616.3,2,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.1,24.22,29.55,0,25
+Potato,A,1387.6,4,"Ludhiana, Punjab",20.0,0.2,1.2,23.53,29.32,0,25
+Onion,A,2021.5,12,"Guntur, Andhra Pradesh",28.0,0.3,1.28,34.9,40.22,0,25
+Sugarcane,C,1929.5,6,"Guntur, Andhra Pradesh",4.5,0.4,1.2,3.8,3.84,1,5
+Wheat,A,532.7,2,"Indore, Madhya Pradesh",30.0,0.05,1.14,36.31,31.3,1,5
+Cotton,A,155.7,11,"Indore, Madhya Pradesh",70.0,0.05,0.99,77.96,85.12,0,25
+Green Chilli,A,2511.8,10,"Pune, Maharashtra",55.0,0.7,1.28,64.55,67.58,1,5
+Wheat,C,2043.9,8,"Indore, Madhya Pradesh",30.0,0.05,1.17,24.38,28.62,0,25
+Cauliflower,C,3963.3,1,"Nashik, Maharashtra",26.0,0.8,1.34,20.65,24.6,0,25
+Carrot,B,748.6,1,"Nashik, Maharashtra",34.0,0.5,1.23,31.84,36.99,0,25
+Maize,C,1751.2,8,"Anand, Gujarat",23.0,0.1,1.06,18.57,20.01,0,25
+Carrot,C,2270.9,8,"Indore, Madhya Pradesh",34.0,0.5,0.98,30.36,26.48,1,3
+Cabbage,B,1315.9,5,"Ludhiana, Punjab",18.0,0.6,0.91,20.7,20.48,1,6
+Tomato,C,434.5,7,"Ludhiana, Punjab",24.0,0.85,1.07,22.65,22.49,1,4
+Soybean,A,2609.9,4,"Bengaluru, Karnataka",46.0,0.1,1.2,61.98,60.24,1,4
+Tomato,C,1870.6,1,"Ludhiana, Punjab",24.0,0.85,1.33,17.17,18.5,0,25
+Maize,B,2799.0,1,"Pune, Maharashtra",23.0,0.1,1.19,26.25,26.41,1,6
+Sugarcane,B,2716.7,12,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.07,3.95,4.15,0,25
+Sugarcane,C,2478.6,3,"Ludhiana, Punjab",4.5,0.4,1.08,2.94,3.5,0,25
+Sugarcane,A,1097.4,5,"Bengaluru, Karnataka",4.5,0.4,1.05,6.06,6.54,0,25
+Sugarcane,A,3384.5,12,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,0.95,4.36,5.1,0,25
+Carrot,B,3192.8,6,"Bengaluru, Karnataka",34.0,0.5,1.23,40.12,38.95,1,6
+Brinjal,C,1686.5,4,"Ludhiana, Punjab",22.0,0.75,1.03,15.81,16.9,0,25
+Maize,A,2021.9,10,"Anand, Gujarat",23.0,0.1,1.23,22.79,26.88,0,25
+Carrot,B,2920.1,10,"Guntur, Andhra Pradesh",34.0,0.5,0.93,33.61,31.8,1,6
+Sugarcane,B,1308.7,7,"Guntur, Andhra Pradesh",4.5,0.4,1.32,5.15,4.51,1,2
+Brinjal,B,684.3,11,"Pune, Maharashtra",22.0,0.75,1.24,20.73,18.86,1,2
+Sugarcane,B,2261.3,8,"Indore, Madhya Pradesh",4.5,0.4,1.12,4.59,5.09,0,25
+Tomato,A,588.9,5,"Anand, Gujarat",24.0,0.85,1.03,30.99,28.52,1,6
+Groundnut,B,3445.4,1,"Nashik, Maharashtra",72.0,0.1,0.94,61.76,67.36,0,25
+Cotton,A,2703.1,6,"Guntur, Andhra Pradesh",70.0,0.05,1.34,75.92,90.12,0,25
+Rice,A,2673.7,9,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.19,65.03,75.44,0,25
+Cauliflower,B,990.4,2,"Indore, Madhya Pradesh",26.0,0.8,0.96,26.48,28.7,0,25
+Brinjal,C,911.1,7,"Bengaluru, Karnataka",22.0,0.75,0.95,19.32,18.08,1,3
+Brinjal,B,2157.2,8,"Nashik, Maharashtra",22.0,0.75,1.25,25.21,26.22,1,4
+Wheat,A,2876.9,8,"Ludhiana, Punjab",30.0,0.05,1.31,37.04,31.8,1,6
+Cabbage,A,3674.0,12,"Nashik, Maharashtra",18.0,0.6,1.24,17.21,19.03,0,25
+Groundnut,B,3474.5,9,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.33,87.87,88.34,1,8
+Brinjal,B,3748.5,2,"Pune, Maharashtra",22.0,0.75,1.28,22.71,20.76,1,4
+Green Chilli,C,1132.4,1,"Guntur, Andhra Pradesh",55.0,0.7,0.94,58.08,67.48,0,25
+Carrot,B,2883.7,6,"Guntur, Andhra Pradesh",34.0,0.5,1.34,38.63,43.63,0,25
+Cauliflower,A,2428.4,7,"Ludhiana, Punjab",26.0,0.8,1.31,24.87,28.48,0,25
+Carrot,C,2583.4,1,"Nashik, Maharashtra",34.0,0.5,0.99,20.12,17.13,1,2
+Wheat,B,673.4,2,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.16,35.69,44.18,0,25
+Cotton,C,2758.7,10,"Anand, Gujarat",70.0,0.05,1.3,49.75,56.92,0,25
+Wheat,A,834.7,5,"Ludhiana, Punjab",30.0,0.05,1.11,30.56,28.2,1,6
+Cotton,C,3795.0,1,"Bengaluru, Karnataka",70.0,0.05,1.36,53.69,65.11,0,25
+Carrot,A,3414.7,12,"Pune, Maharashtra",34.0,0.5,0.92,28.76,31.56,0,25
+Cabbage,B,3834.2,2,"Anand, Gujarat",18.0,0.6,0.99,14.18,15.04,0,25
+Sugarcane,B,936.7,2,"Indore, Madhya Pradesh",4.5,0.4,1.0,3.63,4.46,0,25
+Cotton,B,2002.0,12,"Pune, Maharashtra",70.0,0.05,0.97,63.19,78.87,0,25
+Wheat,C,762.5,7,"Bengaluru, Karnataka",30.0,0.05,1.3,29.74,25.62,1,6
+Rice,C,1510.1,4,"Indore, Madhya Pradesh",48.0,0.05,1.24,42.06,37.99,1,3
+Groundnut,B,1564.8,12,"Bengaluru, Karnataka",72.0,0.1,1.11,67.92,73.96,0,25
+Onion,A,1364.8,1,"Nashik, Maharashtra",28.0,0.3,1.02,34.73,42.57,0,25
+Sugarcane,C,1051.9,1,"Nashik, Maharashtra",4.5,0.4,1.21,3.07,2.98,1,4
+Green Chilli,A,758.5,10,"Nashik, Maharashtra",55.0,0.7,0.98,56.81,58.93,1,3
+Groundnut,C,1078.6,3,"Guntur, Andhra Pradesh",72.0,0.1,1.06,63.62,78.98,0,25
+Carrot,B,1167.6,7,"Ludhiana, Punjab",34.0,0.5,1.34,32.56,31.11,1,4
+Maize,A,3978.5,12,"Ludhiana, Punjab",23.0,0.1,1.28,25.22,22.96,1,6
+Soybean,C,796.2,1,"Indore, Madhya Pradesh",46.0,0.1,0.93,39.33,36.0,1,4
+Onion,B,1458.3,8,"Nashik, Maharashtra",28.0,0.3,1.25,33.17,34.63,1,5
+Cotton,C,1430.9,2,"Anand, Gujarat",70.0,0.05,1.0,59.03,67.88,0,25
+Cotton,B,3992.1,10,"Bengaluru, Karnataka",70.0,0.05,0.9,68.72,79.49,0,25
+Potato,B,3084.6,4,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.24,22.65,25.43,0,25
+Soybean,A,2381.8,6,"Guntur, Andhra Pradesh",46.0,0.1,1.38,56.8,67.3,0,25
+Potato,A,3331.3,8,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.23,21.05,22.9,0,25
+Tomato,B,2508.3,11,"Nashik, Maharashtra",24.0,0.85,1.13,21.67,26.63,0,25
+Groundnut,C,3460.0,4,"Anand, Gujarat",72.0,0.1,1.3,63.09,72.4,0,25
+Cauliflower,C,1625.5,2,"Guntur, Andhra Pradesh",26.0,0.8,0.99,26.89,33.24,0,25
+Cotton,B,3416.8,1,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,0.98,60.53,69.67,0,25
+Soybean,A,1988.8,5,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.12,56.08,65.76,0,25
+Wheat,C,2678.8,6,"Anand, Gujarat",30.0,0.05,1.32,25.75,31.01,0,25
+Carrot,B,3038.1,2,"Guntur, Andhra Pradesh",34.0,0.5,1.31,28.84,31.6,0,25
+Brinjal,C,209.7,2,"Guntur, Andhra Pradesh",22.0,0.75,1.07,18.46,20.76,0,25
+Potato,B,1899.5,5,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,0.94,21.61,25.3,0,25
+Wheat,A,3616.5,11,"Anand, Gujarat",30.0,0.05,1.32,35.16,30.56,1,2
+Tomato,C,1728.4,9,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,0.95,21.55,24.01,0,25
+Cabbage,B,2363.0,5,"Ludhiana, Punjab",18.0,0.6,1.28,21.72,22.48,1,7
+Cotton,B,1694.2,2,"Nashik, Maharashtra",70.0,0.05,1.25,74.99,73.16,1,6
+Sugarcane,C,3240.9,10,"Indore, Madhya Pradesh",4.5,0.4,1.07,3.91,3.65,1,2
+Cabbage,B,2160.8,7,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.9,17.2,15.42,1,2
+Carrot,B,3864.9,11,"Guntur, Andhra Pradesh",34.0,0.5,1.2,30.45,37.74,0,25
+Green Chilli,C,396.2,5,"Guntur, Andhra Pradesh",55.0,0.7,0.97,48.86,45.26,1,6
+Groundnut,A,1950.4,4,"Nashik, Maharashtra",72.0,0.1,0.97,81.89,97.72,0,25
+Cauliflower,A,3090.4,5,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,0.97,38.5,39.22,1,3
+Maize,A,1912.4,8,"Indore, Madhya Pradesh",23.0,0.1,1.33,26.81,28.9,0,25
+Cotton,B,81.1,6,"Nashik, Maharashtra",70.0,0.05,1.22,74.46,84.53,0,25
+Brinjal,B,1975.6,1,"Pune, Maharashtra",22.0,0.75,1.14,21.16,23.73,0,25
+Cotton,B,289.8,12,"Bengaluru, Karnataka",70.0,0.05,0.91,60.99,65.9,0,25
+Cauliflower,A,1697.7,11,"Pune, Maharashtra",26.0,0.8,1.14,19.11,18.89,1,6
+Tomato,A,809.2,12,"Pune, Maharashtra",24.0,0.85,1.07,25.0,23.57,1,3
+Maize,C,3421.1,10,"Ludhiana, Punjab",23.0,0.1,1.26,14.21,16.19,0,25
+Brinjal,B,3209.0,8,"Ludhiana, Punjab",22.0,0.75,1.32,23.6,25.93,0,25
+Wheat,C,1957.4,11,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,0.99,28.42,33.18,0,25
+Carrot,B,2249.5,4,"Bengaluru, Karnataka",34.0,0.5,1.4,44.94,44.65,1,4
+Soybean,A,176.3,9,"Anand, Gujarat",46.0,0.1,0.93,50.65,45.5,1,3
+Wheat,B,3091.9,1,"Ludhiana, Punjab",30.0,0.05,1.18,30.79,37.21,0,25
+Cotton,C,249.2,12,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.37,63.19,72.81,0,25
+Onion,C,215.8,9,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,0.95,19.39,21.37,0,25
+Cotton,A,2927.0,3,"Ludhiana, Punjab",70.0,0.05,1.25,82.3,98.61,0,25
+Potato,C,3285.7,6,"Ludhiana, Punjab",20.0,0.2,0.96,14.65,13.64,1,7
+Sugarcane,A,1398.2,8,"Bengaluru, Karnataka",4.5,0.4,1.15,6.26,7.21,0,25
+Green Chilli,C,3025.2,3,"Bengaluru, Karnataka",55.0,0.7,1.16,55.99,65.22,0,25
+Potato,B,3597.4,7,"Guntur, Andhra Pradesh",20.0,0.2,1.38,18.93,23.24,0,25
+Carrot,A,3234.7,12,"Nashik, Maharashtra",34.0,0.5,1.37,33.1,29.26,1,3
+Sugarcane,A,1603.4,1,"Guntur, Andhra Pradesh",4.5,0.4,0.92,4.25,4.59,0,25
+Soybean,C,1637.9,7,"Pune, Maharashtra",46.0,0.1,1.24,43.21,46.3,0,25
+Wheat,C,81.2,6,"Ludhiana, Punjab",30.0,0.05,1.04,23.45,26.5,0,25
+Carrot,C,2516.2,9,"Bengaluru, Karnataka",34.0,0.5,1.21,32.22,33.09,1,4
+Sugarcane,C,3529.8,4,"Guntur, Andhra Pradesh",4.5,0.4,0.94,3.53,4.02,0,25
+Maize,A,416.6,4,"Pune, Maharashtra",23.0,0.1,1.18,29.73,31.47,0,25
+Sugarcane,C,160.2,1,"Anand, Gujarat",4.5,0.4,1.3,3.45,4.0,0,25
+Groundnut,B,286.8,12,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.09,65.64,72.26,0,25
+Green Chilli,A,3768.3,11,"Nashik, Maharashtra",55.0,0.7,1.12,62.1,61.21,1,3
+Groundnut,C,1231.8,6,"Bengaluru, Karnataka",72.0,0.1,1.23,73.09,85.96,0,25
+Cabbage,C,1541.8,12,"Anand, Gujarat",18.0,0.6,1.27,14.87,13.78,1,6
+Carrot,A,1731.5,12,"Anand, Gujarat",34.0,0.5,1.11,35.46,31.45,1,4
+Potato,B,358.4,8,"Bengaluru, Karnataka",20.0,0.2,1.24,22.59,26.24,0,25
+Cotton,B,1722.5,11,"Indore, Madhya Pradesh",70.0,0.05,1.12,60.4,73.83,0,25
+Carrot,C,620.2,3,"Guntur, Andhra Pradesh",34.0,0.5,0.96,29.2,33.05,0,25
+Cotton,C,889.9,12,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.14,53.59,61.55,0,25
+Cauliflower,B,3416.7,10,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,0.96,25.31,26.81,0,25
+Onion,B,1247.9,6,"Pune, Maharashtra",28.0,0.3,1.14,33.06,38.56,0,25
+Potato,C,3750.4,1,"Guntur, Andhra Pradesh",20.0,0.2,1.05,13.53,15.5,0,25
+Tomato,A,3488.2,2,"Ludhiana, Punjab",24.0,0.85,1.11,23.97,25.87,0,25
+Cabbage,B,1927.1,7,"Ludhiana, Punjab",18.0,0.6,1.26,16.28,17.13,0,25
+Carrot,B,3472.1,3,"Indore, Madhya Pradesh",34.0,0.5,1.06,29.52,34.54,0,25
+Soybean,C,969.6,7,"Guntur, Andhra Pradesh",46.0,0.1,1.1,35.04,42.26,0,25
+Groundnut,B,2843.5,3,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.19,76.27,89.12,0,25
+Groundnut,B,2259.4,11,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.0,58.77,51.2,1,4
+Rice,B,2650.1,2,"Nashik, Maharashtra",48.0,0.05,1.17,46.51,57.44,0,25
+Wheat,A,3363.7,12,"Bengaluru, Karnataka",30.0,0.05,1.19,41.29,40.39,1,5
+Carrot,A,763.0,7,"Ludhiana, Punjab",34.0,0.5,0.91,40.69,43.18,0,25
+Brinjal,B,3920.2,2,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.17,23.85,27.6,0,25
+Potato,B,718.3,11,"Guntur, Andhra Pradesh",20.0,0.2,1.21,22.69,22.24,1,2
+Tomato,B,1314.2,2,"Guntur, Andhra Pradesh",24.0,0.85,1.11,19.16,22.63,0,25
+Onion,A,3020.9,4,"Bengaluru, Karnataka",28.0,0.3,1.19,40.08,41.97,1,7
+Brinjal,A,1307.4,1,"Pune, Maharashtra",22.0,0.75,1.18,28.86,31.84,0,25
+Maize,A,3855.7,9,"Pune, Maharashtra",23.0,0.1,1.24,23.54,22.33,1,5
+Sugarcane,A,1656.6,10,"Pune, Maharashtra",4.5,0.4,0.94,5.3,6.56,0,25
+Green Chilli,C,2173.3,4,"Anand, Gujarat",55.0,0.7,1.11,45.2,54.9,0,25
+Carrot,A,3846.4,8,"Nashik, Maharashtra",34.0,0.5,1.21,38.44,33.6,1,6
+Wheat,C,1551.6,11,"Pune, Maharashtra",30.0,0.05,1.08,26.93,29.7,0,25
+Cabbage,C,687.6,1,"Pune, Maharashtra",18.0,0.6,1.17,14.64,16.53,0,25
+Cotton,A,882.9,7,"Pune, Maharashtra",70.0,0.05,1.15,91.36,106.97,0,25
+Maize,C,1082.4,11,"Ludhiana, Punjab",23.0,0.1,1.28,20.02,24.89,0,25
+Green Chilli,A,1347.4,10,"Indore, Madhya Pradesh",55.0,0.7,1.36,69.65,62.93,1,6
+Cabbage,B,2707.2,1,"Nashik, Maharashtra",18.0,0.6,1.11,16.44,18.99,0,25
+Cauliflower,A,172.2,9,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.32,32.3,36.13,0,25
+Soybean,A,3318.5,7,"Ludhiana, Punjab",46.0,0.1,1.08,53.82,60.75,0,25
+Tomato,A,3748.2,6,"Indore, Madhya Pradesh",24.0,0.85,1.12,32.6,30.6,1,2
+Wheat,C,405.4,4,"Ludhiana, Punjab",30.0,0.05,1.21,21.65,20.43,1,4
+Green Chilli,A,3622.8,8,"Pune, Maharashtra",55.0,0.7,1.25,66.64,62.22,1,3
+Cotton,C,3486.2,2,"Guntur, Andhra Pradesh",70.0,0.05,1.18,54.83,61.08,0,25
+Cabbage,C,2373.3,2,"Anand, Gujarat",18.0,0.6,1.27,13.37,12.05,1,6
+Cotton,A,3398.3,4,"Pune, Maharashtra",70.0,0.05,0.91,89.55,98.13,0,25
+Soybean,C,3754.7,1,"Indore, Madhya Pradesh",46.0,0.1,1.22,38.28,46.98,0,25
+Tomato,B,1132.4,7,"Guntur, Andhra Pradesh",24.0,0.85,1.24,22.58,26.05,0,25
+Maize,C,1147.8,1,"Bengaluru, Karnataka",23.0,0.1,1.11,23.07,23.75,1,2
+Rice,B,3240.3,10,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.4,45.9,56.6,0,25
+Maize,A,1350.4,3,"Bengaluru, Karnataka",23.0,0.1,0.93,32.02,35.23,0,25
+Tomato,B,2390.5,1,"Guntur, Andhra Pradesh",24.0,0.85,1.21,19.27,17.21,1,3
+Green Chilli,A,3186.7,9,"Ludhiana, Punjab",55.0,0.7,1.37,71.33,82.76,0,25
+Cabbage,B,1813.5,11,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.96,23.61,23.63,1,7
+Groundnut,A,3680.5,1,"Anand, Gujarat",72.0,0.1,1.12,81.86,79.45,1,5
+Onion,A,256.2,9,"Nashik, Maharashtra",28.0,0.3,1.32,31.39,31.84,1,7
+Sugarcane,C,1566.5,8,"Nashik, Maharashtra",4.5,0.4,1.3,4.24,5.1,0,25
+Cabbage,A,3753.5,11,"Ludhiana, Punjab",18.0,0.6,1.29,19.37,17.96,1,2
+Cabbage,C,3168.2,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.0,16.55,17.86,0,25
+Soybean,C,1713.0,6,"Pune, Maharashtra",46.0,0.1,1.26,42.18,49.3,0,25
+Tomato,A,1771.6,10,"Pune, Maharashtra",24.0,0.85,1.38,33.05,38.07,0,25
+Wheat,C,1904.6,3,"Anand, Gujarat",30.0,0.05,1.2,21.32,22.54,0,25
+Soybean,C,987.7,1,"Anand, Gujarat",46.0,0.1,1.31,50.26,53.97,0,25
+Tomato,B,3907.2,4,"Ludhiana, Punjab",24.0,0.85,1.22,24.54,22.72,1,4
+Groundnut,B,2286.1,10,"Ludhiana, Punjab",72.0,0.1,1.07,59.44,57.65,1,4
+Onion,B,916.7,8,"Nashik, Maharashtra",28.0,0.3,0.9,28.07,30.86,0,25
+Rice,B,1534.9,12,"Ludhiana, Punjab",48.0,0.05,1.1,41.07,48.48,0,25
+Tomato,B,1463.7,2,"Nashik, Maharashtra",24.0,0.85,1.18,22.4,24.7,0,25
+Maize,B,836.5,1,"Nashik, Maharashtra",23.0,0.1,1.04,24.81,23.26,1,3
+Potato,B,824.2,3,"Bengaluru, Karnataka",20.0,0.2,0.99,18.55,21.94,0,25
+Potato,B,3747.7,6,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.05,22.09,20.9,1,6
+Soybean,A,308.2,12,"Guntur, Andhra Pradesh",46.0,0.1,0.97,59.79,55.41,1,4
+Green Chilli,B,1016.0,11,"Guntur, Andhra Pradesh",55.0,0.7,0.92,49.5,54.27,0,25
+Rice,C,1344.3,3,"Pune, Maharashtra",48.0,0.05,0.93,44.0,52.39,0,25
+Cabbage,B,371.6,12,"Bengaluru, Karnataka",18.0,0.6,1.14,14.13,15.76,0,25
+Onion,A,3017.0,11,"Guntur, Andhra Pradesh",28.0,0.3,1.09,29.88,33.91,0,25
+Cauliflower,C,3825.2,12,"Indore, Madhya Pradesh",26.0,0.8,1.14,17.44,18.88,0,25
+Soybean,C,917.1,4,"Nashik, Maharashtra",46.0,0.1,1.0,41.23,40.09,1,7
+Cabbage,A,2224.7,5,"Ludhiana, Punjab",18.0,0.6,0.97,18.46,16.31,1,4
+Green Chilli,A,2073.4,8,"Nashik, Maharashtra",55.0,0.7,1.07,45.18,45.04,1,5
+Wheat,B,1794.7,3,"Nashik, Maharashtra",30.0,0.05,1.03,24.86,21.89,1,6
+Wheat,C,3710.1,5,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,0.95,21.91,20.38,1,3
+Green Chilli,B,3271.5,12,"Pune, Maharashtra",55.0,0.7,1.24,60.63,58.19,1,6
+Potato,C,3091.8,1,"Pune, Maharashtra",20.0,0.2,1.04,12.25,15.05,0,25
+Cotton,C,2633.7,8,"Nashik, Maharashtra",70.0,0.05,1.39,76.83,94.55,0,25
+Cotton,B,2907.2,4,"Bengaluru, Karnataka",70.0,0.05,1.0,76.88,82.34,0,25
+Carrot,C,3178.1,6,"Indore, Madhya Pradesh",34.0,0.5,1.06,30.99,28.67,1,6
+Groundnut,B,1827.4,8,"Bengaluru, Karnataka",72.0,0.1,1.18,78.57,70.82,1,6
+Tomato,B,940.7,6,"Ludhiana, Punjab",24.0,0.85,1.11,27.97,32.19,0,25
+Sugarcane,C,2368.5,6,"Pune, Maharashtra",4.5,0.4,1.18,4.25,5.27,0,25
+Green Chilli,C,856.6,7,"Guntur, Andhra Pradesh",55.0,0.7,1.1,40.64,43.23,0,25
+Rice,B,2299.6,6,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.13,54.11,48.25,1,4
+Tomato,C,787.4,1,"Indore, Madhya Pradesh",24.0,0.85,0.93,15.66,19.34,0,25
+Wheat,A,2655.3,5,"Bengaluru, Karnataka",30.0,0.05,0.93,31.93,29.34,1,6
+Brinjal,B,560.1,2,"Anand, Gujarat",22.0,0.75,1.11,24.62,28.25,0,25
+Brinjal,A,1273.5,4,"Anand, Gujarat",22.0,0.75,1.31,27.16,29.33,0,25
+Wheat,C,2881.2,9,"Bengaluru, Karnataka",30.0,0.05,1.13,27.92,25.98,1,7
+Carrot,A,3239.9,10,"Guntur, Andhra Pradesh",34.0,0.5,1.16,45.82,47.38,1,6
+Groundnut,A,3529.9,11,"Pune, Maharashtra",72.0,0.1,1.13,65.88,74.45,0,25
+Groundnut,B,3302.5,10,"Guntur, Andhra Pradesh",72.0,0.1,1.32,59.39,65.16,0,25
+Brinjal,B,774.6,11,"Guntur, Andhra Pradesh",22.0,0.75,1.18,19.89,20.04,1,8
+Rice,A,2174.1,11,"Pune, Maharashtra",48.0,0.05,1.23,53.4,64.66,0,25
+Maize,B,528.9,9,"Guntur, Andhra Pradesh",23.0,0.1,1.08,20.56,23.69,0,25
+Cauliflower,B,701.1,8,"Guntur, Andhra Pradesh",26.0,0.8,1.0,27.51,30.41,0,25
+Soybean,C,1407.4,7,"Indore, Madhya Pradesh",46.0,0.1,1.1,39.5,36.65,1,2
+Wheat,A,2697.7,6,"Anand, Gujarat",30.0,0.05,1.13,34.62,38.53,0,25
+Groundnut,B,3290.7,8,"Anand, Gujarat",72.0,0.1,1.32,77.07,70.77,1,2
+Onion,A,2161.9,2,"Pune, Maharashtra",28.0,0.3,1.1,32.77,36.73,0,25
+Potato,B,905.9,3,"Ludhiana, Punjab",20.0,0.2,0.92,17.0,19.04,0,25
+Rice,B,3255.5,11,"Nashik, Maharashtra",48.0,0.05,1.22,38.9,39.14,1,4
+Tomato,C,3101.0,1,"Nashik, Maharashtra",24.0,0.85,1.28,12.14,14.83,0,25
+Green Chilli,A,113.4,2,"Bengaluru, Karnataka",55.0,0.7,0.91,88.52,99.32,0,25
+Onion,A,713.1,11,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,0.98,36.39,36.98,1,3
+Green Chilli,B,868.1,10,"Bengaluru, Karnataka",55.0,0.7,1.17,69.38,64.91,1,4
+Potato,A,1299.1,11,"Guntur, Andhra Pradesh",20.0,0.2,1.09,23.55,24.34,1,3
+Cotton,B,316.0,1,"Ludhiana, Punjab",70.0,0.05,1.01,56.36,70.07,0,25
+Onion,C,3838.2,5,"Anand, Gujarat",28.0,0.3,1.2,28.07,34.88,0,25
+Groundnut,B,742.6,6,"Anand, Gujarat",72.0,0.1,1.28,74.21,82.86,0,25
+Onion,B,3652.8,10,"Nashik, Maharashtra",28.0,0.3,1.12,16.29,17.18,0,25
+Groundnut,A,133.8,4,"Nashik, Maharashtra",72.0,0.1,1.28,94.92,96.95,1,4
+Onion,A,2020.0,6,"Anand, Gujarat",28.0,0.3,1.0,34.32,34.33,1,6
+Rice,C,3515.5,12,"Indore, Madhya Pradesh",48.0,0.05,0.97,30.02,25.99,1,5
+Brinjal,C,954.6,1,"Pune, Maharashtra",22.0,0.75,1.27,24.95,24.63,1,3
+Tomato,C,2800.3,11,"Bengaluru, Karnataka",24.0,0.85,1.01,20.32,18.76,1,5
+Onion,B,255.8,4,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.4,31.39,38.46,0,25
+Potato,A,2217.9,10,"Anand, Gujarat",20.0,0.2,1.3,25.44,25.96,1,5
+Potato,C,1724.9,4,"Bengaluru, Karnataka",20.0,0.2,1.2,21.69,21.07,1,5
+Soybean,A,366.1,8,"Pune, Maharashtra",46.0,0.1,1.39,61.56,63.19,1,5
+Groundnut,B,128.3,8,"Anand, Gujarat",72.0,0.1,1.09,79.65,94.91,0,25
+Sugarcane,B,2920.3,9,"Anand, Gujarat",4.5,0.4,1.03,4.28,4.28,1,6
+Onion,B,1903.6,12,"Anand, Gujarat",28.0,0.3,0.98,28.95,26.8,1,2
+Cauliflower,C,1648.0,8,"Ludhiana, Punjab",26.0,0.8,1.11,18.91,18.98,1,4
+Cabbage,A,3970.3,1,"Guntur, Andhra Pradesh",18.0,0.6,0.96,17.91,21.9,0,25
+Potato,A,3096.5,5,"Guntur, Andhra Pradesh",20.0,0.2,1.28,22.34,24.66,0,25
+Green Chilli,C,1572.1,11,"Nashik, Maharashtra",55.0,0.7,1.11,55.65,52.8,1,4
+Maize,B,2679.4,12,"Nashik, Maharashtra",23.0,0.1,0.97,19.67,17.88,1,3
+Cabbage,C,511.1,1,"Anand, Gujarat",18.0,0.6,0.95,10.97,12.45,0,25
+Brinjal,B,3644.3,9,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.34,21.6,24.34,0,25
+Cauliflower,C,1266.5,10,"Guntur, Andhra Pradesh",26.0,0.8,1.11,25.61,30.75,0,25
+Groundnut,A,2311.8,11,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.3,79.5,74.24,1,6
+Groundnut,B,3274.7,3,"Nashik, Maharashtra",72.0,0.1,0.9,64.24,56.4,1,5
+Cauliflower,B,1752.3,12,"Pune, Maharashtra",26.0,0.8,0.99,22.89,23.91,1,5
+Onion,B,843.7,3,"Bengaluru, Karnataka",28.0,0.3,1.27,29.36,34.46,0,25
+Rice,B,2526.0,8,"Guntur, Andhra Pradesh",48.0,0.05,1.21,50.82,49.16,1,4
+Wheat,A,2363.3,1,"Ludhiana, Punjab",30.0,0.05,1.14,33.85,37.88,0,25
+Onion,A,3019.6,5,"Nashik, Maharashtra",28.0,0.3,0.9,21.7,19.29,1,4
+Tomato,B,1919.3,8,"Pune, Maharashtra",24.0,0.85,1.07,20.42,20.86,1,4
+Maize,B,3766.9,4,"Ludhiana, Punjab",23.0,0.1,1.23,22.86,22.69,1,4
+Onion,A,1637.1,12,"Indore, Madhya Pradesh",28.0,0.3,1.32,34.84,42.51,0,25
+Tomato,C,1153.9,9,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.25,25.19,27.64,0,25
+Soybean,B,792.3,11,"Guntur, Andhra Pradesh",46.0,0.1,1.39,40.06,49.39,0,25
+Cotton,B,1472.8,11,"Nashik, Maharashtra",70.0,0.05,0.92,57.28,58.87,1,6
+Brinjal,C,1740.3,6,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.37,20.38,24.91,0,25
+Soybean,C,1570.2,12,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.2,43.56,52.29,0,25
+Sugarcane,C,2016.8,3,"Nashik, Maharashtra",4.5,0.4,0.94,2.8,3.31,0,25
+Cauliflower,B,3822.5,8,"Anand, Gujarat",26.0,0.8,1.14,24.19,22.21,1,6
+Groundnut,A,3973.8,7,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,0.91,84.23,102.9,0,25
+Green Chilli,B,2890.7,4,"Pune, Maharashtra",55.0,0.7,1.23,70.37,78.55,0,25
+Maize,C,3192.4,2,"Indore, Madhya Pradesh",23.0,0.1,1.07,18.28,17.17,1,5
+Maize,C,1405.7,11,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.36,23.27,25.87,0,25
+Sugarcane,C,933.0,4,"Guntur, Andhra Pradesh",4.5,0.4,0.96,3.63,3.21,1,2
+Groundnut,C,3770.9,12,"Bengaluru, Karnataka",72.0,0.1,1.19,59.06,59.18,1,6
+Wheat,A,3920.4,7,"Bengaluru, Karnataka",30.0,0.05,1.06,39.17,39.01,1,6
+Sugarcane,A,1611.5,2,"Bengaluru, Karnataka",4.5,0.4,1.17,4.83,5.93,0,25
+Cotton,A,1850.3,11,"Indore, Madhya Pradesh",70.0,0.05,1.2,67.59,61.4,1,5
+Sugarcane,C,1314.6,10,"Nashik, Maharashtra",4.5,0.4,1.15,3.94,4.68,0,25
+Cabbage,B,1201.4,8,"Bengaluru, Karnataka",18.0,0.6,1.38,20.69,18.07,1,5
+Potato,C,3741.0,12,"Bengaluru, Karnataka",20.0,0.2,1.01,18.21,21.13,0,25
+Cotton,B,3938.3,5,"Guntur, Andhra Pradesh",70.0,0.05,1.23,59.92,71.27,0,25
+Tomato,C,1718.6,6,"Guntur, Andhra Pradesh",24.0,0.85,1.14,19.52,17.15,1,5
+Wheat,C,3432.2,12,"Bengaluru, Karnataka",30.0,0.05,1.1,29.5,26.62,1,5
+Cabbage,A,2635.8,8,"Pune, Maharashtra",18.0,0.6,1.19,20.01,24.19,0,25
+Rice,A,2622.4,12,"Bengaluru, Karnataka",48.0,0.05,1.08,51.27,61.14,0,25
+Onion,C,3804.1,7,"Anand, Gujarat",28.0,0.3,1.11,27.36,24.31,1,6
+Potato,A,2617.9,9,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.2,22.02,27.26,0,25
+Soybean,C,184.3,4,"Guntur, Andhra Pradesh",46.0,0.1,1.02,37.24,45.87,0,25
+Soybean,C,3965.1,12,"Guntur, Andhra Pradesh",46.0,0.1,1.24,40.64,36.0,1,4
+Cotton,C,2547.7,5,"Guntur, Andhra Pradesh",70.0,0.05,1.12,62.64,56.3,1,5
+Maize,C,2368.1,1,"Bengaluru, Karnataka",23.0,0.1,1.39,23.7,24.69,1,7
+Onion,C,1962.6,7,"Anand, Gujarat",28.0,0.3,1.22,22.04,19.61,1,2
+Maize,C,3260.8,7,"Anand, Gujarat",23.0,0.1,0.91,19.41,20.82,0,25
+Cauliflower,C,2099.7,2,"Indore, Madhya Pradesh",26.0,0.8,1.19,21.28,19.14,1,5
+Soybean,A,2796.1,10,"Anand, Gujarat",46.0,0.1,0.9,37.28,38.36,1,4
+Tomato,A,686.8,11,"Bengaluru, Karnataka",24.0,0.85,1.18,27.57,34.24,0,25
+Cauliflower,B,727.8,9,"Ludhiana, Punjab",26.0,0.8,1.39,28.04,31.22,0,25
+Rice,B,3623.2,9,"Nashik, Maharashtra",48.0,0.05,1.05,45.6,47.71,1,4
+Maize,B,441.1,12,"Bengaluru, Karnataka",23.0,0.1,1.31,28.41,26.84,1,3
+Wheat,A,2230.7,10,"Anand, Gujarat",30.0,0.05,1.2,35.84,36.51,1,5
+Wheat,B,1851.5,7,"Anand, Gujarat",30.0,0.05,1.37,35.83,40.15,0,25
+Groundnut,A,2536.8,2,"Bengaluru, Karnataka",72.0,0.1,1.03,85.36,96.95,0,25
+Cabbage,C,3295.2,7,"Anand, Gujarat",18.0,0.6,1.06,13.65,15.9,0,25
+Brinjal,A,1117.0,2,"Bengaluru, Karnataka",22.0,0.75,1.17,28.73,28.21,1,2
+Maize,B,3482.0,3,"Pune, Maharashtra",23.0,0.1,1.01,22.3,19.04,1,3
+Rice,B,744.1,2,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.26,55.12,57.65,1,6
+Groundnut,C,1120.7,9,"Pune, Maharashtra",72.0,0.1,0.95,72.73,63.22,1,3
+Sugarcane,B,3234.0,6,"Anand, Gujarat",4.5,0.4,1.24,4.75,5.71,0,25
+Brinjal,B,87.5,5,"Anand, Gujarat",22.0,0.75,1.16,21.2,19.34,1,2
+Brinjal,C,3677.8,1,"Pune, Maharashtra",22.0,0.75,1.22,17.81,19.97,0,25
+Brinjal,C,1783.9,3,"Indore, Madhya Pradesh",22.0,0.75,1.08,20.9,21.68,1,4
+Brinjal,C,2560.8,5,"Bengaluru, Karnataka",22.0,0.75,0.94,19.01,22.59,0,25
+Soybean,A,998.1,12,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,0.95,63.46,68.54,0,25
+Onion,C,3721.9,9,"Pune, Maharashtra",28.0,0.3,1.3,33.22,37.23,0,25
+Maize,C,2016.3,8,"Anand, Gujarat",23.0,0.1,1.24,21.11,23.66,0,25
+Cauliflower,C,104.9,7,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.0,25.18,25.68,1,5
+Green Chilli,A,1822.2,10,"Nashik, Maharashtra",55.0,0.7,0.98,61.65,75.34,0,25
+Sugarcane,C,346.7,3,"Bengaluru, Karnataka",4.5,0.4,1.32,3.51,3.58,1,4
+Green Chilli,A,1036.6,11,"Ludhiana, Punjab",55.0,0.7,1.17,64.27,74.33,0,25
+Onion,B,1209.5,8,"Pune, Maharashtra",28.0,0.3,1.01,29.73,27.86,1,3
+Maize,C,3575.4,8,"Nashik, Maharashtra",23.0,0.1,1.32,18.78,16.39,1,2
+Carrot,B,473.3,6,"Pune, Maharashtra",34.0,0.5,1.07,37.1,31.67,1,3
+Rice,A,539.2,7,"Anand, Gujarat",48.0,0.05,1.14,56.73,51.75,1,5
+Rice,B,1232.2,6,"Guntur, Andhra Pradesh",48.0,0.05,1.11,52.08,46.53,1,4
+Cotton,B,1447.3,3,"Anand, Gujarat",70.0,0.05,1.12,82.93,82.41,1,7
+Rice,A,209.0,5,"Bengaluru, Karnataka",48.0,0.05,1.1,65.4,59.78,1,3
+Carrot,C,1713.3,2,"Pune, Maharashtra",34.0,0.5,1.18,20.99,24.56,0,25
+Groundnut,A,2032.3,7,"Ludhiana, Punjab",72.0,0.1,1.36,91.59,81.87,1,2
+Tomato,A,2025.0,6,"Anand, Gujarat",24.0,0.85,1.28,26.33,24.87,1,5
+Green Chilli,B,1946.8,7,"Nashik, Maharashtra",55.0,0.7,1.04,49.94,54.79,0,25
+Groundnut,C,1160.5,4,"Anand, Gujarat",72.0,0.1,0.96,64.68,61.8,1,6
+Soybean,B,2840.5,8,"Bengaluru, Karnataka",46.0,0.1,1.3,52.7,48.61,1,7
+Cabbage,C,525.8,4,"Anand, Gujarat",18.0,0.6,1.1,14.55,13.96,1,3
+Potato,B,838.6,10,"Nashik, Maharashtra",20.0,0.2,1.33,20.54,23.21,0,25
+Rice,A,1942.8,7,"Ludhiana, Punjab",48.0,0.05,1.15,58.43,64.71,0,25
+Wheat,A,1158.2,6,"Pune, Maharashtra",30.0,0.05,1.08,36.28,31.53,1,2
+Tomato,C,1177.0,4,"Ludhiana, Punjab",24.0,0.85,1.04,21.8,23.82,0,25
+Brinjal,A,1486.1,8,"Pune, Maharashtra",22.0,0.75,1.05,27.61,29.56,0,25
+Cotton,A,2978.1,6,"Ludhiana, Punjab",70.0,0.05,1.08,78.95,91.7,0,25
+Cauliflower,C,2618.5,4,"Ludhiana, Punjab",26.0,0.8,1.01,17.35,15.65,1,5
+Onion,A,2833.4,4,"Bengaluru, Karnataka",28.0,0.3,1.36,44.08,38.79,1,4
+Green Chilli,B,2157.6,4,"Indore, Madhya Pradesh",55.0,0.7,0.98,57.53,65.28,0,25
+Maize,C,1821.5,6,"Ludhiana, Punjab",23.0,0.1,1.26,21.37,25.95,0,25
+Onion,B,3728.8,9,"Guntur, Andhra Pradesh",28.0,0.3,1.15,32.47,36.65,0,25
+Potato,B,290.1,10,"Nashik, Maharashtra",20.0,0.2,1.39,22.92,21.23,1,6
+Carrot,C,1779.1,3,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.15,29.89,32.67,0,25
+Rice,A,2309.0,3,"Nashik, Maharashtra",48.0,0.05,1.2,55.77,47.6,1,6
+Cauliflower,B,3417.3,5,"Pune, Maharashtra",26.0,0.8,1.05,26.78,25.16,1,5
+Wheat,A,3712.6,5,"Anand, Gujarat",30.0,0.05,1.04,28.65,33.41,0,25
+Soybean,A,508.9,9,"Bengaluru, Karnataka",46.0,0.1,1.22,57.38,56.22,1,7
+Maize,C,577.8,12,"Pune, Maharashtra",23.0,0.1,1.35,20.36,19.71,1,7
+Soybean,A,2935.4,4,"Ludhiana, Punjab",46.0,0.1,1.04,51.04,56.8,0,25
+Cotton,C,2995.8,12,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.09,52.98,58.89,0,25
+Cotton,C,921.5,8,"Bengaluru, Karnataka",70.0,0.05,1.03,60.3,69.41,0,25
+Potato,B,2918.8,12,"Bengaluru, Karnataka",20.0,0.2,1.08,20.69,25.05,0,25
+Onion,B,780.9,8,"Anand, Gujarat",28.0,0.3,1.33,33.0,37.68,0,25
+Soybean,B,693.5,5,"Nashik, Maharashtra",46.0,0.1,0.99,49.83,50.21,1,6
+Onion,A,1018.8,7,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.35,40.69,43.16,0,25
+Groundnut,A,1566.8,7,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,0.96,89.02,76.15,1,5
+Maize,A,3092.0,4,"Anand, Gujarat",23.0,0.1,1.03,28.2,32.91,0,25
+Tomato,A,385.6,12,"Ludhiana, Punjab",24.0,0.85,0.97,21.08,24.32,0,25
+Maize,B,1360.4,5,"Anand, Gujarat",23.0,0.1,0.98,25.48,28.05,0,25
+Onion,A,2201.3,2,"Nashik, Maharashtra",28.0,0.3,0.95,26.96,32.48,0,25
+Brinjal,A,144.8,4,"Nashik, Maharashtra",22.0,0.75,1.11,29.22,27.48,1,6
+Brinjal,C,719.8,8,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,0.96,23.05,20.53,1,6
+Green Chilli,A,1473.9,2,"Ludhiana, Punjab",55.0,0.7,1.36,70.49,64.18,1,4
+Green Chilli,C,1729.7,11,"Anand, Gujarat",55.0,0.7,1.35,52.61,59.18,0,25
+Cabbage,B,1120.8,2,"Ludhiana, Punjab",18.0,0.6,1.15,14.39,17.45,0,25
+Sugarcane,A,3122.2,3,"Nashik, Maharashtra",4.5,0.4,0.97,4.13,3.75,1,4
+Sugarcane,B,2332.5,2,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.38,4.29,5.35,0,25
+Potato,B,2002.1,6,"Ludhiana, Punjab",20.0,0.2,1.14,20.9,25.9,0,25
+Cabbage,C,3218.5,3,"Ludhiana, Punjab",18.0,0.6,1.23,15.48,16.24,1,6
+Cauliflower,C,380.3,7,"Bengaluru, Karnataka",26.0,0.8,1.26,30.61,32.47,0,25
+Sugarcane,C,394.6,12,"Bengaluru, Karnataka",4.5,0.4,1.08,3.76,3.74,1,5
+Potato,A,1475.4,6,"Nashik, Maharashtra",20.0,0.2,1.32,28.35,32.93,0,25
+Potato,B,3349.2,3,"Indore, Madhya Pradesh",20.0,0.2,1.18,17.22,16.09,1,3
+Groundnut,A,2830.7,12,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.09,70.83,60.95,1,6
+Green Chilli,A,2347.3,11,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.14,65.89,59.88,1,2
+Rice,A,3332.7,10,"Nashik, Maharashtra",48.0,0.05,1.11,43.83,50.67,0,25
+Carrot,C,2133.4,12,"Anand, Gujarat",34.0,0.5,1.37,22.21,22.82,1,6
+Tomato,B,287.0,3,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.22,29.71,32.43,0,25
+Potato,C,1615.7,1,"Anand, Gujarat",20.0,0.2,1.11,15.63,17.73,0,25
+Wheat,C,947.9,12,"Pune, Maharashtra",30.0,0.05,1.37,29.48,28.26,1,2
+Brinjal,A,2495.2,7,"Bengaluru, Karnataka",22.0,0.75,1.01,29.73,31.92,0,25
+Cotton,A,1287.1,8,"Indore, Madhya Pradesh",70.0,0.05,1.22,93.12,109.97,0,25
+Potato,A,1725.7,11,"Ludhiana, Punjab",20.0,0.2,1.03,24.1,27.99,0,25
+Green Chilli,A,692.9,5,"Bengaluru, Karnataka",55.0,0.7,0.95,76.86,71.85,1,2
+Maize,B,846.8,9,"Bengaluru, Karnataka",23.0,0.1,1.36,23.39,25.22,0,25
+Tomato,C,239.8,1,"Indore, Madhya Pradesh",24.0,0.85,0.95,17.55,17.08,1,7
+Sugarcane,B,819.8,9,"Guntur, Andhra Pradesh",4.5,0.4,1.28,4.87,5.51,0,25
+Onion,B,2039.1,12,"Guntur, Andhra Pradesh",28.0,0.3,1.15,20.48,23.76,0,25
+Tomato,C,2366.1,8,"Guntur, Andhra Pradesh",24.0,0.85,1.33,21.42,22.17,1,8
+Onion,C,3239.5,4,"Bengaluru, Karnataka",28.0,0.3,1.23,28.97,33.53,0,25
+Potato,C,3152.1,8,"Ludhiana, Punjab",20.0,0.2,1.07,14.95,15.28,1,8
+Sugarcane,C,874.8,4,"Guntur, Andhra Pradesh",4.5,0.4,1.21,4.38,3.85,1,2
+Soybean,B,613.4,1,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.34,47.35,55.05,0,25
+Onion,B,1289.2,8,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.37,30.8,28.17,1,3
+Green Chilli,B,757.8,2,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.29,65.25,62.14,1,7
+Soybean,A,1978.6,10,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.08,50.78,48.98,1,4
+Cabbage,C,1498.6,8,"Anand, Gujarat",18.0,0.6,1.32,18.44,20.71,0,25
+Cauliflower,B,218.6,11,"Pune, Maharashtra",26.0,0.8,1.39,24.6,21.47,1,5
+Groundnut,C,3419.6,3,"Nashik, Maharashtra",72.0,0.1,1.05,62.05,54.55,1,3
+Carrot,C,1890.2,6,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.22,35.57,43.04,0,25
+Carrot,A,2940.5,3,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.36,51.14,47.55,1,3
+Green Chilli,B,2824.0,4,"Indore, Madhya Pradesh",55.0,0.7,1.14,48.58,46.7,1,2
+Potato,B,893.2,11,"Anand, Gujarat",20.0,0.2,1.18,24.45,21.39,1,5
+Sugarcane,B,263.6,4,"Indore, Madhya Pradesh",4.5,0.4,1.33,4.89,6.02,0,25
+Soybean,B,2561.0,5,"Pune, Maharashtra",46.0,0.1,0.94,49.53,48.01,1,6
+Cotton,B,3577.6,11,"Bengaluru, Karnataka",70.0,0.05,0.99,63.7,55.51,1,6
+Brinjal,B,834.5,3,"Pune, Maharashtra",22.0,0.75,1.37,22.77,26.49,0,25
+Groundnut,B,2302.8,12,"Ludhiana, Punjab",72.0,0.1,1.31,61.98,66.59,0,25
+Maize,C,2904.8,2,"Bengaluru, Karnataka",23.0,0.1,1.19,23.48,27.69,0,25
+Groundnut,C,644.5,1,"Ludhiana, Punjab",72.0,0.1,1.13,69.06,62.78,1,6
+Onion,C,2106.7,5,"Guntur, Andhra Pradesh",28.0,0.3,0.9,18.54,16.69,1,4
+Cabbage,A,2995.5,4,"Nashik, Maharashtra",18.0,0.6,0.99,21.06,23.77,0,25
+Sugarcane,A,1424.9,4,"Guntur, Andhra Pradesh",4.5,0.4,1.38,6.04,5.17,1,5
+Tomato,B,3285.3,9,"Pune, Maharashtra",24.0,0.85,0.96,23.55,24.72,1,9
+Brinjal,B,3321.3,6,"Ludhiana, Punjab",22.0,0.75,1.11,23.49,28.67,0,25
+Carrot,B,2233.4,3,"Ludhiana, Punjab",34.0,0.5,0.98,32.47,33.26,1,4
+Soybean,C,1168.8,11,"Guntur, Andhra Pradesh",46.0,0.1,1.21,37.77,47.14,0,25
+Sugarcane,A,114.9,11,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.37,6.17,5.5,1,5
+Cabbage,C,1804.2,11,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.19,18.82,19.16,1,3
+Carrot,C,822.5,2,"Guntur, Andhra Pradesh",34.0,0.5,1.13,25.36,22.82,1,6
+Maize,B,2830.1,11,"Guntur, Andhra Pradesh",23.0,0.1,1.27,25.42,23.88,1,3
+Maize,C,3362.0,5,"Pune, Maharashtra",23.0,0.1,1.3,21.59,21.93,1,4
+Maize,B,153.7,1,"Nashik, Maharashtra",23.0,0.1,1.3,26.54,30.43,0,25
+Green Chilli,B,3971.7,10,"Anand, Gujarat",55.0,0.7,1.02,47.48,58.85,0,25
+Rice,C,3215.3,1,"Guntur, Andhra Pradesh",48.0,0.05,1.19,43.68,54.2,0,25
+Potato,B,675.9,9,"Ludhiana, Punjab",20.0,0.2,1.02,21.87,24.8,0,25
+Potato,C,2328.9,11,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.1,18.92,22.42,0,25
+Potato,B,418.4,2,"Bengaluru, Karnataka",20.0,0.2,1.12,16.16,17.8,0,25
+Cabbage,A,2844.9,10,"Nashik, Maharashtra",18.0,0.6,1.36,23.73,27.22,0,25
+Potato,B,996.9,3,"Ludhiana, Punjab",20.0,0.2,1.35,18.38,17.81,1,5
+Rice,C,2654.1,5,"Guntur, Andhra Pradesh",48.0,0.05,1.04,43.11,47.65,0,25
+Cabbage,A,3712.4,8,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.96,20.41,18.51,1,3
+Potato,A,3386.3,8,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.36,26.68,31.17,0,25
+Brinjal,A,351.4,11,"Indore, Madhya Pradesh",22.0,0.75,1.24,22.98,22.98,1,4
+Maize,B,1230.1,3,"Anand, Gujarat",23.0,0.1,1.35,24.54,29.25,0,25
+Onion,B,3979.9,8,"Ludhiana, Punjab",28.0,0.3,1.2,24.38,20.77,1,4
+Wheat,A,166.7,10,"Bengaluru, Karnataka",30.0,0.05,0.91,38.06,45.55,0,25
+Onion,A,597.3,6,"Nashik, Maharashtra",28.0,0.3,0.94,32.27,36.36,0,25
+Potato,B,837.0,8,"Pune, Maharashtra",20.0,0.2,0.95,20.73,21.49,1,7
+Brinjal,C,1037.9,4,"Guntur, Andhra Pradesh",22.0,0.75,1.0,16.43,19.53,0,25
+Groundnut,B,2355.4,2,"Guntur, Andhra Pradesh",72.0,0.1,1.28,72.69,89.52,0,25
+Carrot,B,2405.5,7,"Indore, Madhya Pradesh",34.0,0.5,1.04,37.78,36.93,1,3
+Brinjal,B,1444.0,10,"Bengaluru, Karnataka",22.0,0.75,1.35,22.99,27.72,0,25
+Cauliflower,B,2435.3,5,"Guntur, Andhra Pradesh",26.0,0.8,1.34,24.56,30.21,0,25
+Cauliflower,B,502.9,1,"Guntur, Andhra Pradesh",26.0,0.8,1.3,21.94,20.8,1,3
+Green Chilli,B,533.1,6,"Anand, Gujarat",55.0,0.7,1.06,49.18,42.02,1,3
+Carrot,C,2268.5,4,"Ludhiana, Punjab",34.0,0.5,1.09,26.18,23.33,1,3
+Cabbage,C,3576.0,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.11,15.37,17.71,0,25
+Green Chilli,B,246.2,4,"Bengaluru, Karnataka",55.0,0.7,1.15,72.52,65.1,1,4
+Cabbage,B,2326.8,4,"Guntur, Andhra Pradesh",18.0,0.6,1.04,18.43,20.41,0,25
+Cotton,C,1173.2,8,"Nashik, Maharashtra",70.0,0.05,1.32,56.33,68.57,0,25
+Tomato,B,1906.1,2,"Nashik, Maharashtra",24.0,0.85,1.31,24.44,24.83,1,4
+Green Chilli,B,2248.0,2,"Guntur, Andhra Pradesh",55.0,0.7,1.06,50.14,56.59,0,25
+Carrot,B,3753.9,6,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,0.95,33.34,31.33,1,6
+Potato,A,2910.8,12,"Ludhiana, Punjab",20.0,0.2,1.01,24.31,28.56,0,25
+Cotton,C,3478.7,12,"Nashik, Maharashtra",70.0,0.05,1.03,50.08,58.29,0,25
+Onion,A,1091.7,2,"Pune, Maharashtra",28.0,0.3,1.24,30.69,34.66,0,25
+Maize,A,548.8,2,"Indore, Madhya Pradesh",23.0,0.1,1.33,27.07,31.16,0,25
+Maize,B,533.4,11,"Indore, Madhya Pradesh",23.0,0.1,1.16,22.11,27.43,0,25
+Green Chilli,C,412.6,4,"Indore, Madhya Pradesh",55.0,0.7,1.28,45.95,52.13,0,25
+Green Chilli,C,2606.2,11,"Bengaluru, Karnataka",55.0,0.7,1.33,54.51,57.12,1,4
+Soybean,A,792.3,7,"Indore, Madhya Pradesh",46.0,0.1,0.95,50.89,47.5,1,5
+Cauliflower,C,2848.6,5,"Ludhiana, Punjab",26.0,0.8,1.23,23.12,20.85,1,6
+Brinjal,B,792.4,7,"Bengaluru, Karnataka",22.0,0.75,1.04,24.46,22.4,1,3
+Cotton,C,1870.8,3,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,0.95,64.39,66.6,1,4
+Carrot,C,1099.0,6,"Indore, Madhya Pradesh",34.0,0.5,1.36,31.49,27.83,1,4
+Potato,B,1368.3,9,"Guntur, Andhra Pradesh",20.0,0.2,1.12,20.55,20.61,1,8
+Rice,B,747.7,7,"Bengaluru, Karnataka",48.0,0.05,1.04,56.2,61.43,0,25
+Cauliflower,B,247.0,11,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.02,25.1,30.32,0,25
+Cabbage,B,2151.9,2,"Bengaluru, Karnataka",18.0,0.6,1.04,16.93,20.37,0,25
+Groundnut,C,1601.9,7,"Guntur, Andhra Pradesh",72.0,0.1,1.01,64.85,67.97,1,3
+Rice,B,2405.4,12,"Pune, Maharashtra",48.0,0.05,1.27,40.44,35.9,1,4
+Groundnut,C,1256.0,12,"Indore, Madhya Pradesh",72.0,0.1,1.35,53.67,47.11,1,2
+Maize,B,2680.8,1,"Anand, Gujarat",23.0,0.1,1.11,24.67,21.18,1,6
+Maize,A,3053.0,11,"Anand, Gujarat",23.0,0.1,0.9,24.35,20.71,1,5
+Carrot,A,2290.7,1,"Nashik, Maharashtra",34.0,0.5,1.4,37.2,44.05,0,25
+Cauliflower,C,3112.3,3,"Anand, Gujarat",26.0,0.8,0.95,22.26,23.29,1,4
+Cauliflower,B,1488.9,5,"Indore, Madhya Pradesh",26.0,0.8,0.91,22.36,22.16,1,6
+Maize,C,1116.3,2,"Indore, Madhya Pradesh",23.0,0.1,1.16,19.67,19.95,1,3
+Potato,B,1015.3,1,"Indore, Madhya Pradesh",20.0,0.2,1.27,16.68,20.67,0,25
+Green Chilli,A,3686.6,4,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.09,73.52,80.93,0,25
+Cauliflower,B,3645.8,5,"Anand, Gujarat",26.0,0.8,1.07,27.61,27.13,1,5
+Wheat,B,2339.1,1,"Bengaluru, Karnataka",30.0,0.05,1.25,35.6,41.59,0,25
+Cabbage,B,3879.4,2,"Pune, Maharashtra",18.0,0.6,1.15,14.9,16.75,0,25
+Carrot,C,3868.4,9,"Anand, Gujarat",34.0,0.5,1.21,28.76,27.76,1,6
+Tomato,B,1167.9,4,"Nashik, Maharashtra",24.0,0.85,1.2,22.82,19.88,1,3
+Brinjal,B,1043.2,1,"Nashik, Maharashtra",22.0,0.75,1.08,21.77,24.3,0,25
+Sugarcane,C,2867.1,2,"Anand, Gujarat",4.5,0.4,0.97,3.29,3.76,0,25
+Brinjal,C,914.5,5,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.14,19.08,21.08,0,25
+Brinjal,B,3684.8,5,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.2,27.89,25.64,1,4
+Maize,B,3082.3,11,"Anand, Gujarat",23.0,0.1,1.03,22.02,21.4,1,4
+Maize,C,774.3,9,"Indore, Madhya Pradesh",23.0,0.1,1.29,17.37,20.56,0,25
+Onion,A,1287.4,12,"Indore, Madhya Pradesh",28.0,0.3,1.37,33.64,34.35,1,5
+Brinjal,B,154.4,9,"Nashik, Maharashtra",22.0,0.75,1.28,17.65,15.63,1,2
+Maize,B,2073.2,10,"Bengaluru, Karnataka",23.0,0.1,0.96,19.06,18.44,1,6
+Brinjal,A,73.5,11,"Guntur, Andhra Pradesh",22.0,0.75,1.3,22.37,26.84,0,25
+Carrot,A,1117.2,1,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.39,42.27,49.83,0,25
+Cabbage,B,529.7,1,"Ludhiana, Punjab",18.0,0.6,1.19,16.87,17.79,0,25
+Groundnut,A,619.4,9,"Bengaluru, Karnataka",72.0,0.1,1.27,96.55,108.16,0,25
+Cotton,A,1278.0,11,"Pune, Maharashtra",70.0,0.05,1.39,77.06,65.7,1,4
+Groundnut,A,50.1,2,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.2,100.73,93.85,1,4
+Cotton,C,269.8,7,"Indore, Madhya Pradesh",70.0,0.05,0.96,60.81,61.53,1,8
+Cotton,A,2741.2,10,"Pune, Maharashtra",70.0,0.05,1.33,68.88,76.08,0,25
+Potato,A,2070.5,3,"Bengaluru, Karnataka",20.0,0.2,1.25,20.92,19.46,1,4
+Wheat,C,1997.2,10,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.23,27.41,24.48,1,4
+Brinjal,A,1855.5,5,"Nashik, Maharashtra",22.0,0.75,1.18,28.79,24.6,1,3
+Soybean,C,3637.0,1,"Indore, Madhya Pradesh",46.0,0.1,1.08,40.65,42.01,1,2
+Potato,B,3615.1,6,"Bengaluru, Karnataka",20.0,0.2,1.16,25.25,26.64,0,25
+Potato,C,2640.9,6,"Anand, Gujarat",20.0,0.2,1.18,15.11,13.69,1,6
+Soybean,B,3668.8,2,"Guntur, Andhra Pradesh",46.0,0.1,1.22,48.69,48.72,1,5
+Soybean,A,2806.2,3,"Pune, Maharashtra",46.0,0.1,1.19,53.08,62.74,0,25
+Onion,A,678.8,12,"Nashik, Maharashtra",28.0,0.3,0.95,30.15,26.91,1,6
+Carrot,B,3192.6,12,"Bengaluru, Karnataka",34.0,0.5,0.95,32.83,32.95,1,8
+Maize,A,1039.4,10,"Nashik, Maharashtra",23.0,0.1,0.92,19.96,22.95,0,25
+Carrot,B,1318.6,3,"Nashik, Maharashtra",34.0,0.5,1.25,29.26,31.59,0,25
+Rice,A,1778.2,8,"Pune, Maharashtra",48.0,0.05,1.04,65.01,60.49,1,3
+Cotton,C,2349.3,2,"Bengaluru, Karnataka",70.0,0.05,1.21,67.33,79.05,0,25
+Maize,A,2294.8,7,"Ludhiana, Punjab",23.0,0.1,1.33,26.82,26.45,1,6
+Maize,C,3338.0,4,"Indore, Madhya Pradesh",23.0,0.1,1.19,18.27,20.05,0,25
+Cauliflower,A,1738.7,8,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.09,33.87,29.75,1,2
+Sugarcane,C,515.8,2,"Pune, Maharashtra",4.5,0.4,1.02,3.31,3.11,1,7
+Maize,B,1463.7,12,"Guntur, Andhra Pradesh",23.0,0.1,1.34,24.44,22.32,1,3
+Cauliflower,C,3730.6,9,"Bengaluru, Karnataka",26.0,0.8,1.15,24.05,27.15,0,25
+Onion,C,2630.3,5,"Indore, Madhya Pradesh",28.0,0.3,0.92,22.72,23.14,1,3
+Maize,A,2211.0,4,"Anand, Gujarat",23.0,0.1,1.27,30.57,36.72,0,25
+Rice,B,3622.1,10,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.25,42.34,48.95,0,25
+Tomato,B,2412.7,7,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.21,31.22,38.36,0,25
+Wheat,C,190.6,2,"Nashik, Maharashtra",30.0,0.05,1.15,28.15,31.25,0,25
+Brinjal,B,134.7,4,"Pune, Maharashtra",22.0,0.75,0.93,24.38,25.93,0,25
+Cotton,B,1954.6,9,"Nashik, Maharashtra",70.0,0.05,1.09,61.23,61.28,1,3
+Groundnut,B,1779.9,2,"Anand, Gujarat",72.0,0.1,1.35,84.72,78.57,1,4
+Tomato,A,2375.0,2,"Bengaluru, Karnataka",24.0,0.85,1.01,24.47,28.12,0,25
+Maize,C,3499.4,1,"Nashik, Maharashtra",23.0,0.1,1.02,19.31,19.8,1,4
+Green Chilli,B,562.4,5,"Bengaluru, Karnataka",55.0,0.7,1.1,65.86,73.3,0,25
+Soybean,A,3756.6,5,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.0,54.09,65.4,0,25
+Cotton,A,1245.7,12,"Indore, Madhya Pradesh",70.0,0.05,1.08,57.24,61.28,0,25
+Cotton,C,3577.3,9,"Bengaluru, Karnataka",70.0,0.05,1.06,63.28,62.56,1,4
+Cabbage,B,854.0,2,"Pune, Maharashtra",18.0,0.6,0.97,15.53,19.26,0,25
+Rice,B,1520.9,2,"Bengaluru, Karnataka",48.0,0.05,1.31,63.23,71.41,0,25
+Soybean,B,2020.7,1,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,0.92,54.99,52.86,1,4
+Cotton,A,3425.6,5,"Nashik, Maharashtra",70.0,0.05,1.09,85.17,87.52,1,4
+Brinjal,A,256.4,9,"Guntur, Andhra Pradesh",22.0,0.75,1.05,21.99,23.45,0,25
+Green Chilli,A,3250.5,5,"Ludhiana, Punjab",55.0,0.7,1.2,63.7,75.27,0,25
+Brinjal,B,2235.5,2,"Nashik, Maharashtra",22.0,0.75,1.38,21.51,26.31,0,25
+Wheat,C,2311.8,7,"Indore, Madhya Pradesh",30.0,0.05,1.18,24.84,24.9,1,7
+Maize,A,1158.8,1,"Anand, Gujarat",23.0,0.1,1.24,28.75,27.59,1,7
+Sugarcane,C,2305.8,6,"Pune, Maharashtra",4.5,0.4,0.92,3.89,3.7,1,5
+Sugarcane,C,1262.2,2,"Nashik, Maharashtra",4.5,0.4,1.23,3.42,4.05,0,25
+Cotton,A,118.2,8,"Indore, Madhya Pradesh",70.0,0.05,0.9,84.93,93.86,0,25
+Cauliflower,A,2339.3,1,"Guntur, Andhra Pradesh",26.0,0.8,0.94,24.39,29.48,0,25
+Cauliflower,B,760.2,8,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.28,29.76,26.81,1,5
+Potato,C,502.1,4,"Nashik, Maharashtra",20.0,0.2,0.92,19.62,22.05,0,25
+Cotton,B,2236.0,1,"Ludhiana, Punjab",70.0,0.05,1.01,67.97,84.29,0,25
+Tomato,C,2887.4,9,"Ludhiana, Punjab",24.0,0.85,1.2,17.83,17.65,1,2
+Carrot,A,856.0,4,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.19,48.47,42.58,1,4
+Wheat,A,2447.5,6,"Nashik, Maharashtra",30.0,0.05,1.08,32.12,39.83,0,25
+Maize,C,3772.8,8,"Ludhiana, Punjab",23.0,0.1,1.05,19.95,19.28,1,3
+Cabbage,A,885.3,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.06,23.77,27.01,0,25
+Groundnut,C,1546.4,4,"Ludhiana, Punjab",72.0,0.1,1.19,62.01,71.62,0,25
+Soybean,A,2283.3,4,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.4,60.69,66.89,0,25
+Groundnut,B,3202.9,9,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.2,76.08,74.31,1,3
+Cabbage,B,1010.1,6,"Bengaluru, Karnataka",18.0,0.6,1.28,19.7,19.6,1,5
+Groundnut,A,2944.6,8,"Bengaluru, Karnataka",72.0,0.1,1.34,93.47,98.35,0,25
+Maize,B,959.9,10,"Indore, Madhya Pradesh",23.0,0.1,1.29,20.8,19.59,1,6
+Potato,C,2712.7,7,"Bengaluru, Karnataka",20.0,0.2,1.23,17.57,17.34,1,3
+Brinjal,B,2002.1,10,"Anand, Gujarat",22.0,0.75,1.34,17.47,16.23,1,3
+Carrot,A,1703.6,2,"Anand, Gujarat",34.0,0.5,1.28,33.8,30.1,1,6
+Cotton,B,709.4,12,"Nashik, Maharashtra",70.0,0.05,0.94,52.59,55.53,0,25
+Cauliflower,B,553.4,6,"Guntur, Andhra Pradesh",26.0,0.8,1.25,28.72,28.28,1,7
+Green Chilli,C,228.7,12,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.27,62.15,61.65,1,5
+Brinjal,C,3347.5,12,"Indore, Madhya Pradesh",22.0,0.75,1.04,16.88,15.59,1,6
+Maize,C,3587.6,3,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.2,21.75,21.71,1,6
+Brinjal,B,2059.2,3,"Indore, Madhya Pradesh",22.0,0.75,1.19,23.22,22.5,1,4
+Cabbage,C,1325.1,5,"Guntur, Andhra Pradesh",18.0,0.6,1.06,15.52,14.3,1,2
+Cotton,C,2100.6,7,"Bengaluru, Karnataka",70.0,0.05,1.19,67.36,64.93,1,3
+Wheat,B,3547.1,4,"Indore, Madhya Pradesh",30.0,0.05,1.04,22.96,27.94,0,25
+Cabbage,A,1150.6,11,"Bengaluru, Karnataka",18.0,0.6,0.95,20.58,18.88,1,5
+Tomato,C,1979.0,1,"Bengaluru, Karnataka",24.0,0.85,1.31,18.86,18.82,1,4
+Cabbage,B,548.4,9,"Indore, Madhya Pradesh",18.0,0.6,1.13,21.2,25.81,0,25
+Onion,B,1089.1,8,"Guntur, Andhra Pradesh",28.0,0.3,1.33,28.28,35.27,0,25
+Groundnut,C,3224.4,6,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.27,69.23,63.19,1,3
+Carrot,C,2767.4,12,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.35,28.11,24.32,1,2
+Groundnut,C,3373.7,4,"Ludhiana, Punjab",72.0,0.1,1.23,62.59,69.09,0,25
+Tomato,A,1536.0,10,"Anand, Gujarat",24.0,0.85,1.37,29.96,33.54,0,25
+Wheat,B,3264.8,8,"Anand, Gujarat",30.0,0.05,1.27,31.31,37.58,0,25
+Cauliflower,C,1765.6,1,"Bengaluru, Karnataka",26.0,0.8,1.15,22.53,24.66,0,25
+Groundnut,A,2767.5,7,"Nashik, Maharashtra",72.0,0.1,1.21,81.58,80.72,1,5
+Potato,B,2688.5,5,"Bengaluru, Karnataka",20.0,0.2,1.15,21.77,23.99,0,25
+Cabbage,B,431.3,5,"Indore, Madhya Pradesh",18.0,0.6,0.96,20.11,19.4,1,7
+Green Chilli,A,746.0,2,"Guntur, Andhra Pradesh",55.0,0.7,1.38,61.12,68.1,0,25
+Green Chilli,C,555.8,12,"Guntur, Andhra Pradesh",55.0,0.7,1.34,59.47,64.85,0,25
+Soybean,A,1108.3,5,"Nashik, Maharashtra",46.0,0.1,1.01,48.14,57.31,0,25
+Brinjal,A,2716.2,5,"Ludhiana, Punjab",22.0,0.75,1.11,25.93,24.74,1,2
+Carrot,C,2563.3,6,"Bengaluru, Karnataka",34.0,0.5,0.92,28.32,29.14,1,4
+Maize,A,485.7,11,"Bengaluru, Karnataka",23.0,0.1,1.38,32.59,34.74,0,25
+Groundnut,A,3132.7,2,"Guntur, Andhra Pradesh",72.0,0.1,1.07,80.14,79.43,1,6
+Onion,C,881.3,9,"Nashik, Maharashtra",28.0,0.3,1.17,30.46,30.71,1,6
+Wheat,A,1682.9,6,"Ludhiana, Punjab",30.0,0.05,1.18,35.22,33.44,1,2
+Cotton,A,1621.9,9,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.14,94.09,88.63,1,6
+Rice,A,538.4,12,"Pune, Maharashtra",48.0,0.05,1.29,54.33,60.42,0,25
+Potato,C,352.3,2,"Pune, Maharashtra",20.0,0.2,1.15,15.15,13.0,1,5
+Cauliflower,C,2956.7,2,"Anand, Gujarat",26.0,0.8,1.3,19.04,17.66,1,5
+Wheat,B,2986.8,9,"Guntur, Andhra Pradesh",30.0,0.05,1.05,28.95,35.83,0,25
+Cabbage,B,1746.7,5,"Guntur, Andhra Pradesh",18.0,0.6,1.01,18.35,18.58,1,4
+Wheat,C,118.0,7,"Bengaluru, Karnataka",30.0,0.05,1.15,29.61,31.64,0,25
+Onion,B,3902.0,10,"Bengaluru, Karnataka",28.0,0.3,1.1,27.04,25.49,1,4
+Cabbage,A,617.9,6,"Pune, Maharashtra",18.0,0.6,1.21,26.28,24.52,1,7
+Cabbage,A,1642.6,3,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.32,25.95,27.49,0,25
+Cotton,C,3081.3,1,"Bengaluru, Karnataka",70.0,0.05,1.03,51.63,47.0,1,3
+Cabbage,C,1109.2,1,"Guntur, Andhra Pradesh",18.0,0.6,1.0,13.79,14.82,0,25
+Carrot,C,3839.9,6,"Indore, Madhya Pradesh",34.0,0.5,1.02,24.67,26.44,0,25
+Groundnut,C,1731.5,2,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,0.94,66.87,60.24,1,2
+Cauliflower,C,829.6,3,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.33,31.63,33.15,1,6
+Cauliflower,B,3503.1,12,"Anand, Gujarat",26.0,0.8,1.11,24.93,21.28,1,2
+Wheat,C,1323.4,9,"Pune, Maharashtra",30.0,0.05,1.34,28.72,27.75,1,6
+Sugarcane,C,2437.8,9,"Ludhiana, Punjab",4.5,0.4,1.14,3.79,3.54,1,3
+Groundnut,C,2121.3,3,"Anand, Gujarat",72.0,0.1,1.31,71.15,64.76,1,2
+Tomato,B,2791.5,4,"Bengaluru, Karnataka",24.0,0.85,1.17,27.53,27.05,1,2
+Carrot,C,1434.3,2,"Anand, Gujarat",34.0,0.5,1.18,25.65,31.32,0,25
+Wheat,B,2930.8,10,"Guntur, Andhra Pradesh",30.0,0.05,1.08,31.94,36.95,0,25
+Maize,B,2390.9,2,"Bengaluru, Karnataka",23.0,0.1,0.95,25.21,27.11,0,25
+Potato,C,2323.8,6,"Guntur, Andhra Pradesh",20.0,0.2,1.33,19.07,20.82,0,25
+Sugarcane,C,714.0,4,"Indore, Madhya Pradesh",4.5,0.4,1.29,4.17,4.88,0,25
+Potato,A,3504.7,8,"Anand, Gujarat",20.0,0.2,1.06,22.93,27.71,0,25
+Tomato,A,2676.1,7,"Indore, Madhya Pradesh",24.0,0.85,1.06,24.8,26.64,0,25
+Brinjal,B,1281.5,6,"Indore, Madhya Pradesh",22.0,0.75,1.16,22.53,23.93,0,25
+Maize,C,3784.7,3,"Bengaluru, Karnataka",23.0,0.1,1.32,22.27,23.92,0,25
+Carrot,C,524.9,11,"Pune, Maharashtra",34.0,0.5,1.35,28.48,31.64,0,25
+Potato,A,3094.4,8,"Ludhiana, Punjab",20.0,0.2,1.07,20.27,24.33,0,25
+Maize,A,757.1,6,"Guntur, Andhra Pradesh",23.0,0.1,1.27,30.17,25.77,1,3
+Cauliflower,A,1276.0,10,"Nashik, Maharashtra",26.0,0.8,0.95,27.85,33.94,0,25
+Cabbage,B,1136.1,11,"Nashik, Maharashtra",18.0,0.6,1.14,19.86,17.23,1,5
+Wheat,B,3302.1,10,"Nashik, Maharashtra",30.0,0.05,1.33,36.14,39.86,0,25
+Carrot,A,3506.0,12,"Indore, Madhya Pradesh",34.0,0.5,1.28,27.82,32.63,0,25
+Tomato,B,3582.3,10,"Nashik, Maharashtra",24.0,0.85,0.98,22.46,20.27,1,4
+Cotton,A,2568.0,8,"Nashik, Maharashtra",70.0,0.05,0.93,65.43,58.17,1,4
+Cotton,A,3357.2,6,"Nashik, Maharashtra",70.0,0.05,1.32,79.82,96.76,0,25
+Cabbage,C,106.0,9,"Ludhiana, Punjab",18.0,0.6,1.23,18.94,19.25,1,6
+Tomato,A,632.7,9,"Bengaluru, Karnataka",24.0,0.85,1.03,32.59,35.63,0,25
+Groundnut,C,2559.4,3,"Guntur, Andhra Pradesh",72.0,0.1,1.32,66.32,81.34,0,25
+Wheat,B,1398.7,2,"Ludhiana, Punjab",30.0,0.05,1.18,30.45,31.52,1,3
+Onion,A,1304.1,3,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.21,26.29,22.56,1,2
+Tomato,A,371.0,8,"Ludhiana, Punjab",24.0,0.85,1.26,30.06,33.27,0,25
+Maize,A,260.7,5,"Anand, Gujarat",23.0,0.1,1.25,32.94,30.34,1,2
+Green Chilli,B,1127.6,4,"Bengaluru, Karnataka",55.0,0.7,1.0,68.46,70.23,1,3
+Green Chilli,C,3100.9,6,"Ludhiana, Punjab",55.0,0.7,1.16,37.33,44.12,0,25
+Soybean,A,1573.4,10,"Nashik, Maharashtra",46.0,0.1,1.17,45.9,45.38,1,7
+Sugarcane,B,2813.6,6,"Bengaluru, Karnataka",4.5,0.4,1.15,5.4,6.38,0,25
+Sugarcane,B,3105.0,9,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.03,4.73,4.24,1,5
+Potato,B,2367.9,8,"Anand, Gujarat",20.0,0.2,1.09,20.53,20.55,1,6
+Tomato,B,1467.6,11,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.35,25.3,24.91,1,7
+Potato,B,1894.0,3,"Pune, Maharashtra",20.0,0.2,0.99,18.34,15.75,1,5
+Carrot,C,1627.4,12,"Guntur, Andhra Pradesh",34.0,0.5,1.32,25.59,25.21,1,6
+Wheat,A,476.0,9,"Bengaluru, Karnataka",30.0,0.05,1.11,42.86,41.05,1,5
+Cabbage,A,707.2,9,"Anand, Gujarat",18.0,0.6,1.05,19.05,20.19,0,25
+Cabbage,A,1365.9,11,"Anand, Gujarat",18.0,0.6,1.38,21.17,26.21,0,25
+Wheat,A,1614.2,8,"Ludhiana, Punjab",30.0,0.05,1.13,34.53,31.73,1,3
+Potato,A,406.2,7,"Bengaluru, Karnataka",20.0,0.2,1.02,25.58,28.75,0,25
+Cotton,B,679.4,8,"Nashik, Maharashtra",70.0,0.05,0.95,65.5,61.24,1,4
+Brinjal,B,1580.9,2,"Bengaluru, Karnataka",22.0,0.75,1.06,24.31,29.76,0,25
+Brinjal,B,2935.0,11,"Pune, Maharashtra",22.0,0.75,1.11,18.33,19.16,1,7
+Cabbage,A,753.7,10,"Bengaluru, Karnataka",18.0,0.6,1.02,24.41,24.29,1,5
+Tomato,C,2600.0,2,"Guntur, Andhra Pradesh",24.0,0.85,0.97,16.83,17.24,1,4
+Soybean,A,1175.6,3,"Guntur, Andhra Pradesh",46.0,0.1,1.09,57.22,67.43,0,25
+Tomato,B,696.0,3,"Guntur, Andhra Pradesh",24.0,0.85,1.24,28.29,24.98,1,5
+Onion,C,685.5,1,"Guntur, Andhra Pradesh",28.0,0.3,0.96,17.69,18.62,0,25
+Soybean,B,2632.6,8,"Nashik, Maharashtra",46.0,0.1,1.24,46.61,47.54,1,7
+Onion,C,1522.7,9,"Indore, Madhya Pradesh",28.0,0.3,1.14,24.53,24.14,1,5
+Green Chilli,A,2150.3,7,"Anand, Gujarat",55.0,0.7,1.09,51.25,50.47,1,7
+Cabbage,B,3260.7,9,"Bengaluru, Karnataka",18.0,0.6,1.26,19.74,20.37,1,2
+Wheat,A,1868.0,8,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,0.93,35.33,36.05,1,6
+Sugarcane,A,1208.3,3,"Pune, Maharashtra",4.5,0.4,1.11,4.53,4.66,1,4
+Tomato,C,2941.0,6,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.17,20.91,22.25,0,25
+Potato,C,1999.1,11,"Anand, Gujarat",20.0,0.2,1.35,19.18,18.95,1,5
+Cabbage,A,352.3,1,"Indore, Madhya Pradesh",18.0,0.6,1.09,20.24,22.37,0,25
+Maize,A,3922.1,9,"Guntur, Andhra Pradesh",23.0,0.1,0.94,23.4,28.57,0,25
+Groundnut,B,138.4,7,"Guntur, Andhra Pradesh",72.0,0.1,1.38,81.96,98.61,0,25
+Cotton,B,2305.0,4,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.4,91.63,100.45,0,25
+Cauliflower,A,2314.7,6,"Nashik, Maharashtra",26.0,0.8,1.01,32.0,36.02,0,25
+Potato,B,1624.7,10,"Nashik, Maharashtra",20.0,0.2,0.99,19.43,18.73,1,2
+Rice,A,562.6,11,"Guntur, Andhra Pradesh",48.0,0.05,1.03,41.65,40.7,1,3
+Tomato,C,301.7,4,"Ludhiana, Punjab",24.0,0.85,1.04,16.31,18.51,0,25
+Cotton,B,2401.2,11,"Guntur, Andhra Pradesh",70.0,0.05,1.17,53.23,52.55,1,4
+Cotton,B,3424.7,8,"Anand, Gujarat",70.0,0.05,1.15,72.53,77.09,0,25
+Potato,C,1641.6,5,"Guntur, Andhra Pradesh",20.0,0.2,1.23,17.62,18.41,1,9
+Onion,A,1202.7,5,"Ludhiana, Punjab",28.0,0.3,1.06,31.96,35.79,0,25
+Tomato,A,1438.9,10,"Anand, Gujarat",24.0,0.85,1.12,29.96,37.13,0,25
+Cauliflower,C,1532.4,4,"Indore, Madhya Pradesh",26.0,0.8,1.17,22.54,22.57,1,8
+Onion,A,884.7,4,"Guntur, Andhra Pradesh",28.0,0.3,0.96,30.94,35.79,0,25
+Groundnut,B,3017.6,6,"Guntur, Andhra Pradesh",72.0,0.1,1.11,81.86,89.2,0,25
+Green Chilli,B,3544.8,11,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.38,64.03,68.14,0,25
+Brinjal,A,3039.5,8,"Guntur, Andhra Pradesh",22.0,0.75,1.04,22.72,27.71,0,25
+Potato,A,63.2,5,"Guntur, Andhra Pradesh",20.0,0.2,1.31,26.15,29.38,0,25
+Onion,B,1670.7,7,"Guntur, Andhra Pradesh",28.0,0.3,1.22,24.98,27.42,0,25
+Potato,C,2303.8,10,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.1,20.6,18.88,1,5
+Soybean,A,2984.7,1,"Ludhiana, Punjab",46.0,0.1,1.34,55.43,61.62,0,25
+Cauliflower,C,1858.2,3,"Bengaluru, Karnataka",26.0,0.8,1.26,26.5,30.08,0,25
+Rice,B,306.0,5,"Anand, Gujarat",48.0,0.05,0.92,52.22,56.45,0,25
+Carrot,A,3197.2,4,"Indore, Madhya Pradesh",34.0,0.5,1.39,38.74,42.29,0,25
+Green Chilli,A,2902.1,8,"Bengaluru, Karnataka",55.0,0.7,0.93,55.06,63.29,0,25
+Soybean,C,3982.4,9,"Guntur, Andhra Pradesh",46.0,0.1,1.33,43.56,41.56,1,6
+Onion,C,1949.2,8,"Nashik, Maharashtra",28.0,0.3,1.26,26.31,25.45,1,4
+Cotton,C,1627.7,6,"Nashik, Maharashtra",70.0,0.05,1.36,61.09,71.17,0,25
+Onion,A,3026.6,10,"Pune, Maharashtra",28.0,0.3,0.96,24.32,22.32,1,4
+Green Chilli,A,879.8,8,"Bengaluru, Karnataka",55.0,0.7,0.95,56.35,68.17,0,25
+Carrot,A,1216.4,6,"Pune, Maharashtra",34.0,0.5,1.12,41.92,48.83,0,25
+Groundnut,B,191.2,10,"Pune, Maharashtra",72.0,0.1,0.97,62.84,75.54,0,25
+Cabbage,B,3781.9,5,"Pune, Maharashtra",18.0,0.6,0.98,18.29,20.18,0,25
+Carrot,C,1214.8,11,"Indore, Madhya Pradesh",34.0,0.5,1.27,29.91,28.92,1,4
+Soybean,A,2353.8,4,"Nashik, Maharashtra",46.0,0.1,0.97,49.81,42.58,1,3
+Cauliflower,C,2492.9,8,"Guntur, Andhra Pradesh",26.0,0.8,0.99,20.9,24.89,0,25
+Green Chilli,C,3468.4,7,"Ludhiana, Punjab",55.0,0.7,1.14,39.89,36.6,1,4
+Potato,B,2691.5,1,"Guntur, Andhra Pradesh",20.0,0.2,0.93,15.85,14.42,1,5
+Groundnut,A,2020.2,6,"Bengaluru, Karnataka",72.0,0.1,1.18,100.69,111.31,0,25
+Tomato,C,850.0,12,"Bengaluru, Karnataka",24.0,0.85,1.23,19.07,18.72,1,2
+Cauliflower,C,1814.2,1,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.16,21.0,19.91,1,6
+Potato,C,2774.1,4,"Bengaluru, Karnataka",20.0,0.2,1.13,21.05,22.54,0,25
+Onion,C,3331.2,12,"Bengaluru, Karnataka",28.0,0.3,0.93,26.32,31.88,0,25
+Cauliflower,B,949.0,4,"Nashik, Maharashtra",26.0,0.8,1.19,24.38,25.96,0,25
+Sugarcane,A,338.6,11,"Ludhiana, Punjab",4.5,0.4,1.14,5.33,5.47,1,5
+Onion,C,1974.6,10,"Bengaluru, Karnataka",28.0,0.3,1.18,18.26,16.34,1,6
+Sugarcane,C,3232.8,10,"Bengaluru, Karnataka",4.5,0.4,1.21,4.2,4.34,1,2
+Sugarcane,B,2543.0,8,"Pune, Maharashtra",4.5,0.4,1.06,4.58,5.08,0,25
+Wheat,C,1137.4,6,"Bengaluru, Karnataka",30.0,0.05,1.18,30.39,29.59,1,4
+Sugarcane,A,1310.9,1,"Indore, Madhya Pradesh",4.5,0.4,1.39,4.45,3.9,1,4
+Wheat,A,2569.6,6,"Indore, Madhya Pradesh",30.0,0.05,1.17,34.51,31.85,1,6
+Sugarcane,A,2032.0,5,"Bengaluru, Karnataka",4.5,0.4,1.06,5.73,5.56,1,5
+Cabbage,C,667.7,6,"Anand, Gujarat",18.0,0.6,1.28,16.91,19.69,0,25
+Cotton,A,3829.0,6,"Anand, Gujarat",70.0,0.05,1.39,80.41,93.43,0,25
+Wheat,A,3740.6,8,"Pune, Maharashtra",30.0,0.05,1.32,35.41,35.35,1,4
+Groundnut,B,1266.7,8,"Ludhiana, Punjab",72.0,0.1,1.18,74.96,91.9,0,25
+Tomato,B,3231.2,11,"Ludhiana, Punjab",24.0,0.85,1.39,20.17,23.33,0,25
+Tomato,C,2665.1,4,"Bengaluru, Karnataka",24.0,0.85,1.03,22.82,23.3,1,4
+Cauliflower,C,2489.3,4,"Bengaluru, Karnataka",26.0,0.8,1.12,24.44,23.45,1,2
+Potato,B,2392.1,12,"Indore, Madhya Pradesh",20.0,0.2,1.38,23.58,23.72,1,8
+Groundnut,B,3948.4,5,"Bengaluru, Karnataka",72.0,0.1,1.19,78.53,68.61,1,2
+Green Chilli,B,3698.2,8,"Ludhiana, Punjab",55.0,0.7,0.96,48.19,47.22,1,6
+Brinjal,A,1230.5,10,"Anand, Gujarat",22.0,0.75,1.0,23.83,21.09,1,3
+Cabbage,C,2147.6,9,"Pune, Maharashtra",18.0,0.6,1.05,18.97,16.64,1,5
+Groundnut,C,3625.2,6,"Ludhiana, Punjab",72.0,0.1,1.12,61.14,73.6,0,25
+Potato,B,1870.2,4,"Indore, Madhya Pradesh",20.0,0.2,1.07,18.74,17.84,1,6
+Tomato,A,1672.6,11,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.1,20.19,21.09,1,2
+Cauliflower,A,2284.6,1,"Ludhiana, Punjab",26.0,0.8,1.4,32.18,31.56,1,5
+Wheat,C,315.1,11,"Ludhiana, Punjab",30.0,0.05,0.94,24.93,22.11,1,4
+Onion,C,3392.9,9,"Anand, Gujarat",28.0,0.3,0.94,26.15,32.61,0,25
+Sugarcane,A,1889.6,5,"Guntur, Andhra Pradesh",4.5,0.4,1.34,5.48,6.84,0,25
+Potato,C,767.6,2,"Ludhiana, Punjab",20.0,0.2,1.19,12.79,14.65,0,25
+Brinjal,A,1210.6,10,"Guntur, Andhra Pradesh",22.0,0.75,1.21,23.18,23.32,1,2
+Green Chilli,B,3429.5,5,"Anand, Gujarat",55.0,0.7,1.19,57.68,64.11,0,25
+Rice,C,3475.6,12,"Ludhiana, Punjab",48.0,0.05,0.98,29.63,34.35,0,25
+Rice,B,153.6,2,"Anand, Gujarat",48.0,0.05,1.2,55.74,59.42,0,25
+Onion,B,2649.8,4,"Ludhiana, Punjab",28.0,0.3,1.0,22.68,20.76,1,7
+Rice,A,592.4,1,"Ludhiana, Punjab",48.0,0.05,1.35,55.39,55.39,1,5
+Groundnut,C,244.4,7,"Bengaluru, Karnataka",72.0,0.1,1.12,76.7,71.29,1,6
+Cabbage,A,2051.5,3,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.19,22.02,20.56,1,7
+Groundnut,C,3981.7,12,"Ludhiana, Punjab",72.0,0.1,1.11,48.68,45.47,1,2
+Cauliflower,B,2059.5,5,"Indore, Madhya Pradesh",26.0,0.8,1.37,30.66,31.21,1,8
+Onion,B,3354.3,5,"Ludhiana, Punjab",28.0,0.3,1.12,27.82,33.08,0,25
+Wheat,A,2592.1,11,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.09,33.04,31.71,1,5
+Green Chilli,A,750.6,4,"Anand, Gujarat",55.0,0.7,0.9,67.65,71.54,0,25
+Potato,C,291.7,1,"Indore, Madhya Pradesh",20.0,0.2,1.3,16.12,16.1,1,4
+Potato,B,3748.4,3,"Anand, Gujarat",20.0,0.2,1.38,16.12,18.49,0,25
+Sugarcane,C,3522.4,6,"Anand, Gujarat",4.5,0.4,0.95,3.81,3.7,1,5
+Maize,B,3143.9,1,"Ludhiana, Punjab",23.0,0.1,1.07,23.67,28.53,0,25
+Tomato,C,233.7,7,"Anand, Gujarat",24.0,0.85,1.09,18.9,17.26,1,2
+Maize,A,3953.4,7,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,0.96,26.44,27.5,1,9
+Cotton,C,3434.8,3,"Indore, Madhya Pradesh",70.0,0.05,1.3,65.54,79.29,0,25
+Wheat,A,2182.9,11,"Ludhiana, Punjab",30.0,0.05,1.38,36.79,41.11,0,25
+Onion,B,3332.8,12,"Indore, Madhya Pradesh",28.0,0.3,1.19,30.27,35.48,0,25
+Potato,A,424.4,12,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.1,28.17,33.94,0,25
+Onion,A,779.3,5,"Bengaluru, Karnataka",28.0,0.3,1.23,33.5,37.43,0,25
+Cauliflower,C,1345.4,3,"Pune, Maharashtra",26.0,0.8,1.09,30.99,28.14,1,5
+Cotton,A,239.7,11,"Guntur, Andhra Pradesh",70.0,0.05,1.0,69.51,60.03,1,5
+Potato,B,2309.7,1,"Ludhiana, Punjab",20.0,0.2,1.14,16.99,16.78,1,6
+Cotton,C,3971.2,8,"Guntur, Andhra Pradesh",70.0,0.05,1.13,59.46,68.26,0,25
+Soybean,C,3986.9,6,"Ludhiana, Punjab",46.0,0.1,0.99,39.61,39.07,1,7
+Sugarcane,C,431.2,11,"Indore, Madhya Pradesh",4.5,0.4,1.33,4.17,4.85,0,25
+Brinjal,C,548.6,9,"Nashik, Maharashtra",22.0,0.75,1.01,14.42,14.9,1,3
+Cauliflower,C,3499.6,3,"Pune, Maharashtra",26.0,0.8,1.05,15.62,13.8,1,6
+Cauliflower,A,819.8,9,"Guntur, Andhra Pradesh",26.0,0.8,1.32,37.66,35.35,1,2
+Groundnut,C,2423.7,9,"Ludhiana, Punjab",72.0,0.1,0.98,62.15,72.72,0,25
+Green Chilli,C,3791.3,12,"Bengaluru, Karnataka",55.0,0.7,1.17,46.65,46.64,1,3
+Potato,C,650.6,12,"Bengaluru, Karnataka",20.0,0.2,1.37,18.89,18.16,1,7
+Brinjal,B,3889.4,9,"Guntur, Andhra Pradesh",22.0,0.75,1.35,16.61,17.23,1,3
+Wheat,A,2847.9,5,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.23,32.13,34.94,0,25
+Onion,A,618.0,3,"Guntur, Andhra Pradesh",28.0,0.3,1.31,34.24,39.58,0,25
+Sugarcane,A,2602.0,3,"Guntur, Andhra Pradesh",4.5,0.4,1.1,4.37,3.84,1,6
+Wheat,A,2917.6,2,"Guntur, Andhra Pradesh",30.0,0.05,1.19,38.42,42.99,0,25
+Rice,B,1138.1,11,"Anand, Gujarat",48.0,0.05,1.06,39.28,41.62,0,25
+Sugarcane,C,2658.7,4,"Indore, Madhya Pradesh",4.5,0.4,1.05,3.55,3.19,1,5
+Carrot,A,1398.4,12,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.04,38.4,46.33,0,25
+Onion,C,2360.7,7,"Indore, Madhya Pradesh",28.0,0.3,1.34,24.57,27.68,0,25
+Sugarcane,B,2115.2,4,"Pune, Maharashtra",4.5,0.4,0.94,4.59,5.49,0,25
+Rice,C,3854.8,12,"Indore, Madhya Pradesh",48.0,0.05,1.11,28.19,31.16,0,25
+Cotton,B,2579.0,5,"Pune, Maharashtra",70.0,0.05,1.06,71.47,70.95,1,2
+Groundnut,B,2005.2,10,"Bengaluru, Karnataka",72.0,0.1,1.2,65.33,72.92,0,25
+Onion,C,2446.2,9,"Indore, Madhya Pradesh",28.0,0.3,1.18,19.66,21.96,0,25
+Tomato,C,3360.9,10,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.22,18.71,16.64,1,2
+Sugarcane,A,2706.8,10,"Ludhiana, Punjab",4.5,0.4,1.35,5.22,5.99,0,25
+Green Chilli,C,2314.7,8,"Indore, Madhya Pradesh",55.0,0.7,1.16,40.29,49.4,0,25
+Cotton,C,3636.9,11,"Guntur, Andhra Pradesh",70.0,0.05,1.01,49.46,48.55,1,4
+Brinjal,A,1466.4,5,"Indore, Madhya Pradesh",22.0,0.75,1.24,29.66,29.39,1,8
+Wheat,B,1859.9,6,"Nashik, Maharashtra",30.0,0.05,1.4,32.49,30.34,1,6
+Cauliflower,C,1635.2,12,"Ludhiana, Punjab",26.0,0.8,1.07,21.92,25.78,0,25
+Cotton,B,1439.6,6,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.17,85.27,83.28,1,4
+Maize,C,1654.0,11,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.21,19.14,21.16,0,25
+Sugarcane,B,3431.1,5,"Bengaluru, Karnataka",4.5,0.4,1.14,4.94,4.91,1,3
+Potato,B,799.7,2,"Nashik, Maharashtra",20.0,0.2,1.06,17.99,18.93,0,25
+Soybean,C,2176.1,9,"Pune, Maharashtra",46.0,0.1,1.1,41.35,36.65,1,4
+Maize,C,625.8,5,"Guntur, Andhra Pradesh",23.0,0.1,1.07,19.76,19.59,1,3
+Brinjal,A,2301.9,10,"Pune, Maharashtra",22.0,0.75,0.94,23.46,20.32,1,4
+Soybean,B,936.7,8,"Nashik, Maharashtra",46.0,0.1,1.25,49.55,46.46,1,6
+Carrot,C,99.1,3,"Bengaluru, Karnataka",34.0,0.5,1.02,37.95,44.98,0,25
+Brinjal,C,784.9,7,"Bengaluru, Karnataka",22.0,0.75,1.16,22.67,22.89,1,6
+Maize,B,3197.3,12,"Pune, Maharashtra",23.0,0.1,1.08,24.52,24.42,1,7
+Rice,B,3834.5,2,"Ludhiana, Punjab",48.0,0.05,0.97,43.17,51.54,0,25
+Groundnut,A,3925.0,2,"Anand, Gujarat",72.0,0.1,1.29,80.46,78.48,1,7
+Cabbage,A,2823.5,12,"Ludhiana, Punjab",18.0,0.6,1.39,17.65,20.8,0,25
+Rice,B,3354.6,10,"Pune, Maharashtra",48.0,0.05,1.13,38.81,33.99,1,6
+Tomato,C,2618.6,9,"Indore, Madhya Pradesh",24.0,0.85,1.35,22.65,23.57,1,7
+Onion,C,3821.2,2,"Ludhiana, Punjab",28.0,0.3,1.04,18.63,16.04,1,4
+Brinjal,C,900.1,7,"Anand, Gujarat",22.0,0.75,1.13,24.27,25.86,0,25
+Soybean,B,2300.9,4,"Ludhiana, Punjab",46.0,0.1,1.34,49.99,53.28,0,25
+Soybean,C,3885.0,1,"Ludhiana, Punjab",46.0,0.1,0.93,36.25,41.75,0,25
+Cabbage,A,301.3,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.11,24.78,30.77,0,25
+Sugarcane,A,2615.2,1,"Anand, Gujarat",4.5,0.4,1.15,4.44,3.99,1,2
+Brinjal,C,1556.1,7,"Guntur, Andhra Pradesh",22.0,0.75,1.14,20.25,19.73,1,3
+Brinjal,B,779.0,2,"Indore, Madhya Pradesh",22.0,0.75,1.1,21.31,20.05,1,7
+Soybean,A,3019.7,8,"Ludhiana, Punjab",46.0,0.1,1.16,56.76,70.54,0,25
+Tomato,C,715.6,2,"Ludhiana, Punjab",24.0,0.85,1.38,18.81,19.97,0,25
+Tomato,B,159.2,5,"Guntur, Andhra Pradesh",24.0,0.85,1.35,20.28,24.99,0,25
+Rice,C,2164.1,3,"Indore, Madhya Pradesh",48.0,0.05,1.39,41.51,36.89,1,5
+Potato,C,748.9,10,"Ludhiana, Punjab",20.0,0.2,1.12,18.94,19.94,0,25
+Cotton,B,203.2,10,"Nashik, Maharashtra",70.0,0.05,1.17,54.84,67.63,0,25
+Onion,B,1428.8,2,"Pune, Maharashtra",28.0,0.3,0.99,18.55,19.46,1,6
+Cabbage,B,2214.5,11,"Indore, Madhya Pradesh",18.0,0.6,1.09,17.28,17.78,1,3
+Cauliflower,A,1494.5,4,"Ludhiana, Punjab",26.0,0.8,1.02,30.71,31.07,1,4
+Maize,B,409.3,9,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.23,21.47,26.08,0,25
+Cabbage,C,2590.6,9,"Guntur, Andhra Pradesh",18.0,0.6,1.04,16.91,16.36,1,5
+Brinjal,B,1987.3,2,"Guntur, Andhra Pradesh",22.0,0.75,1.15,25.71,25.16,1,5
+Brinjal,B,3094.8,5,"Indore, Madhya Pradesh",22.0,0.75,1.25,21.44,26.34,0,25
+Wheat,C,1288.9,11,"Anand, Gujarat",30.0,0.05,0.92,25.59,22.04,1,6
+Brinjal,A,257.1,9,"Ludhiana, Punjab",22.0,0.75,1.31,25.26,26.77,0,25
+Potato,C,2811.8,11,"Ludhiana, Punjab",20.0,0.2,1.36,16.21,14.42,1,6
+Maize,A,2870.4,2,"Ludhiana, Punjab",23.0,0.1,1.15,24.31,21.1,1,3
+Maize,C,68.7,5,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.02,21.45,25.21,0,25
+Cotton,B,3315.0,7,"Anand, Gujarat",70.0,0.05,1.09,71.29,64.64,1,3
+Soybean,B,2303.6,11,"Guntur, Andhra Pradesh",46.0,0.1,1.33,39.6,43.58,0,25
+Rice,C,2776.6,7,"Pune, Maharashtra",48.0,0.05,1.11,41.7,50.47,0,25
+Cotton,B,91.2,10,"Pune, Maharashtra",70.0,0.05,1.25,68.7,59.54,1,5
+Potato,C,2568.5,2,"Bengaluru, Karnataka",20.0,0.2,0.96,16.1,14.87,1,3
+Groundnut,B,2168.2,5,"Guntur, Andhra Pradesh",72.0,0.1,1.04,68.95,74.33,0,25
+Onion,A,3803.3,4,"Guntur, Andhra Pradesh",28.0,0.3,1.18,30.9,38.57,0,25
+Carrot,B,953.1,2,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.32,33.19,30.66,1,6
+Sugarcane,A,2480.5,7,"Bengaluru, Karnataka",4.5,0.4,1.12,6.05,5.24,1,6
+Sugarcane,A,1305.8,12,"Bengaluru, Karnataka",4.5,0.4,1.18,5.19,6.38,0,25
+Green Chilli,B,1875.0,6,"Anand, Gujarat",55.0,0.7,1.35,54.98,67.56,0,25
+Cauliflower,A,2527.5,3,"Bengaluru, Karnataka",26.0,0.8,1.07,34.75,39.56,0,25
+Tomato,B,2426.6,4,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.04,28.35,27.7,1,3
+Onion,B,2895.9,10,"Nashik, Maharashtra",28.0,0.3,1.26,26.25,25.69,1,2
+Maize,A,1555.8,1,"Bengaluru, Karnataka",23.0,0.1,1.18,32.31,29.01,1,3
+Soybean,A,2613.0,1,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.36,55.6,68.1,0,25
+Soybean,B,2483.4,11,"Pune, Maharashtra",46.0,0.1,1.12,40.02,43.82,0,25
+Green Chilli,C,3681.7,8,"Indore, Madhya Pradesh",55.0,0.7,0.98,29.01,30.88,0,25
+Green Chilli,A,2566.5,5,"Anand, Gujarat",55.0,0.7,0.99,91.65,110.23,0,25
+Green Chilli,C,3231.5,7,"Nashik, Maharashtra",55.0,0.7,0.97,32.97,34.09,1,7
+Cauliflower,A,3368.5,3,"Guntur, Andhra Pradesh",26.0,0.8,1.08,33.2,33.77,1,7
+Carrot,B,1384.3,6,"Indore, Madhya Pradesh",34.0,0.5,1.23,34.14,30.84,1,4
+Rice,A,818.7,10,"Bengaluru, Karnataka",48.0,0.05,1.34,53.74,65.03,0,25
+Cauliflower,B,1262.3,11,"Ludhiana, Punjab",26.0,0.8,1.1,18.59,19.3,1,6
+Carrot,B,837.7,1,"Guntur, Andhra Pradesh",34.0,0.5,1.07,31.9,39.07,0,25
+Brinjal,A,2791.2,1,"Indore, Madhya Pradesh",22.0,0.75,1.09,22.25,24.85,0,25
+Wheat,C,1637.4,11,"Anand, Gujarat",30.0,0.05,1.29,28.3,29.36,1,8
+Potato,B,3735.4,10,"Ludhiana, Punjab",20.0,0.2,1.21,21.55,24.66,0,25
+Maize,A,388.7,2,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,0.9,29.35,34.96,0,25
+Green Chilli,B,644.9,12,"Bengaluru, Karnataka",55.0,0.7,1.01,61.36,72.79,0,25
+Green Chilli,C,3622.8,10,"Ludhiana, Punjab",55.0,0.7,1.12,44.06,42.8,1,6
+Potato,A,517.8,7,"Anand, Gujarat",20.0,0.2,1.36,27.25,27.63,1,6
+Soybean,B,3399.6,12,"Pune, Maharashtra",46.0,0.1,1.02,52.55,63.78,0,25
+Onion,A,1917.6,7,"Anand, Gujarat",28.0,0.3,1.14,39.54,45.74,0,25
+Cabbage,C,2360.3,8,"Ludhiana, Punjab",18.0,0.6,0.99,17.88,21.97,0,25
+Cabbage,B,3551.6,2,"Ludhiana, Punjab",18.0,0.6,0.93,11.5,10.4,1,3
+Brinjal,A,828.7,11,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.22,23.06,26.86,0,25
+Green Chilli,C,2506.4,1,"Indore, Madhya Pradesh",55.0,0.7,1.2,56.96,71.01,0,25
+Green Chilli,B,1157.0,9,"Bengaluru, Karnataka",55.0,0.7,1.16,73.05,88.56,0,25
+Tomato,C,1261.2,12,"Bengaluru, Karnataka",24.0,0.85,1.12,17.8,18.21,1,2
+Groundnut,C,367.0,11,"Indore, Madhya Pradesh",72.0,0.1,1.18,59.37,65.29,0,25
+Groundnut,C,1553.7,5,"Nashik, Maharashtra",72.0,0.1,1.35,75.93,76.08,1,2
+Soybean,B,1498.8,6,"Guntur, Andhra Pradesh",46.0,0.1,1.16,51.41,58.24,0,25
+Potato,B,812.0,9,"Pune, Maharashtra",20.0,0.2,1.04,21.76,19.22,1,4
+Soybean,A,3588.5,9,"Ludhiana, Punjab",46.0,0.1,0.91,52.81,50.02,1,3
+Onion,A,3461.6,2,"Bengaluru, Karnataka",28.0,0.3,0.9,31.49,26.94,1,5
+Cotton,C,2351.9,3,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.38,77.08,75.72,1,6
+Cabbage,A,597.9,12,"Nashik, Maharashtra",18.0,0.6,1.36,18.28,22.31,0,25
+Potato,A,1760.2,1,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.24,22.24,22.35,1,6
+Rice,B,3952.3,12,"Bengaluru, Karnataka",48.0,0.05,1.2,47.98,44.35,1,3
+Soybean,C,780.5,8,"Nashik, Maharashtra",46.0,0.1,0.9,39.5,35.85,1,4
+Rice,C,3058.6,12,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,0.99,36.01,42.83,0,25
+Sugarcane,A,2559.4,7,"Anand, Gujarat",4.5,0.4,1.2,5.2,5.01,1,4
+Cotton,B,77.6,9,"Bengaluru, Karnataka",70.0,0.05,1.35,83.92,94.28,0,25
+Wheat,A,298.0,1,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.07,39.24,46.19,0,25
+Onion,C,3909.8,1,"Indore, Madhya Pradesh",28.0,0.3,1.24,16.46,16.09,1,6
+Maize,B,1086.6,10,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.32,20.27,21.12,1,5
+Sugarcane,B,3996.4,9,"Ludhiana, Punjab",4.5,0.4,1.0,4.38,4.75,0,25
+Tomato,C,1886.5,7,"Ludhiana, Punjab",24.0,0.85,1.13,25.62,31.74,0,25
+Carrot,B,611.2,3,"Indore, Madhya Pradesh",34.0,0.5,1.28,33.47,34.07,1,2
+Potato,B,640.1,11,"Guntur, Andhra Pradesh",20.0,0.2,1.08,18.38,22.28,0,25
+Potato,C,424.6,4,"Anand, Gujarat",20.0,0.2,1.1,19.27,17.53,1,3
+Tomato,B,1248.9,3,"Guntur, Andhra Pradesh",24.0,0.85,1.38,24.17,25.25,1,7
+Brinjal,B,3877.9,8,"Anand, Gujarat",22.0,0.75,0.93,20.81,25.69,0,25
+Onion,B,1192.8,10,"Indore, Madhya Pradesh",28.0,0.3,1.02,26.84,27.28,1,2
+Wheat,C,2540.3,6,"Anand, Gujarat",30.0,0.05,1.24,26.07,26.63,1,3
+Potato,C,2912.8,6,"Pune, Maharashtra",20.0,0.2,1.3,19.65,24.33,0,25
+Onion,A,1697.2,6,"Indore, Madhya Pradesh",28.0,0.3,1.0,28.89,28.33,1,3
+Cotton,B,2242.2,5,"Indore, Madhya Pradesh",70.0,0.05,1.19,68.85,62.02,1,3
+Soybean,C,2391.7,12,"Bengaluru, Karnataka",46.0,0.1,1.02,44.77,52.73,0,25
+Carrot,C,1288.2,1,"Indore, Madhya Pradesh",34.0,0.5,1.34,24.2,23.68,1,5
+Carrot,C,1825.5,2,"Pune, Maharashtra",34.0,0.5,1.29,27.54,32.13,0,25
+Wheat,C,3398.7,6,"Anand, Gujarat",30.0,0.05,0.93,24.7,24.23,1,7
+Carrot,C,3828.8,5,"Anand, Gujarat",34.0,0.5,1.14,33.19,32.38,1,7
+Rice,C,2440.1,10,"Bengaluru, Karnataka",48.0,0.05,1.05,40.6,43.01,0,25
+Cauliflower,B,1720.8,7,"Bengaluru, Karnataka",26.0,0.8,1.31,34.27,29.28,1,3
+Potato,B,2624.0,1,"Nashik, Maharashtra",20.0,0.2,1.28,18.22,22.12,0,25
+Potato,B,670.1,9,"Guntur, Andhra Pradesh",20.0,0.2,1.12,22.09,21.55,1,7
+Carrot,B,2445.8,12,"Bengaluru, Karnataka",34.0,0.5,1.04,28.68,24.57,1,2
+Green Chilli,C,609.9,6,"Indore, Madhya Pradesh",55.0,0.7,1.32,38.82,38.82,1,2
+Brinjal,C,753.1,7,"Ludhiana, Punjab",22.0,0.75,1.21,20.03,19.62,1,6
+Tomato,C,2883.2,12,"Nashik, Maharashtra",24.0,0.85,0.97,12.75,11.16,1,2
+Potato,A,978.3,12,"Anand, Gujarat",20.0,0.2,1.28,27.16,27.57,1,7
+Carrot,B,1694.6,9,"Nashik, Maharashtra",34.0,0.5,1.29,35.8,40.38,0,25
+Cauliflower,A,678.3,8,"Bengaluru, Karnataka",26.0,0.8,1.28,38.87,33.92,1,5
+Tomato,A,217.5,8,"Bengaluru, Karnataka",24.0,0.85,1.01,29.74,28.05,1,3
+Cotton,A,1580.7,6,"Ludhiana, Punjab",70.0,0.05,1.22,77.96,75.3,1,2
+Groundnut,C,318.4,9,"Guntur, Andhra Pradesh",72.0,0.1,1.0,66.88,57.81,1,3
+Carrot,A,368.5,12,"Ludhiana, Punjab",34.0,0.5,1.34,29.22,29.48,1,3
+Tomato,C,2247.2,5,"Pune, Maharashtra",24.0,0.85,1.16,21.81,19.93,1,3
+Cabbage,B,1341.9,4,"Ludhiana, Punjab",18.0,0.6,1.03,19.11,16.46,1,4
+Soybean,C,780.1,4,"Guntur, Andhra Pradesh",46.0,0.1,0.92,40.73,47.73,0,25
+Groundnut,A,2956.0,10,"Bengaluru, Karnataka",72.0,0.1,1.05,72.85,79.21,0,25
+Wheat,B,2608.9,1,"Indore, Madhya Pradesh",30.0,0.05,1.01,27.75,33.47,0,25
+Cotton,B,144.1,9,"Bengaluru, Karnataka",70.0,0.05,0.91,85.22,79.47,1,7
+Brinjal,C,3937.7,8,"Ludhiana, Punjab",22.0,0.75,1.2,15.47,14.17,1,4
+Cauliflower,C,3436.6,11,"Pune, Maharashtra",26.0,0.8,1.02,15.1,17.99,0,25
+Cabbage,A,3724.1,5,"Nashik, Maharashtra",18.0,0.6,1.05,17.41,17.45,1,5
+Potato,A,900.5,6,"Nashik, Maharashtra",20.0,0.2,1.0,20.17,17.76,1,3
+Tomato,B,1243.1,2,"Nashik, Maharashtra",24.0,0.85,1.03,22.47,27.46,0,25
+Maize,A,2989.8,11,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.24,33.61,34.97,1,2
+Onion,C,3485.7,8,"Bengaluru, Karnataka",28.0,0.3,1.19,28.35,30.42,0,25
+Wheat,A,2939.2,2,"Indore, Madhya Pradesh",30.0,0.05,0.98,34.7,29.91,1,4
+Cotton,B,3893.0,3,"Guntur, Andhra Pradesh",70.0,0.05,1.19,74.65,64.77,1,2
+Sugarcane,B,1942.7,12,"Pune, Maharashtra",4.5,0.4,1.3,4.28,5.13,0,25
+Rice,C,3983.6,1,"Indore, Madhya Pradesh",48.0,0.05,0.92,37.98,40.84,0,25
+Cotton,B,2876.5,4,"Indore, Madhya Pradesh",70.0,0.05,1.27,70.25,70.03,1,7
+Cauliflower,A,3612.2,11,"Ludhiana, Punjab",26.0,0.8,1.26,26.0,27.72,0,25
+Green Chilli,C,737.2,7,"Ludhiana, Punjab",55.0,0.7,1.1,34.92,33.77,1,6
+Sugarcane,B,3847.5,6,"Guntur, Andhra Pradesh",4.5,0.4,0.94,4.35,4.14,1,3
+Maize,B,3027.1,8,"Indore, Madhya Pradesh",23.0,0.1,1.33,23.72,24.97,0,25
+Cotton,C,1399.5,10,"Anand, Gujarat",70.0,0.05,1.22,53.36,61.25,0,25
+Cotton,C,3307.5,4,"Anand, Gujarat",70.0,0.05,1.1,64.16,79.96,0,25
+Cauliflower,A,66.0,10,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.37,28.79,32.13,0,25
+Potato,C,2853.5,11,"Bengaluru, Karnataka",20.0,0.2,1.07,20.53,23.99,0,25
+Cauliflower,B,2329.2,4,"Guntur, Andhra Pradesh",26.0,0.8,1.27,31.08,34.97,0,25
+Onion,A,3345.7,3,"Indore, Madhya Pradesh",28.0,0.3,1.35,26.98,31.5,0,25
+Cauliflower,A,3667.6,3,"Indore, Madhya Pradesh",26.0,0.8,1.25,30.11,29.29,1,6
+Wheat,A,142.8,4,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,0.92,31.86,36.97,0,25
+Onion,A,3806.5,8,"Pune, Maharashtra",28.0,0.3,1.11,35.54,35.29,1,4
+Groundnut,C,1581.6,6,"Pune, Maharashtra",72.0,0.1,1.0,59.46,61.92,1,6
+Tomato,C,2025.0,1,"Indore, Madhya Pradesh",24.0,0.85,1.08,17.73,16.88,1,4
+Sugarcane,B,2769.9,7,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.21,4.71,4.93,1,2
+Tomato,B,1046.0,8,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,0.95,34.1,32.33,1,6
+Soybean,A,3008.8,7,"Indore, Madhya Pradesh",46.0,0.1,1.02,50.99,49.66,1,6
+Cotton,B,1671.9,10,"Bengaluru, Karnataka",70.0,0.05,0.91,62.37,56.22,1,6
+Sugarcane,A,2033.2,2,"Indore, Madhya Pradesh",4.5,0.4,1.13,4.16,5.08,0,25
+Soybean,C,2363.4,5,"Nashik, Maharashtra",46.0,0.1,1.25,38.41,40.19,1,8
+Wheat,A,2424.4,5,"Nashik, Maharashtra",30.0,0.05,1.11,26.82,23.62,1,4
+Rice,A,3236.9,12,"Guntur, Andhra Pradesh",48.0,0.05,1.35,41.87,48.53,0,25
+Tomato,B,1393.3,4,"Anand, Gujarat",24.0,0.85,1.24,27.54,28.31,1,7
+Maize,A,599.9,3,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.27,30.44,37.4,0,25
+Cabbage,A,1498.4,8,"Indore, Madhya Pradesh",18.0,0.6,1.25,24.16,27.24,0,25
+Soybean,C,1920.9,7,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.04,43.18,46.33,0,25
+Brinjal,A,1088.0,2,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.37,28.61,34.84,0,25
+Maize,A,689.9,1,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.19,32.38,36.13,0,25
+Carrot,C,1088.9,9,"Ludhiana, Punjab",34.0,0.5,0.93,28.8,29.24,1,6
+Rice,A,576.2,5,"Anand, Gujarat",48.0,0.05,1.25,59.34,50.7,1,2
+Sugarcane,A,2680.3,9,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.19,6.24,5.65,1,6
+Cotton,B,2672.9,4,"Bengaluru, Karnataka",70.0,0.05,1.14,79.92,74.78,1,3
+Cauliflower,C,2685.0,3,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.33,28.58,29.75,1,9
+Onion,C,2526.4,4,"Anand, Gujarat",28.0,0.3,1.11,27.94,30.74,0,25
+Rice,B,3021.9,1,"Guntur, Andhra Pradesh",48.0,0.05,0.92,44.85,41.58,1,5
+Green Chilli,B,3353.7,10,"Indore, Madhya Pradesh",55.0,0.7,1.01,57.95,70.29,0,25
+Carrot,C,3493.9,11,"Guntur, Andhra Pradesh",34.0,0.5,1.22,29.88,31.34,1,3
+Cabbage,A,2268.7,2,"Guntur, Andhra Pradesh",18.0,0.6,1.25,19.93,23.14,0,25
+Sugarcane,C,1145.7,6,"Nashik, Maharashtra",4.5,0.4,1.04,3.63,3.58,1,7
+Cabbage,B,2070.2,8,"Pune, Maharashtra",18.0,0.6,1.09,14.7,17.62,0,25
+Groundnut,C,1381.4,8,"Anand, Gujarat",72.0,0.1,1.25,72.29,79.27,0,25
+Onion,B,3505.3,5,"Pune, Maharashtra",28.0,0.3,1.2,29.49,27.75,1,7
+Green Chilli,A,3890.7,6,"Bengaluru, Karnataka",55.0,0.7,1.0,50.56,48.61,1,5
+Soybean,C,3567.7,10,"Bengaluru, Karnataka",46.0,0.1,0.97,36.96,42.8,0,25
+Wheat,A,2194.0,12,"Ludhiana, Punjab",30.0,0.05,1.06,34.76,31.96,1,5
+Maize,B,2412.6,4,"Bengaluru, Karnataka",23.0,0.1,1.22,24.69,24.32,1,7
+Sugarcane,B,1596.9,4,"Ludhiana, Punjab",4.5,0.4,1.26,4.93,4.86,1,3
+Onion,B,3261.8,7,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.39,30.78,26.2,1,2
+Maize,B,3742.3,8,"Indore, Madhya Pradesh",23.0,0.1,1.18,23.4,23.83,1,4
+Brinjal,C,476.9,10,"Indore, Madhya Pradesh",22.0,0.75,1.12,14.06,13.71,1,3
+Onion,B,3396.3,1,"Nashik, Maharashtra",28.0,0.3,1.04,20.38,23.71,0,25
+Maize,C,207.8,4,"Guntur, Andhra Pradesh",23.0,0.1,1.23,21.25,18.57,1,2
+Cabbage,C,1747.7,5,"Pune, Maharashtra",18.0,0.6,1.02,14.69,14.05,1,5
+Cotton,A,2237.2,1,"Anand, Gujarat",70.0,0.05,1.06,62.38,58.51,1,6
+Cotton,B,2484.4,9,"Bengaluru, Karnataka",70.0,0.05,1.38,92.94,115.38,0,25
+Wheat,B,1022.5,2,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.1,35.55,33.66,1,5
+Maize,A,474.2,5,"Bengaluru, Karnataka",23.0,0.1,1.02,29.79,32.47,0,25
+Brinjal,B,446.4,4,"Bengaluru, Karnataka",22.0,0.75,0.94,28.09,31.88,0,25
+Carrot,A,3015.2,10,"Guntur, Andhra Pradesh",34.0,0.5,0.91,37.45,41.92,0,25
+Brinjal,C,131.8,6,"Ludhiana, Punjab",22.0,0.75,1.15,18.51,18.61,1,5
+Rice,B,355.6,12,"Anand, Gujarat",48.0,0.05,1.32,43.79,44.3,1,3
+Green Chilli,B,2874.0,4,"Pune, Maharashtra",55.0,0.7,1.35,57.21,57.31,1,7
+Tomato,C,2805.4,11,"Bengaluru, Karnataka",24.0,0.85,1.13,19.51,19.28,1,4
+Carrot,B,403.4,7,"Indore, Madhya Pradesh",34.0,0.5,1.03,31.52,29.67,1,4
+Wheat,B,915.6,3,"Anand, Gujarat",30.0,0.05,1.19,24.9,23.11,1,2
+Brinjal,B,405.4,4,"Nashik, Maharashtra",22.0,0.75,1.36,24.3,21.55,1,5
+Tomato,B,3731.4,9,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.13,24.2,23.27,1,7
+Rice,B,2106.0,3,"Pune, Maharashtra",48.0,0.05,1.02,55.34,49.08,1,2
+Soybean,C,2214.4,5,"Anand, Gujarat",46.0,0.1,1.37,44.37,52.05,0,25
+Rice,C,3102.7,2,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.03,42.38,49.3,0,25
+Cauliflower,A,3055.4,9,"Indore, Madhya Pradesh",26.0,0.8,1.26,34.87,33.07,1,2
+Cotton,A,3262.6,9,"Pune, Maharashtra",70.0,0.05,1.15,97.75,118.08,0,25
+Brinjal,A,1902.8,1,"Anand, Gujarat",22.0,0.75,1.32,27.83,27.74,1,7
+Carrot,A,2855.3,3,"Indore, Madhya Pradesh",34.0,0.5,1.26,44.32,40.55,1,5
+Tomato,A,52.3,3,"Guntur, Andhra Pradesh",24.0,0.85,1.13,31.71,31.96,1,5
+Brinjal,C,3776.0,11,"Indore, Madhya Pradesh",22.0,0.75,1.08,12.57,13.73,0,25
+Groundnut,C,2117.7,5,"Guntur, Andhra Pradesh",72.0,0.1,1.1,57.32,67.18,0,25
+Rice,A,506.4,5,"Ludhiana, Punjab",48.0,0.05,1.35,60.79,60.97,1,4
+Tomato,B,3013.7,4,"Indore, Madhya Pradesh",24.0,0.85,1.01,23.55,24.26,1,6
+Sugarcane,C,3185.4,11,"Anand, Gujarat",4.5,0.4,1.1,3.61,3.27,1,6
+Maize,B,1627.0,8,"Pune, Maharashtra",23.0,0.1,1.26,25.23,22.76,1,6
+Rice,A,1527.4,5,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.08,63.08,76.56,0,25
+Maize,C,2413.0,2,"Guntur, Andhra Pradesh",23.0,0.1,1.08,18.37,22.48,0,25
+Cotton,B,1359.2,6,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.06,77.49,81.57,0,25
+Tomato,A,2858.9,12,"Anand, Gujarat",24.0,0.85,1.03,24.56,26.0,0,25
+Tomato,B,3204.1,6,"Guntur, Andhra Pradesh",24.0,0.85,1.13,24.51,26.93,0,25
+Wheat,B,2363.2,9,"Nashik, Maharashtra",30.0,0.05,1.34,31.98,33.76,0,25
+Soybean,C,3735.1,3,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.09,39.47,43.98,0,25
+Carrot,C,611.7,3,"Pune, Maharashtra",34.0,0.5,1.36,36.73,37.02,1,2
+Wheat,A,1702.6,4,"Anand, Gujarat",30.0,0.05,1.0,29.35,34.33,0,25
+Maize,A,2294.3,9,"Guntur, Andhra Pradesh",23.0,0.1,1.4,24.57,22.49,1,2
+Groundnut,B,1899.8,4,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.39,103.48,126.24,0,25
+Carrot,A,1865.4,11,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.35,37.53,44.67,0,25
+Wheat,C,2676.5,11,"Ludhiana, Punjab",30.0,0.05,1.16,23.13,25.84,0,25
+Cotton,C,3124.3,10,"Pune, Maharashtra",70.0,0.05,1.02,51.5,49.38,1,7
+Wheat,B,3810.8,1,"Guntur, Andhra Pradesh",30.0,0.05,1.05,28.14,33.63,0,25
+Onion,A,3528.9,4,"Bengaluru, Karnataka",28.0,0.3,1.02,42.4,47.87,0,25
+Cauliflower,B,1629.4,12,"Guntur, Andhra Pradesh",26.0,0.8,1.18,18.88,18.31,1,3
+Cabbage,B,3708.2,6,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.93,17.0,17.27,1,8
+Green Chilli,B,980.9,5,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.34,71.02,74.34,1,8
+Cabbage,A,3405.3,7,"Guntur, Andhra Pradesh",18.0,0.6,1.04,19.43,17.75,1,3
+Brinjal,A,375.1,2,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.27,29.19,26.56,1,4
+Maize,A,58.2,1,"Anand, Gujarat",23.0,0.1,0.99,31.1,31.0,1,6
+Cotton,C,2309.4,11,"Ludhiana, Punjab",70.0,0.05,0.92,53.5,64.58,0,25
+Green Chilli,A,375.3,10,"Nashik, Maharashtra",55.0,0.7,0.92,81.71,95.26,0,25
+Maize,B,1106.0,2,"Indore, Madhya Pradesh",23.0,0.1,1.05,23.04,27.3,0,25
+Onion,C,306.5,3,"Pune, Maharashtra",28.0,0.3,1.2,22.05,24.92,0,25
+Onion,B,1170.6,12,"Bengaluru, Karnataka",28.0,0.3,1.1,37.7,37.15,1,3
+Carrot,B,1260.3,9,"Ludhiana, Punjab",34.0,0.5,1.23,37.13,45.38,0,25
+Sugarcane,B,1000.7,4,"Ludhiana, Punjab",4.5,0.4,0.97,4.3,3.92,1,2
+Cabbage,A,3993.0,2,"Anand, Gujarat",18.0,0.6,0.96,16.21,15.94,1,4
+Rice,C,1669.0,7,"Indore, Madhya Pradesh",48.0,0.05,1.36,41.65,46.54,0,25
+Soybean,C,878.6,12,"Pune, Maharashtra",46.0,0.1,1.14,45.16,41.85,1,2
+Tomato,B,3259.4,3,"Guntur, Andhra Pradesh",24.0,0.85,1.13,24.56,30.37,0,25
+Sugarcane,C,575.0,8,"Ludhiana, Punjab",4.5,0.4,1.06,4.09,3.99,1,7
+Cabbage,C,3483.2,1,"Anand, Gujarat",18.0,0.6,0.98,11.94,11.35,1,2
+Maize,B,3542.7,1,"Anand, Gujarat",23.0,0.1,1.02,20.03,24.29,0,25
+Groundnut,A,3094.9,1,"Guntur, Andhra Pradesh",72.0,0.1,1.22,76.02,86.25,0,25
+Sugarcane,C,60.8,6,"Ludhiana, Punjab",4.5,0.4,1.14,4.14,3.87,1,3
+Soybean,C,1593.2,9,"Pune, Maharashtra",46.0,0.1,1.16,40.41,43.89,0,25
+Maize,C,3090.4,7,"Bengaluru, Karnataka",23.0,0.1,1.27,26.04,28.29,0,25
+Wheat,C,1173.7,1,"Indore, Madhya Pradesh",30.0,0.05,0.91,25.39,27.57,0,25
+Sugarcane,A,3719.7,7,"Indore, Madhya Pradesh",4.5,0.4,1.36,5.21,5.09,1,5
+Carrot,B,3416.1,11,"Pune, Maharashtra",34.0,0.5,1.31,35.99,40.21,0,25
+Cabbage,B,66.9,5,"Guntur, Andhra Pradesh",18.0,0.6,1.01,19.49,18.43,1,2
+Tomato,A,3267.0,9,"Pune, Maharashtra",24.0,0.85,1.17,37.02,37.64,1,5
+Groundnut,C,2670.1,10,"Pune, Maharashtra",72.0,0.1,1.15,49.39,52.89,0,25
+Sugarcane,A,2265.0,7,"Bengaluru, Karnataka",4.5,0.4,1.06,5.66,6.05,0,25
+Rice,A,1348.7,2,"Guntur, Andhra Pradesh",48.0,0.05,1.02,55.01,67.25,0,25
+Groundnut,B,1204.7,11,"Anand, Gujarat",72.0,0.1,1.03,61.05,55.85,1,4
+Groundnut,A,3072.1,2,"Ludhiana, Punjab",72.0,0.1,1.04,88.36,97.69,0,25
+Onion,A,3816.7,1,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,0.93,27.12,31.41,0,25
+Sugarcane,B,3071.4,2,"Anand, Gujarat",4.5,0.4,1.07,3.39,3.61,0,25
+Cauliflower,A,2476.7,11,"Indore, Madhya Pradesh",26.0,0.8,1.29,24.98,24.79,1,3
+Potato,B,3782.5,9,"Bengaluru, Karnataka",20.0,0.2,1.26,25.15,31.13,0,25
+Sugarcane,A,626.0,3,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,0.98,4.55,5.35,0,25
+Cauliflower,A,1438.0,11,"Indore, Madhya Pradesh",26.0,0.8,1.07,20.55,18.32,1,4
+Sugarcane,B,801.1,3,"Bengaluru, Karnataka",4.5,0.4,1.22,4.62,5.36,0,25
+Groundnut,C,945.7,12,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.23,62.56,72.47,0,25
+Brinjal,B,3604.9,4,"Ludhiana, Punjab",22.0,0.75,0.92,19.32,17.88,1,5
+Tomato,C,1388.0,11,"Ludhiana, Punjab",24.0,0.85,1.27,19.76,20.46,1,3
+Onion,C,586.3,10,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.15,22.6,28.22,0,25
+Groundnut,B,3252.8,10,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.29,64.1,68.26,0,25
+Brinjal,B,266.9,2,"Nashik, Maharashtra",22.0,0.75,1.05,21.64,26.74,0,25
+Potato,C,3997.2,7,"Pune, Maharashtra",20.0,0.2,1.04,19.77,24.52,0,25
+Green Chilli,A,2967.6,5,"Indore, Madhya Pradesh",55.0,0.7,1.1,43.76,37.65,1,3
+Potato,C,3729.1,3,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.2,15.99,14.2,1,3
+Green Chilli,B,2326.8,3,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.19,55.9,49.28,1,2
+Wheat,C,2218.3,12,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.19,28.28,30.29,0,25
+Wheat,A,1282.0,1,"Guntur, Andhra Pradesh",30.0,0.05,1.34,36.55,32.43,1,3
+Groundnut,A,422.5,2,"Anand, Gujarat",72.0,0.1,1.37,108.78,94.31,1,5
+Brinjal,C,677.3,5,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.37,22.92,27.69,0,25
+Rice,A,781.3,3,"Ludhiana, Punjab",48.0,0.05,1.36,60.17,70.69,0,25
+Carrot,A,2964.6,3,"Anand, Gujarat",34.0,0.5,1.31,39.84,44.74,0,25
+Rice,B,2115.8,11,"Nashik, Maharashtra",48.0,0.05,1.04,39.87,36.88,1,5
+Tomato,B,2684.2,10,"Bengaluru, Karnataka",24.0,0.85,1.0,20.13,21.36,0,25
+Green Chilli,A,1675.6,10,"Guntur, Andhra Pradesh",55.0,0.7,1.19,65.29,78.73,0,25
+Groundnut,B,2440.8,11,"Pune, Maharashtra",72.0,0.1,0.9,65.14,58.36,1,4
+Groundnut,B,778.2,10,"Anand, Gujarat",72.0,0.1,1.22,69.21,62.5,1,2
+Rice,C,335.2,12,"Nashik, Maharashtra",48.0,0.05,1.1,36.84,45.54,0,25
+Wheat,A,880.3,11,"Nashik, Maharashtra",30.0,0.05,0.96,34.09,33.63,1,5
+Potato,C,1334.2,6,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.11,17.79,19.81,0,25
+Soybean,B,846.1,11,"Indore, Madhya Pradesh",46.0,0.1,1.22,39.94,47.85,0,25
+Cotton,C,1981.2,8,"Bengaluru, Karnataka",70.0,0.05,1.04,71.36,62.05,1,2
+Carrot,A,3005.9,1,"Nashik, Maharashtra",34.0,0.5,1.16,32.35,31.21,1,3
+Potato,B,3153.5,8,"Nashik, Maharashtra",20.0,0.2,1.16,20.75,22.51,0,25
+Green Chilli,B,843.6,8,"Bengaluru, Karnataka",55.0,0.7,1.33,64.98,62.24,1,4
+Carrot,A,2598.6,4,"Nashik, Maharashtra",34.0,0.5,1.09,31.31,38.97,0,25
+Cauliflower,C,1107.3,2,"Anand, Gujarat",26.0,0.8,1.09,23.26,27.79,0,25
+Cauliflower,B,298.7,1,"Guntur, Andhra Pradesh",26.0,0.8,1.38,25.45,22.72,1,6
+Wheat,A,2013.3,11,"Anand, Gujarat",30.0,0.05,1.16,36.4,42.13,0,25
+Sugarcane,C,1398.1,10,"Guntur, Andhra Pradesh",4.5,0.4,1.14,4.04,3.74,1,5
+Groundnut,B,3228.1,12,"Pune, Maharashtra",72.0,0.1,1.19,58.43,72.12,0,25
+Cabbage,C,1550.7,2,"Ludhiana, Punjab",18.0,0.6,1.21,11.58,13.97,0,25
+Green Chilli,A,1912.0,6,"Ludhiana, Punjab",55.0,0.7,1.02,48.49,59.79,0,25
+Tomato,C,2282.4,2,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,0.97,19.25,19.53,1,2
+Carrot,B,2739.8,2,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.39,30.81,35.28,0,25
+Rice,B,1063.0,1,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.36,58.42,59.22,1,8
+Soybean,C,419.3,4,"Indore, Madhya Pradesh",46.0,0.1,1.36,41.97,39.88,1,5
+Groundnut,C,1930.2,1,"Bengaluru, Karnataka",72.0,0.1,1.04,67.47,61.86,1,6
+Groundnut,A,3193.1,4,"Indore, Madhya Pradesh",72.0,0.1,1.34,90.5,85.23,1,5
+Tomato,B,3025.6,6,"Ludhiana, Punjab",24.0,0.85,1.18,26.26,24.05,1,5
+Soybean,C,1137.3,11,"Nashik, Maharashtra",46.0,0.1,0.99,33.81,38.64,0,25
+Rice,A,1215.2,3,"Bengaluru, Karnataka",48.0,0.05,0.93,65.66,67.62,1,6
+Tomato,A,2527.2,6,"Bengaluru, Karnataka",24.0,0.85,1.34,30.72,28.0,1,2
+Maize,A,80.1,7,"Indore, Madhya Pradesh",23.0,0.1,1.09,29.79,31.67,0,25
+Soybean,B,3069.4,2,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.01,49.43,46.55,1,6
+Wheat,C,671.7,8,"Ludhiana, Punjab",30.0,0.05,1.4,28.89,30.71,0,25
+Cabbage,A,729.9,7,"Indore, Madhya Pradesh",18.0,0.6,1.32,20.48,22.37,0,25
+Maize,C,1653.0,4,"Nashik, Maharashtra",23.0,0.1,1.09,20.28,21.58,0,25
+Maize,A,550.8,12,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,0.93,28.91,34.49,0,25
+Cauliflower,B,2343.6,11,"Guntur, Andhra Pradesh",26.0,0.8,1.27,19.09,17.26,1,4
+Cauliflower,A,3636.6,4,"Anand, Gujarat",26.0,0.8,1.15,24.58,23.27,1,5
+Green Chilli,C,1081.5,5,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.17,45.17,53.36,0,25
+Tomato,B,601.9,4,"Indore, Madhya Pradesh",24.0,0.85,1.3,25.33,23.03,1,4
+Brinjal,C,3052.6,12,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,1.13,19.53,21.92,0,25
+Cotton,B,3073.6,1,"Nashik, Maharashtra",70.0,0.05,1.29,60.06,71.78,0,25
+Groundnut,A,701.4,6,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.27,88.15,97.39,0,25
+Onion,A,3814.7,8,"Bengaluru, Karnataka",28.0,0.3,0.95,35.48,35.43,1,7
+Groundnut,C,641.6,12,"Nashik, Maharashtra",72.0,0.1,1.08,47.52,47.6,1,3
+Maize,C,1080.2,5,"Pune, Maharashtra",23.0,0.1,0.94,21.32,23.04,0,25
+Carrot,B,3645.5,9,"Indore, Madhya Pradesh",34.0,0.5,0.94,28.06,25.82,1,6
+Cauliflower,C,1548.8,6,"Nashik, Maharashtra",26.0,0.8,0.92,21.09,22.98,0,25
+Tomato,C,1542.7,4,"Pune, Maharashtra",24.0,0.85,1.22,23.15,20.5,1,5
+Wheat,C,1542.0,7,"Anand, Gujarat",30.0,0.05,0.96,23.79,25.09,0,25
+Green Chilli,B,1275.0,6,"Nashik, Maharashtra",55.0,0.7,0.99,50.19,54.24,0,25
+Groundnut,A,1905.6,11,"Nashik, Maharashtra",72.0,0.1,1.1,68.9,75.49,0,25
+Carrot,C,3100.8,1,"Ludhiana, Punjab",34.0,0.5,1.29,27.04,33.29,0,25
+Cotton,C,304.8,3,"Anand, Gujarat",70.0,0.05,1.03,65.31,65.75,1,7
+Onion,C,2521.0,5,"Nashik, Maharashtra",28.0,0.3,1.03,23.78,28.36,0,25
+Potato,C,3527.8,8,"Indore, Madhya Pradesh",20.0,0.2,1.02,16.8,15.54,1,5
+Brinjal,B,2708.3,3,"Bengaluru, Karnataka",22.0,0.75,0.97,27.42,27.7,1,6
+Groundnut,A,1225.5,7,"Pune, Maharashtra",72.0,0.1,0.91,94.01,84.82,1,5
+Cotton,C,461.2,4,"Guntur, Andhra Pradesh",70.0,0.05,1.38,61.67,58.63,1,4
+Tomato,B,1590.0,11,"Pune, Maharashtra",24.0,0.85,1.08,21.17,25.33,0,25
+Tomato,A,2898.4,4,"Guntur, Andhra Pradesh",24.0,0.85,1.08,21.02,22.44,0,25
+Potato,B,141.9,12,"Bengaluru, Karnataka",20.0,0.2,0.94,21.63,20.81,1,3
+Cabbage,C,2936.6,4,"Nashik, Maharashtra",18.0,0.6,1.08,16.15,17.32,0,25
+Cauliflower,C,1359.6,5,"Anand, Gujarat",26.0,0.8,1.39,19.36,16.93,1,5
+Tomato,B,993.3,5,"Nashik, Maharashtra",24.0,0.85,1.36,27.99,26.13,1,6
+Green Chilli,A,1294.5,10,"Pune, Maharashtra",55.0,0.7,1.25,66.78,60.54,1,2
+Onion,C,1892.5,9,"Indore, Madhya Pradesh",28.0,0.3,1.34,26.26,23.62,1,2
+Rice,A,2731.2,11,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.15,51.9,64.86,0,25
+Tomato,B,353.5,12,"Nashik, Maharashtra",24.0,0.85,0.94,22.79,26.21,0,25
+Sugarcane,C,3966.1,6,"Indore, Madhya Pradesh",4.5,0.4,0.95,3.84,4.46,0,25
+Groundnut,C,3650.5,1,"Nashik, Maharashtra",72.0,0.1,1.0,57.02,49.07,1,5
+Cabbage,A,492.5,7,"Ludhiana, Punjab",18.0,0.6,0.96,16.92,16.04,1,4
+Carrot,C,2930.6,5,"Indore, Madhya Pradesh",34.0,0.5,1.31,26.0,28.3,0,25
+Groundnut,B,2736.5,10,"Nashik, Maharashtra",72.0,0.1,1.1,55.46,66.79,0,25
+Onion,B,3489.8,2,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.22,23.75,25.65,0,25
+Onion,C,963.8,4,"Pune, Maharashtra",28.0,0.3,1.16,26.28,23.8,1,7
+Rice,A,2445.9,4,"Anand, Gujarat",48.0,0.05,1.15,57.71,50.75,1,4
+Green Chilli,B,414.3,2,"Guntur, Andhra Pradesh",55.0,0.7,1.37,57.17,55.32,1,5
+Brinjal,C,2540.4,6,"Nashik, Maharashtra",22.0,0.75,1.29,15.93,15.69,1,5
+Brinjal,B,233.1,12,"Guntur, Andhra Pradesh",22.0,0.75,1.25,25.31,29.41,0,25
+Tomato,A,2105.0,1,"Bengaluru, Karnataka",24.0,0.85,1.0,26.17,26.33,1,7
+Onion,A,2755.4,3,"Guntur, Andhra Pradesh",28.0,0.3,0.94,27.13,33.4,0,25
+Sugarcane,A,1455.4,6,"Pune, Maharashtra",4.5,0.4,1.31,5.87,6.18,0,25
+Potato,B,2524.2,8,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.14,22.29,20.22,1,3
+Cauliflower,B,3854.4,12,"Pune, Maharashtra",26.0,0.8,0.96,17.79,17.28,1,5
+Sugarcane,C,1403.3,4,"Indore, Madhya Pradesh",4.5,0.4,1.02,3.99,4.57,0,25
+Cauliflower,A,887.2,1,"Guntur, Andhra Pradesh",26.0,0.8,1.22,21.06,23.08,0,25
+Onion,A,1513.7,11,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.25,45.03,47.41,0,25
+Cabbage,C,1178.8,5,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.99,17.18,14.71,1,6
+Wheat,C,3037.1,7,"Anand, Gujarat",30.0,0.05,1.25,25.34,29.31,0,25
+Cabbage,B,2584.9,9,"Pune, Maharashtra",18.0,0.6,1.28,17.98,20.65,0,25
+Soybean,C,3562.1,2,"Indore, Madhya Pradesh",46.0,0.1,1.05,35.29,35.42,1,8
+Rice,A,456.6,10,"Ludhiana, Punjab",48.0,0.05,0.91,44.16,46.38,0,25
+Wheat,C,3567.6,3,"Bengaluru, Karnataka",30.0,0.05,0.95,23.33,21.91,1,6
+Sugarcane,B,2261.4,10,"Guntur, Andhra Pradesh",4.5,0.4,1.37,4.58,4.64,1,6
+Cauliflower,B,2578.9,7,"Anand, Gujarat",26.0,0.8,1.13,20.83,23.05,0,25
+Potato,C,2268.6,5,"Bengaluru, Karnataka",20.0,0.2,1.4,22.27,20.96,1,5
+Green Chilli,C,1013.6,11,"Ludhiana, Punjab",55.0,0.7,1.38,60.09,69.27,0,25
+Cotton,B,3842.1,6,"Nashik, Maharashtra",70.0,0.05,1.34,82.19,73.73,1,2
+Groundnut,C,168.3,6,"Guntur, Andhra Pradesh",72.0,0.1,1.3,69.69,80.51,0,25
+Cauliflower,C,2660.6,7,"Anand, Gujarat",26.0,0.8,0.95,19.07,20.41,0,25
+Cabbage,B,2539.9,7,"Ludhiana, Punjab",18.0,0.6,1.36,19.44,22.81,0,25
+Onion,C,3238.6,4,"Anand, Gujarat",28.0,0.3,1.06,27.06,26.65,1,7
+Onion,B,1624.7,5,"Bengaluru, Karnataka",28.0,0.3,0.97,26.15,31.12,0,25
+Wheat,C,3338.5,1,"Nashik, Maharashtra",30.0,0.05,0.98,23.36,26.89,0,25
+Tomato,A,1593.2,10,"Guntur, Andhra Pradesh",24.0,0.85,1.34,31.52,37.3,0,25
+Sugarcane,B,370.8,2,"Bengaluru, Karnataka",4.5,0.4,1.0,4.26,4.66,0,25
+Cotton,A,1532.0,2,"Nashik, Maharashtra",70.0,0.05,0.93,77.63,85.54,0,25
+Onion,C,1839.9,1,"Ludhiana, Punjab",28.0,0.3,1.29,19.69,23.53,0,25
+Cauliflower,A,1674.0,11,"Indore, Madhya Pradesh",26.0,0.8,0.97,23.34,22.45,1,2
+Carrot,B,1161.9,10,"Indore, Madhya Pradesh",34.0,0.5,0.98,31.31,35.56,0,25
+Carrot,A,2702.0,7,"Guntur, Andhra Pradesh",34.0,0.5,1.2,37.71,33.44,1,6
+Groundnut,C,3696.2,7,"Indore, Madhya Pradesh",72.0,0.1,1.39,68.1,73.29,0,25
+Maize,C,139.8,5,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.37,23.63,29.26,0,25
+Rice,A,402.3,4,"Indore, Madhya Pradesh",48.0,0.05,0.97,53.18,65.02,0,25
+Green Chilli,C,1411.7,4,"Anand, Gujarat",55.0,0.7,1.38,58.77,51.82,1,2
+Cotton,A,2431.6,2,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,0.9,88.94,79.61,1,5
+Rice,C,1897.5,3,"Ludhiana, Punjab",48.0,0.05,1.17,43.71,40.48,1,4
+Maize,C,1095.2,5,"Pune, Maharashtra",23.0,0.1,0.92,20.39,25.17,0,25
+Cotton,C,606.4,1,"Ludhiana, Punjab",70.0,0.05,1.1,40.15,35.65,1,3
+Tomato,A,2744.1,4,"Indore, Madhya Pradesh",24.0,0.85,1.32,27.64,27.9,1,5
+Maize,A,3174.2,12,"Indore, Madhya Pradesh",23.0,0.1,1.23,26.9,23.02,1,2
+Onion,B,2531.6,2,"Anand, Gujarat",28.0,0.3,1.03,24.31,29.71,0,25
+Brinjal,A,3327.5,12,"Ludhiana, Punjab",22.0,0.75,1.29,24.82,28.62,0,25
+Cotton,A,3399.9,2,"Bengaluru, Karnataka",70.0,0.05,0.99,80.64,90.53,0,25
+Green Chilli,B,954.2,6,"Nashik, Maharashtra",55.0,0.7,1.28,49.88,58.07,0,25
+Cabbage,C,2738.9,7,"Guntur, Andhra Pradesh",18.0,0.6,1.4,16.42,16.94,1,7
+Brinjal,B,2097.2,7,"Bengaluru, Karnataka",22.0,0.75,1.3,26.53,30.66,0,25
+Brinjal,C,2652.7,2,"Anand, Gujarat",22.0,0.75,0.99,18.27,17.17,1,4
+Soybean,A,2731.1,7,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.23,62.6,77.97,0,25
+Maize,A,2299.3,7,"Pune, Maharashtra",23.0,0.1,1.27,29.58,31.33,0,25
+Sugarcane,A,598.0,10,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.18,6.44,7.93,0,25
+Cauliflower,C,1748.3,4,"Pune, Maharashtra",26.0,0.8,1.2,23.56,22.75,1,5
+Tomato,A,3410.9,1,"Anand, Gujarat",24.0,0.85,1.3,28.67,27.0,1,6
+Brinjal,C,3877.8,9,"Pune, Maharashtra",22.0,0.75,1.22,15.71,15.23,1,5
+Cotton,C,381.9,11,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.07,51.97,64.18,0,25
+Sugarcane,A,1459.9,2,"Indore, Madhya Pradesh",4.5,0.4,0.99,3.98,4.81,0,25
+Brinjal,B,824.2,8,"Guntur, Andhra Pradesh",22.0,0.75,1.28,23.88,26.18,0,25
+Wheat,B,300.8,10,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.21,35.21,43.64,0,25
+Carrot,C,2190.8,7,"Indore, Madhya Pradesh",34.0,0.5,1.33,27.54,28.89,1,8
+Cotton,A,2328.4,9,"Ludhiana, Punjab",70.0,0.05,1.15,78.09,89.8,0,25
+Sugarcane,C,2121.3,11,"Ludhiana, Punjab",4.5,0.4,1.1,3.91,3.69,1,2
+Wheat,A,1554.7,7,"Ludhiana, Punjab",30.0,0.05,1.21,38.22,42.97,0,25
+Cabbage,A,543.1,11,"Nashik, Maharashtra",18.0,0.6,1.04,17.81,17.58,1,4
+Wheat,A,2394.7,8,"Guntur, Andhra Pradesh",30.0,0.05,1.0,33.35,33.06,1,7
+Wheat,A,3809.0,11,"Bengaluru, Karnataka",30.0,0.05,1.24,39.41,45.94,0,25
+Cotton,A,3843.9,9,"Bengaluru, Karnataka",70.0,0.05,1.36,81.39,99.61,0,25
+Green Chilli,B,364.4,5,"Anand, Gujarat",55.0,0.7,1.24,56.74,55.9,1,8
+Carrot,A,712.3,7,"Ludhiana, Punjab",34.0,0.5,1.19,45.37,45.89,1,6
+Cotton,C,2142.5,6,"Bengaluru, Karnataka",70.0,0.05,1.29,68.13,84.93,0,25
+Cauliflower,A,1494.9,6,"Guntur, Andhra Pradesh",26.0,0.8,1.38,35.16,36.77,1,4
+Brinjal,C,2459.0,1,"Ludhiana, Punjab",22.0,0.75,1.28,19.58,18.69,1,2
+Wheat,C,3580.8,11,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.31,27.8,24.46,1,5
+Maize,B,235.2,3,"Indore, Madhya Pradesh",23.0,0.1,1.16,23.61,22.61,1,2
+Cotton,B,1264.9,7,"Bengaluru, Karnataka",70.0,0.05,1.06,72.78,75.07,1,4
+Green Chilli,A,2929.3,4,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.08,80.02,83.25,1,8
+Cauliflower,A,1816.9,7,"Bengaluru, Karnataka",26.0,0.8,1.06,28.97,24.81,1,4
+Cotton,A,3804.0,5,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.3,97.51,100.69,1,6
+Onion,C,287.6,9,"Indore, Madhya Pradesh",28.0,0.3,1.27,26.2,23.65,1,4
+Wheat,B,3386.6,4,"Anand, Gujarat",30.0,0.05,1.16,25.74,23.56,1,2
+Green Chilli,C,280.6,7,"Guntur, Andhra Pradesh",55.0,0.7,1.06,36.59,42.41,0,25
+Cauliflower,B,1796.7,9,"Indore, Madhya Pradesh",26.0,0.8,1.05,27.38,26.97,1,4
+Groundnut,C,2547.1,9,"Pune, Maharashtra",72.0,0.1,1.27,72.49,73.85,1,4
+Cotton,B,2033.0,3,"Pune, Maharashtra",70.0,0.05,1.05,72.26,63.82,1,5
+Green Chilli,A,3535.8,1,"Anand, Gujarat",55.0,0.7,0.92,58.49,68.47,0,25
+Green Chilli,C,2607.0,10,"Bengaluru, Karnataka",55.0,0.7,1.02,54.76,65.76,0,25
+Maize,A,323.5,6,"Ludhiana, Punjab",23.0,0.1,0.9,26.04,25.67,1,2
+Rice,C,2965.7,9,"Guntur, Andhra Pradesh",48.0,0.05,1.24,41.81,44.23,0,25
+Cabbage,B,2498.9,10,"Guntur, Andhra Pradesh",18.0,0.6,1.26,20.42,18.53,1,6
+Groundnut,A,3600.5,8,"Guntur, Andhra Pradesh",72.0,0.1,1.29,85.55,86.86,1,7
+Potato,B,1187.3,6,"Anand, Gujarat",20.0,0.2,1.37,21.11,18.53,1,3
+Cotton,A,578.2,12,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.32,84.94,102.05,0,25
+Soybean,A,415.8,10,"Pune, Maharashtra",46.0,0.1,1.09,50.89,43.42,1,2
+Rice,B,682.6,8,"Pune, Maharashtra",48.0,0.05,1.26,54.82,50.22,1,4
+Cauliflower,C,1851.3,11,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.29,21.08,25.51,0,25
+Carrot,B,3000.0,5,"Ludhiana, Punjab",34.0,0.5,1.08,30.71,30.76,1,7
+Tomato,B,406.4,10,"Anand, Gujarat",24.0,0.85,1.31,23.97,28.57,0,25
+Groundnut,B,2237.5,11,"Guntur, Andhra Pradesh",72.0,0.1,1.26,57.76,53.29,1,4
+Onion,C,300.1,3,"Indore, Madhya Pradesh",28.0,0.3,1.24,22.52,20.93,1,6
+Groundnut,A,1337.0,1,"Anand, Gujarat",72.0,0.1,0.99,77.89,85.36,0,25
+Groundnut,B,2944.6,2,"Anand, Gujarat",72.0,0.1,1.3,73.09,81.34,0,25
+Cabbage,A,2234.9,4,"Pune, Maharashtra",18.0,0.6,0.97,22.97,22.87,1,8
+Sugarcane,C,2246.0,6,"Bengaluru, Karnataka",4.5,0.4,1.05,4.19,4.26,1,5
+Soybean,B,688.2,4,"Indore, Madhya Pradesh",46.0,0.1,1.1,47.11,46.31,1,7
+Cabbage,B,3578.4,3,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.2,20.33,24.18,0,25
+Cabbage,B,2305.6,3,"Nashik, Maharashtra",18.0,0.6,1.12,19.04,21.26,0,25
+Cabbage,B,494.4,12,"Indore, Madhya Pradesh",18.0,0.6,1.15,16.44,19.86,0,25
+Green Chilli,A,639.5,3,"Bengaluru, Karnataka",55.0,0.7,1.31,78.38,91.49,0,25
+Brinjal,C,794.3,9,"Nashik, Maharashtra",22.0,0.75,0.92,14.5,12.58,1,5
+Carrot,C,2038.7,9,"Indore, Madhya Pradesh",34.0,0.5,1.33,26.42,29.78,0,25
+Groundnut,C,2081.6,11,"Ludhiana, Punjab",72.0,0.1,0.99,50.5,55.8,0,25
+Brinjal,A,118.5,4,"Nashik, Maharashtra",22.0,0.75,1.39,28.95,25.56,1,4
+Sugarcane,C,1867.8,2,"Ludhiana, Punjab",4.5,0.4,1.07,3.23,3.87,0,25
+Rice,C,3126.8,1,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.22,47.97,58.85,0,25
+Groundnut,B,1246.0,2,"Nashik, Maharashtra",72.0,0.1,1.14,85.45,94.98,0,25
+Groundnut,C,2467.7,1,"Bengaluru, Karnataka",72.0,0.1,1.0,72.15,74.89,1,4
+Cabbage,B,3871.3,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.97,18.9,16.43,1,2
+Potato,A,516.4,3,"Bengaluru, Karnataka",20.0,0.2,1.24,22.31,23.13,1,6
+Tomato,A,495.2,2,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.1,22.01,19.85,1,3
+Onion,C,587.1,8,"Nashik, Maharashtra",28.0,0.3,1.07,24.61,25.23,1,4
+Maize,C,1209.8,1,"Bengaluru, Karnataka",23.0,0.1,1.0,20.53,20.57,1,3
+Tomato,C,2620.0,8,"Anand, Gujarat",24.0,0.85,1.23,20.28,18.45,1,6
+Potato,A,139.7,5,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.18,29.51,29.74,1,5
+Maize,B,2676.4,10,"Nashik, Maharashtra",23.0,0.1,1.39,20.57,18.54,1,6
+Cabbage,A,2900.2,6,"Ludhiana, Punjab",18.0,0.6,1.32,22.81,19.99,1,5
+Soybean,A,2684.5,12,"Bengaluru, Karnataka",46.0,0.1,1.2,64.62,67.76,1,2
+Onion,A,610.4,2,"Indore, Madhya Pradesh",28.0,0.3,1.0,29.46,36.06,0,25
+Cauliflower,B,1262.4,7,"Ludhiana, Punjab",26.0,0.8,1.36,28.41,34.85,0,25
+Maize,C,606.3,1,"Anand, Gujarat",23.0,0.1,1.14,21.4,18.65,1,2
+Cabbage,A,2252.2,4,"Indore, Madhya Pradesh",18.0,0.6,1.04,21.51,22.1,1,7
+Onion,B,138.4,10,"Guntur, Andhra Pradesh",28.0,0.3,1.01,27.04,24.35,1,3
+Soybean,A,1081.2,6,"Ludhiana, Punjab",46.0,0.1,1.33,59.72,66.1,0,25
+Rice,C,1036.3,1,"Pune, Maharashtra",48.0,0.05,0.96,40.51,44.42,0,25
+Maize,B,3661.1,10,"Indore, Madhya Pradesh",23.0,0.1,1.22,17.06,16.6,1,2
+Carrot,C,1175.9,6,"Ludhiana, Punjab",34.0,0.5,1.32,35.5,43.6,0,25
+Wheat,B,3355.2,3,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.03,25.4,27.23,0,25
+Sugarcane,A,868.5,1,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.3,5.08,5.81,0,25
+Brinjal,C,1824.8,2,"Bengaluru, Karnataka",22.0,0.75,1.04,23.38,23.84,1,2
+Tomato,C,2697.3,12,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.12,17.16,15.6,1,2
+Groundnut,A,290.2,12,"Ludhiana, Punjab",72.0,0.1,0.94,62.87,56.0,1,2
+Groundnut,A,3876.7,2,"Ludhiana, Punjab",72.0,0.1,1.31,84.81,81.85,1,7
+Wheat,B,3214.1,4,"Pune, Maharashtra",30.0,0.05,0.99,24.9,26.79,0,25
+Potato,B,1732.3,8,"Ludhiana, Punjab",20.0,0.2,1.11,19.91,18.94,1,2
+Onion,C,835.9,6,"Nashik, Maharashtra",28.0,0.3,1.24,26.96,27.26,1,7
+Maize,B,3564.1,7,"Pune, Maharashtra",23.0,0.1,1.12,23.57,21.44,1,3
+Onion,C,2812.9,3,"Bengaluru, Karnataka",28.0,0.3,1.14,28.46,28.78,1,5
+Wheat,B,3190.7,2,"Nashik, Maharashtra",30.0,0.05,0.93,29.22,31.72,0,25
+Soybean,B,197.5,5,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.27,55.23,63.92,0,25
+Cauliflower,A,62.0,10,"Pune, Maharashtra",26.0,0.8,1.02,35.96,44.91,0,25
+Onion,B,1059.3,1,"Anand, Gujarat",28.0,0.3,1.2,28.26,31.33,0,25
+Cabbage,B,2140.3,10,"Guntur, Andhra Pradesh",18.0,0.6,1.15,19.17,18.01,1,2
+Carrot,C,525.1,11,"Indore, Madhya Pradesh",34.0,0.5,1.11,26.22,23.36,1,6
+Onion,A,1182.3,8,"Bengaluru, Karnataka",28.0,0.3,0.92,31.84,33.18,1,4
+Rice,A,772.9,7,"Ludhiana, Punjab",48.0,0.05,1.27,63.69,69.3,0,25
+Cabbage,C,1812.0,10,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,0.91,15.75,17.87,0,25
+Maize,B,3400.1,7,"Anand, Gujarat",23.0,0.1,1.38,25.45,22.15,1,4
+Maize,C,401.6,2,"Anand, Gujarat",23.0,0.1,0.93,20.78,18.98,1,5
+Tomato,C,3406.0,2,"Pune, Maharashtra",24.0,0.85,1.35,11.83,10.45,1,3
+Groundnut,C,3594.9,3,"Indore, Madhya Pradesh",72.0,0.1,0.94,53.87,55.37,1,2
+Cotton,C,2057.5,11,"Pune, Maharashtra",70.0,0.05,1.31,61.27,74.82,0,25
+Maize,B,596.1,9,"Pune, Maharashtra",23.0,0.1,1.28,18.99,19.57,1,8
+Green Chilli,C,3932.3,10,"Bengaluru, Karnataka",55.0,0.7,1.39,44.32,47.23,0,25
+Tomato,A,234.9,9,"Pune, Maharashtra",24.0,0.85,1.14,38.54,40.06,1,3
+Cotton,A,2275.5,7,"Bengaluru, Karnataka",70.0,0.05,1.05,80.6,90.05,0,25
+Maize,A,3277.7,11,"Indore, Madhya Pradesh",23.0,0.1,1.04,26.69,24.45,1,5
+Cauliflower,C,2918.5,8,"Anand, Gujarat",26.0,0.8,1.1,26.09,31.03,0,25
+Soybean,C,220.4,5,"Nashik, Maharashtra",46.0,0.1,1.08,39.85,45.24,0,25
+Wheat,A,1450.7,2,"Guntur, Andhra Pradesh",30.0,0.05,0.92,36.2,33.33,1,3
+Maize,C,2905.3,6,"Bengaluru, Karnataka",23.0,0.1,1.08,20.58,23.91,0,25
+Carrot,C,1206.8,3,"Guntur, Andhra Pradesh",34.0,0.5,0.92,26.69,29.52,0,25
+Cotton,C,2209.9,7,"Guntur, Andhra Pradesh",70.0,0.05,1.26,59.94,73.38,0,25
+Brinjal,A,2071.2,8,"Pune, Maharashtra",22.0,0.75,0.98,24.96,24.59,1,4
+Potato,B,1656.2,11,"Bengaluru, Karnataka",20.0,0.2,1.17,23.73,21.36,1,4
+Cabbage,A,1630.5,9,"Pune, Maharashtra",18.0,0.6,1.25,23.4,23.97,1,8
+Brinjal,B,1808.4,9,"Anand, Gujarat",22.0,0.75,1.19,19.58,19.97,1,6
+Onion,A,897.1,2,"Pune, Maharashtra",28.0,0.3,1.31,25.66,29.25,0,25
+Green Chilli,C,2873.2,4,"Anand, Gujarat",55.0,0.7,0.95,40.63,38.0,1,6
+Maize,A,3925.0,3,"Ludhiana, Punjab",23.0,0.1,0.92,24.68,21.91,1,3
+Cotton,C,1473.2,3,"Nashik, Maharashtra",70.0,0.05,1.38,71.46,82.19,0,25
+Carrot,A,2484.3,2,"Pune, Maharashtra",34.0,0.5,1.11,30.33,34.24,0,25
+Wheat,A,3388.3,7,"Guntur, Andhra Pradesh",30.0,0.05,1.14,31.93,36.6,0,25
+Maize,C,550.8,9,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.03,16.21,17.87,0,25
+Cauliflower,C,1873.8,7,"Nashik, Maharashtra",26.0,0.8,1.18,21.8,19.37,1,2
+Wheat,B,3367.0,4,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.21,28.8,35.39,0,25
+Cauliflower,B,3902.3,12,"Bengaluru, Karnataka",26.0,0.8,1.1,21.62,23.73,0,25
+Carrot,B,1283.8,10,"Guntur, Andhra Pradesh",34.0,0.5,1.35,40.18,38.35,1,4
+Soybean,A,2474.1,2,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.26,61.97,69.52,0,25
+Tomato,C,1023.3,6,"Indore, Madhya Pradesh",24.0,0.85,1.36,22.75,20.37,1,4
+Brinjal,C,3338.5,4,"Nashik, Maharashtra",22.0,0.75,1.17,18.43,21.35,0,25
+Sugarcane,B,1291.8,7,"Bengaluru, Karnataka",4.5,0.4,1.11,5.2,5.49,0,25
+Wheat,B,270.5,10,"Ludhiana, Punjab",30.0,0.05,1.14,30.86,26.84,1,4
+Soybean,C,1229.9,3,"Pune, Maharashtra",46.0,0.1,1.39,45.91,55.93,0,25
+Brinjal,C,3453.2,12,"Pune, Maharashtra",22.0,0.75,1.21,20.79,21.26,1,5
+Green Chilli,B,106.7,3,"Pune, Maharashtra",55.0,0.7,1.3,61.79,61.52,1,6
+Green Chilli,C,1830.0,10,"Nashik, Maharashtra",55.0,0.7,1.38,57.0,65.96,0,25
+Rice,A,566.9,7,"Nashik, Maharashtra",48.0,0.05,1.33,57.4,68.9,0,25
+Sugarcane,A,1379.2,7,"Anand, Gujarat",4.5,0.4,1.04,5.63,5.03,1,5
+Cabbage,C,3705.1,4,"Ludhiana, Punjab",18.0,0.6,0.9,15.6,18.6,0,25
+Onion,A,765.1,5,"Anand, Gujarat",28.0,0.3,1.28,34.09,35.14,1,8
+Carrot,C,1634.9,5,"Indore, Madhya Pradesh",34.0,0.5,1.28,28.15,25.09,1,2
+Groundnut,A,3647.3,6,"Koyambedu, Chennai, Tamil Nadu",72.0,0.1,1.33,90.23,106.12,0,25
+Wheat,C,74.2,1,"Guntur, Andhra Pradesh",30.0,0.05,1.35,28.33,30.75,0,25
+Brinjal,B,555.0,9,"Indore, Madhya Pradesh",22.0,0.75,1.34,19.28,17.72,1,5
+Green Chilli,B,1812.2,5,"Nashik, Maharashtra",55.0,0.7,1.4,55.15,50.5,1,6
+Onion,A,261.2,3,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.16,32.19,30.31,1,6
+Carrot,B,1415.6,7,"Bengaluru, Karnataka",34.0,0.5,1.19,35.62,30.96,1,4
+Cotton,C,3934.4,6,"Anand, Gujarat",70.0,0.05,1.37,69.25,63.71,1,2
+Soybean,C,1331.0,9,"Bengaluru, Karnataka",46.0,0.1,1.03,46.69,44.7,1,2
+Brinjal,B,1501.3,11,"Pune, Maharashtra",22.0,0.75,1.23,14.76,14.54,1,3
+Rice,A,3780.6,3,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,0.98,57.2,66.23,0,25
+Cabbage,C,3763.3,11,"Indore, Madhya Pradesh",18.0,0.6,1.27,13.79,17.15,0,25
+Carrot,B,1009.4,4,"Guntur, Andhra Pradesh",34.0,0.5,1.05,31.93,33.39,1,2
+Cotton,C,720.4,11,"Guntur, Andhra Pradesh",70.0,0.05,0.94,44.47,46.24,1,7
+Soybean,C,2446.6,2,"Nashik, Maharashtra",46.0,0.1,1.09,39.1,38.38,1,6
+Tomato,B,2890.8,6,"Bengaluru, Karnataka",24.0,0.85,1.15,28.19,25.59,1,5
+Rice,B,96.7,5,"Bengaluru, Karnataka",48.0,0.05,1.33,63.95,73.29,0,25
+Cauliflower,A,1923.0,8,"Guntur, Andhra Pradesh",26.0,0.8,1.04,25.38,30.76,0,25
+Cotton,B,1151.5,3,"Ludhiana, Punjab",70.0,0.05,1.03,68.01,64.93,1,2
+Cauliflower,A,310.5,12,"Ludhiana, Punjab",26.0,0.8,1.2,23.47,21.99,1,5
+Cauliflower,A,2760.6,11,"Nashik, Maharashtra",26.0,0.8,1.28,26.69,25.26,1,5
+Potato,C,2074.3,9,"Indore, Madhya Pradesh",20.0,0.2,1.03,14.79,15.76,0,25
+Brinjal,C,2134.4,10,"Guntur, Andhra Pradesh",22.0,0.75,1.29,18.34,19.98,0,25
+Wheat,B,2827.2,10,"Indore, Madhya Pradesh",30.0,0.05,1.32,28.99,25.86,1,6
+Soybean,A,968.6,7,"Pune, Maharashtra",46.0,0.1,1.31,68.36,72.88,0,25
+Brinjal,C,1107.8,3,"Pune, Maharashtra",22.0,0.75,1.35,16.94,20.03,0,25
+Soybean,A,2109.8,3,"Indore, Madhya Pradesh",46.0,0.1,1.02,51.78,46.35,1,5
+Cauliflower,B,3683.8,7,"Nashik, Maharashtra",26.0,0.8,0.98,23.29,28.01,0,25
+Rice,A,2333.4,12,"Nashik, Maharashtra",48.0,0.05,1.36,48.67,57.26,0,25
+Tomato,A,3561.4,3,"Bengaluru, Karnataka",24.0,0.85,0.91,31.08,35.02,0,25
+Brinjal,B,502.7,7,"Guntur, Andhra Pradesh",22.0,0.75,1.36,21.32,23.85,0,25
+Cauliflower,C,1575.6,12,"Indore, Madhya Pradesh",26.0,0.8,0.91,17.07,15.08,1,3
+Green Chilli,B,293.8,5,"Koyambedu, Chennai, Tamil Nadu",55.0,0.7,1.26,71.43,69.84,1,3
+Onion,C,1141.6,8,"Nashik, Maharashtra",28.0,0.3,1.29,24.36,28.17,0,25
+Cauliflower,C,1293.7,4,"Anand, Gujarat",26.0,0.8,1.1,25.67,28.76,0,25
+Onion,A,2946.7,4,"Nashik, Maharashtra",28.0,0.3,1.4,33.84,34.95,1,7
+Maize,A,3278.6,6,"Nashik, Maharashtra",23.0,0.1,1.04,24.54,24.58,1,7
+Green Chilli,A,1759.8,7,"Nashik, Maharashtra",55.0,0.7,1.35,65.79,66.18,1,4
+Onion,A,1231.4,6,"Guntur, Andhra Pradesh",28.0,0.3,0.94,38.01,47.41,0,25
+Rice,B,2189.5,8,"Nashik, Maharashtra",48.0,0.05,0.95,49.04,53.73,0,25
+Maize,C,1904.3,10,"Pune, Maharashtra",23.0,0.1,1.16,19.23,22.19,0,25
+Brinjal,B,2238.1,5,"Bengaluru, Karnataka",22.0,0.75,1.09,25.27,28.81,0,25
+Cabbage,C,1584.2,3,"Guntur, Andhra Pradesh",18.0,0.6,1.13,17.1,17.5,1,6
+Maize,C,2140.1,8,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.24,22.42,24.8,0,25
+Sugarcane,C,171.0,6,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.3,4.49,5.33,0,25
+Cabbage,B,2788.2,1,"Guntur, Andhra Pradesh",18.0,0.6,1.02,15.03,12.91,1,2
+Brinjal,C,3404.6,8,"Ludhiana, Punjab",22.0,0.75,1.22,15.69,14.51,1,2
+Onion,C,1505.7,10,"Nashik, Maharashtra",28.0,0.3,0.97,17.39,15.29,1,4
+Green Chilli,C,1869.3,2,"Ludhiana, Punjab",55.0,0.7,1.13,44.96,40.7,1,3
+Cabbage,A,2190.2,2,"Koyambedu, Chennai, Tamil Nadu",18.0,0.6,1.3,16.71,18.51,0,25
+Potato,B,2865.4,10,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,1.1,22.52,20.61,1,5
+Carrot,B,260.9,8,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.25,42.91,53.56,0,25
+Maize,B,3669.2,5,"Ludhiana, Punjab",23.0,0.1,0.95,19.82,19.8,1,7
+Tomato,B,549.4,9,"Guntur, Andhra Pradesh",24.0,0.85,1.32,24.93,22.6,1,6
+Green Chilli,B,2319.4,12,"Nashik, Maharashtra",55.0,0.7,1.37,68.84,64.56,1,5
+Green Chilli,B,1864.5,1,"Pune, Maharashtra",55.0,0.7,1.01,61.26,55.4,1,6
+Carrot,A,2463.6,9,"Anand, Gujarat",34.0,0.5,1.34,44.64,38.99,1,4
+Soybean,C,2770.9,3,"Anand, Gujarat",46.0,0.1,1.26,39.9,37.75,1,3
+Brinjal,A,3700.6,9,"Guntur, Andhra Pradesh",22.0,0.75,1.3,19.86,17.35,1,3
+Cauliflower,C,508.9,2,"Nashik, Maharashtra",26.0,0.8,1.09,25.43,21.63,1,2
+Carrot,A,784.4,6,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,0.94,47.52,44.71,1,6
+Sugarcane,B,587.8,10,"Nashik, Maharashtra",4.5,0.4,0.92,4.31,4.46,1,7
+Cabbage,B,3830.1,1,"Nashik, Maharashtra",18.0,0.6,1.03,12.96,11.47,1,4
+Sugarcane,B,1207.5,12,"Ludhiana, Punjab",4.5,0.4,1.31,3.49,3.16,1,4
+Carrot,B,1411.2,7,"Bengaluru, Karnataka",34.0,0.5,1.2,39.53,35.43,1,6
+Onion,C,848.6,8,"Anand, Gujarat",28.0,0.3,1.06,28.13,29.97,0,25
+Rice,C,1068.4,1,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,0.92,42.52,46.53,0,25
+Rice,C,1899.7,2,"Anand, Gujarat",48.0,0.05,1.05,43.94,54.41,0,25
+Sugarcane,C,1061.3,8,"Ludhiana, Punjab",4.5,0.4,1.28,4.16,5.06,0,25
+Brinjal,C,3455.1,7,"Nashik, Maharashtra",22.0,0.75,1.39,18.18,18.62,1,7
+Carrot,A,3986.0,12,"Bengaluru, Karnataka",34.0,0.5,1.35,41.21,44.05,0,25
+Potato,B,3688.5,7,"Bengaluru, Karnataka",20.0,0.2,1.3,22.45,24.75,0,25
+Cotton,B,2183.8,3,"Guntur, Andhra Pradesh",70.0,0.05,1.07,80.05,97.73,0,25
+Groundnut,A,1823.5,6,"Guntur, Andhra Pradesh",72.0,0.1,1.07,88.07,77.68,1,6
+Potato,A,3307.4,12,"Anand, Gujarat",20.0,0.2,1.2,22.22,25.69,0,25
+Onion,A,2814.4,11,"Indore, Madhya Pradesh",28.0,0.3,1.27,31.78,35.48,0,25
+Cabbage,A,3806.6,2,"Bengaluru, Karnataka",18.0,0.6,1.4,17.8,17.89,1,6
+Soybean,A,3231.5,6,"Anand, Gujarat",46.0,0.1,1.25,56.24,57.82,1,5
+Soybean,C,2553.7,3,"Anand, Gujarat",46.0,0.1,1.1,36.0,35.14,1,7
+Wheat,C,749.6,11,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,0.9,25.56,22.57,1,2
+Carrot,B,91.8,1,"Ludhiana, Punjab",34.0,0.5,1.33,30.96,26.94,1,3
+Green Chilli,A,3868.1,6,"Anand, Gujarat",55.0,0.7,1.23,43.26,48.65,0,25
+Wheat,B,1780.3,1,"Ludhiana, Punjab",30.0,0.05,0.92,29.25,30.04,1,3
+Potato,B,2847.8,6,"Nashik, Maharashtra",20.0,0.2,1.19,19.68,19.61,1,2
+Rice,C,88.4,1,"Koyambedu, Chennai, Tamil Nadu",48.0,0.05,1.1,50.51,62.53,0,25
+Sugarcane,C,2775.6,4,"Nashik, Maharashtra",4.5,0.4,1.19,3.83,3.26,1,3
+Tomato,A,2050.6,1,"Guntur, Andhra Pradesh",24.0,0.85,1.25,23.91,25.51,0,25
+Soybean,C,3962.4,4,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.07,41.04,44.99,0,25
+Maize,A,3051.9,6,"Ludhiana, Punjab",23.0,0.1,1.02,23.98,21.79,1,3
+Onion,A,3856.8,7,"Nashik, Maharashtra",28.0,0.3,1.18,35.74,38.64,0,25
+Soybean,A,1742.5,10,"Guntur, Andhra Pradesh",46.0,0.1,1.36,47.66,50.93,0,25
+Groundnut,B,224.2,5,"Indore, Madhya Pradesh",72.0,0.1,1.25,75.58,71.55,1,4
+Wheat,C,3564.6,12,"Anand, Gujarat",30.0,0.05,1.01,26.01,25.3,1,6
+Green Chilli,A,1600.9,1,"Nashik, Maharashtra",55.0,0.7,1.13,80.03,92.32,0,25
+Cotton,A,81.8,6,"Ludhiana, Punjab",70.0,0.05,0.98,81.49,85.34,1,9
+Green Chilli,B,775.4,7,"Anand, Gujarat",55.0,0.7,0.95,46.69,49.72,0,25
+Potato,C,787.7,11,"Nashik, Maharashtra",20.0,0.2,1.37,18.66,21.75,0,25
+Wheat,B,110.2,2,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.29,35.4,38.18,0,25
+Soybean,B,1014.9,6,"Nashik, Maharashtra",46.0,0.1,1.22,52.76,53.58,1,4
+Tomato,A,1566.9,2,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.12,24.16,28.21,0,25
+Cabbage,A,1371.3,11,"Pune, Maharashtra",18.0,0.6,1.39,26.09,31.32,0,25
+Cabbage,C,3436.0,6,"Indore, Madhya Pradesh",18.0,0.6,1.33,14.9,13.19,1,4
+Cabbage,B,1611.2,3,"Pune, Maharashtra",18.0,0.6,1.02,20.28,23.76,0,25
+Potato,A,1511.7,8,"Anand, Gujarat",20.0,0.2,1.16,22.83,20.12,1,4
+Carrot,A,3634.0,1,"Anand, Gujarat",34.0,0.5,0.96,32.74,30.78,1,6
+Tomato,A,2816.7,7,"Bengaluru, Karnataka",24.0,0.85,0.98,22.29,24.72,0,25
+Cabbage,C,1442.7,2,"Anand, Gujarat",18.0,0.6,1.36,14.27,17.32,0,25
+Groundnut,A,423.1,10,"Ludhiana, Punjab",72.0,0.1,0.95,62.07,55.54,1,4
+Cauliflower,B,2224.9,9,"Ludhiana, Punjab",26.0,0.8,1.27,30.08,31.15,1,8
+Potato,C,2246.3,7,"Koyambedu, Chennai, Tamil Nadu",20.0,0.2,0.92,16.72,14.55,1,6
+Green Chilli,A,3074.1,9,"Indore, Madhya Pradesh",55.0,0.7,1.25,65.31,81.09,0,25
+Cabbage,A,3224.6,3,"Indore, Madhya Pradesh",18.0,0.6,1.04,19.17,23.67,0,25
+Wheat,A,595.5,9,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.26,40.99,37.75,1,3
+Wheat,C,3710.2,11,"Anand, Gujarat",30.0,0.05,1.39,27.56,24.92,1,6
+Tomato,B,1151.0,5,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.39,25.35,30.92,0,25
+Cotton,C,1714.8,2,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.38,63.8,63.41,1,6
+Rice,C,549.8,11,"Nashik, Maharashtra",48.0,0.05,1.21,36.3,33.87,1,2
+Maize,C,3416.9,4,"Anand, Gujarat",23.0,0.1,0.97,19.12,19.61,1,4
+Maize,A,1523.1,4,"Koyambedu, Chennai, Tamil Nadu",23.0,0.1,1.0,31.28,32.89,0,25
+Brinjal,B,1051.2,7,"Nashik, Maharashtra",22.0,0.75,1.0,20.01,22.47,0,25
+Cotton,A,3182.5,12,"Ludhiana, Punjab",70.0,0.05,1.02,65.36,64.86,1,7
+Onion,C,3083.2,3,"Bengaluru, Karnataka",28.0,0.3,1.24,19.91,22.11,0,25
+Cabbage,A,3539.7,11,"Guntur, Andhra Pradesh",18.0,0.6,1.24,21.26,21.29,1,6
+Cotton,A,3779.2,2,"Bengaluru, Karnataka",70.0,0.05,0.91,78.16,74.19,1,7
+Cauliflower,B,1579.0,10,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,0.98,22.7,21.14,1,2
+Carrot,A,1653.2,6,"Nashik, Maharashtra",34.0,0.5,1.34,39.47,48.85,0,25
+Brinjal,B,1563.5,1,"Indore, Madhya Pradesh",22.0,0.75,1.25,23.73,25.03,0,25
+Brinjal,B,1247.6,1,"Ludhiana, Punjab",22.0,0.75,1.04,21.74,25.11,0,25
+Wheat,B,3863.0,8,"Nashik, Maharashtra",30.0,0.05,1.1,30.07,34.82,0,25
+Groundnut,A,83.7,6,"Guntur, Andhra Pradesh",72.0,0.1,1.22,96.49,96.56,1,5
+Potato,A,1763.7,3,"Guntur, Andhra Pradesh",20.0,0.2,1.32,23.74,22.61,1,6
+Soybean,A,2241.5,11,"Ludhiana, Punjab",46.0,0.1,1.06,46.08,51.58,0,25
+Onion,C,2953.1,9,"Nashik, Maharashtra",28.0,0.3,1.37,21.61,19.22,1,5
+Brinjal,A,1279.0,12,"Bengaluru, Karnataka",22.0,0.75,1.31,28.23,24.95,1,4
+Soybean,B,844.0,4,"Pune, Maharashtra",46.0,0.1,1.07,50.65,62.62,0,25
+Wheat,B,2683.5,6,"Anand, Gujarat",30.0,0.05,1.08,31.17,29.44,1,3
+Rice,A,360.8,2,"Bengaluru, Karnataka",48.0,0.05,1.32,71.4,72.28,1,4
+Groundnut,B,3124.5,8,"Ludhiana, Punjab",72.0,0.1,1.1,65.49,73.74,0,25
+Soybean,B,3194.5,6,"Indore, Madhya Pradesh",46.0,0.1,1.1,43.51,54.22,0,25
+Groundnut,C,1473.9,4,"Ludhiana, Punjab",72.0,0.1,1.02,54.32,54.23,1,5
+Cotton,B,3728.2,7,"Guntur, Andhra Pradesh",70.0,0.05,1.2,57.86,50.65,1,2
+Wheat,A,1405.9,3,"Koyambedu, Chennai, Tamil Nadu",30.0,0.05,1.08,31.38,33.39,0,25
+Maize,A,3672.4,10,"Ludhiana, Punjab",23.0,0.1,1.05,21.8,25.16,0,25
+Cabbage,A,2324.1,6,"Ludhiana, Punjab",18.0,0.6,1.1,21.57,25.62,0,25
+Potato,A,1840.1,1,"Bengaluru, Karnataka",20.0,0.2,1.39,24.04,27.33,0,25
+Onion,B,534.0,7,"Anand, Gujarat",28.0,0.3,1.31,34.05,29.66,1,5
+Wheat,C,3180.9,4,"Bengaluru, Karnataka",30.0,0.05,0.98,21.95,25.48,0,25
+Maize,B,3247.9,12,"Bengaluru, Karnataka",23.0,0.1,1.13,26.15,26.54,1,6
+Carrot,A,3619.5,11,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,0.91,36.72,38.49,1,6
+Green Chilli,A,363.6,2,"Anand, Gujarat",55.0,0.7,1.26,59.34,61.04,1,8
+Cauliflower,B,876.0,3,"Ludhiana, Punjab",26.0,0.8,1.31,25.13,23.13,1,6
+Cauliflower,B,3384.4,5,"Pune, Maharashtra",26.0,0.8,1.23,23.53,26.39,0,25
+Tomato,A,2589.1,4,"Indore, Madhya Pradesh",24.0,0.85,0.98,22.16,19.06,1,4
+Sugarcane,B,3624.5,4,"Anand, Gujarat",4.5,0.4,1.13,4.3,3.88,1,4
+Soybean,B,820.2,4,"Guntur, Andhra Pradesh",46.0,0.1,0.9,45.91,54.22,0,25
+Maize,C,3264.0,3,"Ludhiana, Punjab",23.0,0.1,1.37,20.81,18.21,1,6
+Green Chilli,B,150.0,1,"Nashik, Maharashtra",55.0,0.7,0.98,59.28,53.42,1,3
+Green Chilli,B,1730.4,2,"Bengaluru, Karnataka",55.0,0.7,1.2,60.67,57.07,1,5
+Sugarcane,A,2139.9,7,"Bengaluru, Karnataka",4.5,0.4,1.21,6.69,8.12,0,25
+Rice,A,2508.6,7,"Bengaluru, Karnataka",48.0,0.05,1.08,66.92,61.01,1,6
+Potato,C,2597.3,10,"Nashik, Maharashtra",20.0,0.2,1.19,16.33,15.49,1,2
+Green Chilli,C,2747.4,11,"Ludhiana, Punjab",55.0,0.7,1.35,43.66,39.7,1,2
+Groundnut,B,2483.0,12,"Bengaluru, Karnataka",72.0,0.1,1.35,67.69,65.32,1,7
+Groundnut,C,940.7,6,"Bengaluru, Karnataka",72.0,0.1,1.01,68.16,69.57,1,5
+Tomato,B,3634.2,2,"Guntur, Andhra Pradesh",24.0,0.85,1.18,16.68,16.77,1,5
+Onion,C,1555.5,4,"Anand, Gujarat",28.0,0.3,0.95,24.77,25.92,1,3
+Onion,B,2727.2,9,"Bengaluru, Karnataka",28.0,0.3,1.22,32.89,39.26,0,25
+Soybean,C,3060.1,12,"Guntur, Andhra Pradesh",46.0,0.1,1.17,40.66,38.76,1,4
+Rice,B,567.5,5,"Indore, Madhya Pradesh",48.0,0.05,1.0,49.73,56.01,0,25
+Potato,A,2058.0,12,"Anand, Gujarat",20.0,0.2,1.22,24.21,27.88,0,25
+Wheat,B,2262.8,6,"Anand, Gujarat",30.0,0.05,1.24,31.83,37.44,0,25
+Soybean,C,2950.3,3,"Anand, Gujarat",46.0,0.1,1.08,37.94,33.12,1,2
+Maize,C,1517.8,4,"Ludhiana, Punjab",23.0,0.1,0.92,17.31,19.11,0,25
+Groundnut,B,3427.6,2,"Bengaluru, Karnataka",72.0,0.1,0.96,83.87,73.15,1,3
+Sugarcane,B,3319.3,2,"Pune, Maharashtra",4.5,0.4,0.9,3.61,3.88,0,25
+Wheat,A,103.5,3,"Ludhiana, Punjab",30.0,0.05,1.23,29.47,27.64,1,4
+Brinjal,C,3149.0,9,"Nashik, Maharashtra",22.0,0.75,1.23,15.92,16.55,1,5
+Onion,B,227.9,8,"Pune, Maharashtra",28.0,0.3,1.06,37.52,40.43,0,25
+Sugarcane,A,391.6,6,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.39,6.37,7.37,0,25
+Soybean,B,1122.9,7,"Ludhiana, Punjab",46.0,0.1,1.18,49.18,54.99,0,25
+Cabbage,C,3939.8,10,"Guntur, Andhra Pradesh",18.0,0.6,1.2,13.9,16.29,0,25
+Tomato,B,121.7,3,"Nashik, Maharashtra",24.0,0.85,0.98,25.92,32.16,0,25
+Soybean,A,3474.2,10,"Koyambedu, Chennai, Tamil Nadu",46.0,0.1,1.15,49.9,45.4,1,2
+Rice,C,1748.5,12,"Bengaluru, Karnataka",48.0,0.05,1.37,42.89,43.38,1,5
+Soybean,B,2287.3,1,"Guntur, Andhra Pradesh",46.0,0.1,1.16,47.81,50.02,1,5
+Onion,C,1779.5,3,"Anand, Gujarat",28.0,0.3,1.09,21.41,24.75,0,25
+Carrot,B,2201.6,11,"Indore, Madhya Pradesh",34.0,0.5,1.08,37.2,45.62,0,25
+Soybean,C,505.4,4,"Pune, Maharashtra",46.0,0.1,0.95,37.05,42.9,0,25
+Green Chilli,B,3817.6,1,"Bengaluru, Karnataka",55.0,0.7,1.24,65.74,60.66,1,2
+Tomato,A,323.5,10,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.32,27.03,31.35,0,25
+Carrot,B,2274.0,5,"Pune, Maharashtra",34.0,0.5,1.13,39.94,45.31,0,25
+Tomato,A,1883.9,9,"Guntur, Andhra Pradesh",24.0,0.85,1.05,25.87,27.63,0,25
+Sugarcane,B,1226.1,7,"Indore, Madhya Pradesh",4.5,0.4,1.12,4.42,5.42,0,25
+Brinjal,A,1735.2,6,"Guntur, Andhra Pradesh",22.0,0.75,1.4,28.72,27.36,1,4
+Tomato,B,1293.2,6,"Bengaluru, Karnataka",24.0,0.85,1.01,28.81,28.94,1,4
+Brinjal,C,1793.4,8,"Anand, Gujarat",22.0,0.75,0.95,21.1,23.29,0,25
+Soybean,B,2799.0,10,"Anand, Gujarat",46.0,0.1,1.01,38.11,41.44,0,25
+Groundnut,A,1431.6,6,"Anand, Gujarat",72.0,0.1,0.98,93.03,85.07,1,4
+Rice,B,3950.4,4,"Pune, Maharashtra",48.0,0.05,1.33,48.76,53.55,0,25
+Cauliflower,C,1604.2,10,"Ludhiana, Punjab",26.0,0.8,1.36,19.61,19.92,1,5
+Wheat,B,2994.0,5,"Pune, Maharashtra",30.0,0.05,1.05,25.34,30.63,0,25
+Cabbage,A,3715.6,10,"Guntur, Andhra Pradesh",18.0,0.6,1.19,21.95,25.27,0,25
+Rice,C,2334.4,5,"Pune, Maharashtra",48.0,0.05,1.04,41.41,41.99,1,2
+Sugarcane,C,936.9,3,"Anand, Gujarat",4.5,0.4,1.2,3.34,3.51,0,25
+Potato,C,3744.0,12,"Indore, Madhya Pradesh",20.0,0.2,1.39,16.82,19.48,0,25
+Cauliflower,C,1034.3,2,"Pune, Maharashtra",26.0,0.8,0.95,20.43,17.43,1,5
+Cabbage,B,2780.5,1,"Anand, Gujarat",18.0,0.6,0.96,13.95,13.68,1,7
+Cauliflower,B,2539.7,5,"Bengaluru, Karnataka",26.0,0.8,1.29,30.74,30.69,1,5
+Cabbage,A,1015.5,1,"Anand, Gujarat",18.0,0.6,0.92,16.76,16.29,1,7
+Potato,C,265.7,10,"Bengaluru, Karnataka",20.0,0.2,0.91,20.78,25.12,0,25
+Cotton,B,3126.2,3,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.0,77.09,77.66,1,4
+Groundnut,C,1356.5,4,"Guntur, Andhra Pradesh",72.0,0.1,1.07,60.16,67.44,0,25
+Carrot,A,3694.7,2,"Guntur, Andhra Pradesh",34.0,0.5,1.2,34.74,34.54,1,4
+Wheat,C,1582.2,7,"Ludhiana, Punjab",30.0,0.05,0.94,24.49,23.0,1,5
+Green Chilli,A,3566.5,5,"Bengaluru, Karnataka",55.0,0.7,1.0,51.96,59.56,0,25
+Tomato,A,1857.2,5,"Bengaluru, Karnataka",24.0,0.85,0.99,36.21,36.67,1,6
+Tomato,B,1830.5,11,"Bengaluru, Karnataka",24.0,0.85,1.19,17.95,21.01,0,25
+Brinjal,C,2231.1,1,"Nashik, Maharashtra",22.0,0.75,1.35,19.9,24.47,0,25
+Green Chilli,C,3448.4,10,"Anand, Gujarat",55.0,0.7,1.09,45.41,54.69,0,25
+Soybean,A,3562.6,8,"Indore, Madhya Pradesh",46.0,0.1,0.93,48.6,46.43,1,7
+Wheat,A,662.9,1,"Ludhiana, Punjab",30.0,0.05,1.17,36.78,31.95,1,2
+Cauliflower,C,1593.8,7,"Pune, Maharashtra",26.0,0.8,0.99,20.79,23.92,0,25
+Groundnut,A,577.2,4,"Bengaluru, Karnataka",72.0,0.1,1.4,100.99,91.35,1,2
+Brinjal,C,857.4,4,"Koyambedu, Chennai, Tamil Nadu",22.0,0.75,0.9,19.23,16.51,1,2
+Brinjal,B,2949.5,2,"Indore, Madhya Pradesh",22.0,0.75,0.96,23.51,23.42,1,7
+Carrot,B,2458.2,8,"Anand, Gujarat",34.0,0.5,1.07,31.35,36.85,0,25
+Rice,C,1148.1,3,"Nashik, Maharashtra",48.0,0.05,1.09,46.8,43.02,1,3
+Cabbage,C,724.0,8,"Pune, Maharashtra",18.0,0.6,0.91,17.53,16.8,1,7
+Sugarcane,A,2183.7,3,"Nashik, Maharashtra",4.5,0.4,1.13,4.57,5.36,0,25
+Sugarcane,A,2884.9,8,"Koyambedu, Chennai, Tamil Nadu",4.5,0.4,1.38,5.85,6.52,0,25
+Potato,B,281.0,6,"Nashik, Maharashtra",20.0,0.2,1.31,21.55,20.55,1,7
+Carrot,C,2586.7,8,"Koyambedu, Chennai, Tamil Nadu",34.0,0.5,1.25,26.26,25.69,1,3
+Onion,C,247.7,5,"Anand, Gujarat",28.0,0.3,1.08,22.18,27.02,0,25
+Potato,C,635.9,11,"Indore, Madhya Pradesh",20.0,0.2,1.15,17.22,21.05,0,25
+Potato,A,208.4,10,"Ludhiana, Punjab",20.0,0.2,1.38,26.07,26.27,1,5
+Groundnut,B,1967.6,4,"Anand, Gujarat",72.0,0.1,1.21,71.71,73.9,1,7
+Onion,A,383.9,3,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,1.39,35.25,37.2,0,25
+Rice,C,2233.6,12,"Ludhiana, Punjab",48.0,0.05,1.3,36.07,41.38,0,25
+Tomato,C,3427.5,8,"Koyambedu, Chennai, Tamil Nadu",24.0,0.85,1.33,18.3,21.4,0,25
+Maize,A,459.1,6,"Anand, Gujarat",23.0,0.1,1.39,30.66,33.63,0,25
+Groundnut,B,1307.4,10,"Anand, Gujarat",72.0,0.1,1.34,65.79,60.47,1,2
+Carrot,B,920.2,4,"Pune, Maharashtra",34.0,0.5,1.13,33.88,31.01,1,3
+Wheat,A,1533.9,2,"Anand, Gujarat",30.0,0.05,1.09,34.59,37.58,0,25
+Soybean,B,2973.1,4,"Bengaluru, Karnataka",46.0,0.1,0.9,53.5,57.02,0,25
+Rice,A,1243.1,5,"Pune, Maharashtra",48.0,0.05,1.34,65.43,77.62,0,25
+Carrot,C,1120.3,1,"Ludhiana, Punjab",34.0,0.5,0.91,21.47,19.68,1,6
+Cabbage,C,2753.2,9,"Guntur, Andhra Pradesh",18.0,0.6,0.94,14.9,17.36,0,25
+Carrot,B,2822.9,10,"Pune, Maharashtra",34.0,0.5,0.99,32.19,32.86,1,6
+Potato,C,971.0,7,"Ludhiana, Punjab",20.0,0.2,0.99,18.28,21.35,0,25
+Potato,B,1702.5,1,"Anand, Gujarat",20.0,0.2,1.34,17.25,17.07,1,2
+Sugarcane,C,2633.8,1,"Anand, Gujarat",4.5,0.4,1.19,3.31,3.19,1,2
+Maize,B,649.0,1,"Bengaluru, Karnataka",23.0,0.1,1.06,26.41,30.45,0,25
+Groundnut,C,1771.8,4,"Guntur, Andhra Pradesh",72.0,0.1,1.13,62.98,63.83,1,7
+Groundnut,B,1754.3,1,"Anand, Gujarat",72.0,0.1,0.94,69.12,77.09,0,25
+Cabbage,C,2691.9,11,"Nashik, Maharashtra",18.0,0.6,1.07,15.96,14.99,1,5
+Cotton,A,2316.9,5,"Nashik, Maharashtra",70.0,0.05,1.33,95.13,89.4,1,6
+Onion,C,3409.5,3,"Koyambedu, Chennai, Tamil Nadu",28.0,0.3,0.95,22.04,22.01,1,4
+Soybean,A,656.9,9,"Ludhiana, Punjab",46.0,0.1,1.12,49.97,50.81,1,5
+Brinjal,B,3066.1,2,"Nashik, Maharashtra",22.0,0.75,0.95,19.71,17.21,1,3
+Wheat,A,3188.7,1,"Nashik, Maharashtra",30.0,0.05,0.99,35.06,42.82,0,25
+Maize,B,2121.4,11,"Indore, Madhya Pradesh",23.0,0.1,1.02,21.84,25.0,0,25
+Brinjal,C,3785.6,5,"Guntur, Andhra Pradesh",22.0,0.75,1.1,20.21,19.69,1,6
+Cabbage,B,1220.0,4,"Anand, Gujarat",18.0,0.6,0.99,16.22,16.62,1,3
+Onion,A,1257.3,1,"Anand, Gujarat",28.0,0.3,0.93,23.53,22.68,1,5
+Cauliflower,A,2944.3,5,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.37,39.15,46.77,0,25
+Cotton,A,3457.7,8,"Koyambedu, Chennai, Tamil Nadu",70.0,0.05,1.12,83.21,98.2,0,25
+Brinjal,C,2778.1,10,"Pune, Maharashtra",22.0,0.75,0.95,16.78,15.01,1,4
+Tomato,A,1668.8,7,"Guntur, Andhra Pradesh",24.0,0.85,1.27,35.11,40.31,0,25
+Groundnut,A,1424.0,1,"Nashik, Maharashtra",72.0,0.1,1.0,85.78,91.58,0,25
+Rice,A,2545.6,6,"Nashik, Maharashtra",48.0,0.05,1.06,56.74,52.3,1,3
+Cauliflower,A,2234.9,6,"Nashik, Maharashtra",26.0,0.8,0.98,23.67,21.74,1,6
+Sugarcane,C,1831.9,1,"Nashik, Maharashtra",4.5,0.4,1.17,3.34,3.42,1,7
+Sugarcane,B,750.4,4,"Bengaluru, Karnataka",4.5,0.4,1.18,5.73,6.02,0,25
+Maize,B,3267.5,4,"Bengaluru, Karnataka",23.0,0.1,1.1,23.54,27.04,0,25
+Cauliflower,B,3855.7,11,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.36,24.35,22.42,1,4
+Rice,B,53.2,2,"Pune, Maharashtra",48.0,0.05,0.94,47.57,43.38,1,4
+Potato,A,2454.7,12,"Bengaluru, Karnataka",20.0,0.2,0.95,22.82,28.26,0,25
+Green Chilli,A,2420.3,12,"Indore, Madhya Pradesh",55.0,0.7,1.33,63.12,66.99,0,25
+Green Chilli,C,3813.0,7,"Nashik, Maharashtra",55.0,0.7,1.14,32.83,33.45,1,6
+Green Chilli,C,2557.5,1,"Anand, Gujarat",55.0,0.7,1.37,56.9,60.26,0,25
+Cotton,C,3092.8,4,"Pune, Maharashtra",70.0,0.05,1.21,59.05,59.87,1,5
+Cauliflower,C,3881.3,6,"Koyambedu, Chennai, Tamil Nadu",26.0,0.8,1.11,24.59,29.29,0,25
