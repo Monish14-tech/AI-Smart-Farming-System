@@ -92,21 +92,34 @@ export default function FarmerDashboard() {
             <div className="glass" style={{ padding: 24 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
                 <h2 style={{ fontSize: 18, fontWeight: 700 }}>📊 Today's Mandi Prices</h2>
-                <span className="badge badge-green">Live</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <span className="badge badge-green">Live</span>
+                  <Link href="/farmer/mandi" style={{ fontSize: 13, color: '#059669', fontWeight: 600, textDecoration: 'none' }}>
+                    View All →
+                  </Link>
+                </div>
               </div>
               <table className="data-table">
                 <thead>
                   <tr><th>Crop</th><th>Market</th><th>Modal Price</th><th>Range</th></tr>
                 </thead>
                 <tbody>
-                  {mandiPrices.slice(0, 8).map((p, i) => (
-                    <tr key={i}>
-                      <td style={{ fontWeight: 600 }}>{p.commodity}</td>
-                      <td style={{ color: 'var(--color-text-secondary)', fontSize: 13 }}>{p.market}, {p.state}</td>
-                      <td><span className="font-display" style={{ color: 'var(--color-gold)', fontWeight: 700 }}>₹{p.modal_price}/q</span></td>
-                      <td style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>₹{p.min_price}–{p.max_price}</td>
+                  {mandiPrices.length > 0 ? (
+                    mandiPrices.slice(0, 8).map((p, i) => (
+                      <tr key={i}>
+                        <td style={{ fontWeight: 600 }}>{p.commodity}</td>
+                        <td style={{ color: 'var(--color-text-secondary)', fontSize: 13 }}>{p.market}, {p.state}</td>
+                        <td><span className="font-display" style={{ color: 'var(--color-gold)', fontWeight: 700 }}>₹{p.modal_price?.toLocaleString('en-IN')}/q</span></td>
+                        <td style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>₹{p.min_price?.toLocaleString('en-IN')}–{p.max_price?.toLocaleString('en-IN')}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={4} style={{ textAlign: 'center', padding: '36px 16px', color: 'var(--color-text-secondary)', fontSize: 14 }}>
+                        No mandi price records found at this moment.
+                      </td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
