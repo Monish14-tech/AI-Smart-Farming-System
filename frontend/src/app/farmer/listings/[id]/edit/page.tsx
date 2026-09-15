@@ -109,9 +109,9 @@ export default function EditListing() {
                   <div>
                     <label style={{ display: 'block', fontSize: 13, fontWeight: 500, marginBottom: 6, color: 'var(--color-text-secondary)' }}>Quality Grade *</label>
                     <select name="qualityGrade" className="input-field" value={form.qualityGrade} onChange={handleChange}>
-                      <option value="A">Grade A — Premium</option>
-                      <option value="B">Grade B — Standard</option>
-                      <option value="C">Grade C — Economy</option>
+                      <option value="A">Grade A - Premium</option>
+                      <option value="B">Grade B - Standard</option>
+                      <option value="C">Grade C - Economy</option>
                     </select>
                   </div>
                   <div>

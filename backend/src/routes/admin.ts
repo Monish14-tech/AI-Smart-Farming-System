@@ -71,7 +71,7 @@ router.get('/users', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── PUT /admin/users/:id/verify — approve KYC ───────────────────────
+// ─── PUT /admin/users/:id/verify - approve KYC ───────────────────────
 router.put('/users/:id/verify', async (req: Request, res: Response): Promise<void> => {
   try {
     const user = await prisma.user.update({
@@ -95,7 +95,7 @@ router.delete('/users/:id', async (req: Request, res: Response): Promise<void> =
   }
 });
 
-// ─── GET /admin/listings — moderation queue ───────────────────────────
+// ─── GET /admin/listings - moderation queue ───────────────────────────
 router.get('/listings', async (req: Request, res: Response): Promise<void> => {
   try {
     const { status = 'active', page = '1', limit = '20' } = req.query as Record<string, string>;

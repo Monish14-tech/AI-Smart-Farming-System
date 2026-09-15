@@ -36,8 +36,10 @@ export default function LoginPage() {
       <div className="glass animate-fade-in" style={{ width: '100%', maxWidth: 440, padding: 40 }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontSize: 32 }}>🌿</span>
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <div style={{ width: 34, height: 34, borderRadius: 6, background: 'var(--teal-600)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
+              <span style={{ fontWeight: 800, fontSize: 16 }}>A</span>
+            </div>
             <span className="font-display gradient-text" style={{ fontSize: 26, fontWeight: 800 }}>AgriNova</span>
           </Link>
           <p style={{ color: 'var(--color-text-secondary)', fontSize: 14, marginTop: 8 }}>Sign in to your account</p>

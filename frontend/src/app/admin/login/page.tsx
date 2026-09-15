@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { api, useAuth } from '@/contexts/AuthContext';
 import toast from 'react-hot-toast';
+import { ShieldCheck, ArrowRight, Lock } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -30,14 +31,14 @@ export default function AdminLoginPage() {
       localStorage.setItem('refreshToken', data.refreshToken);
       await refreshUser();
 
-      toast.success('Admin authentication verified. Welcome back!');
+      toast.success('Admin authentication verified. Welcome back.');
       router.push('/admin/dashboard');
     } catch (err: any) {
       console.error('Admin login error:', err);
       if (err?.response?.data?.error) {
         toast.error(err.response.data.error);
       } else if (err?.message === 'Network Error' || !err?.response) {
-        toast.error(`Network Error: Frontend cannot reach "${api.defaults.baseURL}". Verify backend is awake and NEXT_PUBLIC_API_URL is configured in Vercel.`);
+        toast.error(`Network Error: Frontend cannot reach "${api.defaults.baseURL}". Verify backend is awake.`);
       } else {
         toast.error(err?.message || 'Admin authentication failed');
       }
@@ -54,102 +55,80 @@ export default function AdminLoginPage() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: 24,
-        background: 'radial-gradient(ellipse at top, #1c0f2b 0%, #0c0814 60%, #050308 100%)',
+        background: '#0F172A',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Background glow elements */}
       <div
-        style={{
-          position: 'absolute',
-          top: '-10%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: 500,
-          height: 500,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(155, 89, 182, 0.15) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div
-        className="glass animate-fade-in"
+        className="animate-fade-in"
         style={{
           width: '100%',
-          maxWidth: 460,
-          padding: '44px 40px',
-          borderColor: 'rgba(155, 89, 182, 0.3)',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(155, 89, 182, 0.1)',
+          maxWidth: 440,
+          padding: '40px 36px',
+          background: '#1E293B',
+          borderRadius: 8,
+          border: '1px solid #334155',
+          boxShadow: '0 20px 48px rgba(0, 0, 0, 0.4)',
         }}
       >
-        {/* Header / Badge */}
-        <div style={{ textAlign: 'center', marginBottom: 32 }}>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <div
             style={{
-              width: 56,
-              height: 56,
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #9B59B6, #6C3483)',
+              width: 50,
+              height: 50,
+              borderRadius: 8,
+              background: '#0D9488',
+              color: '#FFFFFF',
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 26,
               marginBottom: 16,
-              boxShadow: '0 8px 24px rgba(155, 89, 182, 0.35)',
             }}
           >
-            🛡️
+            <ShieldCheck size={26} />
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 6 }}>
-            <span style={{ fontSize: 22 }}>🌿</span>
-            <span
-              className="font-display"
-              style={{
-                fontSize: 22,
-                fontWeight: 800,
-                background: 'linear-gradient(135deg, #B39DDB, #E1BEE7)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              AgriNova
+            <span className="font-display" style={{ fontSize: 22, fontWeight: 800, color: '#F8FAFC' }}>
+              Agri<span style={{ color: '#2DD4BF' }}>Nova</span>
             </span>
           </div>
 
-          <h1 className="font-display" style={{ fontSize: 20, fontWeight: 700, margin: '4px 0', color: '#EDE7F6' }}>
-            Admin Control Center
+          <h1 className="font-display" style={{ fontSize: 18, fontWeight: 700, margin: '4px 0', color: '#F1F5F9' }}>
+            System Administration
           </h1>
-          <p style={{ color: 'var(--color-text-secondary)', fontSize: 13, margin: 0 }}>
-            Restricted access for system administrators & moderators
+          <p style={{ color: '#94A3B8', fontSize: 13, margin: 0 }}>
+            Restricted access for platform administrators and operations
           </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
-            <label style={{ display: 'block', fontSize: 13, fontWeight: 500, marginBottom: 6, color: '#D1C4E9' }}>
+            <label style={{ display: 'block', fontSize: 13, fontWeight: 500, marginBottom: 6, color: '#CBD5E1' }}>
               Administrator Email
             </label>
             <input
               type="email"
               className="input-field"
-              placeholder="admin@agrinova.test"
+              placeholder="admin@agrinova.market"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
               style={{
-                borderColor: 'rgba(155, 89, 182, 0.25)',
-                background: 'rgba(15, 10, 24, 0.7)',
+                borderColor: '#475569',
+                background: '#0F172A',
+                color: '#F8FAFC',
+                borderRadius: 6,
               }}
             />
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: 13, fontWeight: 500, marginBottom: 6, color: '#D1C4E9' }}>
-              Master Password
+            <label style={{ display: 'block', fontSize: 13, fontWeight: 500, marginBottom: 6, color: '#CBD5E1' }}>
+              Password
             </label>
             <input
               type="password"
@@ -159,8 +138,10 @@ export default function AdminLoginPage() {
               onChange={e => setPassword(e.target.value)}
               required
               style={{
-                borderColor: 'rgba(155, 89, 182, 0.25)',
-                background: 'rgba(15, 10, 24, 0.7)',
+                borderColor: '#475569',
+                background: '#0F172A',
+                color: '#F8FAFC',
+                borderRadius: 6,
               }}
             />
           </div>
@@ -169,33 +150,38 @@ export default function AdminLoginPage() {
             type="submit"
             disabled={loading}
             style={{
-              marginTop: 10,
-              padding: '14px 24px',
-              borderRadius: 'var(--radius-md)',
-              background: 'linear-gradient(135deg, #9B59B6, #6C3483)',
+              marginTop: 8,
+              padding: '12px 20px',
+              borderRadius: 6,
+              background: '#0D9488',
               color: '#FFFFFF',
               fontWeight: 700,
               fontSize: 14,
               border: 'none',
               cursor: loading ? 'not-allowed' : 'pointer',
-              boxShadow: '0 4px 16px rgba(155, 89, 182, 0.35)',
-              transition: 'all 0.2s',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              transition: 'all 0.18s ease',
               opacity: loading ? 0.7 : 1,
             }}
           >
-            {loading ? 'Verifying Credentials...' : '🔐 Authenticate Admin →'}
+            <Lock size={15} />
+            <span>{loading ? 'Verifying Credentials...' : 'Authenticate'}</span>
           </button>
         </form>
 
-        <div className="divider" style={{ margin: '24px 0', borderColor: 'rgba(155, 89, 182, 0.2)' }} />
+        <div className="divider" style={{ margin: '24px 0', borderColor: '#334155' }} />
 
         {/* Footer links */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 13 }}>
-          <Link href="/auth/login" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
-            ← User Sign In
+          <Link href="/auth/login" style={{ color: '#94A3B8', textDecoration: 'none' }}>
+            User Sign In
           </Link>
-          <Link href="/" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>
-            Return Home 🏠
+          <Link href="/" style={{ color: '#2DD4BF', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
+            <span>Return to Site</span>
+            <ArrowRight size={13} />
           </Link>
         </div>
       </div>

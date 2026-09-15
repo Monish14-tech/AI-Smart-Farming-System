@@ -53,7 +53,7 @@ export default function AdminDashboard() {
                 ].map((s, i) => (
                   <div key={i} className="glass animate-fade-in" style={{ padding: 24, animationDelay: `${i * 0.1}s` }}>
                     <div style={{ fontSize: 28, marginBottom: 8 }}>{s.icon}</div>
-                    <div className="font-display" style={{ fontSize: 28, fontWeight: 800, color: s.color }}>{s.value ?? '—'}</div>
+                    <div className="font-display" style={{ fontSize: 28, fontWeight: 800, color: s.color }}>{s.value ?? '-'}</div>
                     <div style={{ fontSize: 13, color: 'var(--color-text-secondary)', marginTop: 4 }}>{s.label}</div>
                   </div>
                 ))}

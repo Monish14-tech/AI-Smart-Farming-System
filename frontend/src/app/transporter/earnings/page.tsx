@@ -47,7 +47,7 @@ export default function TransporterEarnings() {
                           <td style={{ fontWeight: 600 }}>{j.order.listing.cropName}</td>
                           <td style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{j.pickupAddress || 'Farm'} → {j.dropAddress || 'Buyer'}</td>
                           <td className="font-display" style={{ fontWeight: 700, color: 'var(--color-gold-light)' }}>₹{(j.earningAmount || 0).toLocaleString('en-IN')}</td>
-                          <td style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>{j.deliveredAt ? new Date(j.deliveredAt).toLocaleDateString('en-IN') : '—'}</td>
+                          <td style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>{j.deliveredAt ? new Date(j.deliveredAt).toLocaleDateString('en-IN') : '-'}</td>
                         </tr>
                       ))}
                     </tbody>

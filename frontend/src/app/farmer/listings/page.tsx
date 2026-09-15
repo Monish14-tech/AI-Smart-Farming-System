@@ -73,42 +73,44 @@ export default function FarmerListings() {
 
           {/* ML High-Demand Crop Intelligence */}
           {demandCrops.length > 0 && (
-            <div className="glass" style={{ padding: 20, marginBottom: 24, border: '1px solid rgba(212, 160, 23, 0.25)', background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.7) 100%)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+            <div className="glass" style={{ padding: 22, marginBottom: 28, border: '1px solid var(--slate-200)', background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)', boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <span style={{ fontSize: 20 }}>🧠</span>
+                  <span style={{ fontSize: 22 }}>🧠</span>
                   <div>
-                    <h2 style={{ fontSize: 16, fontWeight: 700, margin: 0, color: '#F8FAFC' }}>
+                    <h2 style={{ fontSize: 17, fontWeight: 800, margin: 0, color: 'var(--slate-900)' }}>
                       ML High-Demand Crop Intelligence
                     </h2>
-                    <span style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>
+                    <span style={{ fontSize: 13, color: 'var(--slate-600)' }}>
                       What verified buyers are purchasing with highest margins on AgriNova
                     </span>
                   </div>
                 </div>
-                <span className="badge badge-gold" style={{ fontSize: 11 }}>Market Demand Forecast</span>
+                <span className="badge badge-gold" style={{ fontSize: 11, fontWeight: 700 }}>Market Demand Forecast</span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 14 }}>
                 {demandCrops.map(c => (
-                  <div key={c.cropName} style={{ padding: 14, background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.07)' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                      <span style={{ fontWeight: 700, fontSize: 15 }}>{c.cropName}</span>
-                      <span style={{ fontSize: 11, fontWeight: 700, color: '#FBBF24' }}>
-                        {c.demandTier}
-                      </span>
-                    </div>
+                  <div key={c.cropName} style={{ padding: 16, background: '#FFFFFF', borderRadius: 12, border: '1px solid var(--slate-200)', boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                        <span style={{ fontWeight: 800, fontSize: 16, color: 'var(--slate-900)' }}>{c.cropName}</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: '#B45309', background: '#FEF3C7', padding: '3px 8px', borderRadius: 6, border: '1px solid #FDE68A' }}>
+                          🔥 {c.demandTier}
+                        </span>
+                      </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 4 }}>
-                      <span style={{ color: 'var(--color-text-secondary)' }}>Target Price:</span>
-                      <span className="font-display" style={{ fontWeight: 700, color: 'var(--color-gold-light)' }}>
-                        ₹{c.recommendedTargetPrice}/kg
-                      </span>
-                    </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, marginBottom: 6 }}>
+                        <span style={{ color: 'var(--slate-500)', fontWeight: 500 }}>Target Price:</span>
+                        <span className="font-display" style={{ fontWeight: 800, color: 'var(--amber-700)', fontSize: 15 }}>
+                          ₹{c.recommendedTargetPrice}/kg
+                        </span>
+                      </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 8 }}>
-                      <span style={{ color: 'var(--color-text-secondary)' }}>Margin:</span>
-                      <span style={{ color: '#34D399', fontWeight: 600 }}>{c.profitabilityRating}</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, marginBottom: 8 }}>
+                        <span style={{ color: 'var(--slate-500)', fontWeight: 500 }}>Margin:</span>
+                        <span style={{ color: '#059669', fontWeight: 700 }}>{c.profitabilityRating}</span>
+                      </div>
                     </div>
 
                     <Link
@@ -116,14 +118,16 @@ export default function FarmerListings() {
                       style={{
                         display: 'block',
                         textAlign: 'center',
-                        fontSize: 11,
-                        fontWeight: 600,
-                        padding: '5px 8px',
-                        background: 'rgba(212, 160, 23, 0.15)',
-                        color: 'var(--color-gold)',
-                        borderRadius: 6,
+                        fontSize: 12,
+                        fontWeight: 700,
+                        padding: '8px 12px',
+                        background: '#F0FDFA',
+                        color: '#0F766E',
+                        borderRadius: 8,
                         textDecoration: 'none',
-                        border: '1px solid rgba(212, 160, 23, 0.3)'
+                        border: '1px solid #99F6E4',
+                        transition: 'all 0.2s ease',
+                        marginTop: 10
                       }}
                     >
                       + Create Listing for {c.cropName}

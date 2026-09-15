@@ -78,7 +78,7 @@ export default function TransporterDashboard() {
                 <div style={{ fontSize: 56, marginBottom: 16 }}>🧭</div>
                 <h3 className="font-display" style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Smart VRP Route Planner</h3>
                 <p style={{ color: 'var(--color-text-secondary)', fontSize: 14, marginBottom: 20, lineHeight: 1.6 }}>
-                  Accept multiple jobs and let our AI route optimizer (Nearest Neighbor VRP algorithm) plan the most efficient multi-pickup route — saving you fuel and time.
+                  Accept multiple jobs and let our route optimizer plan the most efficient multi-pickup route, saving you fuel and transit time.
                 </p>
                 <Link href="/transporter/jobs" className="btn-primary" style={{ display: 'inline-flex', justifyContent: 'center' }}>Browse Available Jobs →</Link>
               </div>

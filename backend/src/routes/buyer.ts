@@ -69,7 +69,7 @@ router.get('/marketplace', async (req: Request, res: Response): Promise<void> =>
   }
 });
 
-// ─── GET /buyer/marketplace/:id — listing detail ─────────────────────
+// ─── GET /buyer/marketplace/:id - listing detail ─────────────────────
 router.get('/marketplace/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const listing = await prisma.cropListing.findUnique({
@@ -96,7 +96,7 @@ router.get('/marketplace/:id', async (req: Request, res: Response): Promise<void
   }
 });
 
-// ─── POST /buyer/orders — place order ────────────────────────────────
+// ─── POST /buyer/orders - place order ────────────────────────────────
 const orderSchema = z.object({
   listingId: z.string().uuid(),
   quantityKg: z.number().positive(),
@@ -207,7 +207,7 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── POST /buyer/orders/:id/pay — initiate Escrow / UPI payment ────────
+// ─── POST /buyer/orders/:id/pay - initiate Escrow / UPI payment ────────
 router.post('/orders/:id/pay', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
   try {

@@ -74,10 +74,10 @@ export default function FarmerDashboard() {
           {/* Stats Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
-              { label: 'Active Listings', value: stats?.activeListings ?? '—', icon: '📋', color: '#059669', glow: 'stat-glow-green' },
-              { label: 'Pending Orders', value: stats?.pendingOrders ?? '—', icon: '📦', color: '#D97706', glow: 'stat-glow-gold' },
-              { label: 'This Month', value: stats ? `₹${stats.thisMonthEarnings.toLocaleString('en-IN')}` : '—', icon: '📈', color: '#4F46E5', glow: 'stat-glow-blue' },
-              { label: 'Total Earnings', value: stats ? `₹${stats.totalEarnings.toLocaleString('en-IN')}` : '—', icon: '💰', color: '#D97706', glow: 'stat-glow-gold' },
+              { label: 'Active Listings', value: stats?.activeListings ?? '-', icon: '📋', color: '#059669', glow: 'stat-glow-green' },
+              { label: 'Pending Orders', value: stats?.pendingOrders ?? '-', icon: '📦', color: '#D97706', glow: 'stat-glow-gold' },
+              { label: 'This Month', value: stats ? `₹${stats.thisMonthEarnings.toLocaleString('en-IN')}` : '-', icon: '📈', color: '#4F46E5', glow: 'stat-glow-blue' },
+              { label: 'Total Earnings', value: stats ? `₹${stats.totalEarnings.toLocaleString('en-IN')}` : '-', icon: '💰', color: '#D97706', glow: 'stat-glow-gold' },
             ].map((s, i) => (
               <div key={i} className={`glass ${s.glow} animate-fade-in`} style={{ padding: 24, animationDelay: `${i * 0.1}s` }}>
                 <div style={{ fontSize: 28, marginBottom: 8 }}>{s.icon}</div>

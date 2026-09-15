@@ -8,7 +8,7 @@ const router = Router();
 router.use(authenticate);
 router.use(requireRole('transporter'));
 
-// ─── GET /transporter/jobs — available jobs ──────────────────────────
+// ─── GET /transporter/jobs - available jobs ──────────────────────────
 router.get('/jobs', async (req: Request, res: Response): Promise<void> => {
   try {
     // 1. Auto-backfill: check for any active orders without a transport job
@@ -67,7 +67,7 @@ router.get('/jobs', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── POST /transporter/jobs/:id/accept — accept a job ────────────────
+// ─── POST /transporter/jobs/:id/accept - accept a job ────────────────
 router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
 
@@ -135,7 +135,7 @@ router.get('/active', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── POST /transporter/gps — update GPS location ─────────────────────
+// ─── POST /transporter/gps - update GPS location ─────────────────────
 router.post('/gps', async (req: Request, res: Response): Promise<void> => {
   const { latitude, longitude } = req.body;
   if (!latitude || !longitude) {
@@ -161,7 +161,7 @@ router.post('/gps', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── POST /transporter/jobs/:id/deliver — confirm delivery with OTP ───
+// ─── POST /transporter/jobs/:id/deliver - confirm delivery with OTP ───
 router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
   const { otp } = req.body;
@@ -197,7 +197,7 @@ router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<vo
   }
 });
 
-// ─── POST /transporter/route-optimize — VRP route optimization ────────
+// ─── POST /transporter/route-optimize - VRP route optimization ────────
 router.post('/route-optimize', async (req: Request, res: Response): Promise<void> => {
   const { jobIds } = req.body;
 

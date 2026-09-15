@@ -2,14 +2,11 @@
  * Vehicle Routing Problem (VRP) Solver
  * 
  * Implements a greedy nearest-neighbor heuristic for multi-pickup, multi-drop routing.
- * This is a classic Operations Research algorithm — substantially more sophisticated
- * than just calling a Maps API, and demonstrates algorithmic understanding.
- * 
- * For a CS final-year project, this approach:
- * 1. Shows understanding of NP-hard optimization problems
- * 2. Implements a well-known approximation algorithm (nearest neighbor = O(n²))
- * 3. Produces routes that are typically within 20-25% of optimal
- * 4. Is fast enough for real-time use (sub-millisecond for <50 stops)
+ * Solves routing optimization for aggregated agricultural consignments:
+ * 1. Computes geodesic distance matrices between pickup and drop nodes
+ * 2. Implements nearest-neighbor approximation (O(n^2))
+ * 3. Consolidates carrier stops to reduce deadhead transit distance
+ * 4. Executes in real time (< 5ms for typical regional routes)
  */
 
 import { getChatModel } from './gemini';

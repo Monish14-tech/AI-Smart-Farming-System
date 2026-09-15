@@ -6,11 +6,12 @@ import { useSearchParams } from 'next/navigation';
 import { useAuth, Role } from '@/contexts/AuthContext';
 import toast from 'react-hot-toast';
 import { Suspense } from 'react';
+import { Sprout, Store, Truck } from 'lucide-react';
 
 const roles = [
-  { value: 'farmer' as Role, label: '🌾 Farmer', desc: 'List crops, manage orders, get AI advisory' },
-  { value: 'buyer' as Role, label: '🛒 Buyer', desc: 'Browse produce, place orders, track delivery' },
-  { value: 'transporter' as Role, label: '🚛 Transporter', desc: 'Accept jobs, navigate routes, earn money' },
+  { value: 'farmer' as Role, label: 'Farmer', icon: Sprout, desc: 'List crops, manage orders, get agronomic advisory' },
+  { value: 'buyer' as Role, label: 'Buyer', icon: Store, desc: 'Browse produce, place orders, track delivery' },
+  { value: 'transporter' as Role, label: 'Transporter', icon: Truck, desc: 'Accept jobs, navigate routes, earn freight fees' },
 ];
 
 function RegisterForm() {
@@ -66,8 +67,10 @@ function RegisterForm() {
       <div className="glass animate-fade-in" style={{ width: '100%', maxWidth: 520, padding: 40 }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontSize: 28 }}>🌿</span>
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <div style={{ width: 32, height: 32, borderRadius: 6, background: 'var(--teal-600)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
+              <span style={{ fontWeight: 800, fontSize: 16 }}>A</span>
+            </div>
             <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>AgriNova</span>
           </Link>
           <p style={{ color: 'var(--color-text-secondary)', fontSize: 14, marginTop: 6 }}>Create your account</p>
@@ -85,20 +88,25 @@ function RegisterForm() {
           <div className="animate-fade-in">
             <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>How will you use AgriNova?</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {roles.map(r => (
-                <div key={r.value} className={`role-card ${role === r.value ? 'selected' : ''}`} onClick={() => setRole(r.value)}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <span style={{ fontSize: 24 }}>{r.label.split(' ')[0]}</span>
-                    <div>
-                      <div style={{ fontWeight: 600 }}>{r.label.split(' ').slice(1).join(' ')}</div>
-                      <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginTop: 2 }}>{r.desc}</div>
-                    </div>
-                    <div style={{ marginLeft: 'auto', width: 18, height: 18, borderRadius: '50%', border: `2px solid ${role === r.value ? 'var(--color-moss)' : 'var(--color-border)'}`, background: role === r.value ? 'var(--color-moss)' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      {role === r.value && <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />}
+              {roles.map(r => {
+                const IconComp = r.icon;
+                return (
+                  <div key={r.value} className={`role-card ${role === r.value ? 'selected' : ''}`} onClick={() => setRole(r.value)}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <div style={{ width: 36, height: 36, borderRadius: 6, background: 'var(--slate-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--teal-700)' }}>
+                        <IconComp size={20} />
+                      </div>
+                      <div>
+                        <div style={{ fontWeight: 600 }}>{r.label}</div>
+                        <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginTop: 2 }}>{r.desc}</div>
+                      </div>
+                      <div style={{ marginLeft: 'auto', width: 18, height: 18, borderRadius: '50%', border: `2px solid ${role === r.value ? 'var(--color-moss)' : 'var(--color-border)'}`, background: role === r.value ? 'var(--color-moss)' : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {role === r.value && <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'white' }} />}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             <button className="btn-primary" style={{ width: '100%', marginTop: 20 }} onClick={() => setStep(2)}>
               Continue as {role.charAt(0).toUpperCase() + role.slice(1)} →

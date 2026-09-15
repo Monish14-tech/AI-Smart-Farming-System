@@ -102,7 +102,7 @@ export default function AdminUsers() {
                       </td>
                       <td><span className={`badge ${roleColor[u.role] || 'badge-gold'}`}>{u.role}</span></td>
                       <td style={{ fontSize: 13 }}>{u.phone}</td>
-                      <td style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{u.address || '—'}</td>
+                      <td style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{u.address || '-'}</td>
                       <td>
                         {u.isVerified
                           ? <span className="badge badge-green">✓ Verified</span>

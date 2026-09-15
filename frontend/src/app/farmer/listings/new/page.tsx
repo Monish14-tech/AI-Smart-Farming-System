@@ -133,9 +133,9 @@ export default function NewListing() {
                 <div>
                   <label style={{ display: 'block', fontSize: 13, fontWeight: 500, marginBottom: 6, color: 'var(--color-text-secondary)' }}>Quality Grade *</label>
                   <select name="qualityGrade" className="input-field" value={form.qualityGrade} onChange={handleChange}>
-                    <option value="A">Grade A — Premium</option>
-                    <option value="B">Grade B — Standard</option>
-                    <option value="C">Grade C — Economy</option>
+                    <option value="A">Grade A - Premium</option>
+                    <option value="B">Grade B - Standard</option>
+                    <option value="C">Grade C - Economy</option>
                   </select>
                 </div>
 
@@ -170,23 +170,23 @@ export default function NewListing() {
                       gridColumn: '1 / -1',
                       padding: 16,
                       borderRadius: 'var(--radius-md)',
-                      background: 'rgba(212, 160, 23, 0.08)',
-                      border: '1px solid rgba(212, 160, 23, 0.3)',
+                      background: '#FFFBEB',
+                      border: '1px solid #FCD34D',
                       marginTop: 4
                     }}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                         <span style={{ fontSize: 18 }}>🧠</span>
-                        <span style={{ fontWeight: 700, fontSize: 14, color: '#F8FAFC' }}>
+                        <span style={{ fontWeight: 800, fontSize: 14, color: 'var(--slate-900)' }}>
                           ML Smart Price Advisor for {form.cropName}
                         </span>
                       </div>
                       {loadingML ? (
-                        <span style={{ fontSize: 12, color: 'var(--color-gold)' }}>Analyzing buyer trends...</span>
+                        <span style={{ fontSize: 12, color: 'var(--amber-700)', fontWeight: 600 }}>Analyzing buyer trends...</span>
                       ) : (
                         mlRec && (
-                          <span style={{ fontSize: 11, fontWeight: 700, padding: '2px 8px', borderRadius: 4, background: 'rgba(52, 211, 153, 0.15)', color: '#34D399' }}>
+                          <span style={{ fontSize: 11, fontWeight: 700, padding: '3px 8px', borderRadius: 6, background: '#FEF3C7', color: '#B45309', border: '1px solid #FDE68A' }}>
                             Demand: {mlRec.buyerDemandLevel}
                           </span>
                         )
@@ -196,33 +196,33 @@ export default function NewListing() {
                     {mlRec && (
                       <div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 10, marginBottom: 10 }}>
-                          <div style={{ padding: 10, background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>
-                            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>ML Recommended</span>
-                            <span className="font-display" style={{ fontWeight: 800, fontSize: 17, color: 'var(--color-gold-light)' }}>
+                          <div style={{ padding: 10, background: '#FFFFFF', borderRadius: 8, border: '1px solid #FEF3C7', boxShadow: '0 1px 2px rgba(0,0,0,0.03)' }}>
+                            <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>ML Recommended</span>
+                            <span className="font-display" style={{ fontWeight: 800, fontSize: 17, color: 'var(--amber-700)' }}>
                               ₹{mlRec.recommendedPricePerKg}/kg
                             </span>
                           </div>
-                          <div style={{ padding: 10, background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>
-                            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Fast Sale Target</span>
-                            <span style={{ fontWeight: 700, fontSize: 15, color: '#38BDF8' }}>
+                          <div style={{ padding: 10, background: '#FFFFFF', borderRadius: 8, border: '1px solid #FEF3C7', boxShadow: '0 1px 2px rgba(0,0,0,0.03)' }}>
+                            <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Fast Sale Target</span>
+                            <span style={{ fontWeight: 800, fontSize: 15, color: '#0284C7' }}>
                               ₹{mlRec.fastSalePricePerKg}/kg
                             </span>
                           </div>
-                          <div style={{ padding: 10, background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>
-                            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Max Margin Cap</span>
-                            <span style={{ fontWeight: 700, fontSize: 15, color: '#F472B6' }}>
+                          <div style={{ padding: 10, background: '#FFFFFF', borderRadius: 8, border: '1px solid #FEF3C7', boxShadow: '0 1px 2px rgba(0,0,0,0.03)' }}>
+                            <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Max Margin Cap</span>
+                            <span style={{ fontWeight: 800, fontSize: 15, color: '#BE185D' }}>
                               ₹{mlRec.maxProfitPricePerKg}/kg
                             </span>
                           </div>
-                          <div style={{ padding: 10, background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>
-                            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Est. Clearance</span>
-                            <span style={{ fontWeight: 700, fontSize: 15, color: '#A7F3D0' }}>
+                          <div style={{ padding: 10, background: '#FFFFFF', borderRadius: 8, border: '1px solid #FEF3C7', boxShadow: '0 1px 2px rgba(0,0,0,0.03)' }}>
+                            <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Est. Clearance</span>
+                            <span style={{ fontWeight: 800, fontSize: 15, color: '#047857' }}>
                               ~{mlRec.expectedDaysToClear} days
                             </span>
                           </div>
                         </div>
 
-                        <p style={{ fontSize: 12, color: 'var(--color-text-secondary)', margin: 0, lineHeight: 1.4 }}>
+                        <p style={{ fontSize: 12, color: 'var(--slate-700)', margin: 0, lineHeight: 1.4, fontWeight: 500 }}>
                           💡 {mlRec.marketInsight}
                         </p>
                       </div>

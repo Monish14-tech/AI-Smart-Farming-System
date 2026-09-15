@@ -187,59 +187,60 @@ export default function BuyerMarketplace() {
 
           {/* ML Intelligence Banner: Best Value Crops to Buy */}
           {recommendations.length > 0 && (
-            <div className="glass" style={{ padding: 20, marginBottom: 24, background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%)', border: '1px solid rgba(212, 160, 23, 0.25)', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14, flexWrap: 'wrap', gap: 8 }}>
+            <div className="glass" style={{ padding: 22, marginBottom: 28, background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)', border: '1px solid var(--slate-200)', boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <span style={{ fontSize: 22 }}>🧠</span>
                   <div>
-                    <h2 style={{ fontSize: 16, fontWeight: 700, margin: 0, color: '#F8FAFC' }}>
+                    <h2 style={{ fontSize: 17, fontWeight: 800, margin: 0, color: 'var(--slate-900)' }}>
                       ML Best Crop & Price Recommendations
                     </h2>
-                    <span style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>
+                    <span style={{ fontSize: 13, color: 'var(--slate-600)' }}>
                       Inferred from current farmer supply, historical mandi prices, and quality ratings
                     </span>
                   </div>
                 </div>
-                <span className="badge badge-gold" style={{ fontSize: 11 }}>
+                <span className="badge badge-gold" style={{ fontSize: 11, fontWeight: 700 }}>
                   Live Market Analysis
                 </span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 14 }}>
                 {recommendations.slice(0, 3).map((crop) => (
                   <div
                     key={crop.cropName}
                     onClick={() => setFilters(f => ({ ...f, crop: crop.cropName }))}
                     style={{
-                      padding: 14,
-                      borderRadius: 'var(--radius-md)',
-                      background: 'rgba(255, 255, 255, 0.03)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      padding: 16,
+                      borderRadius: 12,
+                      background: '#FFFFFF',
+                      border: '1px solid var(--slate-200)',
+                      boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(212, 160, 23, 0.5)')}
-                    onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)')}
+                    onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--teal-500)')}
+                    onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--slate-200)')}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-                      <span style={{ fontWeight: 700, fontSize: 15, color: '#F1F5F9' }}>{crop.cropName}</span>
-                      <span style={{ fontSize: 11, fontWeight: 700, padding: '2px 8px', borderRadius: 6, background: 'rgba(52, 211, 153, 0.15)', color: '#34D399', border: '1px solid rgba(52, 211, 153, 0.3)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                      <span style={{ fontWeight: 800, fontSize: 16, color: 'var(--slate-900)' }}>{crop.cropName}</span>
+                      <span style={{ fontSize: 11, fontWeight: 700, padding: '2px 8px', borderRadius: 6, background: 'rgba(5, 150, 105, 0.1)', color: '#059669', border: '1px solid rgba(5, 150, 105, 0.25)' }}>
                         Score {crop.valueScore}/100
                       </span>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 }}>
                       <div>
-                        <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Avg Market Price</span>
-                        <span className="font-display" style={{ fontWeight: 800, color: 'var(--color-gold-light)', fontSize: 16 }}>₹{crop.avgMarketplacePrice}/kg</span>
+                        <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Avg Market Price</span>
+                        <span className="font-display" style={{ fontWeight: 800, color: 'var(--amber-700)', fontSize: 16 }}>₹{crop.avgMarketplacePrice}/kg</span>
                       </div>
                       <div style={{ textAlign: 'right' }}>
-                        <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Fair Est.</span>
-                        <span style={{ fontSize: 13, color: 'var(--color-text-secondary)', textDecoration: 'line-through' }}>₹{crop.predictedFairPrice}/kg</span>
+                        <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Fair Est.</span>
+                        <span style={{ fontSize: 13, color: 'var(--slate-400)', textDecoration: 'line-through' }}>₹{crop.predictedFairPrice}/kg</span>
                       </div>
                     </div>
 
-                    <p style={{ fontSize: 12, color: 'var(--color-text-secondary)', margin: 0, lineHeight: 1.4, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as any }}>
+                    <p style={{ fontSize: 12, color: 'var(--slate-600)', margin: 0, lineHeight: 1.4, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as any }}>
                       {crop.rationale}
                     </p>
                   </div>
@@ -375,14 +376,14 @@ export default function BuyerMarketplace() {
                         </div>
 
                         {/* Price & Quantity */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, padding: '8px 12px', background: 'rgba(255,255,255,0.02)', borderRadius: 8, border: '1px solid rgba(255,255,255,0.05)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, padding: '8px 12px', background: 'var(--slate-50)', borderRadius: 8, border: '1px solid var(--slate-200)' }}>
                           <div>
-                            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Farmer Price</span>
-                            <span className="font-display" style={{ fontSize: 20, fontWeight: 800, color: 'var(--color-gold-light)' }}>₹{l.pricePerKg}/kg</span>
+                            <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Farmer Price</span>
+                            <span className="font-display" style={{ fontSize: 20, fontWeight: 800, color: 'var(--amber-700)' }}>₹{l.pricePerKg}/kg</span>
                           </div>
                           <div style={{ textAlign: 'right' }}>
-                            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', display: 'block' }}>Available Stock</span>
-                            <span style={{ fontSize: 14, fontWeight: 600 }}>{l.quantityKg.toLocaleString('en-IN')} kg</span>
+                            <span style={{ fontSize: 11, color: 'var(--slate-500)', display: 'block', fontWeight: 500 }}>Available Stock</span>
+                            <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--slate-900)' }}>{l.quantityKg.toLocaleString('en-IN')} kg</span>
                           </div>
                         </div>
 

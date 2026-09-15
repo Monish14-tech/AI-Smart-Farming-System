@@ -585,7 +585,7 @@ const translations: Record<string, Translations> = {
   },
 };
 
-// Fallback for missing keys — use English
+// Fallback for missing keys - use English
 function getTranslation(lang: string, key: TranslationKey): string {
   return translations[lang]?.[key] ?? translations['en'][key] ?? key;
 }

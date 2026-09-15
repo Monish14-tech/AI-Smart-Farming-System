@@ -4,44 +4,93 @@ import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import {
+  Sprout,
+  Store,
+  Truck,
+  Layers,
+  ShieldCheck,
+  Scale,
+  ArrowRight,
+  CheckCircle2,
+  FileText
+} from 'lucide-react';
 
-const features = [
+const portals = [
   {
-    icon: '🌾', title: 'Farmer Portal',
-    desc: 'List crops, manage orders, track earnings and get AI-powered advisory on pest control, weather and government schemes.',
-    color: '#059669', bg: '#ECFDF5', border: '#A7F3D0',
+    role: 'farmer',
+    icon: Sprout,
+    title: 'Farmer Portal',
+    desc: 'List harvested lots with photos and grade classifications, monitor pending buyer orders, and access real-time mandi modal prices.',
+    color: '#0D9488',
+    bg: '#F0FDFA',
+    border: '#CCFBF1',
+    link: '/auth/register?role=farmer',
+    cta: 'Register as Farmer',
   },
   {
-    icon: '🛒', title: 'Buyer Marketplace',
-    desc: 'Browse fresh produce directly from verified farmers. AI shopping assistant helps you find the best quality at best prices.',
-    color: '#4F46E5', bg: '#EEF2FF', border: '#C7D2FE',
+    role: 'buyer',
+    icon: Store,
+    title: 'Wholesale Buyer Marketplace',
+    desc: 'Browse verified farm produce lots, filter by grade and location, place orders with escrow protection, and receive OTP-verified delivery.',
+    color: '#0F766E',
+    bg: '#F8FAFC',
+    border: '#E2E8F0',
+    link: '/auth/register?role=buyer',
+    cta: 'Source Produce',
   },
   {
-    icon: '🚛', title: 'Smart Logistics',
-    desc: 'AI-powered route optimizer (VRP algorithm) assigns transporters the most efficient multi-pickup, multi-drop routes.',
-    color: '#D97706', bg: '#FFFBEB', border: '#FDE68A',
-  },
-  {
-    icon: '🤖', title: 'Gemini AI Chat',
-    desc: 'Two specialized AI bots — crop advisory for farmers and natural language product search for buyers.',
-    color: '#7C3AED', bg: '#F5F3FF', border: '#DDD6FE',
+    role: 'transporter',
+    icon: Truck,
+    title: 'Logistics and Freight Dispatch',
+    desc: 'Accept regional transport consignments with dynamic distance-based pricing and algorithmic route planning for multi-point pickups.',
+    color: '#B45309',
+    bg: '#FFFBEB',
+    border: '#FDE68A',
+    link: '/auth/register?role=transporter',
+    cta: 'Accept Freight Jobs',
   },
 ];
 
-const stats = [
-  { value: '50K+', label: 'Farmers Registered', color: '#059669' },
-  { value: '₹2.4Cr', label: 'Trade Volume', color: '#D97706' },
-  { value: '1,200+', label: 'Transporters', color: '#4F46E5' },
-  { value: '98%', label: 'On-time Delivery', color: '#0D9488' },
+const capabilities = [
+  {
+    icon: Scale,
+    title: 'Transparent Mandi Benchmarking',
+    desc: 'Access official Agmarknet wholesale commodity prices across regional mandis to set fair selling prices without broker markdown.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Escrow Transaction Security',
+    desc: 'Buyer funds are placed in escrow upon order submission and disbursed to farmers and transporters only upon verified OTP recipient delivery.',
+  },
+  {
+    icon: Layers,
+    title: 'Multi-Stop Route Dispatch',
+    desc: 'Logistics routes utilize nearest-neighbor vehicle routing heuristics to consolidate nearby farm pickups and minimize carrier deadhead mileage.',
+  },
 ];
-
-const crops = ['🍅 Tomato', '🧅 Onion', '🥔 Potato', '🌾 Rice', '🌽 Maize', '🌶️ Chilli', '🍆 Brinjal', '🥦 Cauliflower'];
 
 const steps = [
-  { num: '01', title: 'Register & Verify', desc: 'Sign up as farmer, buyer, or transporter. Upload KYC docs for verification.' },
-  { num: '02', title: 'List or Browse', desc: 'Farmers list produce with photos & pricing. Buyers browse with AI-powered search.' },
-  { num: '03', title: 'Order & Pay', desc: 'Buyers place orders with escrow payment. Funds held until delivery is confirmed.' },
-  { num: '04', title: 'Deliver & Confirm', desc: 'AI-optimized transporter routes. OTP-based delivery confirmation releases payment.' },
+  {
+    num: '01',
+    title: 'Account Registration and KYC',
+    desc: 'Create an account as a farmer, buyer, or transporter with identity verification and location details.',
+  },
+  {
+    num: '02',
+    title: 'Direct Lot Listing and Sourcing',
+    desc: 'Farmers publish produce lots with harvest dates and quality grades. Buyers evaluate listings with transparent price data.',
+  },
+  {
+    num: '03',
+    title: 'Escrow Order Placement',
+    desc: 'Buyers confirm purchase orders with secure escrow funding, reserving the produce lot and generating carrier dispatch tickets.',
+  },
+  {
+    num: '04',
+    title: 'Consolidated Transit and Settlement',
+    desc: 'Transporters complete route stops and deliver produce. Recipient OTP entry verifies receipt and releases escrow payout immediately.',
+  },
 ];
 
 export default function LandingPage() {
@@ -61,193 +110,302 @@ export default function LandingPage() {
   }, [user, loading, router]);
 
   return (
-    <main style={{ background: '#F8FAFC', minHeight: '100vh' }}>
+    <main style={{ background: '#F8FAFC', minHeight: '100vh', color: '#0F172A' }}>
 
-      {/* ── Navbar ──────────────────────────────────────────────────── */}
+      {/* Navigation */}
       <nav style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 48px', height: 64,
+        padding: '0 40px', height: 64,
         background: '#FFFFFF',
         borderBottom: '1px solid #E2E8F0',
         position: 'sticky', top: 0, zIndex: 50,
-        boxShadow: '0 1px 3px rgba(15,23,42,0.06)',
+        boxShadow: '0 1px 3px rgba(15,23,42,0.05)',
       }}>
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
           <div style={{
-            width: 36, height: 36, borderRadius: 10,
-            background: 'linear-gradient(135deg, #0D9488, #059669)',
+            width: 34, height: 34, borderRadius: 6,
+            background: '#0D9488',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 18,
-          }}>🌿</div>
-          <span className="font-display" style={{ fontSize: 20, fontWeight: 800, color: '#0F172A' }}>
+            color: '#FFFFFF',
+          }}>
+            <Sprout size={20} />
+          </div>
+          <span className="font-display" style={{ fontSize: 20, fontWeight: 800, color: '#0F172A', letterSpacing: -0.3 }}>
             Agri<span style={{ color: '#0D9488' }}>Nova</span>
           </span>
         </Link>
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <Link href="/auth/login" className="btn-secondary" style={{ padding: '8px 18px', fontSize: 13 }}>Sign In</Link>
-          <Link href="/auth/register" className="btn-primary" style={{ padding: '8px 18px', fontSize: 13 }}>Get Started →</Link>
+          <Link href="/auth/login" className="btn-secondary" style={{ padding: '8px 18px', fontSize: 13, borderRadius: 6 }}>
+            Sign In
+          </Link>
+          <Link href="/auth/register" className="btn-primary" style={{ padding: '8px 18px', fontSize: 13, borderRadius: 6 }}>
+            <span>Get Started</span>
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </nav>
 
-      {/* ── Hero ────────────────────────────────────────────────────── */}
+      {/* Hero Section */}
       <section style={{
-        padding: '80px 48px 60px',
-        background: 'linear-gradient(135deg, #F0FDFA 0%, #EEF2FF 60%, #FFFBEB 100%)',
-        textAlign: 'center', position: 'relative', overflow: 'hidden',
+        padding: '72px 32px 56px',
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F0FDFA 100%)',
+        borderBottom: '1px solid #E2E8F0',
+        textAlign: 'center',
       }}>
-        {/* decorative blobs */}
-        <div style={{ position: 'absolute', top: -80, right: -80, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(79,70,229,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: 860, margin: '0 auto' }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            padding: '4px 12px', borderRadius: 6,
+            background: '#CCFBF1', border: '1px solid #99F6E4',
+            color: '#0F766E', fontSize: 12, fontWeight: 700,
+            marginBottom: 20,
+          }}>
+            <CheckCircle2 size={14} />
+            <span>Direct Agricultural Trading and Freight Infrastructure</span>
+          </div>
 
-        <div className="animate-fade-in" style={{ maxWidth: 740, margin: '0 auto', position: 'relative' }}>
-          <span className="badge badge-teal" style={{ fontSize: 12, marginBottom: 20, display: 'inline-flex' }}>
-            🇮🇳 Built for Indian Agriculture
-          </span>
-          <h1 className="font-display" style={{ fontSize: 'clamp(38px, 5.5vw, 68px)', fontWeight: 900, lineHeight: 1.1, marginBottom: 20, color: '#0F172A' }}>
-            From Farm to{' '}
-            <span style={{ color: '#0D9488' }}>Market</span>
-            <br />Without Middlemen
+          <h1 className="font-display" style={{
+            fontSize: 'clamp(32px, 4.5vw, 54px)',
+            fontWeight: 800,
+            lineHeight: 1.15,
+            marginBottom: 20,
+            color: '#0F172A',
+            letterSpacing: -0.5,
+          }}>
+            Direct Agricultural Marketplace for Farmers, Commercial Buyers, and Transporters
           </h1>
-          <p style={{ fontSize: 17, color: '#475569', lineHeight: 1.75, marginBottom: 36, maxWidth: 580, margin: '0 auto 36px' }}>
-            A role-based agricultural platform connecting farmers, buyers, and transporters through AI-assisted marketplace, route optimization, and conversational AI.
+
+          <p style={{
+            fontSize: 16,
+            color: '#475569',
+            lineHeight: 1.7,
+            marginBottom: 36,
+            maxWidth: 680,
+            margin: '0 auto 36px',
+          }}>
+            Connect verified agricultural producers with commercial wholesale buyers and regional carriers. Execute direct harvest lot sales with official mandi price benchmarking, escrow payment releases, and multi-point logistics dispatch.
           </p>
 
-          <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
-            <Link href="/auth/register?role=farmer" className="btn-primary" style={{ fontSize: 15, padding: '13px 28px' }}>
-              🌾 I&apos;m a Farmer
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/auth/register?role=farmer" className="btn-primary" style={{ fontSize: 14, padding: '11px 24px', borderRadius: 6 }}>
+              <Sprout size={16} />
+              <span>Register as Farmer</span>
             </Link>
-            <Link href="/auth/register?role=buyer" style={{
-              fontSize: 15, padding: '13px 28px', display: 'inline-flex', alignItems: 'center', gap: 8,
-              borderRadius: 'var(--radius-md)', background: '#EEF2FF', border: '1px solid #C7D2FE',
-              color: '#4338CA', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', textDecoration: 'none',
-            }}>
-              🛒 I&apos;m a Buyer
+            <Link href="/auth/register?role=buyer" className="btn-secondary" style={{ fontSize: 14, padding: '11px 24px', borderRadius: 6 }}>
+              <Store size={16} />
+              <span>Source Wholesale Produce</span>
             </Link>
             <Link href="/auth/register?role=transporter" style={{
-              fontSize: 15, padding: '13px 28px', display: 'inline-flex', alignItems: 'center', gap: 8,
-              borderRadius: 'var(--radius-md)', background: '#FFFBEB', border: '1px solid #FDE68A',
-              color: '#B45309', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', textDecoration: 'none',
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              fontSize: 14, padding: '11px 24px', borderRadius: 6,
+              background: '#FFFBEB', border: '1px solid #FDE68A',
+              color: '#B45309', fontWeight: 600, textDecoration: 'none',
             }}>
-              🚛 I&apos;m a Transporter
+              <Truck size={16} />
+              <span>Join as Transporter</span>
             </Link>
           </div>
+        </div>
+      </section>
 
-          {/* Scrolling crop tags */}
-          <div style={{ overflow: 'hidden' }}>
-            <div style={{ display: 'inline-flex', gap: 10 }}>
-              {[...crops, ...crops].map((c, i) => (
-                <span key={i} className="badge badge-teal" style={{ fontSize: 12, padding: '5px 12px', whiteSpace: 'nowrap' }}>{c}</span>
-              ))}
-            </div>
+      {/* Portal Architecture */}
+      <section style={{ padding: '64px 32px', maxWidth: 1120, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <h2 className="font-display" style={{ fontSize: 28, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>
+            Role-Based Marketplace Portals
+          </h2>
+          <p style={{ color: '#64748B', fontSize: 15, margin: 0 }}>
+            Dedicated workflows built for the three primary participants in agricultural trade
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
+          {portals.map((p) => {
+            const IconComponent = p.icon;
+            return (
+              <div key={p.role} style={{
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
+                borderRadius: 8,
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 1px 3px rgba(15,23,42,0.04)',
+              }}>
+                <div>
+                  <div style={{
+                    width: 44, height: 44, borderRadius: 6,
+                    background: p.bg, border: `1px solid ${p.border}`,
+                    color: p.color,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    marginBottom: 18,
+                  }}>
+                    <IconComponent size={22} />
+                  </div>
+                  <h3 className="font-display" style={{ fontSize: 18, fontWeight: 700, color: '#0F172A', marginBottom: 10 }}>
+                    {p.title}
+                  </h3>
+                  <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.6, marginBottom: 20 }}>
+                    {p.desc}
+                  </p>
+                </div>
+                <Link href={p.link} style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                  padding: '9px 16px', borderRadius: 6,
+                  background: p.bg, border: `1px solid ${p.border}`,
+                  color: p.color, fontSize: 13, fontWeight: 700,
+                  textDecoration: 'none',
+                }}>
+                  <span>{p.cta}</span>
+                  <ArrowRight size={13} />
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Core Platform Capabilities */}
+      <section style={{ padding: '60px 32px', background: '#FFFFFF', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
+        <div style={{ maxWidth: 1120, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
+            <h2 className="font-display" style={{ fontSize: 28, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>
+              Operational Reliability and Settlement Security
+            </h2>
+            <p style={{ color: '#64748B', fontSize: 15, margin: 0 }}>
+              Engineered for verifiable transactions and predictable logistics fulfillment
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+            {capabilities.map((c, i) => {
+              const IconComp = c.icon;
+              return (
+                <div key={i} style={{
+                  padding: 24,
+                  background: '#F8FAFC',
+                  borderRadius: 8,
+                  border: '1px solid #E2E8F0',
+                }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 6,
+                    background: '#0D9488', color: '#FFFFFF',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    marginBottom: 16,
+                  }}>
+                    <IconComp size={20} />
+                  </div>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, color: '#0F172A', marginBottom: 8 }}>
+                    {c.title}
+                  </h3>
+                  <p style={{ fontSize: 13, color: '#64748B', lineHeight: 1.65, margin: 0 }}>
+                    {c.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── Stats ───────────────────────────────────────────────────── */}
-      <section style={{ padding: '48px 48px 0' }}>
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-          gap: 1, background: '#E2E8F0', borderRadius: 16, overflow: 'hidden',
-          border: '1px solid #E2E8F0', boxShadow: '0 1px 3px rgba(15,23,42,0.08)',
-          maxWidth: 840, margin: '0 auto',
-        }}>
-          {stats.map((s, i) => (
-            <div key={i} style={{ background: '#fff', textAlign: 'center', padding: '28px 20px' }}>
-              <div className="font-display" style={{ fontSize: 34, fontWeight: 900, color: s.color }}>{s.value}</div>
-              <div style={{ fontSize: 13, color: '#64748B', marginTop: 4 }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Features ────────────────────────────────────────────────── */}
-      <section style={{ padding: '72px 48px' }}>
-        <h2 className="font-display" style={{ textAlign: 'center', fontSize: 34, fontWeight: 800, color: '#0F172A', marginBottom: 12 }}>
-          Everything in One Platform
-        </h2>
-        <p style={{ textAlign: 'center', color: '#64748B', marginBottom: 48, fontSize: 16 }}>
-          Designed for India&apos;s agricultural ecosystem
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 20, maxWidth: 1080, margin: '0 auto' }}>
-          {features.map((f, i) => (
-            <div key={i} className="glass-hover" style={{
-              background: '#fff', border: `1px solid ${f.border}`,
-              borderRadius: 16, padding: 28,
-              boxShadow: '0 1px 3px rgba(15,23,42,0.06)',
-              transition: 'all 0.2s ease',
-            }}>
-              <div style={{
-                width: 50, height: 50, borderRadius: 12,
-                background: f.bg, border: `1px solid ${f.border}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 24, marginBottom: 18,
-              }}>{f.icon}</div>
-              <h3 className="font-display" style={{ fontSize: 17, fontWeight: 700, color: f.color, marginBottom: 10 }}>{f.title}</h3>
-              <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── How It Works ────────────────────────────────────────────── */}
-      <section style={{ padding: '60px 48px', background: '#fff', borderTop: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
-        <h2 className="font-display" style={{ textAlign: 'center', fontSize: 34, fontWeight: 800, color: '#0F172A', marginBottom: 48 }}>
-          How It Works
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 0, maxWidth: 900, margin: '0 auto' }}>
-          {steps.map((s, i) => (
-            <div key={i} style={{ padding: '20px 28px', textAlign: 'center', borderRight: i < 3 ? '1px solid #E2E8F0' : 'none' }}>
-              <div className="font-display" style={{ fontSize: 44, fontWeight: 900, color: '#0D9488', opacity: 0.25, lineHeight: 1, marginBottom: 12 }}>{s.num}</div>
-              <h3 style={{ fontWeight: 700, fontSize: 15, marginBottom: 8, color: '#0F172A' }}>{s.title}</h3>
-              <p style={{ fontSize: 13, color: '#64748B', lineHeight: 1.6, margin: 0 }}>{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA ─────────────────────────────────────────────────────── */}
-      <section style={{ padding: '80px 48px', textAlign: 'center' }}>
-        <div style={{
-          maxWidth: 580, margin: '0 auto', padding: '52px 48px',
-          background: 'linear-gradient(135deg, #0D9488, #059669)',
-          borderRadius: 20, color: '#fff',
-          boxShadow: '0 20px 48px rgba(13,148,136,0.25)',
-        }}>
-          <div style={{ fontSize: 44, marginBottom: 16 }}>🚀</div>
-          <h2 className="font-display" style={{ fontSize: 30, fontWeight: 800, marginBottom: 14 }}>
-            Ready to Transform Your Agri-Business?
+      {/* Transaction Workflow */}
+      <section style={{ padding: '64px 32px', maxWidth: 1040, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 44 }}>
+          <h2 className="font-display" style={{ fontSize: 28, fontWeight: 800, color: '#0F172A', marginBottom: 8 }}>
+            Trading Lifecycle
           </h2>
-          <p style={{ opacity: 0.85, marginBottom: 32, fontSize: 15 }}>
-            Join thousands of farmers, buyers and transporters already on AgriNova.
+          <p style={{ color: '#64748B', fontSize: 15, margin: 0 }}>
+            Standardized procedure from initial harvest lot listing to delivery verification
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+          {steps.map((s, i) => (
+            <div key={i} style={{
+              background: '#FFFFFF',
+              border: '1px solid #E2E8F0',
+              borderRadius: 8,
+              padding: '24px 20px',
+              position: 'relative',
+            }}>
+              <div className="font-display" style={{ fontSize: 28, fontWeight: 900, color: '#0D9488', opacity: 0.35, lineHeight: 1, marginBottom: 12 }}>
+                {s.num}
+              </div>
+              <h3 style={{ fontSize: 15, fontWeight: 700, color: '#0F172A', marginBottom: 8 }}>
+                {s.title}
+              </h3>
+              <p style={{ fontSize: 13, color: '#64748B', lineHeight: 1.6, margin: 0 }}>
+                {s.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section style={{ padding: '40px 32px 64px' }}>
+        <div style={{
+          maxWidth: 720, margin: '0 auto', padding: '44px 40px',
+          background: '#0D9488',
+          borderRadius: 8, color: '#FFFFFF',
+          boxShadow: '0 4px 16px rgba(13,148,136,0.18)',
+          textAlign: 'center',
+        }}>
+          <h2 className="font-display" style={{ fontSize: 26, fontWeight: 800, marginBottom: 10 }}>
+            Start Trading on AgriNova
+          </h2>
+          <p style={{ opacity: 0.9, marginBottom: 26, fontSize: 15, lineHeight: 1.6, maxWidth: 520, margin: '0 auto 26px' }}>
+            Register your enterprise as a grower, wholesale buyer, or carrier to access direct trading and coordinated dispatch.
           </p>
           <Link href="/auth/register" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '14px 36px', borderRadius: 10,
-            background: '#fff', color: '#0D9488',
-            fontWeight: 700, fontSize: 15, textDecoration: 'none',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
-            transition: 'all 0.2s',
+            padding: '11px 28px', borderRadius: 6,
+            background: '#FFFFFF', color: '#0D9488',
+            fontWeight: 700, fontSize: 14, textDecoration: 'none',
           }}>
-            Create Free Account →
+            <span>Create Account</span>
+            <ArrowRight size={15} />
           </Link>
         </div>
       </section>
 
-      {/* ── Footer ──────────────────────────────────────────────────── */}
+      {/* Footer */}
       <footer style={{
-        padding: '28px 48px', borderTop: '1px solid #E2E8F0',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        flexWrap: 'wrap', gap: 16, background: '#fff',
+        padding: '24px 40px',
+        borderTop: '1px solid #E2E8F0',
+        background: '#FFFFFF',
+        fontSize: 13,
+        color: '#64748B',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 18 }}>🌿</span>
-          <span className="font-display" style={{ fontWeight: 700, color: '#0F172A' }}>AgriNova</span>
-        </div>
-        <div style={{ display: 'flex', gap: 24, fontSize: 13, color: '#64748B', alignItems: 'center' }}>
-          <span>Stack: Next.js · Express · PostgreSQL · Gemini AI</span>
-          <Link href="/admin/login" style={{ color: '#7C3AED', textDecoration: 'none', fontWeight: 600 }}>
-            🛡️ Admin Portal
-          </Link>
+        <div style={{
+          maxWidth: 1120, margin: '0 auto',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          flexWrap: 'wrap', gap: 16,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div style={{
+              width: 26, height: 26, borderRadius: 4,
+              background: '#0D9488', color: '#FFFFFF',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Sprout size={14} />
+            </div>
+            <span style={{ fontWeight: 700, color: '#0F172A' }}>AgriNova Marketplace</span>
+            <span>&copy; 2026. All rights reserved.</span>
+          </div>
+
+          <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+            <Link href="/privacy" style={{ color: '#64748B', textDecoration: 'none' }}>
+              Privacy Policy
+            </Link>
+            <Link href="/terms" style={{ color: '#64748B', textDecoration: 'none' }}>
+              Terms of Service
+            </Link>
+            <Link href="/admin/login" style={{ color: '#0D9488', textDecoration: 'none', fontWeight: 600 }}>
+              Admin Portal
+            </Link>
+          </div>
         </div>
       </footer>
     </main>

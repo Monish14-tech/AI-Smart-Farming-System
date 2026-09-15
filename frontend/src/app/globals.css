@@ -4,7 +4,7 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════
-   DESIGN TOKENS — Teal · Indigo · Amber  (AgriNova v2)
+   DESIGN TOKENS - Teal · Indigo · Amber  (AgriNova v2)
 ═══════════════════════════════════════════════════════════════════════ */
 :root {
   /* ── Teal (brand primary) */
@@ -81,7 +81,7 @@
 
   /* ── Gold (kept for compat) */
   --color-gold:       var(--amber-600);
-  --color-gold-light: var(--amber-400);   /* alias — fixes pages referencing this */
+  --color-gold-light: var(--amber-600);   /* alias - high contrast on light bg */
   --color-gold-dark:  var(--amber-700);
   --color-amber:      var(--amber-500);
   --color-amber-glow: var(--amber-400);
@@ -198,7 +198,7 @@ body {
 
 /* ─── Hero background ────────────────────────────────────────────────── */
 .bg-hero {
-  background: linear-gradient(135deg, var(--teal-50) 0%, #EEF2FF 100%);
+  background: linear-gradient(135deg, var(--teal-50) 0%, var(--slate-50) 100%);
 }
 
 /* ─── Stat card accents ──────────────────────────────────────────────── */
@@ -211,7 +211,7 @@ body {
   background: linear-gradient(90deg, var(--slate-100) 0%, var(--slate-200) 50%, var(--slate-100) 100%);
   background-size: 200% 100%;
   animation: shimmerWave 1.5s ease infinite;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 /* ─── Divider ────────────────────────────────────────────────────────── */
@@ -224,14 +224,14 @@ body {
 /* ─── Badges ─────────────────────────────────────────────────────────── */
 .badge {
   display: inline-flex; align-items: center; gap: 4px;
-  padding: 3px 10px; border-radius: var(--radius-full);
+  padding: 3px 8px; border-radius: var(--radius-sm);
   font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
 }
 .badge-green  { background: #DCFCE7; color: #15803D; border: 1px solid #BBF7D0; }
 .badge-gold   { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
 .badge-blue   { background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
 .badge-red    { background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; }
-.badge-purple { background: #F5F3FF; color: #6D28D9; border: 1px solid #DDD6FE; }
+.badge-slate  { background: var(--slate-100); color: var(--slate-700); border: 1px solid var(--slate-300); }
 .badge-amber  { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
 .badge-teal   { background: var(--teal-50); color: var(--teal-700); border: 1px solid var(--teal-200); }
 

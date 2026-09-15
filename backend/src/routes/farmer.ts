@@ -29,7 +29,7 @@ const listingSchema = z.object({
   longitude: z.number().optional(),
 });
 
-// ─── GET /farmer/listings — my listings ─────────────────────────────
+// ─── GET /farmer/listings - my listings ─────────────────────────────
 router.get('/listings', async (req: Request, res: Response): Promise<void> => {
   try {
     const listings = await prisma.cropListing.findMany({
@@ -46,7 +46,7 @@ router.get('/listings', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── GET /farmer/listings/:id — single listing detail ────────────────
+// ─── GET /farmer/listings/:id - single listing detail ────────────────
 router.get('/listings/:id', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
   try {
@@ -64,7 +64,7 @@ router.get('/listings/:id', async (req: Request, res: Response): Promise<void> =
   }
 });
 
-// ─── POST /farmer/listings — create listing ──────────────────────────
+// ─── POST /farmer/listings - create listing ──────────────────────────
 router.post('/listings', upload.array('images', 5), async (req: Request, res: Response): Promise<void> => {
   const body = {
     ...req.body,
@@ -117,7 +117,7 @@ router.post('/listings', upload.array('images', 5), async (req: Request, res: Re
   }
 });
 
-// ─── PUT /farmer/listings/:id — update listing ──────────────────────
+// ─── PUT /farmer/listings/:id - update listing ──────────────────────
 router.put('/listings/:id', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
   const body = {
@@ -177,7 +177,7 @@ router.delete('/listings/:id', async (req: Request, res: Response): Promise<void
   }
 });
 
-// ─── GET /farmer/orders — incoming orders ────────────────────────────
+// ─── GET /farmer/orders - incoming orders ────────────────────────────
 router.get('/orders', async (req: Request, res: Response): Promise<void> => {
   try {
     const orders = await prisma.order.findMany({
@@ -284,7 +284,7 @@ router.get('/earnings', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-// ─── GET /farmer/mandi-prices — live mandi prices ────────────────────
+// ─── GET /farmer/mandi-prices - live mandi prices ────────────────────
 router.get('/mandi-prices', async (req: Request, res: Response): Promise<void> => {
   const { commodity = 'Tomato' } = req.query as Record<string, string>;
   try {

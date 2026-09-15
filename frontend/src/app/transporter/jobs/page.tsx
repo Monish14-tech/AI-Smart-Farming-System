@@ -131,8 +131,8 @@ export default function TransporterJobs() {
                       {/* Crop & Pricing Header */}
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
                         <div>
-                          <h3 style={{ fontWeight: 700, fontSize: 17, marginBottom: 2 }}>{j.order.listing.cropName}</h3>
-                          <span style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>
+                          <h3 style={{ fontWeight: 700, fontSize: 17, marginBottom: 2, color: 'var(--slate-900)' }}>{j.order.listing.cropName}</h3>
+                          <span style={{ fontSize: 12, color: 'var(--slate-600)', fontWeight: 500 }}>
                             Weight: {j.order.quantityKg} kg
                           </span>
                         </div>
@@ -140,21 +140,21 @@ export default function TransporterJobs() {
                           <span className="font-display" style={{ color: 'var(--color-gold)', fontWeight: 800, fontSize: 20, display: 'block' }}>
                             ₹{(ml ? ml.suggestedFare : (j.earningAmount || j.order.totalPrice * 0.05)).toLocaleString('en-IN')}
                           </span>
-                          <span style={{ fontSize: 11, color: '#34D399', fontWeight: 600 }}>
+                          <span style={{ fontSize: 11, color: '#059669', fontWeight: 700 }}>
                             {ml ? '✨ ML Suggested Rate' : 'Platform Rate'}
                           </span>
                         </div>
                       </div>
 
                       {/* Pickup & Drop Details */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16, fontSize: 13, color: 'var(--color-text-secondary)', padding: '12px 14px', background: 'rgba(255,255,255,0.02)', borderRadius: 8, border: '1px solid rgba(255,255,255,0.05)' }}>
-                        <div style={{ display: 'flex', gap: 10 }}>
-                          <span style={{ color: 'var(--color-leaf)', fontWeight: 600 }}>📦 Pickup:</span>
-                          <span style={{ color: '#F1F5F9' }}>{j.order.listing.farmer.name} · {j.order.listing.farmer.address}</span>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16, fontSize: 13, padding: '12px 14px', background: 'var(--slate-50)', borderRadius: 8, border: '1px solid var(--slate-200)' }}>
+                        <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                          <span style={{ color: 'var(--teal-700)', fontWeight: 700, minWidth: 70 }}>📦 Pickup:</span>
+                          <span style={{ color: 'var(--slate-800)', fontWeight: 500, lineHeight: 1.4 }}>{j.order.listing.farmer.name} · {j.order.listing.farmer.address}</span>
                         </div>
-                        <div style={{ display: 'flex', gap: 10 }}>
-                          <span style={{ color: '#FFCC80', fontWeight: 600 }}>🏁 Drop:</span>
-                          <span style={{ color: '#F1F5F9' }}>{j.order.buyer.name} · {j.order.buyer.address}</span>
+                        <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                          <span style={{ color: 'var(--amber-700)', fontWeight: 700, minWidth: 70 }}>🏁 Drop:</span>
+                          <span style={{ color: 'var(--slate-800)', fontWeight: 500, lineHeight: 1.4 }}>{j.order.buyer.name} · {j.order.buyer.address}</span>
                         </div>
                       </div>
 
@@ -169,7 +169,7 @@ export default function TransporterJobs() {
                               border: 'none',
                               color: 'var(--color-gold)',
                               fontSize: 12,
-                              fontWeight: 600,
+                              fontWeight: 700,
                               cursor: 'pointer',
                               display: 'flex',
                               alignItems: 'center',
@@ -181,28 +181,28 @@ export default function TransporterJobs() {
                           </button>
 
                           {isExpanded && (
-                            <div style={{ marginTop: 10, padding: 12, background: 'rgba(212, 160, 23, 0.06)', borderRadius: 8, border: '1px solid rgba(212, 160, 23, 0.2)', fontSize: 12 }}>
+                            <div style={{ marginTop: 10, padding: 12, background: '#FFFBEB', borderRadius: 8, border: '1px solid #FCD34D', fontSize: 12 }}>
                               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                                <span style={{ color: 'var(--color-text-secondary)' }}>Base Flag Fall:</span>
-                                <span>₹{ml.breakdown.baseFare}</span>
-                              </div>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                                <span style={{ color: 'var(--color-text-secondary)' }}>Distance ({ml.distanceKm.toFixed(1)} km @ ₹{ml.breakdown.perKmRate}/km):</span>
-                                <span>₹{ml.breakdown.distanceCharge}</span>
+                                <span style={{ color: 'var(--slate-600)' }}>Base Flag Fall:</span>
+                                <span style={{ color: 'var(--slate-900)', fontWeight: 600 }}>₹{ml.breakdown.baseFare}</span>
                               </div>
                               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                                <span style={{ color: 'var(--color-text-secondary)' }}>Cargo Weight Surcharge ({ml.cargoWeightKg} kg):</span>
-                                <span>₹{ml.breakdown.weightSurcharge}</span>
+                                <span style={{ color: 'var(--slate-600)' }}>Distance ({ml.distanceKm.toFixed(1)} km @ ₹{ml.breakdown.perKmRate}/km):</span>
+                                <span style={{ color: 'var(--slate-900)', fontWeight: 600 }}>₹{ml.breakdown.distanceCharge}</span>
                               </div>
                               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                                <span style={{ color: 'var(--color-text-secondary)' }}>Perishability Premium ({j.order.listing.cropName}):</span>
-                                <span>₹{ml.breakdown.perishabilityHandling}</span>
+                                <span style={{ color: 'var(--slate-600)' }}>Cargo Weight Surcharge ({ml.cargoWeightKg} kg):</span>
+                                <span style={{ color: 'var(--slate-900)', fontWeight: 600 }}>₹{ml.breakdown.weightSurcharge}</span>
                               </div>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px dashed rgba(255,255,255,0.1)', paddingTop: 6, fontWeight: 700 }}>
-                                <span style={{ color: 'var(--color-gold)' }}>Total ML Suggested Quote:</span>
-                                <span style={{ color: 'var(--color-gold)' }}>₹{ml.suggestedFare}</span>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                                <span style={{ color: 'var(--slate-600)' }}>Perishability Premium ({j.order.listing.cropName}):</span>
+                                <span style={{ color: 'var(--slate-900)', fontWeight: 600 }}>₹{ml.breakdown.perishabilityHandling}</span>
                               </div>
-                              <div style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 6, lineHeight: 1.3 }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px dashed #F59E0B', paddingTop: 6, fontWeight: 700 }}>
+                                <span style={{ color: 'var(--slate-900)' }}>Total ML Suggested Quote:</span>
+                                <span style={{ color: 'var(--amber-700)' }}>₹{ml.suggestedFare}</span>
+                              </div>
+                              <div style={{ fontSize: 11, color: 'var(--slate-600)', marginTop: 6, lineHeight: 1.3 }}>
                                 💡 {ml.priceRationale}
                               </div>
                             </div>

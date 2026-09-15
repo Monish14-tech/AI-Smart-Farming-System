@@ -20,12 +20,18 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "AgriNova — Smart Farmer Marketplace",
-  description: "A role-based agricultural platform connecting farmers, buyers, and transporters through AI-assisted marketplace with route optimization.",
-  keywords: ["agriculture", "marketplace", "farmer", "AI", "India", "AgriNova"],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://agrinova.market'),
+  title: "AgriNova - Agricultural Trading and Logistics Platform",
+  description: "Direct produce trading platform connecting verified farmers, wholesale buyers, and transporters with mandi intelligence and logistics dispatch.",
+  keywords: ["agriculture", "mandi marketplace", "farmer trading", "wholesale produce", "freight dispatch", "India", "AgriNova"],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
-    title: "AgriNova — Smart Farmer Marketplace",
-    description: "Connecting farmers, buyers, and transporters through AI.",
+    title: "AgriNova - Agricultural Trading and Logistics Platform",
+    description: "Direct produce trading platform connecting verified farmers, wholesale buyers, and transporters.",
     type: "website",
   },
 };

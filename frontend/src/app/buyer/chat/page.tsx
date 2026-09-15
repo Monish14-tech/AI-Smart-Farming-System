@@ -58,12 +58,12 @@ export default function BuyerChat() {
       <Sidebar />
       <main className="layout-main" style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
         <div className="glass" style={{ padding: '16px 28px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 16, borderRadius: 0 }}>
-          <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #4A90D9, #9B59B6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>🛒</div>
+          <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #0D9488, #0F766E)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>🛒</div>
           <div>
-            <h1 style={{ fontWeight: 700, fontSize: 16, margin: 0 }}>🛒 ShopBot</h1>
-            <p style={{ fontSize: 12, color: 'var(--color-text-secondary)', margin: 0 }}>AI Marketplace Shopping Assistant · Powered by Gemini 3.6 Flash</p>
+            <h1 style={{ fontWeight: 700, fontSize: 16, margin: 0 }}>ShopBot</h1>
+            <p style={{ fontSize: 12, color: 'var(--color-text-secondary)', margin: 0 }}>Marketplace Sourcing Assistant · Powered by Gemini</p>
           </div>
-          <span className="badge badge-blue" style={{ marginLeft: 'auto', fontSize: 11 }}>● Online</span>
+          <span className="badge badge-teal" style={{ marginLeft: 'auto', fontSize: 11 }}>● Online</span>
         </div>
 
         <div style={{ flex: 1, overflowY: 'auto', padding: 24, display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -71,7 +71,7 @@ export default function BuyerChat() {
             <div style={{ textAlign: 'center', marginTop: 40 }}>
               <div style={{ fontSize: 56, marginBottom: 16 }}>🛒</div>
               <h2 className="font-display" style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Hello, {user.name.split(' ')[0]}!</h2>
-              <p style={{ color: 'var(--color-text-secondary)', marginBottom: 28, maxWidth: 400, margin: '0 auto 28px' }}>Tell me what produce you need — I'll search the marketplace and find the best options for you!</p>
+              <p style={{ color: 'var(--color-text-secondary)', marginBottom: 28, maxWidth: 400, margin: '0 auto 28px' }}>Tell me what produce you need. I will search the marketplace and find verified lots for you.</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', maxWidth: 600, margin: '0 auto' }}>
                 {suggestions.map((s, i) => (
                   <button key={i} onClick={() => sendMessage(s)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px' }}>{s}</button>
