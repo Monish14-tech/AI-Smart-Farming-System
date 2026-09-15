@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   description: "Direct produce trading platform connecting verified farmers, wholesale buyers, and transporters with mandi intelligence and logistics dispatch.",
   keywords: ["agriculture", "mandi marketplace", "farmer trading", "wholesale produce", "freight dispatch", "India", "AgriNova"],
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
     title: "AgriNova - Agricultural Trading and Logistics Platform",

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -122,14 +123,14 @@ export default function LandingPage() {
         boxShadow: '0 1px 3px rgba(15,23,42,0.05)',
       }}>
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{
-            width: 34, height: 34, borderRadius: 6,
-            background: '#0D9488',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#FFFFFF',
-          }}>
-            <Sprout size={20} />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="AgriNova Logo"
+            width={38}
+            height={38}
+            style={{ borderRadius: '50%', objectFit: 'cover' }}
+            priority
+          />
           <span className="font-display" style={{ fontSize: 20, fontWeight: 800, color: '#0F172A', letterSpacing: -0.3 }}>
             Agri<span style={{ color: '#0D9488' }}>Nova</span>
           </span>
@@ -384,13 +385,13 @@ export default function LandingPage() {
           flexWrap: 'wrap', gap: 16,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={{
-              width: 26, height: 26, borderRadius: 4,
-              background: '#0D9488', color: '#FFFFFF',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <Sprout size={14} />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="AgriNova Logo"
+              width={26}
+              height={26}
+              style={{ borderRadius: '50%', objectFit: 'cover' }}
+            />
             <span style={{ fontWeight: 700, color: '#0F172A' }}>AgriNova Marketplace</span>
             <span>&copy; 2026. All rights reserved.</span>
           </div>

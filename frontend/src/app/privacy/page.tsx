@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Privacy Policy - AgriNova',
@@ -17,12 +18,14 @@ export default function PrivacyPolicyPage() {
         boxShadow: '0 1px 3px rgba(15,23,42,0.06)',
       }}>
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{
-            width: 34, height: 34, borderRadius: 6,
-            background: '#0D9488',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#FFFFFF', fontWeight: 800, fontSize: 16,
-          }}>A</div>
+          <Image
+            src="/logo.png"
+            alt="AgriNova Logo"
+            width={34}
+            height={34}
+            style={{ borderRadius: '50%', objectFit: 'cover' }}
+            priority
+          />
           <span className="font-display" style={{ fontSize: 19, fontWeight: 800, color: '#0F172A' }}>
             Agri<span style={{ color: '#0D9488' }}>Nova</span>
           </span>

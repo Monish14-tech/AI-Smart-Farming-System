@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth, Role } from '@/contexts/AuthContext';
 import { useLanguage, LANGUAGES, Language } from '@/contexts/LanguageContext';
@@ -131,13 +132,15 @@ export default function Sidebar() {
 
       {/* Logo */}
       <div style={{ padding: '18px 16px 14px', borderBottom: '1px solid var(--color-border)' }}>
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-          <div style={{
-            width: 32, height: 32, borderRadius: 8,
-            background: `linear-gradient(135deg, ${color}, ${color}CC)`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 16, color: '#fff',
-          }}>🌿</div>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+          <Image
+            src="/logo.png"
+            alt="AgriNova Logo"
+            width={34}
+            height={34}
+            style={{ borderRadius: '50%', objectFit: 'cover' }}
+            priority
+          />
           <span className="font-display" style={{ fontSize: 17, fontWeight: 800, color: 'var(--color-text-primary)' }}>
             Agri<span style={{ color }}>Nova</span>
           </span>

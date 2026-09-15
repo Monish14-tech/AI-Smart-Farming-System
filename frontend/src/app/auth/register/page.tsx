@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useAuth, Role } from '@/contexts/AuthContext';
 import toast from 'react-hot-toast';
@@ -67,10 +68,15 @@ function RegisterForm() {
       <div className="glass animate-fade-in" style={{ width: '100%', maxWidth: 520, padding: 40 }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-            <div style={{ width: 32, height: 32, borderRadius: 6, background: 'var(--teal-600)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
-              <span style={{ fontWeight: 800, fontSize: 16 }}>A</span>
-            </div>
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 12 }}>
+            <Image
+              src="/logo.png"
+              alt="AgriNova Logo"
+              width={38}
+              height={38}
+              style={{ borderRadius: '50%', objectFit: 'cover' }}
+              priority
+            />
             <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>AgriNova</span>
           </Link>
           <p style={{ color: 'var(--color-text-secondary)', fontSize: 14, marginTop: 6 }}>Create your account</p>

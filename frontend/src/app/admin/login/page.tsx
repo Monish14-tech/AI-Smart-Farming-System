@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { api, useAuth } from '@/contexts/AuthContext';
 import toast from 'react-hot-toast';
@@ -74,20 +75,15 @@ export default function AdminLoginPage() {
       >
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <div
-            style={{
-              width: 50,
-              height: 50,
-              borderRadius: 8,
-              background: '#0D9488',
-              color: '#FFFFFF',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: 16,
-            }}
-          >
-            <ShieldCheck size={26} />
+          <div style={{ display: 'inline-flex', justifyContent: 'center', marginBottom: 16 }}>
+            <Image
+              src="/logo.png"
+              alt="AgriNova Logo"
+              width={54}
+              height={54}
+              style={{ borderRadius: '50%', objectFit: 'cover', border: '2px solid #0D9488' }}
+              priority
+            />
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 6 }}>
