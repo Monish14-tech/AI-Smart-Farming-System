@@ -368,6 +368,7 @@ const updateProfileSchema = z.object({
   bankAccount: z.string().nullable().optional(),
   ifscCode: z.string().nullable().optional(),
   aadhaarNumber: z.string().nullable().optional(),
+  landDocUrl: z.string().nullable().optional(),
   // Transporter specific
   vehicleType: z.string().nullable().optional(),
   vehicleCapacityKg: z.number().nullable().optional(),
@@ -384,7 +385,7 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
 
   const {
     name, phone, address, latitude, longitude,
-    farmSizeAcres, upiId, bankAccount, ifscCode, aadhaarNumber,
+    farmSizeAcres, upiId, bankAccount, ifscCode, aadhaarNumber, landDocUrl,
     vehicleType, vehicleCapacityKg, vehicleNumber, licenseNumber,
   } = parsed.data;
 
@@ -417,6 +418,14 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
 
     // Update Farmer Profile if applicable
     if (updatedUser.role === 'farmer') {
+      const hasFarmerKycChange =
+        landDocUrl !== undefined ||
+        bankAccount !== undefined ||
+        ifscCode !== undefined ||
+        upiId !== undefined ||
+        aadhaarNumber !== undefined ||
+        farmSizeAcres !== undefined;
+
       await prisma.farmerProfile.upsert({
         where: { userId },
         create: {
@@ -426,6 +435,7 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
           bankAccount: bankAccount ?? null,
           ifscCode: ifscCode ?? null,
           aadhaarNumber: aadhaarNumber ?? null,
+          landDocUrl: landDocUrl ?? null,
         },
         update: {
           ...(farmSizeAcres !== undefined && { farmSizeAcres }),
@@ -433,8 +443,17 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
           ...(bankAccount !== undefined && { bankAccount }),
           ...(ifscCode !== undefined && { ifscCode }),
           ...(aadhaarNumber !== undefined && { aadhaarNumber }),
+          ...(landDocUrl !== undefined && { landDocUrl }),
         },
       });
+
+      // Every time farmer edits documents or bank details, reset isVerified to false for admin re-verification
+      if (hasFarmerKycChange) {
+        await prisma.user.update({
+          where: { id: userId },
+          data: { isVerified: false },
+        });
+      }
     }
 
     // Update Transporter Profile if applicable

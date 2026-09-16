@@ -103,6 +103,35 @@ export default function NewListing() {
 
   if (loading || !user) return null;
 
+  if (!user.isVerified) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <Sidebar />
+        <main className="layout-main">
+          <div className="page-content" style={{ maxWidth: 640, textAlign: 'center', padding: '60px 20px' }}>
+            <div className="glass" style={{ padding: 40, borderRadius: 20, border: '1px solid #FECACA', background: '#FEF2F2' }}>
+              <div style={{ fontSize: 56, marginBottom: 16 }}>🔒</div>
+              <h2 style={{ fontSize: 24, fontWeight: 800, color: '#991B1B', marginBottom: 10 }}>
+                Produce Listing Locked
+              </h2>
+              <p style={{ color: '#7F1D1D', fontSize: 14, lineHeight: 1.6, maxWidth: 500, margin: '0 auto 24px auto' }}>
+                In compliance with platform regulations, you must submit your <strong>Land Ownership Documents (7/12 / Patta)</strong> and <strong>Bank Account Details</strong> and be verified by the administrator before you can list crops for sale.
+              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 14 }}>
+                <Link href="/farmer/dashboard" className="btn-primary" style={{ padding: '12px 24px', background: '#DC2626', textDecoration: 'none', fontWeight: 700 }}>
+                  📄 Complete Verification on Dashboard →
+                </Link>
+                <Link href="/farmer/listings" className="btn-secondary" style={{ textDecoration: 'none' }}>
+                  Back to Listings
+                </Link>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />

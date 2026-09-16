@@ -85,6 +85,20 @@ router.put('/users/:id/verify', async (req: Request, res: Response): Promise<voi
   }
 });
 
+// ─── PUT /admin/users/:id/unverify - reject KYC / revoke verification ─
+router.put('/users/:id/unverify', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user = await prisma.user.update({
+      where: { id: req.params.id as string },
+      data: { isVerified: false },
+    });
+    const { passwordHash: _, ...u } = user;
+    res.json({ user: u, message: 'User verification revoked / KYC rejected' });
+  } catch {
+    res.status(500).json({ error: 'Failed to revoke verification' });
+  }
+});
+
 // ─── DELETE /admin/users/:id ──────────────────────────────────────────
 router.delete('/users/:id', async (req: Request, res: Response): Promise<void> => {
   try {

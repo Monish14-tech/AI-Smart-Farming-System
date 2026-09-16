@@ -63,13 +63,39 @@ export default function FarmerListings() {
       <Sidebar />
       <main className="layout-main">
         <div className="page-content">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, flexWrap: 'wrap', gap: 12 }}>
             <div>
               <h1 className="font-display" style={{ fontSize: 26, fontWeight: 800 }}>My Listings</h1>
               <p style={{ color: 'var(--color-text-secondary)', fontSize: 14 }}>{listings.length} produce listings active</p>
             </div>
-            <Link href="/farmer/listings/new" className="btn-primary">+ Add Listing</Link>
+            {user.isVerified ? (
+              <Link href="/farmer/listings/new" className="btn-primary">+ Add Listing</Link>
+            ) : (
+              <Link
+                href="/farmer/dashboard"
+                className="btn-secondary"
+                style={{ background: '#FEF3C7', color: '#92400E', borderColor: '#FCD34D', fontWeight: 700, fontSize: 13, textDecoration: 'none' }}
+              >
+                🔒 Verification Required to Add Listing
+              </Link>
+            )}
           </div>
+
+          {/* Verification gate alert if unverified */}
+          {!user.isVerified && (
+            <div style={{ padding: '14px 18px', background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: 12, marginBottom: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: 20 }}>🔒</span>
+                <div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: '#991B1B' }}>Produce Listing is Restricted</div>
+                  <div style={{ fontSize: 12, color: '#7F1D1D' }}>Please complete your Land Ownership Documents and Bank Account verification to unlock marketplace listings.</div>
+                </div>
+              </div>
+              <Link href="/farmer/dashboard" className="btn-primary" style={{ fontSize: 12, padding: '6px 14px', background: '#DC2626', textDecoration: 'none' }}>
+                Complete Verification →
+              </Link>
+            </div>
+          )}
 
           {/* ML High-Demand Crop Intelligence */}
           {demandCrops.length > 0 && (

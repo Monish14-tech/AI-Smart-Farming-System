@@ -82,6 +82,15 @@ router.post('/listings', upload.array('images', 5), async (req: Request, res: Re
   }
 
   try {
+    // Enforce that farmer must be verified by administrator
+    const farmerUser = await prisma.user.findUnique({ where: { id: req.user!.userId } });
+    if (!farmerUser?.isVerified) {
+      res.status(403).json({
+        error: 'Crop listing is locked. Please submit your land documents and bank details for administrator verification first.',
+      });
+      return;
+    }
+
     const imageUrls: string[] = [];
     const files = req.files as Express.Multer.File[];
 
@@ -354,6 +363,72 @@ router.get('/profile', async (req: Request, res: Response): Promise<void> => {
     res.json({ user: u });
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch profile' });
+  }
+});
+
+// ─── POST /farmer/verify-documents - submit land documents & bank details ────
+router.post('/verify-documents', upload.single('landDoc'), async (req: Request, res: Response): Promise<void> => {
+  const { farmSizeAcres, bankAccount, ifscCode, upiId, aadhaarNumber, landDocUrl: rawUrl } = req.body;
+
+  try {
+    let documentUrl = rawUrl;
+    const file = req.file;
+
+    if (file) {
+      try {
+        const base64 = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+        const result = await cloudinary.uploader.upload(base64, {
+          folder: 'agrinova/land_docs',
+          resource_type: 'auto',
+        });
+        documentUrl = result.secure_url;
+      } catch (err) {
+        console.warn('[CLOUDINARY] Land document upload fallback to base64 data URI');
+        documentUrl = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+      }
+    }
+
+    // Upsert farmer profile with documents and bank details
+    await prisma.farmerProfile.upsert({
+      where: { userId: req.user!.userId },
+      create: {
+        userId: req.user!.userId,
+        farmSizeAcres: farmSizeAcres ? parseFloat(farmSizeAcres) : null,
+        bankAccount: bankAccount || null,
+        ifscCode: ifscCode ? ifscCode.toUpperCase() : null,
+        upiId: upiId || null,
+        aadhaarNumber: aadhaarNumber || null,
+        landDocUrl: documentUrl || null,
+      },
+      update: {
+        ...(farmSizeAcres !== undefined && { farmSizeAcres: farmSizeAcres ? parseFloat(farmSizeAcres) : null }),
+        ...(bankAccount !== undefined && { bankAccount: bankAccount || null }),
+        ...(ifscCode !== undefined && { ifscCode: ifscCode ? ifscCode.toUpperCase() : null }),
+        ...(upiId !== undefined && { upiId: upiId || null }),
+        ...(aadhaarNumber !== undefined && { aadhaarNumber: aadhaarNumber || null }),
+        ...(documentUrl && { landDocUrl: documentUrl }),
+      },
+    });
+
+    // Reset verification status to false whenever documents or bank details are edited!
+    await prisma.user.update({
+      where: { id: req.user!.userId },
+      data: { isVerified: false },
+    });
+
+    const refreshedUser = await prisma.user.findUnique({
+      where: { id: req.user!.userId },
+      include: { farmerProfile: true },
+    });
+
+    const { passwordHash: _, ...u } = refreshedUser!;
+    res.json({
+      user: u,
+      message: 'Land documents and bank details submitted successfully. Your account is now pending administrator verification.',
+    });
+  } catch (err) {
+    console.error('[FARMER/VERIFY-DOCUMENTS]', err);
+    res.status(500).json({ error: 'Failed to submit documents and bank details' });
   }
 });
 

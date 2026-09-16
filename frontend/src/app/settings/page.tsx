@@ -23,6 +23,7 @@ export default function SettingsPage() {
     bankAccount: '',
     ifscCode: '',
     aadhaarNumber: '',
+    landDocUrl: '',
     // Transporter fields
     vehicleType: '',
     vehicleCapacityKg: '' as number | string,
@@ -43,6 +44,7 @@ export default function SettingsPage() {
         bankAccount: user.farmerProfile?.bankAccount || '',
         ifscCode: user.farmerProfile?.ifscCode || '',
         aadhaarNumber: user.farmerProfile?.aadhaarNumber || '',
+        landDocUrl: user.farmerProfile?.landDocUrl || '',
         vehicleType: user.transporterProfile?.vehicleType || '',
         vehicleCapacityKg: user.transporterProfile?.vehicleCapacityKg ?? '',
         vehicleNumber: user.transporterProfile?.vehicleNumber || '',
@@ -75,6 +77,23 @@ export default function SettingsPage() {
     );
   };
 
+  const handleLandDocFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error('File size exceeds 10MB limit');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setFormData(prev => ({ ...prev, landDocUrl: reader.result as string }));
+        toast.success(`Attached land document: ${file.name}`);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -94,6 +113,7 @@ export default function SettingsPage() {
         payload.bankAccount = formData.bankAccount || null;
         payload.ifscCode = formData.ifscCode || null;
         payload.aadhaarNumber = formData.aadhaarNumber || null;
+        payload.landDocUrl = formData.landDocUrl || null;
       }
 
       if (user?.role === 'transporter') {
@@ -279,9 +299,14 @@ export default function SettingsPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18, borderBottom: '1px solid var(--color-border)', paddingBottom: 14 }}>
                   <span style={{ fontSize: 20 }}>🌾</span>
                   <div>
-                    <h2 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>Farm Acreage & Escrow Payout Details</h2>
-                    <span style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Required for automated payment release upon OTP delivery</span>
+                    <h2 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>Farm Acreage, Land Documents & Bank Settlement Details</h2>
+                    <span style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Required for administrator KYC verification and automated payment release</span>
                   </div>
+                </div>
+
+                {/* KYC Reset Warning */}
+                <div style={{ padding: '12px 16px', background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: 10, marginBottom: 18, fontSize: 13, color: '#D97706', lineHeight: 1.5 }}>
+                  ⚠️ <strong>Security & Compliance Notice:</strong> Modifying your land documents, bank account, IFSC code, or UPI ID will automatically reset your account verification status to <strong>Pending Administrator Review</strong>. Crop listing creation will remain locked until re-verified.
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
@@ -331,7 +356,7 @@ export default function SettingsPage() {
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Aadhaar Number (Optional KYC)</label>
+                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Aadhaar Number (Gov ID)</label>
                     <input
                       type="text"
                       value={formData.aadhaarNumber}
@@ -340,6 +365,58 @@ export default function SettingsPage() {
                       placeholder="12-digit UIDAI number"
                     />
                   </div>
+                </div>
+
+                {/* Land Document Section */}
+                <div style={{ marginTop: 20, paddingTop: 18, borderTop: '1px solid var(--color-border)' }}>
+                  <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
+                    📄 Land Ownership Record / Patta / Chitta Document
+                  </label>
+                  <p style={{ fontSize: 12, color: 'var(--color-text-muted)', margin: '0 0 10px' }}>
+                    Upload or attach your land document (PDF, JPG, PNG). This is inspected by platform admins to activate your crop listing privilege.
+                  </p>
+
+                  <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', marginBottom: 12 }}>
+                    <label className="btn-secondary" style={{ fontSize: 12, padding: '8px 14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                      <span>📎</span> Add / Replace Document File
+                      <input
+                        type="file"
+                        accept=".pdf,image/png,image/jpeg,image/jpg,image/webp"
+                        onChange={handleLandDocFile}
+                        style={{ display: 'none' }}
+                      />
+                    </label>
+
+                    {formData.landDocUrl && (
+                      <a
+                        href={formData.landDocUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-secondary"
+                        style={{ fontSize: 12, padding: '8px 14px', color: '#10B981', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                      >
+                        ✓ View Attached Document
+                      </a>
+                    )}
+                  </div>
+
+                  <input
+                    type="text"
+                    value={formData.landDocUrl.startsWith('data:') ? '(Local document file attached ready to save)' : formData.landDocUrl}
+                    onChange={(e) => setFormData({ ...formData, landDocUrl: e.target.value })}
+                    className="input-field"
+                    placeholder="Or enter direct document URL (e.g., https://...)"
+                    disabled={formData.landDocUrl.startsWith('data:')}
+                  />
+                  {formData.landDocUrl.startsWith('data:') && (
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, landDocUrl: '' })}
+                      style={{ marginTop: 6, fontSize: 11, background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer' }}
+                    >
+                      ✕ Remove attached file
+                    </button>
+                  )}
                 </div>
               </div>
             )}
