@@ -152,7 +152,18 @@ router.post('/gps', async (req: Request, res: Response): Promise<void> => {
     // Broadcast via Socket.io (handled in index.ts via global io instance)
     const io = (global as any).__io;
     if (io) {
-      io.emit(`transporter:${req.user!.userId}:location`, { latitude, longitude, timestamp: new Date() });
+      const payload = { transporterId: req.user!.userId, latitude, longitude, timestamp: new Date() };
+      io.emit(`transporter:${req.user!.userId}:location`, payload);
+
+      // Also emit to order rooms for active jobs
+      const activeJobs = await prisma.transportJob.findMany({
+        where: { transporterId: req.user!.userId, status: { in: ['assigned', 'picked_up', 'in_transit'] } },
+        select: { orderId: true },
+      });
+      for (const j of activeJobs) {
+        io.to(`order:${j.orderId}`).emit(`order:${j.orderId}:location`, payload);
+        io.emit(`order:${j.orderId}:location`, payload);
+      }
     }
 
     res.json({ updated: true });

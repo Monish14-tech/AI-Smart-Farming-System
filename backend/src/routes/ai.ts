@@ -40,17 +40,26 @@ router.post('/chat', async (req: Request, res: Response): Promise<void> => {
         ).join('\n');
     }
 
-    // For advisory bot, add weather context
+    // For advisory bot, add weather context using farmer's real farm coordinates if available
     let weatherContext = '';
     if (contextType === 'advisory') {
       try {
+        const farmer = await prisma.user.findUnique({
+          where: { id: req.user!.userId },
+          select: { latitude: true, longitude: true, address: true, name: true },
+        });
+
+        const lat = farmer?.latitude ?? 20.5937;
+        const lng = farmer?.longitude ?? 78.9629;
+        const locationLabel = farmer?.address ? `farmer's region (${farmer.address})` : 'India regional average';
+
         const weatherRes = await fetch(
-          'https://api.open-meteo.com/v1/forecast?latitude=20.5937&longitude=78.9629&current=temperature_2m,precipitation,weathercode&timezone=Asia%2FKolkata',
+          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,precipitation,weathercode,relative_humidity_2m&timezone=Asia%2FKolkata`,
           { signal: AbortSignal.timeout(3000) }
         );
         if (weatherRes.ok) {
           const weather = await weatherRes.json() as any;
-          weatherContext = `\n\nCurrent weather in India (avg): ${weather.current?.temperature_2m}°C, precipitation: ${weather.current?.precipitation}mm`;
+          weatherContext = `\n\nCurrent real-time weather at ${locationLabel}: ${weather.current?.temperature_2m}°C, precipitation: ${weather.current?.precipitation}mm, humidity: ${weather.current?.relative_humidity_2m}%`;
         }
       } catch { /* ignore weather errors */ }
     }

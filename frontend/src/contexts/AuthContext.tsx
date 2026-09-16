@@ -36,8 +36,23 @@ export interface User {
   address?: string;
   latitude?: number;
   longitude?: number;
-  farmerProfile?: { farmSizeAcres?: number; landDocUrl?: string; upiId?: string };
-  transporterProfile?: { vehicleType?: string; vehicleCapacityKg?: number; licenseNumber?: string; vehicleNumber?: string; isAvailable?: boolean };
+  farmerProfile?: {
+    farmSizeAcres?: number;
+    landDocUrl?: string;
+    upiId?: string;
+    bankAccount?: string;
+    ifscCode?: string;
+    aadhaarNumber?: string;
+  };
+  transporterProfile?: {
+    vehicleType?: string;
+    vehicleCapacityKg?: number;
+    licenseNumber?: string;
+    vehicleNumber?: string;
+    isAvailable?: boolean;
+    currentLatitude?: number;
+    currentLongitude?: number;
+  };
 }
 
 interface AuthContextValue {

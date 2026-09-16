@@ -18,24 +18,28 @@ const navItems: Record<Role, NavItemDef[]> = {
     { href: '/farmer/earnings',   icon: '💰', labelKey: 'nav.earnings'    },
     { href: '/farmer/chat',       icon: '🤖', labelKey: 'nav.aiAdvisory'  },
     { href: '/farmer/mandi',      icon: '📊', labelKey: 'nav.mandiPrices' },
+    { href: '/settings',          icon: '⚙️', labelKey: 'nav.settings'    },
   ],
   buyer: [
     { href: '/buyer/dashboard',   icon: '🏠', labelKey: 'nav.dashboard'   },
     { href: '/buyer/marketplace', icon: '🛒', labelKey: 'nav.marketplace' },
     { href: '/buyer/orders',      icon: '📦', labelKey: 'nav.myOrders'    },
     { href: '/buyer/chat',        icon: '🤖', labelKey: 'nav.aiAssistant' },
+    { href: '/settings',          icon: '⚙️', labelKey: 'nav.settings'    },
   ],
   transporter: [
     { href: '/transporter/dashboard', icon: '🏠', labelKey: 'nav.dashboard'     },
     { href: '/transporter/jobs',      icon: '📋', labelKey: 'nav.availableJobs' },
     { href: '/transporter/active',    icon: '🗺️', labelKey: 'nav.activeTrip'    },
     { href: '/transporter/earnings',  icon: '💰', labelKey: 'nav.earnings'      },
+    { href: '/settings',              icon: '⚙️', labelKey: 'nav.settings'      },
   ],
   admin: [
     { href: '/admin/dashboard', icon: '📊', labelKey: 'nav.analytics'  },
     { href: '/admin/users',     icon: '👥', labelKey: 'nav.usersKyc'   },
     { href: '/admin/listings',  icon: '📋', labelKey: 'nav.listings'   },
     { href: '/admin/orders',    icon: '📦', labelKey: 'nav.orders'     },
+    { href: '/settings',        icon: '⚙️', labelKey: 'nav.settings'   },
   ],
 };
 

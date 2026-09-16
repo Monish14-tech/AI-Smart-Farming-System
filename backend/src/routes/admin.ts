@@ -155,4 +155,50 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
+// ─── PUT /admin/orders/:id/dispute-resolve ────────────────────────────
+router.put('/orders/:id/dispute-resolve', async (req: Request, res: Response): Promise<void> => {
+  const id = req.params.id as string;
+  const { resolution, adminNotes } = req.body; // 'refund_buyer' | 'release_farmer' | 'dismiss'
+
+  if (!['refund_buyer', 'release_farmer', 'dismiss'].includes(resolution)) {
+    res.status(400).json({ error: 'Valid resolution required (refund_buyer, release_farmer, dismiss)' });
+    return;
+  }
+
+  try {
+    const order = await prisma.order.findUnique({ where: { id } });
+    if (!order) {
+      res.status(404).json({ error: 'Order not found' });
+      return;
+    }
+
+    let updatedPaymentStatus = order.paymentStatus;
+    let updatedStatus = order.status;
+
+    if (resolution === 'refund_buyer') {
+      updatedPaymentStatus = 'refunded';
+      updatedStatus = 'cancelled';
+    } else if (resolution === 'release_farmer') {
+      updatedPaymentStatus = 'paid';
+    }
+
+    const resolutionLog = `\n[ADMIN DISPUTE RESOLUTION: ${resolution.toUpperCase()}] ${adminNotes ? '- ' + adminNotes : ''} (Resolved by Admin on ${new Date().toISOString()})`;
+    const updatedNotes = order.notes ? `${order.notes}${resolutionLog}` : resolutionLog;
+
+    const updated = await prisma.order.update({
+      where: { id },
+      data: {
+        paymentStatus: updatedPaymentStatus,
+        status: updatedStatus,
+        notes: updatedNotes,
+      },
+    });
+
+    res.json({ order: updated, message: `Dispute resolved: ${resolution}` });
+  } catch (err) {
+    console.error('[ADMIN/DISPUTE-RESOLVE]', err);
+    res.status(500).json({ error: 'Failed to resolve dispute' });
+  }
+});
+
 export default router;

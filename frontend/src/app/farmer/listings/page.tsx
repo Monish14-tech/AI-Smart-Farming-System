@@ -190,6 +190,9 @@ export default function FarmerListings() {
                     )}
 
                     <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
+                      <Link href={`/farmer/listings/${l.id}`} className="btn-secondary" style={{ flex: 1, textAlign: 'center', fontSize: 12, padding: '6px 12px' }}>
+                        View
+                      </Link>
                       <Link href={`/farmer/listings/${l.id}/edit`} className="btn-secondary" style={{ flex: 1, textAlign: 'center', fontSize: 12, padding: '6px 12px' }}>
                         Edit
                       </Link>

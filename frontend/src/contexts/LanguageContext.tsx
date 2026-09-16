@@ -74,12 +74,14 @@ type TranslationKey =
   | 'common.delete'
   | 'common.confirm'
   | 'common.back'
-  | 'common.next';
+  | 'common.next'
+  | 'nav.settings';
 
-type Translations = Record<TranslationKey, string>;
+type Translations = Record<string, string>;
 
 const translations: Record<string, Translations> = {
   en: {
+    'nav.settings': 'Settings',
     'nav.dashboard': 'Dashboard',
     'nav.myListings': 'My Listings',
     'nav.orders': 'Orders',

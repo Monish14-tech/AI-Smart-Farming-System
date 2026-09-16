@@ -186,18 +186,20 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
       where: { buyerId: req.user!.userId },
       include: {
         listing: {
-          include: { farmer: { select: { name: true, phone: true, address: true } } },
+          include: { farmer: { select: { id: true, name: true, phone: true, address: true } } },
         },
         transportJob: {
           include: {
             transporter: {
               select: {
+                id: true,
                 name: true, phone: true,
                 transporterProfile: { select: { vehicleType: true, vehicleNumber: true, currentLatitude: true, currentLongitude: true } },
               },
             },
           },
         },
+        reviews: true,
       },
       orderBy: { createdAt: 'desc' },
     });
@@ -248,6 +250,98 @@ router.post('/orders/:id/pay', async (req: Request, res: Response): Promise<void
   } catch (err) {
     console.error('[BUYER/PAY]', err);
     res.status(500).json({ error: 'Escrow payment initiation failed' });
+  }
+});
+
+// ─── POST /buyer/orders/:id/review - submit star rating & review ──────
+router.post('/orders/:id/review', async (req: Request, res: Response): Promise<void> => {
+  const orderId = req.params.id as string;
+  const { rating, comment } = req.body;
+
+  if (!rating || rating < 1 || rating > 5) {
+    res.status(400).json({ error: 'Rating must be an integer between 1 and 5' });
+    return;
+  }
+
+  try {
+    const order = await prisma.order.findFirst({
+      where: { id: orderId, buyerId: req.user!.userId },
+      include: { listing: true },
+    });
+
+    if (!order) {
+      res.status(404).json({ error: 'Order not found' });
+      return;
+    }
+
+    // Check if review already exists
+    const existing = await prisma.review.findFirst({
+      where: { orderId, reviewerId: req.user!.userId },
+    });
+    if (existing) {
+      res.status(409).json({ error: 'You have already submitted a review for this order' });
+      return;
+    }
+
+    const review = await prisma.review.create({
+      data: {
+        orderId,
+        reviewerId: req.user!.userId,
+        revieweeId: order.listing.farmerId,
+        rating: Math.round(Number(rating)),
+        comment: comment || null,
+      },
+    });
+
+    res.status(201).json({ review, message: 'Thank you! Your review has been published.' });
+  } catch (err) {
+    console.error('[BUYER/ORDER REVIEW]', err);
+    res.status(500).json({ error: 'Failed to submit review' });
+  }
+});
+
+// ─── POST /buyer/orders/:id/dispute - report issue or dispute order ────
+router.post('/orders/:id/dispute', async (req: Request, res: Response): Promise<void> => {
+  const orderId = req.params.id as string;
+  const { reason, description } = req.body;
+
+  if (!reason) {
+    res.status(400).json({ error: 'Dispute reason is required' });
+    return;
+  }
+
+  try {
+    const order = await prisma.order.findFirst({
+      where: { id: orderId, buyerId: req.user!.userId },
+    });
+
+    if (!order) {
+      res.status(404).json({ error: 'Order not found' });
+      return;
+    }
+
+    if (order.status === 'delivered') {
+      res.status(400).json({ error: 'Cannot raise dispute on orders where delivery has already been OTP-confirmed' });
+      return;
+    }
+
+    const disputeNote = `[DISPUTE RAISED: ${reason}] ${description ? '- ' + description : ''} (Logged on ${new Date().toISOString()})`;
+    const updatedNotes = order.notes ? `${order.notes}\n${disputeNote}` : disputeNote;
+
+    const updated = await prisma.order.update({
+      where: { id: orderId },
+      data: {
+        notes: updatedNotes,
+      },
+    });
+
+    res.json({
+      order: updated,
+      message: 'Dispute registered. Our operations team and platform administrator will inspect the lot before escrow release.',
+    });
+  } catch (err) {
+    console.error('[BUYER/DISPUTE]', err);
+    res.status(500).json({ error: 'Failed to register dispute' });
   }
 });
 

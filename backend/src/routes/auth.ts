@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import prisma from '../lib/prisma';
-import { generateTokens, JwtPayload, Role } from '../middleware/auth';
+import { generateTokens, JwtPayload, Role, authenticate } from '../middleware/auth';
 import rateLimit from 'express-rate-limit';
 
 const router = Router();
@@ -228,6 +228,245 @@ router.get('/me', async (req: Request, res: Response): Promise<void> => {
     res.json({ user: userWithoutPassword });
   } catch {
     res.status(401).json({ error: 'Invalid token' });
+  }
+});
+
+// ─── In-memory Password Reset OTP Store (15-min validity) ───────────
+interface PasswordResetEntry {
+  otp: string;
+  expiresAt: Date;
+  attempts: number;
+}
+const passwordResetStore = new Map<string, PasswordResetEntry>();
+
+// Clean up expired tokens periodically
+setInterval(() => {
+  const now = new Date();
+  for (const [email, entry] of passwordResetStore.entries()) {
+    if (entry.expiresAt < now) {
+      passwordResetStore.delete(email);
+    }
+  }
+}, 5 * 60 * 1000);
+
+// ─── POST /auth/forgot-password ──────────────────────────────────────
+const forgotPasswordSchema = z.object({
+  email: z.string().trim().toLowerCase().email('Please enter a valid email address'),
+});
+
+router.post('/forgot-password', authLimiter, async (req: Request, res: Response): Promise<void> => {
+  const parsed = forgotPasswordSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: parsed.error.issues[0]?.message || 'Invalid email format' });
+    return;
+  }
+
+  const { email } = parsed.data;
+
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) {
+      // Return success to avoid email enumeration
+      res.json({ message: 'If an account exists with this email, a 6-digit reset code has been sent.' });
+      return;
+    }
+
+    // Generate 6-digit numeric OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = new Date(Date.now() + 15 * 60 * 1000); // 15 mins
+
+    passwordResetStore.set(email, { otp, expiresAt, attempts: 0 });
+
+    console.log(`\n🔑 [AUTH] Password reset OTP generated for ${email}: ${otp} (expires in 15m)`);
+
+    res.json({
+      message: 'If an account exists with this email, a 6-digit reset code has been sent.',
+      email,
+      devOtp: process.env.NODE_ENV !== 'production' ? otp : undefined,
+    });
+  } catch (err) {
+    console.error('[AUTH/FORGOT-PASSWORD]', err);
+    res.status(500).json({ error: 'Failed to process password reset request' });
+  }
+});
+
+// ─── POST /auth/reset-password ───────────────────────────────────────
+const resetPasswordSchema = z.object({
+  email: z.string().trim().toLowerCase().email('Please enter a valid email address'),
+  otp: z.string().trim().length(6, 'Reset code must be 6 digits'),
+  newPassword: z.string().min(6, 'New password must be at least 6 characters'),
+});
+
+router.post('/reset-password', authLimiter, async (req: Request, res: Response): Promise<void> => {
+  const parsed = resetPasswordSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: parsed.error.issues[0]?.message || 'Invalid parameters' });
+    return;
+  }
+
+  const { email, otp, newPassword } = parsed.data;
+
+  try {
+    const entry = passwordResetStore.get(email);
+    if (!entry) {
+      res.status(400).json({ error: 'No active reset request found or OTP has expired. Please request a new code.' });
+      return;
+    }
+
+    if (entry.expiresAt < new Date()) {
+      passwordResetStore.delete(email);
+      res.status(400).json({ error: 'Reset code has expired. Please request a new one.' });
+      return;
+    }
+
+    if (entry.otp !== otp) {
+      entry.attempts += 1;
+      if (entry.attempts >= 5) {
+        passwordResetStore.delete(email);
+        res.status(400).json({ error: 'Too many incorrect attempts. Please request a new code.' });
+        return;
+      }
+      res.status(400).json({ error: 'Invalid reset code. Please check and try again.' });
+      return;
+    }
+
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
+
+    const passwordHash = await bcrypt.hash(newPassword, 12);
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { passwordHash },
+    });
+
+    // Invalidate existing sessions
+    await prisma.refreshToken.deleteMany({ where: { userId: user.id } }).catch(() => {});
+    passwordResetStore.delete(email);
+
+    res.json({ message: 'Password has been reset successfully. You can now log in with your new password.' });
+  } catch (err) {
+    console.error('[AUTH/RESET-PASSWORD]', err);
+    res.status(500).json({ error: 'Failed to reset password' });
+  }
+});
+
+// ─── PUT /auth/profile - update user profile ─────────────────────────
+const updateProfileSchema = z.object({
+  name: z.string().trim().min(2).max(150).optional(),
+  phone: z.string().trim().transform(val => val.replace(/[\s\-\+]/g, '')).refine(val => /^\d{10,15}$/.test(val), {
+    message: 'Please enter a valid 10-digit mobile number',
+  }).optional(),
+  address: z.string().nullable().optional(),
+  latitude: z.number().nullable().optional(),
+  longitude: z.number().nullable().optional(),
+  // Farmer specific
+  farmSizeAcres: z.number().nullable().optional(),
+  upiId: z.string().nullable().optional(),
+  bankAccount: z.string().nullable().optional(),
+  ifscCode: z.string().nullable().optional(),
+  aadhaarNumber: z.string().nullable().optional(),
+  // Transporter specific
+  vehicleType: z.string().nullable().optional(),
+  vehicleCapacityKg: z.number().nullable().optional(),
+  vehicleNumber: z.string().nullable().optional(),
+  licenseNumber: z.string().nullable().optional(),
+});
+
+router.put('/profile', authenticate, async (req: Request, res: Response): Promise<void> => {
+  const parsed = updateProfileSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: parsed.error.issues[0]?.message || 'Validation failed', details: parsed.error.flatten() });
+    return;
+  }
+
+  const {
+    name, phone, address, latitude, longitude,
+    farmSizeAcres, upiId, bankAccount, ifscCode, aadhaarNumber,
+    vehicleType, vehicleCapacityKg, vehicleNumber, licenseNumber,
+  } = parsed.data;
+
+  try {
+    const userId = req.user!.userId;
+
+    // Check if phone changed and belongs to another user
+    if (phone) {
+      const existingPhone = await prisma.user.findFirst({
+        where: { phone, NOT: { id: userId } },
+      });
+      if (existingPhone) {
+        res.status(409).json({ error: 'This phone number is already registered to another account' });
+        return;
+      }
+    }
+
+    // Update user base info
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: {
+        ...(name && { name }),
+        ...(phone && { phone }),
+        ...(address !== undefined && { address }),
+        ...(latitude !== undefined && { latitude }),
+        ...(longitude !== undefined && { longitude }),
+      },
+      include: { farmerProfile: true, transporterProfile: true },
+    });
+
+    // Update Farmer Profile if applicable
+    if (updatedUser.role === 'farmer') {
+      await prisma.farmerProfile.upsert({
+        where: { userId },
+        create: {
+          userId,
+          farmSizeAcres: farmSizeAcres ?? null,
+          upiId: upiId ?? null,
+          bankAccount: bankAccount ?? null,
+          ifscCode: ifscCode ?? null,
+          aadhaarNumber: aadhaarNumber ?? null,
+        },
+        update: {
+          ...(farmSizeAcres !== undefined && { farmSizeAcres }),
+          ...(upiId !== undefined && { upiId }),
+          ...(bankAccount !== undefined && { bankAccount }),
+          ...(ifscCode !== undefined && { ifscCode }),
+          ...(aadhaarNumber !== undefined && { aadhaarNumber }),
+        },
+      });
+    }
+
+    // Update Transporter Profile if applicable
+    if (updatedUser.role === 'transporter') {
+      await prisma.transporterProfile.upsert({
+        where: { userId },
+        create: {
+          userId,
+          vehicleType: vehicleType ?? null,
+          vehicleCapacityKg: vehicleCapacityKg ?? null,
+          vehicleNumber: vehicleNumber ?? null,
+          licenseNumber: licenseNumber ?? null,
+        },
+        update: {
+          ...(vehicleType !== undefined && { vehicleType }),
+          ...(vehicleCapacityKg !== undefined && { vehicleCapacityKg }),
+          ...(vehicleNumber !== undefined && { vehicleNumber }),
+          ...(licenseNumber !== undefined && { licenseNumber }),
+        },
+      });
+    }
+
+    const refreshed = await prisma.user.findUnique({
+      where: { id: userId },
+      include: { farmerProfile: true, transporterProfile: true },
+    });
+
+    const { passwordHash: _, ...userWithoutPassword } = refreshed!;
+    res.json({ user: userWithoutPassword, message: 'Profile updated successfully' });
+  } catch (err) {
+    console.error('[AUTH/PROFILE PUT]', err);
+    res.status(500).json({ error: 'Failed to update profile' });
   }
 });
 
