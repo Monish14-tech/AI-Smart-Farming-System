@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import { useRequireRole, api } from '@/contexts/AuthContext';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 interface MLFreightSuggestion {
   distanceKm: number;
@@ -87,6 +88,59 @@ export default function TransporterJobs() {
   };
 
   if (loading || !user) return null;
+
+  if (!user.isVerified) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <Sidebar />
+        <main className="layout-main">
+          <div className="page-content" style={{ maxWidth: 700, margin: '40px auto 0' }}>
+            <div
+              className="glass animate-fade-in"
+              style={{
+                padding: '48px 36px',
+                textAlign: 'center',
+                borderRadius: 24,
+                border: '1px solid rgba(245, 158, 11, 0.4)',
+                background: 'linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(0, 0, 0, 0) 100%)',
+              }}
+            >
+              <div style={{ fontSize: 64, marginBottom: 16 }}>🔒</div>
+              <h1 className="font-display" style={{ fontSize: 24, fontWeight: 800, marginBottom: 12 }}>
+                Driver & Vehicle Verification Required
+              </h1>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 14, lineHeight: 1.6, marginBottom: 28, maxWidth: 520, margin: '0 auto 28px' }}>
+                Under platform safety and cargo security regulations, logistics partners must have their <strong>Commercial Driving License</strong> and <strong>Vehicle Registration</strong> verified by an administrator before accessing live mandi freight orders.
+              </p>
+
+              <div style={{ display: 'inline-flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
+                <Link
+                  href="/transporter/dashboard"
+                  className="btn-primary"
+                  style={{
+                    padding: '12px 28px',
+                    fontSize: 14,
+                    fontWeight: 700,
+                    background: 'linear-gradient(135deg, #D97706, #B45309)',
+                    borderColor: '#D97706',
+                  }}
+                >
+                  📄 Go to Dashboard to Submit Verification
+                </Link>
+                <Link
+                  href="/settings"
+                  className="btn-secondary"
+                  style={{ padding: '12px 24px', fontSize: 14 }}
+                >
+                  ⚙️ Update Profile Settings
+                </Link>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: 'flex' }}>

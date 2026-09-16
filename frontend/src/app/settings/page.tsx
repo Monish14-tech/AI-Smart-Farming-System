@@ -29,6 +29,7 @@ export default function SettingsPage() {
     vehicleCapacityKg: '' as number | string,
     vehicleNumber: '',
     licenseNumber: '',
+    licenseDocUrl: '',
   });
 
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function SettingsPage() {
         vehicleCapacityKg: user.transporterProfile?.vehicleCapacityKg ?? '',
         vehicleNumber: user.transporterProfile?.vehicleNumber || '',
         licenseNumber: user.transporterProfile?.licenseNumber || '',
+        licenseDocUrl: user.transporterProfile?.licenseDocUrl || '',
       });
     }
   }, [user]);
@@ -94,6 +96,23 @@ export default function SettingsPage() {
     reader.readAsDataURL(file);
   };
 
+  const handleLicenseDocFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error('File size exceeds 10MB limit');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setFormData(prev => ({ ...prev, licenseDocUrl: reader.result as string }));
+        toast.success(`Attached license/RC document: ${file.name}`);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -121,6 +140,7 @@ export default function SettingsPage() {
         payload.vehicleCapacityKg = formData.vehicleCapacityKg !== '' ? Number(formData.vehicleCapacityKg) : null;
         payload.vehicleNumber = formData.vehicleNumber || null;
         payload.licenseNumber = formData.licenseNumber || null;
+        payload.licenseDocUrl = formData.licenseDocUrl || null;
       }
 
       const { data } = await api.put('/auth/profile', payload);
@@ -427,9 +447,14 @@ export default function SettingsPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18, borderBottom: '1px solid var(--color-border)', paddingBottom: 14 }}>
                   <span style={{ fontSize: 20 }}>🚛</span>
                   <div>
-                    <h2 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>Vehicle & Logistics Specifications</h2>
-                    <span style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Configures the VRP routing engine capacity and dispatch rates</span>
+                    <h2 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>Vehicle Specifications & Commercial License Documents</h2>
+                    <span style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>Configures the VRP routing engine capacity and verifies driver authorization</span>
                   </div>
+                </div>
+
+                {/* KYC Reset Warning */}
+                <div style={{ padding: '12px 16px', background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', borderRadius: 10, marginBottom: 18, fontSize: 13, color: '#D97706', lineHeight: 1.5 }}>
+                  ⚠️ <strong>Security & Compliance Notice:</strong> Modifying your vehicle category, registration plate, capacity, or license documents will automatically reset your verification status to <strong>Pending Administrator Review</strong>. Active jobs and trip tracking will remain locked until re-verified.
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
@@ -441,11 +466,13 @@ export default function SettingsPage() {
                       className="input-field"
                     >
                       <option value="">Select vehicle type...</option>
-                      <option value="Tata Ace / Mini Truck (1-1.5T)">Tata Ace / Mini Truck (1-1.5T)</option>
-                      <option value="Pickup Truck (2T-3T)">Pickup Truck (2T-3T)</option>
-                      <option value="Medium Commercial Vehicle (5T-7T)">Medium Commercial Vehicle (5T-7T)</option>
-                      <option value="Heavy Multi-Axle Freight (10T+)">Heavy Multi-Axle Freight (10T+)</option>
-                      <option value="Refrigerated Reefer Truck (Perishables)">Refrigerated Reefer Truck (Perishables)</option>
+                      <option value="Mini Truck / Tata Ace">Mini Truck / Tata Ace (Up to 1.5T)</option>
+                      <option value="Pickup Truck (1.5T - 2.5T)">Pickup Truck (1.5T - 2.5T)</option>
+                      <option value="3-Wheeler Cargo Loader">3-Wheeler Cargo Loader (Up to 750kg)</option>
+                      <option value="Medium Lorry (Eicher 14ft/17ft)">Medium Lorry (Eicher 14ft/17ft - 5T)</option>
+                      <option value="Heavy Multi-Axle Truck (10T+)">Heavy Multi-Axle Truck (10T+)</option>
+                      <option value="Refrigerated Cold-Chain Van">Refrigerated Cold-Chain Van</option>
+                      <option value="Tractor Trailer">Tractor Trailer</option>
                     </select>
                   </div>
 
@@ -481,6 +508,58 @@ export default function SettingsPage() {
                       placeholder="e.g. DL-0420110012345"
                     />
                   </div>
+                </div>
+
+                {/* Driving License / RC Document Section */}
+                <div style={{ marginTop: 20, paddingTop: 18, borderTop: '1px solid var(--color-border)' }}>
+                  <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
+                    📄 Commercial Driving License / Vehicle RC Document
+                  </label>
+                  <p style={{ fontSize: 12, color: 'var(--color-text-muted)', margin: '0 0 10px' }}>
+                    Upload or attach your driving license / RC document (PDF, JPG, PNG). This is inspected by administrators to unlock active job dispatching.
+                  </p>
+
+                  <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', marginBottom: 12 }}>
+                    <label className="btn-secondary" style={{ fontSize: 12, padding: '8px 14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                      <span>📎</span> Add / Replace Document File
+                      <input
+                        type="file"
+                        accept=".pdf,image/png,image/jpeg,image/jpg,image/webp"
+                        onChange={handleLicenseDocFile}
+                        style={{ display: 'none' }}
+                      />
+                    </label>
+
+                    {formData.licenseDocUrl && (
+                      <a
+                        href={formData.licenseDocUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-secondary"
+                        style={{ fontSize: 12, padding: '8px 14px', color: '#10B981', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                      >
+                        ✓ View Attached Document
+                      </a>
+                    )}
+                  </div>
+
+                  <input
+                    type="text"
+                    value={formData.licenseDocUrl.startsWith('data:') ? '(Local document file attached ready to save)' : formData.licenseDocUrl}
+                    onChange={(e) => setFormData({ ...formData, licenseDocUrl: e.target.value })}
+                    className="input-field"
+                    placeholder="Or enter direct document URL (e.g., https://...)"
+                    disabled={formData.licenseDocUrl.startsWith('data:')}
+                  />
+                  {formData.licenseDocUrl.startsWith('data:') && (
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, licenseDocUrl: '' })}
+                      style={{ marginTop: 6, fontSize: 11, background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer' }}
+                    >
+                      ✕ Remove attached file
+                    </button>
+                  )}
                 </div>
               </div>
             )}

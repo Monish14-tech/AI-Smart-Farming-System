@@ -68,6 +68,7 @@ model TransporterProfile {
   vehicleCapacityKg Float?  @map("vehicle_capacity_kg")
   licenseNumber     String? @map("license_number")
   vehicleNumber     String? @map("vehicle_number")
+  licenseDocUrl     String? @map("license_doc_url")
   isAvailable       Boolean @default(true) @map("is_available")
   currentLatitude   Float?  @map("current_latitude")
   currentLongitude  Float?  @map("current_longitude")

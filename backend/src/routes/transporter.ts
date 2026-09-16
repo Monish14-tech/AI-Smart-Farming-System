@@ -1,5 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { z } from 'zod';
+import { v2 as cloudinary } from 'cloudinary';
+import multer from 'multer';
 import prisma from '../lib/prisma';
 import { authenticate, requireRole } from '../middleware/auth';
 import { solveVRP, generateTripSummary } from '../lib/vrp';
@@ -8,9 +10,33 @@ const router = Router();
 router.use(authenticate);
 router.use(requireRole('transporter'));
 
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const upload = multer({ storage: multer.memoryStorage() });
+
 // ─── GET /transporter/jobs - available jobs ──────────────────────────
 router.get('/jobs', async (req: Request, res: Response): Promise<void> => {
   try {
+    // Verification check: Transporter must be verified by admin to see and accept jobs
+    const transporterUser = await prisma.user.findUnique({
+      where: { id: req.user!.userId },
+      select: { isVerified: true },
+    });
+
+    if (!transporterUser?.isVerified) {
+      res.json({
+        jobs: [],
+        verificationRequired: true,
+        message: 'Driver license and vehicle document verification required before viewing available transport jobs',
+      });
+      return;
+    }
+
     // 1. Auto-backfill: check for any active orders without a transport job
     const ordersWithoutJob = await prisma.order.findMany({
       where: {
@@ -72,6 +98,18 @@ router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<voi
   const id = req.params.id as string;
 
   try {
+    const transporterUser = await prisma.user.findUnique({
+      where: { id: req.user!.userId },
+      select: { isVerified: true },
+    });
+
+    if (!transporterUser?.isVerified) {
+      res.status(403).json({
+        error: 'Account verification required before accepting transport jobs. Please upload your driving license and vehicle registration documents for admin approval.',
+      });
+      return;
+    }
+
     const job = await prisma.transportJob.findUnique({
       where: { id },
       include: { order: { include: { listing: { include: { farmer: true } }, buyer: true } } },
@@ -113,6 +151,20 @@ router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<voi
 // ─── GET /transporter/active ─────────────────────────────────────────
 router.get('/active', async (req: Request, res: Response): Promise<void> => {
   try {
+    const transporterUser = await prisma.user.findUnique({
+      where: { id: req.user!.userId },
+      select: { isVerified: true },
+    });
+
+    if (!transporterUser?.isVerified) {
+      res.json({
+        jobs: [],
+        verificationRequired: true,
+        message: 'Driver license and vehicle document verification required before viewing active trips',
+      });
+      return;
+    }
+
     const jobs = await prisma.transportJob.findMany({
       where: {
         transporterId: req.user!.userId,
@@ -283,6 +335,70 @@ router.put('/availability', async (req: Request, res: Response): Promise<void> =
     res.json({ updated: true });
   } catch {
     res.status(500).json({ error: 'Failed to update availability' });
+  }
+});
+
+// ─── POST /transporter/verify-documents - submit license and vehicle docs ───
+router.post('/verify-documents', upload.single('licenseDoc'), async (req: Request, res: Response): Promise<void> => {
+  const { vehicleType, vehicleCapacityKg, licenseNumber, vehicleNumber, licenseDocUrl: rawUrl } = req.body;
+
+  try {
+    let documentUrl = rawUrl;
+    const file = req.file;
+
+    if (file) {
+      try {
+        const base64 = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+        const result = await cloudinary.uploader.upload(base64, {
+          folder: 'agrinova/transporter_docs',
+          resource_type: 'auto',
+        });
+        documentUrl = result.secure_url;
+      } catch (err) {
+        console.warn('[CLOUDINARY] License document upload fallback to base64 data URI');
+        documentUrl = `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
+      }
+    }
+
+    // Upsert transporter profile with documents and vehicle details
+    await prisma.transporterProfile.upsert({
+      where: { userId: req.user!.userId },
+      create: {
+        userId: req.user!.userId,
+        vehicleType: vehicleType || null,
+        vehicleCapacityKg: vehicleCapacityKg ? parseFloat(vehicleCapacityKg) : null,
+        vehicleNumber: vehicleNumber || null,
+        licenseNumber: licenseNumber || null,
+        licenseDocUrl: documentUrl || null,
+      },
+      update: {
+        ...(vehicleType !== undefined && { vehicleType: vehicleType || null }),
+        ...(vehicleCapacityKg !== undefined && { vehicleCapacityKg: vehicleCapacityKg ? parseFloat(vehicleCapacityKg) : null }),
+        ...(vehicleNumber !== undefined && { vehicleNumber: vehicleNumber || null }),
+        ...(licenseNumber !== undefined && { licenseNumber: licenseNumber || null }),
+        ...(documentUrl && { licenseDocUrl: documentUrl }),
+      },
+    });
+
+    // Reset verification status to false whenever documents or vehicle details are edited!
+    await prisma.user.update({
+      where: { id: req.user!.userId },
+      data: { isVerified: false },
+    });
+
+    const refreshedUser = await prisma.user.findUnique({
+      where: { id: req.user!.userId },
+      include: { transporterProfile: true },
+    });
+
+    const { passwordHash: _, ...u } = refreshedUser!;
+    res.json({
+      user: u,
+      message: 'Driving license and vehicle details submitted successfully. Your account is now pending administrator verification.',
+    });
+  } catch (err) {
+    console.error('[TRANSPORTER/VERIFY-DOCUMENTS]', err);
+    res.status(500).json({ error: 'Failed to submit driver and vehicle documents' });
   }
 });
 

@@ -374,6 +374,7 @@ const updateProfileSchema = z.object({
   vehicleCapacityKg: z.number().nullable().optional(),
   vehicleNumber: z.string().nullable().optional(),
   licenseNumber: z.string().nullable().optional(),
+  licenseDocUrl: z.string().nullable().optional(),
 });
 
 router.put('/profile', authenticate, async (req: Request, res: Response): Promise<void> => {
@@ -386,7 +387,7 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
   const {
     name, phone, address, latitude, longitude,
     farmSizeAcres, upiId, bankAccount, ifscCode, aadhaarNumber, landDocUrl,
-    vehicleType, vehicleCapacityKg, vehicleNumber, licenseNumber,
+    vehicleType, vehicleCapacityKg, vehicleNumber, licenseNumber, licenseDocUrl,
   } = parsed.data;
 
   try {
@@ -458,6 +459,13 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
 
     // Update Transporter Profile if applicable
     if (updatedUser.role === 'transporter') {
+      const hasTransporterKycChange =
+        vehicleType !== undefined ||
+        vehicleCapacityKg !== undefined ||
+        vehicleNumber !== undefined ||
+        licenseNumber !== undefined ||
+        licenseDocUrl !== undefined;
+
       await prisma.transporterProfile.upsert({
         where: { userId },
         create: {
@@ -466,14 +474,24 @@ router.put('/profile', authenticate, async (req: Request, res: Response): Promis
           vehicleCapacityKg: vehicleCapacityKg ?? null,
           vehicleNumber: vehicleNumber ?? null,
           licenseNumber: licenseNumber ?? null,
+          licenseDocUrl: licenseDocUrl ?? null,
         },
         update: {
           ...(vehicleType !== undefined && { vehicleType }),
           ...(vehicleCapacityKg !== undefined && { vehicleCapacityKg }),
           ...(vehicleNumber !== undefined && { vehicleNumber }),
           ...(licenseNumber !== undefined && { licenseNumber }),
+          ...(licenseDocUrl !== undefined && { licenseDocUrl }),
         },
       });
+
+      // Every time transporter edits vehicle or license details, reset isVerified to false for admin re-verification
+      if (hasTransporterKycChange) {
+        await prisma.user.update({
+          where: { id: userId },
+          data: { isVerified: false },
+        });
+      }
     }
 
     const refreshed = await prisma.user.findUnique({

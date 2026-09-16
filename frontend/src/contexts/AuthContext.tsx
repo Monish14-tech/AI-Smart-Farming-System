@@ -49,6 +49,7 @@ export interface User {
     vehicleCapacityKg?: number;
     licenseNumber?: string;
     vehicleNumber?: string;
+    licenseDocUrl?: string;
     isAvailable?: boolean;
     currentLatitude?: number;
     currentLongitude?: number;
