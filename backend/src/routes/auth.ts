@@ -5,6 +5,8 @@ import { z } from 'zod';
 import prisma from '../lib/prisma';
 import { generateTokens, JwtPayload, Role, authenticate } from '../middleware/auth';
 import rateLimit from 'express-rate-limit';
+import { generateSecureOtp, timingSafeOtpEqual } from '../lib/otpService';
+import { sendWelcomeEmail, sendPasswordResetOtpEmail } from '../lib/emailService';
 
 const router = Router();
 
@@ -105,6 +107,14 @@ router.post('/register', authLimiter, async (req: Request, res: Response): Promi
     await prisma.refreshToken.create({ data: { userId: user.id, token: refreshToken, expiresAt } });
 
     const { passwordHash: _, ...userWithoutPassword } = user;
+
+    // Trigger automated welcome onboarding email (fire-and-forget)
+    sendWelcomeEmail({
+      to: user.email,
+      name: user.name,
+      role: user.role,
+    }).catch((mailErr) => console.error('[AUTH/WELCOME_MAIL]', mailErr));
+
     res.status(201).json({ user: userWithoutPassword, accessToken, refreshToken });
   } catch (err) {
     console.error('[AUTH/REGISTER]', err);
@@ -271,13 +281,26 @@ router.post('/forgot-password', authLimiter, async (req: Request, res: Response)
       return;
     }
 
-    // Generate 6-digit numeric OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    // Generate cryptographically secure 6-digit numeric OTP
+    const otp = generateSecureOtp(6);
     const expiresAt = new Date(Date.now() + 15 * 60 * 1000); // 15 mins
+
+    // Prevent memory exhaustion: cap in-memory store size
+    if (passwordResetStore.size > 5000) {
+      const firstKey = passwordResetStore.keys().next().value;
+      if (firstKey) passwordResetStore.delete(firstKey);
+    }
 
     passwordResetStore.set(email, { otp, expiresAt, attempts: 0 });
 
     console.log(`\n🔑 [AUTH] Password reset OTP generated for ${email}: ${otp} (expires in 15m)`);
+
+    // Dispatch automated password reset email
+    sendPasswordResetOtpEmail({
+      to: email,
+      name: user.name,
+      otp,
+    }).catch((mailErr) => console.error('[AUTH/RESET_MAIL]', mailErr));
 
     res.json({
       message: 'If an account exists with this email, a 6-digit reset code has been sent.',
@@ -319,14 +342,15 @@ router.post('/reset-password', authLimiter, async (req: Request, res: Response):
       return;
     }
 
-    if (entry.otp !== otp) {
+    // Timing-safe constant time comparison to prevent timing side-channel attacks
+    if (!timingSafeOtpEqual(entry.otp, otp)) {
       entry.attempts += 1;
       if (entry.attempts >= 5) {
         passwordResetStore.delete(email);
         res.status(400).json({ error: 'Too many incorrect attempts. Please request a new code.' });
         return;
       }
-      res.status(400).json({ error: 'Invalid reset code. Please check and try again.' });
+      res.status(400).json({ error: `Invalid reset code. ${5 - entry.attempts} attempt(s) remaining.` });
       return;
     }
 

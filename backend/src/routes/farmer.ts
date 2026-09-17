@@ -195,7 +195,24 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
       include: {
         buyer: { select: { name: true, phone: true, email: true, address: true } },
         listing: { select: { cropName: true, pricePerKg: true, images: true } },
-        transportJob: true,
+        transportJob: {
+          select: {
+            id: true,
+            status: true,
+            pickupAddress: true,
+            dropAddress: true,
+            earningAmount: true,
+            transporter: {
+              select: {
+                id: true,
+                name: true,
+                phone: true,
+                transporterProfile: { select: { vehicleType: true, vehicleNumber: true } },
+              },
+            },
+            // Note: otpCode is strictly excluded to prevent unauthorized escrow verification
+          },
+        },
       },
       orderBy: { createdAt: 'desc' },
     });

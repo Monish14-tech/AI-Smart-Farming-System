@@ -17,10 +17,28 @@ const app = express();
 app.set('trust proxy', 1);
 const httpServer = createServer(app);
 
+// ─── Allowed Origins Configuration ─────────────────────────────────────
+const allowedOrigins = [
+  process.env.CORS_ORIGIN,
+  'http://localhost:3000',
+  'http://localhost:5000',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:5000',
+].filter(Boolean) as string[];
+
+const corsOriginValidator = (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+  // Allow non-browser requests (mobile apps, server-to-server, health checks)
+  if (!origin) return callback(null, true);
+  if (process.env.NODE_ENV !== 'production' || allowedOrigins.includes(origin)) {
+    return callback(null, true);
+  }
+  return callback(new Error('Not allowed by CORS policy'), false);
+};
+
 // ─── Socket.io setup ──────────────────────────────────────────────────
 const io = new Server(httpServer, {
   cors: {
-    origin: (_origin, callback) => callback(null, true),
+    origin: corsOriginValidator,
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -48,7 +66,7 @@ io.on('connection', (socket) => {
 // ─── Middleware ────────────────────────────────────────────────────────
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(cors({
-  origin: (_origin, callback) => callback(null, true),
+  origin: corsOriginValidator,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],

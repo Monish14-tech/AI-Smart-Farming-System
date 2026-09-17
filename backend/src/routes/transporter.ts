@@ -5,6 +5,14 @@ import multer from 'multer';
 import prisma from '../lib/prisma';
 import { authenticate, requireRole } from '../middleware/auth';
 import { solveVRP, generateTripSummary } from '../lib/vrp';
+import {
+  generateSecureOtp,
+  timingSafeOtpEqual,
+  isDeliveryVerificationLocked,
+  recordDeliveryFailedAttempt,
+  clearDeliveryAttempts,
+} from '../lib/otpService';
+import { sendDeliveryOtpEmail, sendPayoutReleasedEmail } from '../lib/emailService';
 
 const router = Router();
 router.use(authenticate);
@@ -120,8 +128,17 @@ router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<voi
       return;
     }
 
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const typedJob = job as typeof job & { order: { listing: { farmer: { latitude: number | null; longitude: number | null; address: string | null } }; deliveryLat: number | null; deliveryLng: number | null; deliveryAddress: string | null } };
+    const otp = generateSecureOtp(6);
+    const typedJob = job as typeof job & {
+      order: {
+        quantityKg: number;
+        listing: { cropName: string; farmer: { latitude: number | null; longitude: number | null; address: string | null } };
+        buyer: { name: string; email: string };
+        deliveryLat: number | null;
+        deliveryLng: number | null;
+        deliveryAddress: string | null;
+      };
+    };
 
     const updated = await prisma.transportJob.update({
       where: { id },
@@ -141,7 +158,22 @@ router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<voi
     // Update order status
     await prisma.order.update({ where: { id: job.orderId }, data: { status: 'in_transit' } });
 
-    res.json({ job: updated, otp });
+    // Securely dispatch delivery OTP directly to buyer's email
+    const buyer = typedJob.order.buyer;
+    if (buyer?.email) {
+      sendDeliveryOtpEmail({
+        toBuyer: buyer.email,
+        buyerName: buyer.name,
+        otp,
+        orderId: job.orderId,
+        cropName: typedJob.order.listing.cropName,
+        quantityKg: typedJob.order.quantityKg,
+        transporterName: req.user?.email || 'AgriNova Certified Transporter',
+      }).catch((mailErr) => console.error('[TRANSPORTER/MAIL_OTP]', mailErr));
+    }
+
+    // Security fix: Transporter must NOT receive the buyer's secret escrow delivery OTP
+    res.json({ job: updated });
   } catch (err) {
     console.error('[TRANSPORTER/ACCEPT]', err);
     res.status(500).json({ error: 'Failed to accept job' });
@@ -229,9 +261,31 @@ router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<vo
   const id = req.params.id as string;
   const { otp } = req.body;
 
+  if (!otp || typeof otp !== 'string' || otp.trim().length !== 6) {
+    res.status(400).json({ error: 'A valid 6-digit numeric OTP is required' });
+    return;
+  }
+
+  // Check brute force lockout
+  const lockStatus = isDeliveryVerificationLocked(id);
+  if (lockStatus.locked) {
+    res.status(429).json({
+      error: `Too many incorrect attempts. Verification locked for ${lockStatus.waitMinutes} minutes to protect escrow.`,
+    });
+    return;
+  }
+
   try {
     const job = await prisma.transportJob.findFirst({
       where: { id, transporterId: req.user!.userId },
+      include: {
+        order: {
+          include: {
+            listing: { include: { farmer: true } },
+            buyer: true,
+          },
+        },
+      },
     });
 
     if (!job) {
@@ -239,10 +293,29 @@ router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<vo
       return;
     }
 
-    if (job.otpCode !== otp) {
-      res.status(400).json({ error: 'Invalid OTP' });
+    if (job.status === 'delivered') {
+      res.status(400).json({ error: 'This shipment has already been confirmed as delivered and escrow released' });
       return;
     }
+
+    // Timing-safe constant time comparison to prevent timing attacks
+    const isValid = timingSafeOtpEqual(job.otpCode, otp);
+
+    if (!isValid) {
+      const attempt = recordDeliveryFailedAttempt(id);
+      res.status(400).json({
+        error: 'Invalid delivery OTP code',
+        attemptsRemaining: attempt.attemptsLeft,
+        locked: attempt.locked,
+        message: attempt.locked
+          ? `Too many failed attempts. Verification locked for ${attempt.waitMinutes} minutes.`
+          : `${attempt.attemptsLeft} attempt(s) remaining before security lockout.`,
+      });
+      return;
+    }
+
+    // Clear failed attempts counter upon valid OTP
+    clearDeliveryAttempts(id);
 
     await prisma.transportJob.update({
       where: { id },
@@ -254,8 +327,33 @@ router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<vo
       data: { status: 'delivered', paymentStatus: 'paid' },
     });
 
-    res.json({ message: 'Delivery confirmed! Payment released.' });
+    // Notify farmer and transporter via mail automation of escrow release
+    const farmer = job.order?.listing?.farmer;
+    if (farmer?.email) {
+      sendPayoutReleasedEmail({
+        to: farmer.email,
+        name: farmer.name,
+        role: 'farmer',
+        amount: job.order.totalPrice,
+        orderId: job.orderId,
+        cropName: job.order.listing.cropName,
+      }).catch((e) => console.error('[MAIL/FARMER_PAYOUT]', e));
+    }
+
+    if (req.user?.email) {
+      sendPayoutReleasedEmail({
+        to: req.user.email,
+        name: 'Transporter Partner',
+        role: 'transporter',
+        amount: job.earningAmount ?? 0,
+        orderId: job.orderId,
+        cropName: job.order?.listing?.cropName || 'Produce Shipment',
+      }).catch((e) => console.error('[MAIL/TRANSPORTER_PAYOUT]', e));
+    }
+
+    res.json({ message: 'Delivery confirmed! Escrow funds released.' });
   } catch (err) {
+    console.error('[TRANSPORTER/DELIVER]', err);
     res.status(500).json({ error: 'Failed to confirm delivery' });
   }
 });
