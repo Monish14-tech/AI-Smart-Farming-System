@@ -13,6 +13,8 @@ import {
   clearDeliveryAttempts,
 } from '../lib/otpService';
 import { sendDeliveryOtpEmail, sendPayoutReleasedEmail } from '../lib/emailService';
+import { markConsignmentArrival, disburseEscrowPayout } from '../lib/escrowPaymentService';
+import { sendDeliveryOtpSms } from '../lib/smsService';
 
 const router = Router();
 router.use(authenticate);
@@ -158,7 +160,7 @@ router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<voi
     // Update order status
     await prisma.order.update({ where: { id: job.orderId }, data: { status: 'in_transit' } });
 
-    // Securely dispatch delivery OTP directly to buyer's email
+    // Securely dispatch delivery OTP directly to buyer's email & SMS
     const buyer = typedJob.order.buyer;
     if (buyer?.email) {
       sendDeliveryOtpEmail({
@@ -170,6 +172,15 @@ router.post('/jobs/:id/accept', async (req: Request, res: Response): Promise<voi
         quantityKg: typedJob.order.quantityKg,
         transporterName: req.user?.email || 'AgriNova Certified Transporter',
       }).catch((mailErr) => console.error('[TRANSPORTER/MAIL_OTP]', mailErr));
+    }
+
+    if ((buyer as any)?.phone) {
+      sendDeliveryOtpSms({
+        toPhone: (buyer as any).phone,
+        otp,
+        orderId: job.orderId,
+        cropName: typedJob.order.listing.cropName,
+      }).catch((smsErr) => console.error('[TRANSPORTER/SMS_OTP]', smsErr));
     }
 
     // Security fix: Transporter must NOT receive the buyer's secret escrow delivery OTP
@@ -256,6 +267,56 @@ router.post('/gps', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
+// ─── POST /transporter/jobs/:id/arrive - mark arrival at delivery destination ───
+router.post('/jobs/:id/arrive', async (req: Request, res: Response): Promise<void> => {
+  const id = req.params.id as string;
+  try {
+    const job = await prisma.transportJob.findFirst({
+      where: { id, transporterId: req.user!.userId },
+      include: {
+        order: {
+          include: {
+            buyer: { select: { name: true, phone: true, email: true } },
+            listing: { select: { cropName: true } },
+          },
+        },
+      },
+    });
+
+    if (!job) {
+      res.status(404).json({ error: 'Transport assignment not found' });
+      return;
+    }
+
+    if (job.status === 'delivered') {
+      res.status(400).json({ error: 'Shipment already completed' });
+      return;
+    }
+
+    // Mark arrival and start 48-hour auto-release countdown
+    const updatedOrder = await markConsignmentArrival(job.orderId, job.id);
+
+    // Resend OTP to buyer via SMS upon physical arrival at dock
+    if (job.order.buyer.phone && job.otpCode) {
+      sendDeliveryOtpSms({
+        toPhone: job.order.buyer.phone,
+        otp: job.otpCode,
+        orderId: job.orderId,
+        cropName: job.order.listing.cropName,
+      }).catch((err) => console.error('[SMS/ARRIVE_OTP]', err));
+    }
+
+    res.json({
+      message: 'Arrival registered! 48-hour inspection and escrow window initiated.',
+      arrivedAt: updatedOrder.arrivedAt,
+      autoReleaseAt: updatedOrder.autoReleaseAt,
+    });
+  } catch (err) {
+    console.error('[TRANSPORTER/ARRIVE]', err);
+    res.status(500).json({ error: 'Failed to record arrival' });
+  }
+});
+
 // ─── POST /transporter/jobs/:id/deliver - confirm delivery with OTP ───
 router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
@@ -317,44 +378,63 @@ router.post('/jobs/:id/deliver', async (req: Request, res: Response): Promise<vo
     // Clear failed attempts counter upon valid OTP
     clearDeliveryAttempts(id);
 
-    await prisma.transportJob.update({
-      where: { id },
-      data: { status: 'delivered', deliveredAt: new Date() },
+    // Atomically execute multi-party payout with strict idempotency & double-entry ledger audit
+    const settlement = await disburseEscrowPayout({
+      orderId: job.orderId,
+      resolvedBy: 'otp_verification',
     });
 
-    await prisma.order.update({
-      where: { id: job.orderId },
-      data: { status: 'delivered', paymentStatus: 'paid' },
+    res.json({
+      message: 'Delivery confirmed! Escrow funds atomically released.',
+      payouts: settlement.payouts,
     });
-
-    // Notify farmer and transporter via mail automation of escrow release
-    const farmer = job.order?.listing?.farmer;
-    if (farmer?.email) {
-      sendPayoutReleasedEmail({
-        to: farmer.email,
-        name: farmer.name,
-        role: 'farmer',
-        amount: job.order.totalPrice,
-        orderId: job.orderId,
-        cropName: job.order.listing.cropName,
-      }).catch((e) => console.error('[MAIL/FARMER_PAYOUT]', e));
-    }
-
-    if (req.user?.email) {
-      sendPayoutReleasedEmail({
-        to: req.user.email,
-        name: 'Transporter Partner',
-        role: 'transporter',
-        amount: job.earningAmount ?? 0,
-        orderId: job.orderId,
-        cropName: job.order?.listing?.cropName || 'Produce Shipment',
-      }).catch((e) => console.error('[MAIL/TRANSPORTER_PAYOUT]', e));
-    }
-
-    res.json({ message: 'Delivery confirmed! Escrow funds released.' });
   } catch (err) {
     console.error('[TRANSPORTER/DELIVER]', err);
     res.status(500).json({ error: 'Failed to confirm delivery' });
+  }
+});
+
+// ─── POST /transporter/jobs/:id/dispute-counter - submit counter-evidence ───
+const carrierCounterSchema = z.object({
+  statement: z.string().min(5, 'Statement must be at least 5 characters').max(1000),
+  evidenceUrls: z.array(z.string()).optional(),
+});
+
+router.post('/jobs/:id/dispute-counter', async (req: Request, res: Response): Promise<void> => {
+  const id = req.params.id as string;
+  const parsed = carrierCounterSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: 'Validation failed', details: parsed.error.flatten() });
+    return;
+  }
+
+  try {
+    const job = await prisma.transportJob.findFirst({
+      where: { id, transporterId: req.user!.userId },
+      include: { order: { include: { dispute: true } } },
+    });
+
+    if (!job || !job.order.dispute) {
+      res.status(404).json({ error: 'Active dispute not found for this assignment' });
+      return;
+    }
+
+    const updatedDispute = await prisma.dispute.update({
+      where: { id: job.order.dispute.id },
+      data: {
+        transporterNotes: parsed.data.statement,
+        transporterEvidenceUrls: parsed.data.evidenceUrls || [],
+        status: 'countered',
+      },
+    });
+
+    res.json({
+      message: 'Transporter transit logs and counter-evidence submitted for arbitration review.',
+      dispute: updatedDispute,
+    });
+  } catch (err) {
+    console.error('[TRANSPORTER/DISPUTE_COUNTER]', err);
+    res.status(500).json({ error: 'Failed to submit counter evidence' });
   }
 });
 

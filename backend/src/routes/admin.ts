@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import prisma from '../lib/prisma';
 import { authenticate, requireRole } from '../middleware/auth';
+import { disburseEscrowPayout, processAutoSettlementTimeouts } from '../lib/escrowPaymentService';
 
 const router = Router();
 router.use(authenticate);
@@ -155,9 +156,11 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
       prisma.order.findMany({
         skip, take: parseInt(limit), orderBy: { createdAt: 'desc' },
         include: {
-          buyer: { select: { name: true, email: true } },
-          listing: { select: { cropName: true, pricePerKg: true, farmer: { select: { name: true } } } },
-          transportJob: true,
+          buyer: { select: { name: true, email: true, phone: true } },
+          listing: { select: { cropName: true, pricePerKg: true, farmer: { select: { name: true, email: true, phone: true } } } },
+          transportJob: { include: { transporter: { select: { name: true, phone: true } } } },
+          dispute: true,
+          escrowLedgers: { orderBy: { createdAt: 'desc' } },
         },
       }),
       prisma.order.count(),
@@ -169,49 +172,150 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
+// ─── GET /admin/disputes ──────────────────────────────────────────────
+router.get('/disputes', async (_req: Request, res: Response): Promise<void> => {
+  try {
+    const disputes = await prisma.dispute.findMany({
+      orderBy: { createdAt: 'desc' },
+      include: {
+        order: {
+          include: {
+            buyer: { select: { id: true, name: true, email: true, phone: true } },
+            listing: { include: { farmer: { select: { id: true, name: true, email: true, phone: true } } } },
+            transportJob: { include: { transporter: { select: { id: true, name: true, email: true, phone: true } } } },
+            escrowLedgers: { orderBy: { createdAt: 'desc' } },
+          },
+        },
+        raisedBy: { select: { id: true, name: true, email: true, role: true } },
+      },
+    });
+
+    res.json({ disputes });
+  } catch (err) {
+    console.error('[ADMIN/GET-DISPUTES]', err);
+    res.status(500).json({ error: 'Failed to fetch disputes' });
+  }
+});
+
 // ─── PUT /admin/orders/:id/dispute-resolve ────────────────────────────
+// Multi-Party Adjudication supporting full release, full refund, or partial damage settlement
 router.put('/orders/:id/dispute-resolve', async (req: Request, res: Response): Promise<void> => {
   const id = req.params.id as string;
-  const { resolution, adminNotes } = req.body; // 'refund_buyer' | 'release_farmer' | 'dismiss'
+  const {
+    resolution,
+    acceptedPercentage,
+    farmerAmount: customFarmerAmount,
+    transporterAmount: customCarrierAmount,
+    buyerRefund: customBuyerRefund,
+    adminNotes,
+  } = req.body;
 
-  if (!['refund_buyer', 'release_farmer', 'dismiss'].includes(resolution)) {
-    res.status(400).json({ error: 'Valid resolution required (refund_buyer, release_farmer, dismiss)' });
+  const validResolutions = ['refund_buyer', 'release_farmer', 'partial_settlement', 'dismiss'];
+  if (!validResolutions.includes(resolution)) {
+    res.status(400).json({ error: `Valid resolution required (${validResolutions.join(', ')})` });
     return;
   }
 
   try {
-    const order = await prisma.order.findUnique({ where: { id } });
+    const order = await prisma.order.findUnique({
+      where: { id },
+      include: {
+        listing: { include: { farmer: true } },
+        transportJob: { include: { transporter: true } },
+        buyer: true,
+        dispute: true,
+      },
+    });
+
     if (!order) {
       res.status(404).json({ error: 'Order not found' });
       return;
     }
 
-    let updatedPaymentStatus = order.paymentStatus;
-    let updatedStatus = order.status;
-
-    if (resolution === 'refund_buyer') {
-      updatedPaymentStatus = 'refunded';
-      updatedStatus = 'cancelled';
-    } else if (resolution === 'release_farmer') {
-      updatedPaymentStatus = 'paid';
+    if (order.paymentStatus === 'paid' || order.paymentStatus === 'refunded') {
+      res.status(400).json({ error: `Order is already finalized with status: ${order.paymentStatus}` });
+      return;
     }
 
-    const resolutionLog = `\n[ADMIN DISPUTE RESOLUTION: ${resolution.toUpperCase()}] ${adminNotes ? '- ' + adminNotes : ''} (Resolved by Admin on ${new Date().toISOString()})`;
-    const updatedNotes = order.notes ? `${order.notes}${resolutionLog}` : resolutionLog;
+    const grossAmount = order.totalPrice;
+    const carrierFreight = order.transportJob?.earningAmount ?? 0;
 
-    const updated = await prisma.order.update({
-      where: { id },
-      data: {
-        paymentStatus: updatedPaymentStatus,
-        status: updatedStatus,
-        notes: updatedNotes,
+    let farmerAmount = 0;
+    let buyerRefund = 0;
+    let transporterAmount = carrierFreight;
+
+    if (resolution === 'release_farmer') {
+      // 100% payout to farmer (minus 2% platform fee), transporter paid, 0 buyer refund
+      farmerAmount = Math.round((grossAmount * 0.98) * 100) / 100;
+      buyerRefund = 0;
+    } else if (resolution === 'refund_buyer') {
+      // 100% refund to buyer, 0 to farmer. Transporter receives compensation if already mobilized
+      buyerRefund = grossAmount;
+      farmerAmount = 0;
+    } else if (resolution === 'partial_settlement') {
+      // Support percentage-based or exact custom amounts
+      if (customBuyerRefund !== undefined && customFarmerAmount !== undefined) {
+        buyerRefund = Number(customBuyerRefund);
+        farmerAmount = Number(customFarmerAmount);
+        if (customCarrierAmount !== undefined) {
+          transporterAmount = Number(customCarrierAmount);
+        }
+      } else {
+        // Use acceptedPercentage (damage claim %: e.g. 30% damaged -> 30% refund, 70% to farmer)
+        const damagePercent = Math.min(100, Math.max(0, Number(acceptedPercentage || order.dispute?.claimedPercentage || 50)));
+        buyerRefund = Math.round((grossAmount * (damagePercent / 100)) * 100) / 100;
+        const farmerGrossShare = grossAmount - buyerRefund;
+        farmerAmount = Math.round((farmerGrossShare * 0.98) * 100) / 100; // 2% fee on farmer's net share
+      }
+    } else if (resolution === 'dismiss') {
+      // Dismiss buyer's claim: release standard payout to farmer
+      farmerAmount = Math.round((grossAmount * 0.98) * 100) / 100;
+      buyerRefund = 0;
+    }
+
+    const payoutResult = await disburseEscrowPayout({
+      orderId: id,
+      resolvedBy: `admin_adjudication_${resolution}`,
+      customSplits: {
+        farmerAmount,
+        transporterAmount,
+        buyerRefund,
+        reason: adminNotes || `Admin adjudicated resolution: ${resolution}`,
       },
     });
 
-    res.json({ order: updated, message: `Dispute resolved: ${resolution}` });
+    const resolutionLog = `\n[ADMIN ADJUDICATION: ${resolution.toUpperCase()}] Buyer Refund: ₹${buyerRefund}, Farmer: ₹${farmerAmount}, Transporter: ₹${transporterAmount}. ${adminNotes ? 'Notes: ' + adminNotes : ''} (${new Date().toISOString()})`;
+    const updatedNotes = order.notes ? `${order.notes}${resolutionLog}` : resolutionLog;
+
+    await prisma.order.update({
+      where: { id },
+      data: { notes: updatedNotes },
+    });
+
+    res.json({
+      success: true,
+      message: `Dispute resolved successfully as ${resolution}`,
+      result: payoutResult,
+    });
   } catch (err) {
     console.error('[ADMIN/DISPUTE-RESOLVE]', err);
-    res.status(500).json({ error: 'Failed to resolve dispute' });
+    res.status(500).json({ error: 'Failed to adjudicate dispute' });
+  }
+});
+
+// ─── POST /admin/orders/check-auto-release ─────────────────────────────
+// Trigger 48-hour timeout auto-settlement worker manually or via scheduler
+router.post('/orders/check-auto-release', async (_req: Request, res: Response): Promise<void> => {
+  try {
+    const results = await processAutoSettlementTimeouts();
+    res.json({
+      success: true,
+      message: `Processed ${results.autoSettledCount} auto-settlement order timeouts`,
+      settlements: results,
+    });
+  } catch (err) {
+    console.error('[ADMIN/AUTO-RELEASE]', err);
+    res.status(500).json({ error: 'Failed to process auto-settlements' });
   }
 });
 

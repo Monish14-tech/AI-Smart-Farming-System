@@ -14,12 +14,31 @@ interface Review {
   createdAt: string;
 }
 
+interface DisputeInfo {
+  id: string;
+  claimedIssue: string;
+  claimedPercentage: number;
+  buyerNotes: string;
+  buyerEvidenceUrls: string[];
+  farmerNotes?: string;
+  farmerEvidenceUrls?: string[];
+  transporterNotes?: string;
+  transporterEvidenceUrls?: string[];
+  status: string;
+  refundAmount?: number;
+  farmerSettledAmount?: number;
+}
+
 interface Order {
   id: string;
   status: string;
   paymentStatus: string;
   quantityKg: number;
   totalPrice: number;
+  platformFee?: number;
+  farmerPayout?: number;
+  arrivedAt?: string;
+  autoReleaseAt?: string;
   createdAt: string;
   deliveryAddress: string;
   notes?: string;
@@ -36,6 +55,7 @@ interface Order {
   transportJob: {
     status: string;
     otpCode?: string;
+    earningAmount?: number;
     pickupLat?: number;
     pickupLng?: number;
     dropLat?: number;
@@ -47,6 +67,7 @@ interface Order {
       transporterProfile?: { vehicleType: string; vehicleNumber: string; currentLatitude?: number; currentLongitude?: number };
     };
   } | null;
+  dispute?: DisputeInfo | null;
   reviews?: Review[];
 }
 
@@ -71,9 +92,12 @@ export default function BuyerOrders() {
 
   // Dispute Modal state
   const [disputeModalOrder, setDisputeModalOrder] = useState<Order | null>(null);
-  const [disputeReason, setDisputeReason] = useState<string>('Quality mismatch / Produce not as described');
+  const [disputeIssue, setDisputeIssue] = useState<string>('grade_mismatch');
+  const [disputePercentage, setDisputePercentage] = useState<number>(100);
   const [disputeDescription, setDisputeDescription] = useState<string>('');
+  const [disputeEvidenceUrls, setDisputeEvidenceUrls] = useState<string>('');
   const [submittingDispute, setSubmittingDispute] = useState(false);
+  const [cancellingOrderId, setCancellingOrderId] = useState<string | null>(null);
 
   const loadOrders = async () => {
     try {
@@ -158,18 +182,50 @@ export default function BuyerOrders() {
 
     setSubmittingDispute(true);
     try {
+      const urls = disputeEvidenceUrls
+        .split('\n')
+        .map((u) => u.trim())
+        .filter(Boolean);
+
       await api.post(`/buyer/orders/${disputeModalOrder.id}/dispute`, {
-        reason: disputeReason,
-        description: disputeDescription || undefined,
+        issue: disputeIssue,
+        claimedPercentage: Number(disputePercentage),
+        description: disputeDescription,
+        evidenceUrls: urls,
       });
-      toast.success('Dispute reported. Our operations team is investigating the shipment.');
+      toast.success('Dispute registered. Escrow payout is paused pending counter-evidence review.');
       setDisputeModalOrder(null);
       setDisputeDescription('');
+      setDisputeEvidenceUrls('');
+      setDisputePercentage(100);
       loadOrders();
     } catch (err: any) {
-      toast.error(err?.response?.data?.error || 'Failed to report issue');
+      toast.error(err?.response?.data?.error || 'Failed to report dispute');
     } finally {
       setSubmittingDispute(false);
+    }
+  };
+
+  // Order Cancellation Handler with Mid-Transit Policy Notice
+  const handleCancelOrder = async (order: Order) => {
+    const isInTransit = order.status === 'in_transit' || order.status === 'confirmed';
+    const freightNote = isInTransit && order.transportJob?.earningAmount
+      ? `\n\n⚠️ Policy Alert: Since this order is already assigned/in-transit, transporter freight (₹${order.transportJob.earningAmount}) will be paid from the escrow deposit to compensate the carrier. You will receive ₹${(order.totalPrice - order.transportJob.earningAmount).toLocaleString('en-IN')}.`
+      : '\n\nYou will receive a 100% full refund from the escrow custody account.';
+
+    if (!window.confirm(`Are you sure you want to cancel order #${order.id.slice(0, 8)}?${freightNote}`)) {
+      return;
+    }
+
+    setCancellingOrderId(order.id);
+    try {
+      await api.post(`/buyer/orders/${order.id}/cancel`);
+      toast.success('Order cancelled. Escrow refund processed.');
+      loadOrders();
+    } catch (err: any) {
+      toast.error(err?.response?.data?.error || 'Failed to cancel order');
+    } finally {
+      setCancellingOrderId(null);
     }
   };
 
@@ -260,7 +316,10 @@ export default function BuyerOrders() {
                         <div className="font-display" style={{ fontSize: 24, fontWeight: 800, color: 'var(--color-gold-light)' }}>
                           ₹{o.totalPrice.toLocaleString('en-IN')}
                         </div>
-                        <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>
+                        <div style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2 }}>
+                          Farmer: ₹{(o.farmerPayout ?? Math.round(o.totalPrice * 0.98)).toLocaleString('en-IN')} · Fee (2%): ₹{(o.platformFee ?? Math.round(o.totalPrice * 0.02)).toLocaleString('en-IN')}
+                        </div>
+                        <div style={{ fontSize: 12, color: 'var(--color-text-muted)', marginTop: 2 }}>
                           {new Date(o.createdAt).toLocaleDateString('en-IN')}
                         </div>
                         <span
@@ -269,11 +328,21 @@ export default function BuyerOrders() {
                               ? 'badge-green'
                               : o.paymentStatus === 'refunded'
                               ? 'badge-red'
+                              : o.paymentStatus === 'partially_refunded'
+                              ? 'badge-amber'
+                              : o.paymentStatus === 'disputed'
+                              ? 'badge-amber'
                               : 'badge-blue'
                           }`}
                           style={{ marginTop: 6 }}
                         >
-                          {o.paymentStatus === 'escrowed' ? '🔒 Escrow Held' : o.paymentStatus}
+                          {o.paymentStatus === 'escrowed'
+                            ? '🔒 Escrow Held (Nodal)'
+                            : o.paymentStatus === 'partially_refunded'
+                            ? '⚖️ Partially Refunded'
+                            : o.paymentStatus === 'disputed'
+                            ? '⚠️ Escrow Frozen (Dispute)'
+                            : o.paymentStatus}
                         </span>
                       </div>
                     </div>
@@ -348,6 +417,55 @@ export default function BuyerOrders() {
                       </div>
                     )}
 
+                    {/* 48-Hour Inspection Auto-Release Warning */}
+                    {o.arrivedAt && o.status !== 'delivered' && o.status !== 'cancelled' && (
+                      <div style={{ padding: '12px 16px', background: 'rgba(245, 158, 11, 0.12)', border: '1px solid rgba(245, 158, 11, 0.35)', borderRadius: 12, marginTop: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <span style={{ fontSize: 24 }}>⏱️</span>
+                        <div>
+                          <strong style={{ color: '#D97706', fontSize: 13 }}>Consignment Arrived at Dock · 48-Hour Inspection Window Active</strong>
+                          <div style={{ color: 'var(--color-text-secondary)', marginTop: 2, fontSize: 12 }}>
+                            Inspect produce quality immediately. If no dispute is filed, funds will auto-settle to the farmer on{' '}
+                            <strong>{o.autoReleaseAt ? new Date(o.autoReleaseAt).toLocaleString('en-IN') : 'in 48 hours'}</strong>.
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Active Dispute Information & Multi-party Evidence */}
+                    {o.dispute && (
+                      <div style={{ padding: '14px 16px', background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.25)', borderRadius: 12, marginTop: 12 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, flexWrap: 'wrap', gap: 8 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontSize: 18 }}>🚨</span>
+                            <strong style={{ color: '#DC2626', fontSize: 14 }}>
+                              Dispute in Progress: {o.dispute.claimedIssue.replace('_', ' ').toUpperCase()} ({o.dispute.claimedPercentage}% Claimed)
+                            </strong>
+                          </div>
+                          <span className="badge badge-amber" style={{ textTransform: 'uppercase', fontSize: 11 }}>
+                            Status: {o.dispute.status.replace('_', ' ')}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: 13, color: 'var(--color-text-secondary)', marginBottom: 6 }}>
+                          <strong>Buyer Statement:</strong> {o.dispute.buyerNotes}
+                        </div>
+                        {o.dispute.farmerNotes && (
+                          <div style={{ fontSize: 12, color: '#047857', background: 'rgba(16, 185, 129, 0.08)', padding: '8px 12px', borderRadius: 8, marginTop: 4 }}>
+                            <strong>🧑‍🌾 Farmer Defense / Counter:</strong> {o.dispute.farmerNotes}
+                          </div>
+                        )}
+                        {o.dispute.transporterNotes && (
+                          <div style={{ fontSize: 12, color: '#2563EB', background: 'rgba(37, 99, 235, 0.08)', padding: '8px 12px', borderRadius: 8, marginTop: 4 }}>
+                            <strong>🚛 Carrier Transit Note:</strong> {o.dispute.transporterNotes}
+                          </div>
+                        )}
+                        {o.dispute.refundAmount !== undefined && o.dispute.refundAmount !== null && (
+                          <div style={{ fontSize: 13, fontWeight: 700, color: '#059669', marginTop: 8 }}>
+                            Adjudicated Resolution: ₹{o.dispute.refundAmount.toLocaleString('en-IN')} refunded to Buyer | ₹{(o.dispute.farmerSettledAmount || 0).toLocaleString('en-IN')} disbursed to Farmer
+                          </div>
+                        )}
+                      </div>
+                    )}
+
                     {/* Live OpenStreetMap telematics */}
                     {activeTrackingOrderId === o.id && (
                       <div style={{ marginTop: 14 }}>
@@ -403,7 +521,7 @@ export default function BuyerOrders() {
                     )}
 
                     {/* Delivery OTP for Escrow Release */}
-                    {o.transportJob?.otpCode && (o.status === 'confirmed' || o.status === 'in_transit') && (
+                    {o.transportJob?.otpCode && (o.status === 'confirmed' || o.status === 'in_transit' || o.transportJob?.status === 'arrived') && (
                       <div
                         className="glass stat-glow-gold"
                         style={{
@@ -443,7 +561,7 @@ export default function BuyerOrders() {
                       </div>
                     )}
 
-                    {/* Action Footer: Review & Dispute */}
+                    {/* Action Footer: Review & Dispute & Cancel */}
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--color-border)', flexWrap: 'wrap', gap: 10 }}>
                       {/* Left: Review Status / Button */}
                       <div>
@@ -470,9 +588,20 @@ export default function BuyerOrders() {
                         )}
                       </div>
 
-                      {/* Right: Dispute / Report button */}
-                      <div>
-                        {o.status !== 'delivered' && o.status !== 'cancelled' && (
+                      {/* Right: Dispute / Cancel button */}
+                      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                        {['pending', 'confirmed', 'in_transit'].includes(o.status) && (
+                          <button
+                            onClick={() => handleCancelOrder(o)}
+                            disabled={cancellingOrderId === o.id}
+                            className="btn-secondary"
+                            style={{ fontSize: 12, padding: '5px 12px', color: '#DC2626', borderColor: '#FCA5A5' }}
+                          >
+                            {cancellingOrderId === o.id ? 'Cancelling...' : '✕ Cancel Order'}
+                          </button>
+                        )}
+
+                        {o.status !== 'delivered' && o.status !== 'cancelled' && !o.dispute && (
                           <button
                             onClick={() => setDisputeModalOrder(o)}
                             className="btn-secondary"
@@ -555,10 +684,10 @@ export default function BuyerOrders() {
         </div>
       )}
 
-      {/* ── Dispute / Report Issue Modal ──────────────────────────── */}
+      {/* ── Dispute / Report Issue Modal (Multi-Tier Partial Settlement) ─── */}
       {disputeModalOrder && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: 16 }}>
-          <div className="glass" style={{ width: '100%', maxWidth: 480, padding: 28, borderRadius: 20 }}>
+          <div className="glass" style={{ width: '100%', maxWidth: 520, padding: 28, borderRadius: 20 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontSize: 22 }}>⚠️</span>
@@ -568,34 +697,68 @@ export default function BuyerOrders() {
             </div>
 
             <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', marginBottom: 16 }}>
-              Flagging an issue notifies platform administration and pauses automatic escrow settlement for <strong>{disputeModalOrder.listing.cropName}</strong>.
+              Filing a dispute pauses automatic escrow release for <strong>{disputeModalOrder.listing.cropName}</strong> and allows both the producer and carrier to submit evidence before arbitration.
             </p>
 
             <form onSubmit={handleSubmitDispute} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               <div>
-                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Reason for Dispute</label>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Dispute Category</label>
                 <select
                   className="input-field"
-                  value={disputeReason}
-                  onChange={(e) => setDisputeReason(e.target.value)}
+                  value={disputeIssue}
+                  onChange={(e) => setDisputeIssue(e.target.value)}
                 >
-                  <option value="Quality mismatch / Produce not as described">Quality mismatch / Produce not as described</option>
-                  <option value="Damaged or spoiled lot upon arrival">Damaged or spoiled lot upon arrival</option>
-                  <option value="Transporter severely delayed or unresponsive">Transporter severely delayed or unresponsive</option>
-                  <option value="Quantity shortage / Inaccurate weight">Quantity shortage / Inaccurate weight</option>
-                  <option value="Farmer cancellation dispute">Farmer cancellation dispute</option>
+                  <option value="grade_mismatch">Quality / Grade Mismatch (produce not as listed)</option>
+                  <option value="spoilage">Transit Spoilage / Decay</option>
+                  <option value="short_weight">Quantity / Weight Shortage</option>
+                  <option value="delayed_transit">Severe Delay Resulting in Cargo Deterioration</option>
+                  <option value="other">Other Defect / Packaging Damage</option>
                 </select>
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Detailed Description</label>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                  <label style={{ fontSize: 13, fontWeight: 600 }}>Claimed Damage / Refund Percentage</label>
+                  <span style={{ fontSize: 13, fontWeight: 800, color: '#DC2626' }}>
+                    {disputePercentage}% (₹{Math.round(disputeModalOrder.totalPrice * (disputePercentage / 100)).toLocaleString('en-IN')})
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={10}
+                  max={100}
+                  step={5}
+                  value={disputePercentage}
+                  onChange={(e) => setDisputePercentage(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: '#DC2626' }}
+                />
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2 }}>
+                  <span>10% (Minor blemish)</span>
+                  <span>50% (Partial loss)</span>
+                  <span>100% (Total rejection)</span>
+                </div>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Detailed Description & Findings</label>
                 <textarea
                   rows={3}
                   required
                   className="input-field"
-                  placeholder="Explain what occurred so the dispute moderator can issue a determination or refund..."
+                  placeholder="Describe exact defects, inspected weight vs invoice, moisture level, or spoilage..."
                   value={disputeDescription}
                   onChange={(e) => setDisputeDescription(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>Evidence Photo URLs (One URL per line, optional)</label>
+                <textarea
+                  rows={2}
+                  className="input-field"
+                  placeholder="https://example.com/unloading-photo1.jpg&#10;https://example.com/weight-scale.jpg"
+                  value={disputeEvidenceUrls}
+                  onChange={(e) => setDisputeEvidenceUrls(e.target.value)}
                 />
               </div>
 
@@ -604,7 +767,7 @@ export default function BuyerOrders() {
                   Cancel
                 </button>
                 <button type="submit" disabled={submittingDispute} className="btn-danger" style={{ padding: '8px 16px' }}>
-                  {submittingDispute ? 'Logging Issue...' : '🚨 Submit Dispute'}
+                  {submittingDispute ? 'Registering Dispute...' : '🚨 Register Dispute'}
                 </button>
               </div>
             </form>

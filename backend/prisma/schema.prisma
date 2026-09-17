@@ -37,6 +37,7 @@ model User {
   reviewsReceived   Review[]         @relation("ReviewsReceived")
   chatLogs          ChatLog[]
   refreshTokens     RefreshToken[]
+  disputesRaised    Dispute[]
 
   @@map("users")
 }
@@ -113,6 +114,8 @@ model Order {
   listingId     String      @map("listing_id") @db.Uuid
   quantityKg    Float       @map("quantity_kg")
   totalPrice    Float       @map("total_price")
+  platformFee   Float       @default(0) @map("platform_fee")
+  farmerPayout  Float?      @map("farmer_payout")
   status        OrderStatus @default(pending)
   paymentStatus PaymentStatus @default(unpaid) @map("payment_status")
   paymentId     String?     @map("payment_id")
@@ -120,13 +123,17 @@ model Order {
   deliveryLat   Float?      @map("delivery_lat")
   deliveryLng   Float?      @map("delivery_lng")
   notes         String?
+  arrivedAt     DateTime?   @map("arrived_at")
+  autoReleaseAt DateTime?   @map("auto_release_at")
   createdAt     DateTime    @default(now()) @map("created_at")
   updatedAt     DateTime    @updatedAt @map("updated_at")
 
-  buyer        User          @relation("BuyerOrders", fields: [buyerId], references: [id])
-  listing      CropListing   @relation(fields: [listingId], references: [id])
-  transportJob TransportJob?
-  reviews      Review[]
+  buyer         User          @relation("BuyerOrders", fields: [buyerId], references: [id])
+  listing       CropListing   @relation(fields: [listingId], references: [id])
+  transportJob  TransportJob?
+  reviews       Review[]
+  dispute       Dispute?
+  escrowLedgers EscrowLedger[]
 
   @@map("orders")
 }
@@ -144,26 +151,29 @@ enum PaymentStatus {
   paid
   refunded
   escrowed
+  disputed
+  partially_refunded
 }
 
 model TransportJob {
-  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  orderId         String    @unique @map("order_id") @db.Uuid
-  transporterId   String?   @map("transporter_id") @db.Uuid
-  pickupLat       Float?    @map("pickup_lat")
-  pickupLng       Float?    @map("pickup_lng")
-  pickupAddress   String?   @map("pickup_address")
-  dropLat         Float?    @map("drop_lat")
-  dropLng         Float?    @map("drop_lng")
-  dropAddress     String?   @map("drop_address")
-  optimizedRoute  Json?     @map("optimized_route")
-  estimatedKm     Float?    @map("estimated_km")
-  earningAmount   Float?    @map("earning_amount")
-  status          JobStatus @default(pending)
-  otpCode         String?   @map("otp_code") @db.VarChar(6)
-  proofImageUrl   String?   @map("proof_image_url")
-  deliveredAt     DateTime? @map("delivered_at")
-  createdAt       DateTime  @default(now()) @map("created_at")
+  id                        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orderId                   String    @unique @map("order_id") @db.Uuid
+  transporterId             String?   @map("transporter_id") @db.Uuid
+  pickupLat                 Float?    @map("pickup_lat")
+  pickupLng                 Float?    @map("pickup_lng")
+  pickupAddress             String?   @map("pickup_address")
+  dropLat                   Float?    @map("drop_lat")
+  dropLng                   Float?    @map("drop_lng")
+  dropAddress               String?   @map("drop_address")
+  optimizedRoute            Json?     @map("optimized_route")
+  estimatedKm               Float?    @map("estimated_km")
+  earningAmount             Float?    @map("earning_amount")
+  cancellationCompensation  Float?    @map("cancellation_compensation")
+  status                    JobStatus @default(pending)
+  otpCode                   String?   @map("otp_code") @db.VarChar(6)
+  proofImageUrl             String?   @map("proof_image_url")
+  deliveredAt               DateTime? @map("delivered_at")
+  createdAt                 DateTime  @default(now()) @map("created_at")
 
   order       Order  @relation(fields: [orderId], references: [id])
   transporter User?  @relation(fields: [transporterId], references: [id])
@@ -176,7 +186,61 @@ enum JobStatus {
   assigned
   picked_up
   in_transit
+  arrived
   delivered
+}
+
+model Dispute {
+  id                      String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orderId                 String        @unique @map("order_id") @db.Uuid
+  raisedById              String        @map("raised_by_id") @db.Uuid
+  claimedIssue            String        @map("claimed_issue") // 'spoilage' | 'grade_mismatch' | 'short_weight' | 'delayed_transit' | 'other'
+  claimedPercentage       Float         @default(100) @map("claimed_percentage") // 10% to 100%
+  buyerNotes              String        @map("buyer_notes")
+  buyerEvidenceUrls       String[]      @default([]) @map("buyer_evidence_urls")
+  farmerNotes             String?       @map("farmer_notes")
+  farmerEvidenceUrls      String[]      @default([]) @map("farmer_evidence_urls")
+  transporterNotes        String?       @map("transporter_notes")
+  transporterEvidenceUrls String[]      @default([]) @map("transporter_evidence_urls")
+  status                  DisputeStatus @default(open)
+  resolvedAt              DateTime?     @map("resolved_at")
+  resolutionNotes         String?       @map("resolution_notes")
+  refundAmount            Float?        @map("refund_amount")
+  farmerSettledAmount     Float?        @map("farmer_settled_amount")
+  transporterSettledAmount Float?       @map("transporter_settled_amount")
+  createdAt               DateTime      @default(now()) @map("created_at")
+  updatedAt               DateTime      @updatedAt @map("updated_at")
+
+  order    Order @relation(fields: [orderId], references: [id])
+  raisedBy User  @relation(fields: [raisedById], references: [id])
+
+  @@map("disputes")
+}
+
+enum DisputeStatus {
+  open
+  countered
+  under_review
+  settled_full_refund
+  settled_partial
+  rejected
+}
+
+model EscrowLedger {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orderId          String   @map("order_id") @db.Uuid
+  entryType        String   @map("entry_type") // 'DEPOSIT' | 'FEE_DEDUCTION' | 'FARMER_PAYOUT' | 'TRANSPORTER_PAYOUT' | 'BUYER_REFUND' | 'CARRIER_CANCELLATION_COMPENSATION'
+  amount           Float
+  currency         String   @default("INR")
+  nodalTransferRef String?  @map("nodal_transfer_ref")
+  status           String   @default("COMPLETED") // 'PENDING' | 'HELD' | 'SETTLED' | 'FAILED'
+  idempotencyKey   String   @unique @map("idempotency_key")
+  notes            String?
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  order Order @relation(fields: [orderId], references: [id])
+
+  @@map("escrow_ledgers")
 }
 
 model Review {

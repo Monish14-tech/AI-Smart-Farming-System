@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import { z } from 'zod';
 import prisma from '../lib/prisma';
 import { authenticate, requireRole } from '../middleware/auth';
+import { holdOrderFundsInEscrow, handleMidTransitCancellation } from '../lib/escrowPaymentService';
 
 const router = Router();
 router.use(authenticate);
@@ -156,6 +157,13 @@ router.post('/orders', async (req: Request, res: Response): Promise<void> => {
       },
     });
 
+    // Initialize Regulated Nodal Escrow double-entry ledger & platform fees
+    await holdOrderFundsInEscrow({
+      orderId: order.id,
+      totalPrice,
+      buyerId: req.user!.userId,
+    });
+
     // Automatically create TransportJob immediately so transporters see the job right away
     const farmer = await prisma.user.findUnique({ where: { id: listing.farmerId } });
     await prisma.transportJob.create({
@@ -200,6 +208,8 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
           },
         },
         reviews: true,
+        dispute: true,
+        escrowLedgers: { orderBy: { createdAt: 'desc' } },
       },
       orderBy: { createdAt: 'desc' },
     });
@@ -300,19 +310,29 @@ router.post('/orders/:id/review', async (req: Request, res: Response): Promise<v
   }
 });
 
-// ─── POST /buyer/orders/:id/dispute - report issue or dispute order ────
+// ─── POST /buyer/orders/:id/dispute - register multi-party dispute with partial claim ────
+const disputeClaimSchema = z.object({
+  reason: z.string().optional(),
+  issue: z.enum(['spoilage', 'grade_mismatch', 'short_weight', 'delayed_transit', 'other']).default('spoilage'),
+  claimedPercentage: z.number().min(5).max(100).default(100),
+  description: z.string().min(5, 'Please provide description of the defect or issue'),
+  evidenceUrls: z.array(z.string()).optional(),
+});
+
 router.post('/orders/:id/dispute', async (req: Request, res: Response): Promise<void> => {
   const orderId = req.params.id as string;
-  const { reason, description } = req.body;
-
-  if (!reason) {
-    res.status(400).json({ error: 'Dispute reason is required' });
+  const parsed = disputeClaimSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: 'Validation failed', details: parsed.error.flatten() });
     return;
   }
+
+  const { issue, reason, claimedPercentage, description, evidenceUrls } = parsed.data;
 
   try {
     const order = await prisma.order.findFirst({
       where: { id: orderId, buyerId: req.user!.userId },
+      include: { listing: { include: { farmer: true } }, transportJob: true },
     });
 
     if (!order) {
@@ -325,23 +345,86 @@ router.post('/orders/:id/dispute', async (req: Request, res: Response): Promise<
       return;
     }
 
-    const disputeNote = `[DISPUTE RAISED: ${reason}] ${description ? '- ' + description : ''} (Logged on ${new Date().toISOString()})`;
-    const updatedNotes = order.notes ? `${order.notes}\n${disputeNote}` : disputeNote;
+    const claimedIssue = issue || reason || 'spoilage';
 
-    const updated = await prisma.order.update({
+    // 1. Freeze escrow and record dispute status
+    const updatedOrder = await prisma.order.update({
       where: { id: orderId },
       data: {
-        notes: updatedNotes,
+        paymentStatus: 'disputed',
+        notes: order.notes ? `${order.notes}\n[DISPUTE: ${claimedIssue} (${claimedPercentage}%)] ${description}` : `[DISPUTE: ${claimedIssue} (${claimedPercentage}%)] ${description}`,
+      },
+    });
+
+    // 2. Create or update Dispute record
+    const dispute = await prisma.dispute.upsert({
+      where: { orderId },
+      create: {
+        orderId,
+        raisedById: req.user!.userId,
+        claimedIssue,
+        claimedPercentage,
+        buyerNotes: description,
+        buyerEvidenceUrls: evidenceUrls || [],
+        status: 'open',
+      },
+      update: {
+        claimedIssue,
+        claimedPercentage,
+        buyerNotes: description,
+        buyerEvidenceUrls: evidenceUrls || [],
+        status: 'open',
       },
     });
 
     res.json({
-      order: updated,
-      message: 'Dispute registered. Our operations team and platform administrator will inspect the lot before escrow release.',
+      order: updatedOrder,
+      dispute,
+      message: `Dispute registered for ${claimedPercentage}% of order. Escrow payout paused. Farmer and carrier notified to provide counter-evidence.`,
     });
   } catch (err) {
     console.error('[BUYER/DISPUTE]', err);
     res.status(500).json({ error: 'Failed to register dispute' });
+  }
+});
+
+// ─── POST /buyer/orders/:id/cancel - cancel order with mid-transit compensation ────
+router.post('/orders/:id/cancel', async (req: Request, res: Response): Promise<void> => {
+  const orderId = req.params.id as string;
+  const { reason } = req.body;
+
+  try {
+    const order = await prisma.order.findFirst({
+      where: { id: orderId, buyerId: req.user!.userId },
+    });
+
+    if (!order) {
+      res.status(404).json({ error: 'Order not found' });
+      return;
+    }
+
+    if (order.status === 'delivered') {
+      res.status(400).json({ error: 'Cannot cancel an order that has already been delivered' });
+      return;
+    }
+
+    const result = await handleMidTransitCancellation({
+      orderId,
+      cancelledBy: 'buyer',
+      reason,
+    });
+
+    res.json({
+      message: result.carrierCompensation > 0
+        ? `Order cancelled. Transporter was credited ₹${result.carrierCompensation} for mid-transit expenses; remainder ₹${result.buyerRefund} refunded from escrow.`
+        : 'Order cancelled. Full escrow deposit refunded.',
+      order: result.order,
+      carrierCompensation: result.carrierCompensation,
+      refundAmount: result.buyerRefund,
+    });
+  } catch (err) {
+    console.error('[BUYER/CANCEL]', err);
+    res.status(500).json({ error: 'Failed to cancel order' });
   }
 });
 

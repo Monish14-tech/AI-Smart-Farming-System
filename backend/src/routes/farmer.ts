@@ -213,6 +213,7 @@ router.get('/orders', async (req: Request, res: Response): Promise<void> => {
             // Note: otpCode is strictly excluded to prevent unauthorized escrow verification
           },
         },
+        dispute: true,
       },
       orderBy: { createdAt: 'desc' },
     });
@@ -284,27 +285,81 @@ router.put('/orders/:id/status', async (req: Request, res: Response): Promise<vo
   }
 });
 
-// ─── GET /farmer/earnings ────────────────────────────────────────────
+// ─── POST /farmer/orders/:id/dispute-counter - submit producer counter-evidence ───
+const farmerCounterSchema = z.object({
+  statement: z.string().min(5, 'Statement must be at least 5 characters').max(1000),
+  evidenceUrls: z.array(z.string()).optional(),
+});
+
+router.post('/orders/:id/dispute-counter', async (req: Request, res: Response): Promise<void> => {
+  const id = req.params.id as string;
+  const parsed = farmerCounterSchema.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: 'Validation failed', details: parsed.error.flatten() });
+    return;
+  }
+
+  try {
+    const order = await prisma.order.findFirst({
+      where: { id, listing: { farmerId: req.user!.userId } },
+      include: { dispute: true },
+    });
+
+    if (!order || !order.dispute) {
+      res.status(404).json({ error: 'Active dispute not found for this order' });
+      return;
+    }
+
+    const updatedDispute = await prisma.dispute.update({
+      where: { id: order.dispute.id },
+      data: {
+        farmerNotes: parsed.data.statement,
+        farmerEvidenceUrls: parsed.data.evidenceUrls || [],
+        status: 'countered',
+      },
+    });
+
+    res.json({
+      message: 'Producer harvest records and counter-evidence submitted for arbitration review.',
+      dispute: updatedDispute,
+    });
+  } catch (err) {
+    console.error('[FARMER/DISPUTE_COUNTER]', err);
+    res.status(500).json({ error: 'Failed to submit counter-evidence' });
+  }
+});
+
+// ─── GET /farmer/earnings - transparent net payouts & fee ledger ────
 router.get('/earnings', async (req: Request, res: Response): Promise<void> => {
   try {
     const orders = await prisma.order.findMany({
       where: {
         listing: { farmerId: req.user!.userId },
         status: 'delivered',
-        paymentStatus: 'paid',
+        paymentStatus: { in: ['paid', 'partially_refunded'] },
       },
       include: { listing: { select: { cropName: true } } },
       orderBy: { createdAt: 'desc' },
     });
 
-    const totalEarnings = orders.reduce((sum: number, o: any) => sum + o.totalPrice, 0);
+    const grossRevenue = orders.reduce((sum: number, o: any) => sum + o.totalPrice, 0);
+    const totalFees = orders.reduce((sum: number, o: any) => sum + (o.platformFee || 0), 0);
+    const totalEarnings = orders.reduce((sum: number, o: any) => sum + (o.farmerPayout || (o.totalPrice - (o.platformFee || 0))), 0);
+
     const thisMonth = orders.filter((o: any) => {
       const d = new Date(o.createdAt);
       const now = new Date();
       return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-    }).reduce((sum: number, o: any) => sum + o.totalPrice, 0);
+    }).reduce((sum: number, o: any) => sum + (o.farmerPayout || (o.totalPrice - (o.platformFee || 0))), 0);
 
-    res.json({ orders, totalEarnings, thisMonthEarnings: thisMonth });
+    res.json({
+      orders,
+      totalEarnings,
+      grossRevenue,
+      totalFees,
+      thisMonthEarnings: thisMonth,
+      platformFeePercent: 2.0,
+    });
   } catch (err) {
     console.error('[FARMER/EARNINGS]', err);
     res.status(500).json({ error: 'Failed to fetch earnings' });

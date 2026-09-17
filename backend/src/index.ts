@@ -12,6 +12,7 @@ import transporterRoutes from './routes/transporter';
 import adminRoutes from './routes/admin';
 import aiRoutes from './routes/ai';
 import mlRoutes from './routes/ml';
+import { processAutoSettlementTimeouts } from './lib/escrowPaymentService';
 
 const app = express();
 app.set('trust proxy', 1);
@@ -143,6 +144,16 @@ httpServer.listen(PORT, () => {
 ║  Environment: ${process.env.NODE_ENV?.padEnd(10)}             ║
 ╚══════════════════════════════════════════╝
   `);
+
+  // ─── Periodic Escrow Auto-Settlement Worker (Every 30 mins) ────────────
+  const AUTO_SETTLE_INTERVAL_MS = 30 * 60 * 1000;
+  setTimeout(() => {
+    processAutoSettlementTimeouts().catch((err) => console.error('[ESCROW/AUTO-SETTLE-INIT-ERROR]', err));
+  }, 10000);
+
+  setInterval(() => {
+    processAutoSettlementTimeouts().catch((err) => console.error('[ESCROW/AUTO-SETTLE-INTERVAL-ERROR]', err));
+  }, AUTO_SETTLE_INTERVAL_MS);
 });
 
 export { io };
