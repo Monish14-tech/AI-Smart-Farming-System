@@ -211,7 +211,7 @@ router.get('/active', async (req: Request, res: Response): Promise<void> => {
     const jobs = await prisma.transportJob.findMany({
       where: {
         transporterId: req.user!.userId,
-        status: { in: ['assigned', 'picked_up', 'in_transit'] },
+        status: { in: ['assigned', 'picked_up', 'in_transit', 'arrived'] },
       },
       include: {
         order: {
@@ -220,6 +220,7 @@ router.get('/active', async (req: Request, res: Response): Promise<void> => {
             listing: {
               include: { farmer: { select: { name: true, phone: true, address: true, latitude: true, longitude: true } } },
             },
+            dispute: true,
           },
         },
       },

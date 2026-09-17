@@ -135,6 +135,60 @@ export function predictCropFairPrice(
   };
 }
 
+const PY_ML_SERVICE_URL = process.env.PY_ML_SERVICE_URL || 'http://127.0.0.1:8000';
+
+/**
+ * Queries the Python FastAPI microservice (RandomForestRegressor) with automatic local fallback.
+ */
+export async function predictCropFairPriceAsync(
+  cropName: string,
+  qualityGrade: string = 'B',
+  quantityKg: number = 100,
+  month: number = new Date().getMonth() + 1
+): Promise<PredictedPrice> {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 1200);
+
+    const res = await fetch(`${PY_ML_SERVICE_URL}/predict/crop-price`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        crop_name: cropName,
+        grade: qualityGrade,
+        quantity_kg: quantityKg,
+        month,
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+
+    if (res.ok) {
+      const data: any = await res.json();
+      return {
+        cropName: data.crop_name,
+        qualityGrade: data.grade,
+        quantityKg: data.quantity_kg,
+        fairPricePerKg: data.fair_price_per_kg,
+        priceRange: data.price_range,
+        confidenceScore: Math.round(data.confidence_score * 100),
+        seasonalityStatus: data.seasonality,
+        factors: {
+          baseMandiRate: data.fair_price_per_kg,
+          gradeFactor: qualityGrade.toUpperCase() === 'A' ? 1.15 : (qualityGrade.toUpperCase() === 'C' ? 0.85 : 1.0),
+          seasonalityDiscountPct: data.seasonality.includes('Peak') ? 12 : 0,
+          bulkVolumeDiscountPct: Math.round(Math.min(7, (quantityKg / 3000) * 7)),
+          demandIndex: data.demand_index || 1.15,
+        },
+      };
+    }
+  } catch {
+    // Graceful fallback to local calibration model if microservice is offline
+  }
+
+  return predictCropFairPrice(cropName, qualityGrade, quantityKg, month);
+}
+
 /**
  * Evaluates an individual listing against the ML model
  */
@@ -435,4 +489,61 @@ export function predictFreightRate(params: {
     confidence: 94,
     priceRationale: rationale
   };
+}
+
+/**
+ * Queries the Python FastAPI microservice (GradientBoostingRegressor) with automatic local fallback.
+ */
+export async function predictFreightRateAsync(params: {
+  distanceKm: number;
+  cargoWeightKg: number;
+  cropName?: string;
+  vehicleType?: string;
+}): Promise<FreightSuggestion> {
+  const normCrop = params.cropName || 'Tomato';
+  const info = CROP_KNOWLEDGE[normCrop] || { perishability: 0.5 };
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 1200);
+
+    const res = await fetch(`${PY_ML_SERVICE_URL}/predict/freight`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        distance_km: params.distanceKm,
+        cargo_weight_kg: params.cargoWeightKg,
+        perishability: info.perishability,
+        vehicle_type: params.vehicleType || (params.cargoWeightKg <= 1200 ? 'Pickup' : (params.cargoWeightKg <= 3500 ? 'Mini Truck' : 'Heavy Truck')),
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+
+    if (res.ok) {
+      const data: any = await res.json();
+      return {
+        distanceKm: data.distance_km,
+        cargoWeightKg: data.cargo_weight_kg,
+        cropName: normCrop,
+        vehicleType: data.vehicle_type,
+        suggestedFare: data.fair_freight_inr,
+        minViableCost: data.suggested_range?.min || Math.round(data.fair_freight_inr * 0.85),
+        breakdown: {
+          baseFare: data.breakdown.base_terminal_charge || 300,
+          distanceCharge: data.breakdown.estimated_fuel_and_mileage || Math.round(params.distanceKm * 17),
+          perKmRate: data.rate_per_km || 17,
+          weightSurcharge: data.breakdown.weight_per_ton_km_fee || 0,
+          perishabilityHandling: Math.round(data.fair_freight_inr * 0.08),
+          fuelAdjustment: Math.round(data.fair_freight_inr * 0.02),
+        },
+        confidence: 96,
+        priceRationale: `Predicted by GradientBoostingRegressor ML model. Rate: ₹${data.rate_per_km}/km.`,
+      };
+    }
+  } catch {
+    // Fallback to local heuristic model
+  }
+
+  return predictFreightRate(params);
 }

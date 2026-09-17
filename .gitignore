@@ -10,3 +10,5 @@ Thumbs.db
 *.log
 .prisma/
 generated/
+__pycache__/
+*.pyc

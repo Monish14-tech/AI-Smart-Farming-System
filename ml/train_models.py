@@ -1,15 +1,18 @@
 """
-AgriNova ML Model Training Script
+AgriNova ML Model Training Pipeline
 Trains Machine Learning models for:
-1. Crop Price Valuation & Fair Price Prediction
-2. Transport Freight Dynamic Pricing
-3. Crop Demand & Buyer Recommendation Scoring
+1. Crop Price Valuation & Fair Price Prediction (RandomForestRegressor + Ridge baseline)
+2. Transport Freight Dynamic Pricing (GradientBoostingRegressor + Ridge baseline)
+3. Crop Demand & Seasonal Profitability Matrix
 
-Exports evaluation metrics and model_weights.json for fast in-process backend inference.
+Exports:
+- crop_price_rf.joblib & freight_gb.joblib (binary artifacts for Python inference)
+- model_weights.json (for direct cross-language/Node.js in-process fallback)
 """
 
 import os
 import json
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -21,13 +24,14 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MARKET_CSV = os.path.join(BASE_DIR, 'market_transactions.csv')
 FREIGHT_CSV = os.path.join(BASE_DIR, 'freight_pricing.csv')
 OUTPUT_WEIGHTS = os.path.join(BASE_DIR, 'model_weights.json')
+PRICE_MODEL_JOBLIB = os.path.join(BASE_DIR, 'crop_price_rf.joblib')
+FREIGHT_MODEL_JOBLIB = os.path.join(BASE_DIR, 'freight_gb.joblib')
 
 def train_crop_price_model():
     print("\n--- Training Crop Price Valuation Model ---")
     df = pd.read_csv(MARKET_CSV)
     
-    # Feature engineering
-    # One-hot encode crop_name and grade
+    # Feature engineering: One-hot encode crop_name and grade
     X = pd.get_dummies(df[['crop_name', 'grade', 'quantity_kg', 'month', 'base_price', 'perishability']], drop_first=False)
     y = df['fair_price_kg']
 
@@ -47,7 +51,14 @@ def train_crop_price_model():
     print(f"  MAE:     Rs. {mae_rf:.2f}/kg")
     print(f"  RMSE:    Rs. {rmse_rf:.2f}/kg")
 
-    # Also fit Ridge for interpretable coefficients
+    # Save trained binary artifact
+    joblib.dump({
+        'model': rf,
+        'feature_columns': list(X.columns)
+    }, PRICE_MODEL_JOBLIB)
+    print(f"  -> Saved binary model artifact: {PRICE_MODEL_JOBLIB}")
+
+    # Also fit Ridge for interpretable coefficients and fast fallback
     ridge = Ridge(alpha=1.0)
     ridge.fit(X_train, y_train)
     r2_ridge = r2_score(y_test, ridge.predict(X_test))
@@ -97,6 +108,13 @@ def train_freight_pricing_model():
     print(f"  MAE:     Rs. {mae:.2f}")
     print(f"  RMSE:    Rs. {rmse:.2f}")
 
+    # Save trained binary artifact
+    joblib.dump({
+        'model': gb,
+        'feature_columns': list(X.columns)
+    }, FREIGHT_MODEL_JOBLIB)
+    print(f"  -> Saved binary model artifact: {FREIGHT_MODEL_JOBLIB}")
+
     # Fit Ridge for linear base + rates
     ridge = Ridge()
     ridge.fit(X_train, y_train)
@@ -114,10 +132,6 @@ def train_freight_pricing_model():
 
 def build_crop_demand_matrix():
     print("\n--- Generating Crop Demand & Recommendation Matrix ---")
-    # Weights for ranking crops:
-    # 1. High Buyer Demand (Order count & volume)
-    # 2. Price Stability / Profitability
-    # 3. Seasonal Harvest timing
     crops = {
         'Tomato': {'demand_score': 94, 'volatility': 'high', 'harvest_season': 'Nov-Feb', 'margin_potential': 'High'},
         'Onion': {'demand_score': 91, 'volatility': 'medium', 'harvest_season': 'Jan-Mar', 'margin_potential': 'Very High'},
@@ -137,7 +151,7 @@ def build_crop_demand_matrix():
     }
     return crops
 
-def main():
+def run_training_pipeline():
     print("========================================")
     print("  AgriNova ML Pipeline: Model Training  ")
     print("========================================")
@@ -157,7 +171,8 @@ def main():
     with open(OUTPUT_WEIGHTS, 'w', encoding='utf-8') as f:
         json.dump(full_export, f, indent=2)
 
-    print(f"\n[OK] Model weights & parameters successfully written to:\n  -> {OUTPUT_WEIGHTS}")
+    print(f"\n[OK] Model weights successfully written to:\n  -> {OUTPUT_WEIGHTS}")
+    return full_export
 
 if __name__ == '__main__':
-    main()
+    run_training_pipeline()

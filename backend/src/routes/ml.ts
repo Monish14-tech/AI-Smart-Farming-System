@@ -3,11 +3,13 @@ import { authenticate } from '../middleware/auth';
 import prisma from '../lib/prisma';
 import {
   predictCropFairPrice,
+  predictCropFairPriceAsync,
   evaluateListingDeal,
   getBestCropsForBuyer,
   getOptimalPriceForFarmer,
   getHighDemandCropsForFarmer,
-  predictFreightRate
+  predictFreightRate,
+  predictFreightRateAsync
 } from '../lib/mlEngine';
 
 const router = Router();
@@ -74,11 +76,11 @@ router.get('/buyer/recommendations', async (_req: Request, res: Response): Promi
 
 /**
  * GET /ml/buyer/fair-price
- * Predicts fair baseline price for any crop
+ * Predicts fair baseline price for any crop via Python ML microservice (with local fallback)
  */
-router.get('/buyer/fair-price', (req: Request, res: Response): void => {
+router.get('/buyer/fair-price', async (req: Request, res: Response): Promise<void> => {
   const { cropName = 'Tomato', grade = 'B', quantityKg = '100' } = req.query as Record<string, string>;
-  const prediction = predictCropFairPrice(cropName, grade, parseFloat(quantityKg) || 100);
+  const prediction = await predictCropFairPriceAsync(cropName, grade, parseFloat(quantityKg) || 100);
   res.json({ prediction });
 });
 
@@ -157,7 +159,7 @@ router.get('/ml/transporter/rate-suggestion', async (req: Request, res: Response
       }
     }
 
-    const suggestion = predictFreightRate({
+    const suggestion = await predictFreightRateAsync({
       distanceKm: dist,
       cargoWeightKg: weight,
       cropName: crop,

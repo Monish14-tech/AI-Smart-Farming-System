@@ -15,7 +15,9 @@
     "db:migrate": "npm run db:migrate --workspace=backend",
     "db:generate": "npm run db:generate --workspace=backend",
     "db:seed": "npm run db:seed --workspace=backend",
-    "db:clean": "npm run db:clean --workspace=backend"
+    "db:clean": "npm run db:clean --workspace=backend",
+    "ml:train": "python ml/train_models.py",
+    "ml:serve": "python ml/app.py"
   },
   "devDependencies": {
     "concurrently": "^10.0.5"

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-12T10:16:08.179547",
+  "generated_at": "2026-09-17T12:37:22.881157",
   "crop_price_model": {
     "model_name": "RandomForestRegressor + RidgeEnsemble",
     "metrics": {

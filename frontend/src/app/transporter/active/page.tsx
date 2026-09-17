@@ -18,6 +18,13 @@ export default function TransporterActive() {
   const [optimizing, setOptimizing] = useState(false);
   const [currentCoords, setCurrentCoords] = useState<{ lat: number; lng: number } | null>(null);
 
+  // Arrival & Dispute Counter states
+  const [markingArrival, setMarkingArrival] = useState<string | null>(null);
+  const [disputeModalJob, setDisputeModalJob] = useState<any | null>(null);
+  const [counterNotes, setCounterNotes] = useState('');
+  const [counterEvidenceUrls, setCounterEvidenceUrls] = useState('');
+  const [submittingCounter, setSubmittingCounter] = useState(false);
+
   const loadJobs = async () => {
     try {
       const { data } = await api.get('/transporter/active');
@@ -27,6 +34,47 @@ export default function TransporterActive() {
   };
 
   useEffect(() => { if (user) loadJobs(); }, [user]);
+
+  const handleArrive = async (jobId: string) => {
+    setMarkingArrival(jobId);
+    try {
+      await api.post(`/transporter/jobs/${jobId}/arrive`);
+      toast.success('Arrival recorded! 48-Hour auto-settlement countdown started.');
+      loadJobs();
+    } catch (err: any) {
+      toast.error(err?.response?.data?.error || 'Failed to mark arrival');
+    } finally {
+      setMarkingArrival(null);
+    }
+  };
+
+  const handleSubmitCounter = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!disputeModalJob) return;
+
+    setSubmittingCounter(true);
+    try {
+      const urls = counterEvidenceUrls
+        .split('\n')
+        .map((u) => u.trim())
+        .filter(Boolean);
+
+      await api.post(`/transporter/jobs/${disputeModalJob.id}/dispute-counter`, {
+        notes: counterNotes,
+        evidenceUrls: urls,
+      });
+
+      toast.success('Transit log and evidence submitted to arbitrator.');
+      setDisputeModalJob(null);
+      setCounterNotes('');
+      setCounterEvidenceUrls('');
+      loadJobs();
+    } catch (err: any) {
+      toast.error(err?.response?.data?.error || 'Failed to submit transit defense');
+    } finally {
+      setSubmittingCounter(false);
+    }
+  };
 
   // Start GPS broadcasting
   useEffect(() => {
@@ -264,9 +312,72 @@ export default function TransporterActive() {
                     </div>
                   </div>
 
-                  <button className="btn-gold" style={{ width: '100%' }} onClick={() => setDeliverModal(j.id)}>
-                    ✓ Confirm Delivery (Enter OTP)
-                  </button>
+                  {/* Consignment Arrived at Dock Status Banner */}
+                  {j.status === 'arrived' && (
+                    <div style={{ marginBottom: 14, padding: '10px 14px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: 10, display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span style={{ fontSize: 20 }}>⏱️</span>
+                      <div style={{ fontSize: 12 }}>
+                        <strong style={{ color: '#D97706' }}>Consignment Arrived at Destination Dock</strong>
+                        <div style={{ color: 'var(--color-text-secondary)', marginTop: 2 }}>
+                          Collect OTP from the buyer to disburse payment immediately, or funds will auto-settle after the 48-hour inspection window.
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Active Dispute Alert & Carrier Transit Statement */}
+                  {j.order?.dispute && (
+                    <div style={{ marginBottom: 14, padding: '12px 14px', background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.25)', borderRadius: 10 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6, flexWrap: 'wrap', gap: 6 }}>
+                        <strong style={{ color: '#DC2626', fontSize: 13 }}>
+                          🚨 Buyer Reported Issue: {j.order.dispute.claimedIssue?.replace('_', ' ').toUpperCase()} ({j.order.dispute.claimedPercentage}% Claim)
+                        </strong>
+                        <span className="badge badge-amber" style={{ fontSize: 10, textTransform: 'uppercase' }}>
+                          {j.order.dispute.status.replace('_', ' ')}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginBottom: 4 }}>
+                        <strong>Buyer Claim:</strong> {j.order.dispute.buyerNotes}
+                      </div>
+
+                      {j.order.dispute.transporterNotes ? (
+                        <div style={{ fontSize: 12, color: '#2563EB', marginTop: 6, background: 'rgba(37, 99, 235, 0.08)', padding: '6px 10px', borderRadius: 6 }}>
+                          <strong>✓ Your Transit Statement:</strong> {j.order.dispute.transporterNotes}
+                        </div>
+                      ) : (
+                        <div style={{ marginTop: 8, display: 'flex', justifyContent: 'flex-end' }}>
+                          <button
+                            className="btn-secondary"
+                            style={{ fontSize: 11, padding: '5px 12px', borderColor: '#2563EB', color: '#2563EB' }}
+                            onClick={() => setDisputeModalJob(j)}
+                          >
+                            ✍️ Submit Transit Log / Photo Proof
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Action Buttons: Arrival Trigger & OTP Confirmation */}
+                  <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                    {j.status !== 'arrived' && (
+                      <button
+                        className="btn-secondary"
+                        style={{ flex: 1, minWidth: 160, borderColor: '#3B82F6', color: '#2563EB', fontSize: 13 }}
+                        onClick={() => handleArrive(j.id)}
+                        disabled={markingArrival === j.id}
+                      >
+                        {markingArrival === j.id ? 'Recording...' : '📍 Mark Arrived at Dock'}
+                      </button>
+                    )}
+                    <button
+                      className="btn-gold"
+                      style={{ flex: 1.5, minWidth: 200 }}
+                      onClick={() => setDeliverModal(j.id)}
+                    >
+                      ✓ Confirm Delivery (Enter OTP)
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -288,6 +399,63 @@ export default function TransporterActive() {
                 {delivering ? 'Confirming...' : '✓ Confirm Delivery'}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Transporter Dispute Counter Modal ────────────────────────── */}
+      {disputeModalJob && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: 20, backdropFilter: 'blur(4px)' }}>
+          <div className="glass animate-fade-in" style={{ maxWidth: 480, width: '100%', padding: 28, borderRadius: 20 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontSize: 22 }}>🚛</span>
+                <h2 style={{ fontSize: 18, fontWeight: 700, margin: 0 }}>Submit Transit Statement</h2>
+              </div>
+              <button onClick={() => setDisputeModalJob(null)} style={{ background: 'none', border: 'none', fontSize: 18, cursor: 'pointer', color: 'var(--color-text-muted)' }}>✕</button>
+            </div>
+
+            <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', marginBottom: 16 }}>
+              Provide cargo condition logs and transit observations for <strong>{disputeModalJob.order.listing.cropName}</strong>. The arbitrator will review your statement before releasing escrow.
+            </p>
+
+            <form onSubmit={handleSubmitCounter} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
+                  Driver / Carrier Transit Log
+                </label>
+                <textarea
+                  rows={4}
+                  required
+                  className="input-field"
+                  placeholder="E.g., Produce was received dry at farm loading, covered with tarp, transit completed within 4 hours, unloaded directly at buyer dock..."
+                  value={counterNotes}
+                  onChange={(e) => setCounterNotes(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
+                  Photo URLs (Loading, odometer, or unloading - one per line)
+                </label>
+                <textarea
+                  rows={2}
+                  className="input-field"
+                  placeholder="https://example.com/truck-loaded.jpg&#10;https://example.com/dock-unloaded.jpg"
+                  value={counterEvidenceUrls}
+                  onChange={(e) => setCounterEvidenceUrls(e.target.value)}
+                />
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 8 }}>
+                <button type="button" onClick={() => setDisputeModalJob(null)} className="btn-secondary">
+                  Cancel
+                </button>
+                <button type="submit" disabled={submittingCounter} className="btn-primary" style={{ padding: '8px 16px' }}>
+                  {submittingCounter ? 'Submitting...' : '🛡️ Submit Statement'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
