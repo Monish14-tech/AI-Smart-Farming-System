@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import { useRequireRole, api } from '@/contexts/AuthContext';
 import OpenStreetMap, { MapMarker } from '@/components/OpenStreetMap';
+import RazorpayPayButton from '@/components/RazorpayPayButton';
 import { getSocket } from '@/lib/socket';
 import toast from 'react-hot-toast';
 
@@ -33,6 +34,7 @@ interface Order {
   id: string;
   status: string;
   paymentStatus: string;
+  paymentId?: string;
   quantityKg: number;
   totalPrice: number;
   platformFee?: number;
@@ -322,28 +324,38 @@ export default function BuyerOrders() {
                         <div style={{ fontSize: 12, color: 'var(--color-text-muted)', marginTop: 2 }}>
                           {new Date(o.createdAt).toLocaleDateString('en-IN')}
                         </div>
-                        <span
-                          className={`badge ${
-                            o.paymentStatus === 'paid'
-                              ? 'badge-green'
-                              : o.paymentStatus === 'refunded'
-                              ? 'badge-red'
+                        <div style={{ marginTop: 6, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+                          <span
+                            className={`badge ${
+                              o.paymentStatus === 'paid' || o.paymentStatus === 'escrowed'
+                                ? 'badge-green'
+                                : o.paymentStatus === 'refunded'
+                                ? 'badge-red'
+                                : o.paymentStatus === 'partially_refunded'
+                                ? 'badge-amber'
+                                : o.paymentStatus === 'disputed'
+                                ? 'badge-amber'
+                                : 'badge-blue'
+                            }`}
+                          >
+                            {o.paymentStatus === 'escrowed'
+                              ? '🔒 Escrow Held (Nodal)'
+                              : o.paymentStatus === 'paid'
+                              ? '✅ Paid'
                               : o.paymentStatus === 'partially_refunded'
-                              ? 'badge-amber'
+                              ? '⚖️ Partially Refunded'
                               : o.paymentStatus === 'disputed'
-                              ? 'badge-amber'
-                              : 'badge-blue'
-                          }`}
-                          style={{ marginTop: 6 }}
-                        >
-                          {o.paymentStatus === 'escrowed'
-                            ? '🔒 Escrow Held (Nodal)'
-                            : o.paymentStatus === 'partially_refunded'
-                            ? '⚖️ Partially Refunded'
-                            : o.paymentStatus === 'disputed'
-                            ? '⚠️ Escrow Frozen (Dispute)'
-                            : o.paymentStatus}
-                        </span>
+                              ? '⚠️ Escrow Frozen (Dispute)'
+                              : o.paymentStatus === 'unpaid'
+                              ? '⏳ Unpaid'
+                              : o.paymentStatus}
+                          </span>
+                          {o.paymentId && (
+                            <span style={{ fontSize: 10, color: 'var(--color-text-muted)', fontFamily: 'monospace' }}>
+                              Txn: {o.paymentId.length > 18 ? o.paymentId.substring(0, 18) + '...' : o.paymentId}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
 
@@ -588,8 +600,23 @@ export default function BuyerOrders() {
                         )}
                       </div>
 
-                      {/* Right: Dispute / Cancel button */}
-                      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                      {/* Right: Payment / Dispute / Cancel button */}
+                      <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                        {o.paymentStatus === 'unpaid' && o.status !== 'cancelled' && (
+                          <RazorpayPayButton
+                            amountRupees={o.totalPrice}
+                            orderId={o.id}
+                            cropName={o.listing.cropName}
+                            onSuccess={() => {
+                              toast.success('Payment successful! Escrow held in nodal account.');
+                              loadOrders();
+                            }}
+                            onError={(err) => toast.error(err || 'Payment failed')}
+                            className="btn-primary"
+                            style={{ fontSize: 12, padding: '5px 12px' }}
+                          />
+                        )}
+
                         {['pending', 'confirmed', 'in_transit'].includes(o.status) && (
                           <button
                             onClick={() => handleCancelOrder(o)}

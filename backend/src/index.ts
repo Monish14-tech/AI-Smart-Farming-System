@@ -12,6 +12,7 @@ import transporterRoutes from './routes/transporter';
 import adminRoutes from './routes/admin';
 import aiRoutes from './routes/ai';
 import mlRoutes from './routes/ml';
+import paymentRoutes from './routes/payment';
 import { processAutoSettlementTimeouts } from './lib/escrowPaymentService';
 
 const app = express();
@@ -122,6 +123,10 @@ app.use('/ai', aiRoutes);
 
 app.use('/api/ml', mlRoutes);
 app.use('/ml', mlRoutes);
+
+app.use('/api', paymentRoutes);
+app.use('/api/payment', paymentRoutes);
+app.use('/payment', paymentRoutes);
 
 // ─── 404 handler ──────────────────────────────────────────────────────
 app.use((_req, res) => {

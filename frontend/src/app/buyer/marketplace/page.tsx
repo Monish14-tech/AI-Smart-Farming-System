@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import { useRequireRole, api } from '@/contexts/AuthContext';
 import { getCropImageUrl } from '@/lib/cropImages';
+import { initiateRazorpayPayment } from '@/lib/razorpay';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 
@@ -115,19 +116,63 @@ export default function BuyerMarketplace() {
       toast.error('Please fill all required fields');
       return;
     }
+
+    const quantity = parseFloat(orderForm.quantityKg);
+    if (isNaN(quantity) || quantity <= 0) {
+      toast.error('Please enter a valid quantity');
+      return;
+    }
+
+    if (quantity > orderModal.quantityKg) {
+      toast.error(`Only ${orderModal.quantityKg} kg available`);
+      return;
+    }
+
     setOrdering(orderModal.id);
     try {
-      await api.post('/buyer/orders', {
+      const totalAmountRupees = quantity * orderModal.pricePerKg;
+      const totalAmountPaise = Math.round(totalAmountRupees * 100);
+
+      // Create order in backend
+      const { data: orderRes } = await api.post('/buyer/orders', {
         listingId: orderModal.id,
-        quantityKg: parseFloat(orderForm.quantityKg),
+        quantityKg: quantity,
         deliveryAddress: orderForm.deliveryAddress,
         notes: orderForm.notes,
       });
-      toast.success('Order placed! Payment held in escrow. 🎉');
-      setOrderModal(null);
-      setOrderForm({ quantityKg: '', deliveryAddress: '', notes: '' });
+
+      const placedOrder = orderRes?.order;
+
+      // Launch Razorpay Standard Checkout Modal
+      await initiateRazorpayPayment({
+        amountPaise: Math.max(100, totalAmountPaise),
+        orderId: placedOrder?.id,
+        cropName: orderModal.cropName,
+        description: `Order for ${quantity}kg ${orderModal.cropName}`,
+        customer: {
+          name: user?.name,
+          email: user?.email,
+          phone: user?.phone,
+        },
+        onSuccess: () => {
+          toast.success('Order placed & payment held in Escrow! 🎉');
+          setOrderModal(null);
+          setOrderForm({ quantityKg: '', deliveryAddress: '', notes: '' });
+          loadListings();
+        },
+        onError: (errMsg) => {
+          toast.error(`Order placed, but payment requires completion: ${errMsg}`);
+          setOrderModal(null);
+          loadListings();
+        },
+        onDismiss: () => {
+          toast('Order recorded. You can complete payment anytime in My Orders.', { icon: 'ℹ️' });
+          setOrderModal(null);
+          loadListings();
+        },
+      });
     } catch (err: any) {
-      toast.error(err?.response?.data?.error || 'Order failed');
+      toast.error(err?.response?.data?.error || 'Order placement failed');
     } finally {
       setOrdering(null);
     }
@@ -499,8 +544,11 @@ export default function BuyerMarketplace() {
 
             <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
               <button className="btn-secondary" style={{ flex: 1 }} onClick={() => setOrderModal(null)}>Cancel</button>
-              <button className="btn-gold" style={{ flex: 2 }} onClick={handleOrder} disabled={!!ordering}>
-                {ordering ? 'Placing Order...' : '🛒 Confirm Order'}
+              <button className="btn-gold" style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }} onClick={handleOrder} disabled={!!ordering}>
+                <span>💳</span>
+                <span>
+                  {ordering ? 'Opening Razorpay...' : `Pay ₹${(parseFloat(orderForm.quantityKg || '0') * orderModal.pricePerKg).toLocaleString('en-IN')} with Razorpay`}
+                </span>
               </button>
             </div>
           </div>
