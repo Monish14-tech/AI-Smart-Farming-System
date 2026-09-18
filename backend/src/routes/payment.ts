@@ -6,29 +6,52 @@ import { holdOrderFundsInEscrow } from '../lib/escrowPaymentService';
 
 const router = Router();
 
+import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
-// Ensure .env is loaded whether run from workspace or root directory
-if (!process.env.RAZORPAY_KEY_ID) {
-  dotenv.config({ path: path.resolve(__dirname, '../../.env') });
-  dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
-  dotenv.config({ path: path.resolve(process.cwd(), '.env') });
-  dotenv.config({ path: path.resolve(process.cwd(), 'backend/.env') });
+// Function to reliably extract Razorpay keys from environment or directly from .env files on disk
+function loadKeysFromDisk(): { key_id: string; key_secret: string } {
+  let key_id = (process.env.RAZORPAY_KEY_ID || '').trim();
+  let key_secret = (process.env.RAZORPAY_KEY_SECRET || '').trim();
+
+  if (key_id && key_secret) {
+    return { key_id, key_secret };
+  }
+
+  const candidatePaths = [
+    path.resolve(__dirname, '../../.env'), // backend/.env from src/routes
+    path.resolve(__dirname, '../../../.env'), // root .env from src/routes
+    path.resolve(__dirname, '../.env'),
+    path.resolve(process.cwd(), 'backend/.env'),
+    path.resolve(process.cwd(), '.env'),
+  ];
+
+  for (const envPath of candidatePaths) {
+    try {
+      if (fs.existsSync(envPath)) {
+        const parsed = dotenv.parse(fs.readFileSync(envPath, 'utf-8'));
+        if (!key_id && parsed.RAZORPAY_KEY_ID) {
+          key_id = parsed.RAZORPAY_KEY_ID.trim();
+          process.env.RAZORPAY_KEY_ID = key_id;
+        }
+        if (!key_secret && parsed.RAZORPAY_KEY_SECRET) {
+          key_secret = parsed.RAZORPAY_KEY_SECRET.trim();
+          process.env.RAZORPAY_KEY_SECRET = key_secret;
+        }
+        if (key_id && key_secret) break;
+      }
+    } catch {
+      // continue checking next path
+    }
+  }
+
+  return { key_id, key_secret };
 }
 
 // Lazy or dynamic Razorpay initialization with environment variables
 function getRazorpayClient(): Razorpay {
-  let key_id = process.env.RAZORPAY_KEY_ID;
-  let key_secret = process.env.RAZORPAY_KEY_SECRET;
-
-  if (!key_id || !key_secret) {
-    // Retry loading env files directly
-    dotenv.config({ path: path.resolve(__dirname, '../../.env') });
-    dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
-    key_id = process.env.RAZORPAY_KEY_ID;
-    key_secret = process.env.RAZORPAY_KEY_SECRET;
-  }
+  const { key_id, key_secret } = loadKeysFromDisk();
 
   if (!key_id || !key_secret) {
     throw new Error('Razorpay API keys not configured. Please ensure RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET are set in your .env file and restart your server.');
@@ -42,8 +65,9 @@ function getRazorpayClient(): Razorpay {
 
 // ─── GET /config - Public key for frontend ────────────────────────────
 router.get('/config', (_req: Request, res: Response): void => {
+  const { key_id } = loadKeysFromDisk();
   res.json({
-    key_id: process.env.RAZORPAY_KEY_ID || '',
+    key_id: key_id || '',
     currency: 'INR',
   });
 });
@@ -89,7 +113,7 @@ router.post('/create-order', async (req: Request, res: Response): Promise<void> 
       amount: order.amount,
       currency: order.currency,
       receipt: order.receipt,
-      key_id: process.env.RAZORPAY_KEY_ID,
+      key_id: loadKeysFromDisk().key_id || process.env.RAZORPAY_KEY_ID,
     });
   } catch (err: any) {
     console.error('[RAZORPAY/CREATE-ORDER]', err);
@@ -120,7 +144,7 @@ router.post('/verify-payment', async (req: Request, res: Response): Promise<void
       return;
     }
 
-    const secret = process.env.RAZORPAY_KEY_SECRET;
+    const { key_secret: secret } = loadKeysFromDisk();
     if (!secret) {
       res.status(500).json({ success: false, error: 'Server configuration error: RAZORPAY_KEY_SECRET is missing' });
       return;
