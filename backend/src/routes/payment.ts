@@ -6,13 +6,32 @@ import { holdOrderFundsInEscrow } from '../lib/escrowPaymentService';
 
 const router = Router();
 
+import path from 'path';
+import dotenv from 'dotenv';
+
+// Ensure .env is loaded whether run from workspace or root directory
+if (!process.env.RAZORPAY_KEY_ID) {
+  dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+  dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+  dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+  dotenv.config({ path: path.resolve(process.cwd(), 'backend/.env') });
+}
+
 // Lazy or dynamic Razorpay initialization with environment variables
 function getRazorpayClient(): Razorpay {
-  const key_id = process.env.RAZORPAY_KEY_ID;
-  const key_secret = process.env.RAZORPAY_KEY_SECRET;
+  let key_id = process.env.RAZORPAY_KEY_ID;
+  let key_secret = process.env.RAZORPAY_KEY_SECRET;
 
   if (!key_id || !key_secret) {
-    throw new Error('Razorpay API keys not configured. Please set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET in environment.');
+    // Retry loading env files directly
+    dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+    dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+    key_id = process.env.RAZORPAY_KEY_ID;
+    key_secret = process.env.RAZORPAY_KEY_SECRET;
+  }
+
+  if (!key_id || !key_secret) {
+    throw new Error('Razorpay API keys not configured. Please ensure RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET are set in your .env file and restart your server.');
   }
 
   return new Razorpay({
@@ -47,13 +66,17 @@ router.post('/create-order', async (req: Request, res: Response): Promise<void> 
 
     const razorpay = getRazorpayClient();
 
+    // Razorpay receipt limit is max 40 alphanumeric/underscore characters
+    const cleanOrderId = orderId ? String(orderId).replace(/[^a-zA-Z0-9]/g, '').slice(-16) : '';
+    const safeReceipt = (receipt ? String(receipt) : (cleanOrderId ? `rcpt_${cleanOrderId}` : `rcpt_${Date.now()}`)).slice(0, 40);
+
     const options = {
       amount: Math.round(amount),
       currency: currency.toUpperCase(),
-      receipt: receipt || (orderId ? `rcpt_ord_${orderId.slice(0, 10)}` : `rcpt_${Date.now()}`),
+      receipt: safeReceipt,
       notes: {
         ...(notes || {}),
-        ...(orderId ? { platformOrderId: orderId } : {}),
+        ...(orderId ? { platformOrderId: String(orderId) } : {}),
       },
     };
 
@@ -70,15 +93,16 @@ router.post('/create-order', async (req: Request, res: Response): Promise<void> 
     });
   } catch (err: any) {
     console.error('[RAZORPAY/CREATE-ORDER]', err);
+    const detailMsg = err.error?.description || err.message || 'Razorpay order creation failed';
     if (err.statusCode === 401 || err.error?.code === 'BAD_REQUEST_ERROR') {
       res.status(err.statusCode || 400).json({
-        error: err.error?.description || err.message || 'Razorpay order creation rejected',
+        error: detailMsg,
       });
       return;
     }
     res.status(500).json({
-      error: 'Failed to create Razorpay order',
-      details: err.message,
+      error: detailMsg,
+      details: detailMsg,
     });
   }
 });
