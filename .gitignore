@@ -1,14 +1,47 @@
+# Dependencies
 node_modules/
+*/node_modules/
+package-lock.json.bak
+
+# Environment variables & secrets (CRITICAL)
 .env
-.env.local
+.env.*
+!.env.example
+*.env
+
+# Next.js and frontend build artifacts
 .next/
 dist/
 build/
+out/
+*.tsbuildinfo
+next-env.d.ts
 *.js.map
+
+# Android / Capacitor build
+.gradle/
+**/android/.gradle/
+**/android/build/
+**/android/app/build/
+
+# Operating system files
 .DS_Store
 Thumbs.db
+
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Prisma / Database
 .prisma/
 generated/
+
+# Python / Machine Learning
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/

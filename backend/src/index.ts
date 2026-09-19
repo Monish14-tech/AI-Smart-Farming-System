@@ -34,7 +34,7 @@ const corsOriginValidator = (origin: string | undefined, callback: (err: Error |
   if (process.env.NODE_ENV !== 'production' || allowedOrigins.includes(origin)) {
     return callback(null, true);
   }
-  return callback(new Error('Not allowed by CORS policy'), false);
+  return callback(null, false);
 };
 
 // ─── Socket.io setup ──────────────────────────────────────────────────
@@ -136,7 +136,9 @@ app.use((_req, res) => {
 // ─── Global error handler ──────────────────────────────────────────────
 app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error('[GLOBAL ERROR]', err.message || err);
-  res.status(500).json({ error: err.message || 'Internal server error' });
+  res.status(500).json({
+    error: process.env.NODE_ENV === 'production' ? 'Internal server error' : (err.message || 'Internal server error'),
+  });
 });
 
 // ─── Start server ──────────────────────────────────────────────────────

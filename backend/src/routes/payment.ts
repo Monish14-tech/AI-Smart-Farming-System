@@ -77,13 +77,29 @@ router.post('/create-order', async (req: Request, res: Response): Promise<void> 
   try {
     const { amount, currency = 'INR', receipt, notes, orderId } = req.body;
 
-    if (!amount || typeof amount !== 'number') {
+    let finalAmount = amount;
+
+    // Security Check: If orderId is provided, enforce server-side calculated price to prevent price tampering
+    if (orderId) {
+      const dbOrder = await prisma.order.findUnique({ where: { id: orderId } });
+      if (!dbOrder) {
+        res.status(404).json({ error: 'Order not found' });
+        return;
+      }
+      if (dbOrder.paymentStatus === 'escrowed' || dbOrder.paymentStatus === 'paid') {
+        res.status(400).json({ error: 'Order has already been paid and secured in escrow' });
+        return;
+      }
+      finalAmount = Math.round(dbOrder.totalPrice * 100);
+    }
+
+    if (!finalAmount || typeof finalAmount !== 'number') {
       res.status(400).json({ error: 'Valid amount in paise is required (number)' });
       return;
     }
 
     // Minimum amount: 100 paise (₹1.00) as required by Razorpay
-    if (amount < 100) {
+    if (finalAmount < 100) {
       res.status(400).json({ error: 'Amount must be at least 100 paise (₹1.00)' });
       return;
     }
@@ -95,7 +111,7 @@ router.post('/create-order', async (req: Request, res: Response): Promise<void> 
     const safeReceipt = (receipt ? String(receipt) : (cleanOrderId ? `rcpt_${cleanOrderId}` : `rcpt_${Date.now()}`)).slice(0, 40);
 
     const options = {
-      amount: Math.round(amount),
+      amount: Math.round(finalAmount),
       currency: currency.toUpperCase(),
       receipt: safeReceipt,
       notes: {
@@ -174,29 +190,59 @@ router.post('/verify-payment', async (req: Request, res: Response): Promise<void
       return;
     }
 
-    // If orderId is linked, lock funds in Escrow and update order status
+    // If orderId is linked, verify order details & lock funds in Escrow
     let updatedOrder = null;
     if (orderId) {
       try {
         const order = await prisma.order.findUnique({ where: { id: orderId } });
-        if (order) {
-          updatedOrder = await prisma.order.update({
-            where: { id: orderId },
-            data: {
-              paymentStatus: 'escrowed',
-              paymentId: razorpay_payment_id,
-            },
-          });
-
-          // Ensure escrow ledger records the transaction
-          await holdOrderFundsInEscrow({
-            orderId: order.id,
-            totalPrice: order.totalPrice,
-            buyerId: order.buyerId,
-          }).catch(escErr => {
-            console.warn('[ESCROW/HOLD_NOTE]', escErr.message);
-          });
+        if (!order) {
+          res.status(404).json({ success: false, error: 'Order not found' });
+          return;
         }
+
+        if (order.paymentStatus === 'escrowed' || order.paymentStatus === 'paid') {
+          res.status(200).json({
+            success: true,
+            message: 'Order is already marked as paid/escrowed',
+            payment_id: razorpay_payment_id,
+            order_id: razorpay_order_id,
+            order,
+          });
+          return;
+        }
+
+        // Verify captured amount with Razorpay API to prevent underpayment attacks
+        try {
+          const razorpay = getRazorpayClient();
+          const paymentInfo: any = await razorpay.payments.fetch(razorpay_payment_id);
+          const expectedPaise = Math.round(order.totalPrice * 100);
+          if (paymentInfo && typeof paymentInfo.amount === 'number' && paymentInfo.amount < expectedPaise) {
+            res.status(400).json({
+              success: false,
+              error: `Payment amount underpayment: received ${paymentInfo.amount} paise, expected at least ${expectedPaise} paise`,
+            });
+            return;
+          }
+        } catch (rzpFetchErr: any) {
+          console.warn('[RAZORPAY/FETCH_VERIFY_WARN]', rzpFetchErr.message);
+        }
+
+        updatedOrder = await prisma.order.update({
+          where: { id: orderId },
+          data: {
+            paymentStatus: 'escrowed',
+            paymentId: razorpay_payment_id,
+          },
+        });
+
+        // Ensure escrow ledger records the transaction
+        await holdOrderFundsInEscrow({
+          orderId: order.id,
+          totalPrice: order.totalPrice,
+          buyerId: order.buyerId,
+        }).catch(escErr => {
+          console.warn('[ESCROW/HOLD_NOTE]', escErr.message);
+        });
       } catch (dbErr: any) {
         console.warn('[DB/ORDER_UPDATE_NOTE]', dbErr.message);
       }
